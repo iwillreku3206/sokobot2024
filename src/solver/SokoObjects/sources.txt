@@ -1,1 +1,0 @@
-".\src\solver\SokoObjects\SokoCrate.java" 
