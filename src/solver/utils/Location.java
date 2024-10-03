@@ -1,20 +1,19 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:46:54
- * @ Modified time: 2024-10-03 18:54:03
+ * @ Modified time: 2024-10-03 18:55:38
  * @ Description:
  * 
  * Utility functions for compressing location information into integers.
  * Helps us encode states much more effectively.
  * Only has static methods.
- * 
- * ! todo put the 8 as a constant or smth
  */
 
 package solver.utils;
 
 public class Location {
 
+    // Mask length and mask itself
     public static final int maskLength = 8;
     public static final int mask = (1 << maskLength) - 1;
 

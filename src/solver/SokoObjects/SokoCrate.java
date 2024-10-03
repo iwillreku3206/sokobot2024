@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-03 18:29:16
+ * @ Modified time: 2024-10-03 19:02:39
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -19,12 +19,15 @@
  *      (2) at least one crate is permanently stuck (A)     AND at least one of them is not on a goal
  */
 
-package solver;
+package solver.SokoObjects;
+
+import solver.utils.*;
 
 public class SokoCrate {
 
     // Bit combinations representing crates that are permanently stuck
     public static final byte[] STUCKSTATES_PERMANENT = {
+
         (byte) 0b11110000,  // North and east are occupied by wall
         (byte) 0b00111100,  // East and south are occupied by wall
         (byte) 0b00001111,  // South and west are occupied by wall
@@ -33,6 +36,7 @@ public class SokoCrate {
 
     // Bit combinations for crates that are temporarily stuck 
     public static final byte[] STUCKSTATES_TEMPORARY = {
+        
         (byte) 0b01010000,  // North and east are occupied by wall
         (byte) 0b00010100,  // East and south are occupied by wall
         (byte) 0b00000101,  // South and west are occupied by wall
@@ -57,14 +61,20 @@ public class SokoCrate {
     // We do this for the sake of convenience (when checking what stuff are beside the crate)
     // and for efficiency (bitwise ops are fast)
     private byte neighbors;
+
+    // The location of the crate
+    private short x;
+    private short y;
     
     /**
      * Creates a new crate state based on provided input.
      * 
-     * @param   neighbors   The neighbor states.
+     * @param   builder     The builder whose state to use for init.
      */
-    private SokoCrate(byte neighbors) {
-        this.neighbors = neighbors;
+    private SokoCrate(Builder builder) {
+        this.x = builder.x;
+        this.y = builder.y;
+        this.neighbors = builder.neighbors;
     }
 
     /**
@@ -104,15 +114,28 @@ public class SokoCrate {
     }
 
     /**
+     * Returns the location of the crate, as a single integer.
+     * 
+     * @return  A single int holding the crate location.
+     */
+    public int getLocation() {
+        return Location.encode(this.x, this.y);
+    }
+
+    /**
      * The builder class to help us create Crate states.
      */
     public class Builder {
         
         // The neighbor state
-        byte neighbors;
+        public byte neighbors;
+        public short x, y;
 
-        // No default params, so leave empty
-        public Builder() {}
+        // Location is always required
+        public Builder(short x, short y) {
+            this.x = x;
+            this.y = y;
+        }
 
         // Set the north neighbor
         public Builder setN(char c) { 
@@ -140,16 +163,18 @@ public class SokoCrate {
 
         // Build the crate state
         public SokoCrate build() {
-            return new SokoCrate(this.neighbors);
+            return new SokoCrate(this);
         }
     }
 
     /**
      * Requests for a new instance of the crate state builder.
      * 
-     * @return  A new builder for the crate state.
+     * @param   x   The x-coordinate of the crate.
+     * @param   y   The y-coordinate of the crate.
+     * @return      A new builder for the crate state.
      */
-    public Builder create() {
-        return new Builder();
+    public Builder create(short x, short y) {
+        return new Builder(x, y);
     }
 }
