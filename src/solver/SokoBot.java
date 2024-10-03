@@ -30,7 +30,7 @@ public class SokoBot {
     // Test
     SokoGame game = new SokoGame(mapData);
     
-    return "lr";
+    return "rdrurul";
   }
 
 }

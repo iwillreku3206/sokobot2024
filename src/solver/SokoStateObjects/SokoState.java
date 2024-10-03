@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-03 22:43:57
+ * @ Modified time: 2024-10-03 23:24:11
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -233,6 +233,47 @@ public class SokoState {
 
         // Still more to do
         return StateStatus.PENDING;
+    }
+    /**
+     * Returns a crate we can use to test stuff.
+     * 
+     * @param   location    The location of the crate.
+     * @return              Crate object or null if not found.
+     */
+    public SokoCrate getCrate(int location) {
+        if(!this.hasCrate(location))
+            return null;
+        return this.crates.get(location);
+    }
+
+    /**
+     * Returns the crate locations.
+     * 
+     * @return  An array containing the crate locations.
+     */
+    public int[] getCrateLocations() {
+        return this.crates.keySet()
+            .stream()
+            .mapToInt(i -> i)
+            .toArray();
+    }
+
+    /**
+     * Return the location of the player.
+     * 
+     * @return  The player location.
+     */
+    public int getPlayer() {
+        return this.player;
+    }
+
+    /**
+     * Return the history of the state.
+     * 
+     * @return  A string representing the moves taken by the player to get to that state.
+     */
+    public String getHistory() {
+        return this.history;
     }
 
     /**

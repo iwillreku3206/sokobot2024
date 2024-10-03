@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-03 22:30:33
+ * @ Modified time: 2024-10-03 23:20:24
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -169,6 +169,9 @@ public class SokoMap {
      * @return  The goals of the map.
      */
     public int[] getGoals() {
-        return this.goals.stream().mapToInt(i -> i).toArray();
+        return this.goals
+            .stream()
+            .mapToInt(i -> i)
+            .toArray();
     }
 }
