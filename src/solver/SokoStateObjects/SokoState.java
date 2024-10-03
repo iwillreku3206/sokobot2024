@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-03 22:30:42
+ * @ Modified time: 2024-10-03 22:43:57
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -34,22 +34,29 @@ public class SokoState {
     // The location of the player
     private int player;
 
+    // The history of the state (what moves were taken to get there)
+    private String history;
+
     /**
      * Creates a new state object using only serialized data.
      * Note that this class only stores data that changes between states.
      * All other data are stored by the SokoGame class.
      * 
-     * @param   player  An integer representing the location of the player.
-     * @param   crates  Integers representing the location of the crates.
-     * @param   map     The map that contextualizes the information of the player and crates.
+     * @param   player      An integer representing the location of the player.
+     * @param   crates      Integers representing the location of the crates.
+     * @param   map         The map that contextualizes the information of the player and crates.
+     * @param   history     The history of the state (what moves got us there).
      */
-    public SokoState(int player, int[] crates, SokoMap map) {
+    public SokoState(int player, int[] crates, SokoMap map, String history) {
 
         // Init the arrays
         this.crates = new HashMap<>();
         
         // Set the locations
         this.player = player;
+
+        // Init the history
+        this.history = history;
 
         // Create the crates
         for(int i = 0; i < crates.length; i++) {

@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-03 19:53:49
+ * @ Modified time: 2024-10-03 22:54:40
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -25,23 +25,31 @@ import solver.utils.*;
 
 public class SokoCrate {
 
-    // Bit combinations representing crates that are permanently stuck
-    public static final byte[] STUCKSTATES_PERMANENT = {
-
-        (byte) 0b11110000,  // North and east are occupied by wall
-        (byte) 0b00111100,  // East and south are occupied by wall
-        (byte) 0b00001111,  // South and west are occupied by wall
-        (byte) 0b11000011,  // West and north are occupied by wall
+    // North, east, south, and west states
+    public static final byte[] STUCKSTATES = {
+        (byte) 0b01000000,  // North
+        (byte) 0b00010000,  // East
+        (byte) 0b00000100,  // South
+        (byte) 0b00000001,  // West
     };
 
     // Bit combinations for crates that are temporarily stuck 
     public static final byte[] STUCKSTATES_TEMPORARY = {
         
-        (byte) 0b01010000,  // North and east are occupied by wall
-        (byte) 0b00010100,  // East and south are occupied by wall
-        (byte) 0b00000101,  // South and west are occupied by wall
-        (byte) 0b01000001,  // West and north are occupied by wall
-    }; 
+        (byte) (STUCKSTATES[0] + STUCKSTATES[1]),   // North and east are occupied by wall or crate
+        (byte) (STUCKSTATES[1] + STUCKSTATES[2]),   // East and south are occupied by wall or crate
+        (byte) (STUCKSTATES[2] + STUCKSTATES[3]),   // South and west are occupied by wall or crate
+        (byte) (STUCKSTATES[3] + STUCKSTATES[0]),   // West and north are occupied by wall or crate
+    };
+
+    // Bit combinations representing crates that are permanently stuck
+    public static final byte[] STUCKSTATES_PERMANENT = {
+
+        (byte) (STUCKSTATES_TEMPORARY[0] + STUCKSTATES_TEMPORARY[0] << 1),  // North and east are occupied by wall
+        (byte) (STUCKSTATES_TEMPORARY[1] + STUCKSTATES_TEMPORARY[1] << 1),  // East and south are occupied by wall
+        (byte) (STUCKSTATES_TEMPORARY[2] + STUCKSTATES_TEMPORARY[2] << 1),  // South and west are occupied by wall
+        (byte) (STUCKSTATES_TEMPORARY[3] + STUCKSTATES_TEMPORARY[3] << 1),  // West and north are occupied by wall
+    };
 
     // VERY IMPORTANT: The 'neighbors' variable does not represent the number of neighbors for a given crate.
     // This represents the state of the adjacent cells of the crate.
@@ -109,6 +117,42 @@ public class SokoCrate {
 
         // Otherwise, return false
         return false;
+    }
+
+    /**
+     * Returns whether or not the crate can move north.
+     * 
+     * @return  Whether or not the crate can or can't move.
+     */
+    public boolean canMoveNorth() {
+        return (STUCKSTATES[0] & this.neighbors) != STUCKSTATES[0];
+    }
+
+    /**
+     * Returns whether or not the crate can move east.
+     * 
+     * @return  Whether or not the crate can or can't move.
+     */
+    public boolean canMoveEast() {
+        return (STUCKSTATES[1] & this.neighbors) != STUCKSTATES[1];
+    }
+
+    /**
+     * Returns whether or not the crate can move south.
+     * 
+     * @return  Whether or not the crate can or can't move.
+     */
+    public boolean canMoveSouth() {
+        return (STUCKSTATES[2] & this.neighbors) != STUCKSTATES[2];
+    }
+
+    /**
+     * Returns whether or not the crate can move west.
+     * 
+     * @return  Whether or not the crate can or can't move.
+     */
+    public boolean canMoveWest() {
+        return (STUCKSTATES[3] & this.neighbors) != STUCKSTATES[3];
     }
 
     /**
