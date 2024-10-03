@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-03 19:02:39
+ * @ Modified time: 2024-10-03 19:51:43
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -63,8 +63,7 @@ public class SokoCrate {
     private byte neighbors;
 
     // The location of the crate
-    private short x;
-    private short y;
+    private int location;
     
     /**
      * Creates a new crate state based on provided input.
@@ -72,8 +71,7 @@ public class SokoCrate {
      * @param   builder     The builder whose state to use for init.
      */
     private SokoCrate(Builder builder) {
-        this.x = builder.x;
-        this.y = builder.y;
+        this.location = builder.location;
         this.neighbors = builder.neighbors;
     }
 
@@ -119,22 +117,26 @@ public class SokoCrate {
      * @return  A single int holding the crate location.
      */
     public int getLocation() {
-        return Location.encode(this.x, this.y);
+        return this.location;
     }
 
     /**
      * The builder class to help us create Crate states.
      */
-    public class Builder {
+    public static class Builder {
         
         // The neighbor state
         public byte neighbors;
-        public short x, y;
+        public int location;
 
         // Location is always required
         public Builder(short x, short y) {
-            this.x = x;
-            this.y = y;
+            this.location = Location.encode(x, y);
+        }
+
+        // Location is always required
+        public Builder(int location) {
+            this.location = location;
         }
 
         // Set the north neighbor
@@ -174,7 +176,17 @@ public class SokoCrate {
      * @param   y   The y-coordinate of the crate.
      * @return      A new builder for the crate state.
      */
-    public Builder create(short x, short y) {
+    public static Builder create(short x, short y) {
         return new Builder(x, y);
+    }
+
+    /**
+     * Requests for a new instance of the crate state builder.
+     * 
+     * @param   location    An int representing the location of the crate.
+     * @return              A new builder for the crate state.
+     */
+    public static Builder create(int location) {
+        return new Builder(location);
     }
 }
