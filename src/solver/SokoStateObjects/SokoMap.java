@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-03 21:28:09
+ * @ Modified time: 2024-10-03 22:30:33
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -73,10 +73,14 @@ public class SokoMap {
      * Private to ensure that invalid coordinates are not placed here.
      * Returns the presence of a wall on a cell.
      * 
-     * @return  The presence of wall on a given cell.
+     * @param   location    The location to inspect.
+     * @return              The presence of wall on a given cell.
      */
-    private boolean hasWall(int x, int y) {
-        return this.map[y][x]; 
+    private boolean hasWall(int location) {
+        short x = Location.decodeX(location);
+        short y = Location.decodeY(location);
+
+        return this.map[y][x];
     }
 
     /**
@@ -89,13 +93,11 @@ public class SokoMap {
     public boolean hasWallNorth(int location) {
         
         // Grab coords
-        short[] coords = Location.decode(location);
-        short x = coords[0];
-        short y = coords[1];
+        int north = location + Location.NORTH;
 
         // Check if in bounds
-        if(y - 1 >= 0)
-            return this.hasWall(x, y - 1);
+        if(Location.decodeY(north) >= 0)
+            return this.hasWall(north);
 
         // Out of bounds
         return true;
@@ -109,15 +111,13 @@ public class SokoMap {
      * @return              true if wall exists, false otherwise.
      */
     public boolean hasWallSouth(int location) {
-        
-        // Grab coords
-        short[] coords = Location.decode(location);
-        short x = coords[0];
-        short y = coords[1];
+
+        // Get the south cell
+        int south = location + Location.SOUTH;
 
         // Check if in bounds
-        if(y + 1 < this.map.length)
-            return this.hasWall(x, y + 1);
+        if(Location.decodeY(south) < this.map.length)
+            return this.hasWall(south);
 
         // Out of bounds
         return true;
@@ -132,14 +132,12 @@ public class SokoMap {
      */
     public boolean hasWallWest(int location) {
         
-        // Grab coords
-        short[] coords = Location.decode(location);
-        short x = coords[0];
-        short y = coords[1];
+        // Grab west cell
+        int west = location + Location.WEST; 
 
         // Check if in bounds
-        if(x - 1 >= 0)
-            return this.hasWall(x - 1, y);
+        if(Location.decodeX(west) >= 0)
+            return this.hasWall(west);
 
         // Out of bounds
         return true;
@@ -154,16 +152,23 @@ public class SokoMap {
      */
     public boolean hasWallEast(int location) {
         
-        // Grab coords
-        short[] coords = Location.decode(location);
-        short x = coords[0];
-        short y = coords[1];
+        // Grab east cell
+        int east = location + Location.EAST; 
 
         // Check if in bounds
-        if(x + 1 < this.map.length)
-            return this.hasWall(x + 1, y);
+        if(Location.decodeX(east) < this.map.length)
+            return this.hasWall(east);
 
         // Out of bounds
         return true;
+    }
+
+    /**
+     * Returns the location of the goals of the map.
+     * 
+     * @return  The goals of the map.
+     */
+    public int[] getGoals() {
+        return this.goals.stream().mapToInt(i -> i).toArray();
     }
 }

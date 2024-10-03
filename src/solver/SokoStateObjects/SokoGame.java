@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-03 21:28:12
+ * @ Modified time: 2024-10-03 22:31:45
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -45,7 +45,7 @@ public class SokoGame {
         SokoState initialState = new SokoState(
             this.getInitialPlayerState(charMap), 
             this.getInitialCratesState(charMap), 
-            charMap);
+            this.map);
 
         // Add initial state to queue
         this.states.add(initialState);

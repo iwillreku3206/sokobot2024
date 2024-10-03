@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:46:54
- * @ Modified time: 2024-10-03 19:48:41
+ * @ Modified time: 2024-10-03 22:07:49
  * @ Description:
  * 
  * Utility functions for compressing location information into integers.
@@ -16,6 +16,12 @@ public class Location {
     // Mask length and mask itself
     public static final int maskLength = 8;
     public static final int mask = (1 << maskLength) - 1;
+
+    // North, east, south and west helpers
+    public static final int NORTH = -1;
+    public static final int SOUTH = 01;
+    public static final int EAST = (01 << maskLength);
+    public static final int WEST = (-1 << maskLength);
 
     /**
      * Returns a single integer that stores information about a coordinate pair.
@@ -41,5 +47,25 @@ public class Location {
             (short) (location >> maskLength),
             (short) (location & mask),
         };
+    }
+
+    /**
+     * Returns x coords.
+     *  
+     * @param   location    The location integer.
+     * @return              The x-coordinate.
+     */
+    public static short decodeX(int location) {
+        return (short) (location >> maskLength);
+    }
+
+    /**
+     * Returns y coords.
+     *  
+     * @param   location    The location integer.
+     * @return              The y-coordinate.
+     */
+    public static short decodeY(int location) {
+        return (short) (location & mask);
     }
 }
