@@ -1,14 +1,14 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-03 20:59:27
+ * @ Modified time: 2024-10-03 21:28:12
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
  * We'll figure out a way to measure "importance" later on.
  */
 
-package solver.SokoState;
+package solver.SokoStateObjects;
 
 import java.util.ArrayList;
 import java.util.List;

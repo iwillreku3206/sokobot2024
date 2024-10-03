@@ -1,13 +1,13 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:41:43
- * @ Modified time: 2024-10-03 19:29:29
+ * @ Modified time: 2024-10-03 21:28:10
  * @ Description:
  * 
  * This allows the priority queue to compare states against each other.
  */
 
-package solver.SokoState;
+package solver.SokoStateObjects;
 
 import java.util.Comparator;
 

@@ -1,24 +1,34 @@
 package solver;
 
+import solver.SokoStateObjects.SokoGame;
+
 public class SokoBot {
 
   public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
 
-    // Print the data to the screen for debug
+    // ! note code below this should be moved to another class, idk which yet tho
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Create map copy
+    char[][] map = new char[mapData.length][];
+
+    // Fix the data so we have both the map and the items in on charray
     for(int i = 0; i < mapData.length; i++) {
+      
+      // Create row
+      map[i] = new char[mapData[i].length];
+
+      // Populate data
       for(int j = 0; j < mapData.length; j++) {
-        char block = mapData[i][j];
-        char item = itemsData[i][j];
-
-        if(item != ' ')
-          System.out.print(item);
-        else
-          System.out.print(block);
+        map[i][j] = itemsData[i][j] != ' ' 
+          ? itemsData[i][j] 
+          : mapData[i][j];
       }
-      System.out.print('\n');
     }
+    // ! code above this should be moved
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    System.out.println(((byte) 0b11111111) & ((byte) -120));
+    // Test
+    SokoGame game = new SokoGame(mapData);
     
     return "lr";
   }

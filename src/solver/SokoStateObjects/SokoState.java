@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-03 20:41:44
+ * @ Modified time: 2024-10-03 21:28:07
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -9,7 +9,7 @@
  * Note that this class only stores information that changes across states.
  */
 
-package solver.SokoState;
+package solver.SokoStateObjects;
 
 import java.util.ArrayList;
 import java.util.List;

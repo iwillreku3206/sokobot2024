@@ -1,13 +1,13 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-03 20:41:12
+ * @ Modified time: 2024-10-03 21:28:09
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
  */
 
-package solver.SokoState;
+package solver.SokoStateObjects;
 
 import java.util.ArrayList;
 import java.util.List;

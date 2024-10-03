@@ -1,2 +1,4 @@
-javac src/gui/*.java src/main/*.java src/reader/*.java src/solver/*.java -d out/ -cp out
+forfiles /s /m "*.java" /c "cmd /c echo @relpath" > sources.txt
+powershell -Command "(gc sources.txt) -replace '\\', '\\\\' | Out-File -encoding ASCII sources.txt"
+javac @sources.txt -d out/ -cp out
 java -classpath out main.Driver %*
