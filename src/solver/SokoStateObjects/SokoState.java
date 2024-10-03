@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 00:53:26
+ * @ Modified time: 2024-10-04 01:45:35
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -211,6 +211,17 @@ public class SokoState {
         boolean allCratesAreStuck = true;
         boolean allCratesAreGood = true;
 
+        // Check if all the goals have crates
+        for(int goal : map.getGoals())
+            if(!this.crates.containsKey(goal))
+                allCratesAreGood = false;
+
+        // We won!
+        // It is important to check for this condition first
+        // because crates can be stuck in a winning state
+        if(allCratesAreGood)
+            return StateStatus.WON;
+
         // Check if at least one crate is permanently stuck
         for(SokoCrate crate : this.crates.values()) 
             if(crate.isStuckPermanently())
@@ -221,18 +232,9 @@ public class SokoState {
             if(!crate.isStuckPermanently() && !crate.isStuckTemporarily())
                 allCratesAreStuck = false;
 
-        // Check if all the goals have crates
-        for(int goal : map.getGoals())
-            if(!this.crates.containsKey(goal))
-                allCratesAreGood = false;
-
         // No more moves for this state
         if(allCratesAreStuck)
             return StateStatus.LOST;
-
-        // We won!
-        if(allCratesAreGood)
-            return StateStatus.WON;
 
         // Still more to do
         return StateStatus.PENDING;
