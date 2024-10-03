@@ -5,7 +5,7 @@ Checkbox
 - [x] base1.txt
 - [x] base2.txt
 - [x] base3.txt
-- [ ] base4.txt
+- [x] base4.txt
 - [x] twoboxes1.txt
 - [ ] twoboxes2.txt
 - [ ] twoboxes3.txt

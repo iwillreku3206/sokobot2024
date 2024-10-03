@@ -10,16 +10,35 @@ public class SokoBot {
     char[][] map = new char[mapData.length][];
 
     // Fix the data so we have both the map and the items in on charray
-    for(int i = 0; i < mapData.length; i++) {
+    for(int y = 0; y < mapData.length; y++) {
       
       // Create row
-      map[i] = new char[mapData[i].length];
+      map[y] = new char[mapData[y].length];
 
       // Populate data
-      for(int j = 0; j < mapData.length; j++) {
-        map[i][j] = itemsData[i][j] != ' ' 
-          ? itemsData[i][j] 
-          : mapData[i][j];
+      for(int x = 0; x < mapData[y].length; x++) {
+        map[y][x] = mapData[y][x];
+        
+        // There's an item there
+        if(itemsData[y][x] != ' ') {
+
+          // If the map is empty there
+          if(map[y][x] == ' ') {
+            map[y][x] = itemsData[y][x];
+          
+          // There's a goal
+          } else if(map[y][x] == '.') {
+
+            // Crate on goal
+            if(itemsData[y][x] == '$')
+              map[y][x] = '*';
+            
+            // Player on goal
+            if(itemsData[y][x] == '@')
+              map[y][x] = '+';
+          }
+        }
+          
       }
     }
     // ! code above this should be moved
