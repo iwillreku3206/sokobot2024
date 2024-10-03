@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 01:45:35
+ * @ Modified time: 2024-10-04 02:17:08
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -16,7 +16,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Location;
@@ -207,14 +209,19 @@ public class SokoState {
     public StateStatus getStatus(SokoMap map) {
         
         // All crates are stuck
-        // All crates are at goals
         boolean allCratesAreStuck = true;
         boolean allCratesAreGood = true;
 
+        // Keep track of the good crates
+        Set<SokoCrate> goodCrates = new HashSet<>();
+
         // Check if all the goals have crates
-        for(int goal : map.getGoals())
-            if(!this.crates.containsKey(goal))
+        for(int goal : map.getGoals()) {
+            if(this.crates.containsKey(goal))
+                goodCrates.add(this.crates.get(goal));
+            else
                 allCratesAreGood = false;
+        }
 
         // We won!
         // It is important to check for this condition first
@@ -224,7 +231,7 @@ public class SokoState {
 
         // Check if at least one crate is permanently stuck
         for(SokoCrate crate : this.crates.values()) 
-            if(crate.isStuckPermanently())
+            if(crate.isStuckPermanently() && !goodCrates.contains(crate))
                 return StateStatus.LOST;
 
         // Check if all crates are at least temporarily stuck

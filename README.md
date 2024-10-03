@@ -12,7 +12,7 @@ Checkbox
 - [ ] threeboxes1.txt
 - [ ] threeboxes2.txt   (returns empty string)
 - [ ] threeboxes3.txt
-- [ ] fourboxes1.txt
+- [x] fourboxes1.txt
 - [ ] fourboxes2.txt 
 - [ ] fourboxes3.txt    (TLE)
 - [ ] fiveboxes1.txt    (returns empty string)
