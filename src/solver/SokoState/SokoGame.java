@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-03 18:39:51
+ * @ Modified time: 2024-10-03 19:27:50
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -18,4 +18,16 @@ public class SokoGame {
     // Note that states are self-contained and need no references to other states to explain themselves.
     // Look at the SokoState file for more info.
     PriorityQueue<SokoState> states;
+
+    /**
+     * Initialize the game.
+     * Initially, we should have a single state in the queue.
+     * We then add the next possible VALID states.
+     */
+    public SokoGame() {
+
+        // Init the priority queue with an initial size of 32
+        // The comparator compares the states priority evaluations
+        this.states = new PriorityQueue<SokoState>(32, new SokoStateComparator());
+    }
 }

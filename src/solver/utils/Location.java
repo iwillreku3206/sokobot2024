@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:46:54
- * @ Modified time: 2024-10-03 18:55:38
+ * @ Modified time: 2024-10-03 19:48:41
  * @ Description:
  * 
  * Utility functions for compressing location information into integers.
@@ -36,10 +36,10 @@ public class Location {
      * @param   location    The location integer.
      * @return              A pair containing the coords of the original point.
      */
-    public static int[] decode(int location) {
-        return new int[] {
-            location >> maskLength,
-            location & mask,
+    public static short[] decode(int location) {
+        return new short[] {
+            (short) (location >> maskLength),
+            (short) (location & mask),
         };
     }
 }

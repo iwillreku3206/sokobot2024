@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-03 19:51:43
+ * @ Modified time: 2024-10-03 19:53:49
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -125,9 +125,9 @@ public class SokoCrate {
      */
     public static class Builder {
         
-        // The neighbor state
-        public byte neighbors;
-        public int location;
+        // The default state
+        public byte neighbors = 0;
+        public int location = 0;
 
         // Location is always required
         public Builder(short x, short y) {

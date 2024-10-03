@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:41:43
- * @ Modified time: 2024-10-03 18:45:20
+ * @ Modified time: 2024-10-03 19:29:29
  * @ Description:
  * 
  * This allows the priority queue to compare states against each other.
@@ -23,8 +23,7 @@ public class SokoStateComparator implements Comparator<SokoState> {
     @Override
     public int compare(SokoState stateA, SokoState stateB) {
         
-        // ! todo update this implementation
-        // ! smth like stateA.getPriorityEvaluation() - stateB.getPriorityEvaluation()
-        return 1;
+        // Literally just compare their priorities
+        return stateA.getPriority() - stateB.getPriority();
     }
 }

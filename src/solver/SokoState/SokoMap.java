@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-03 20:21:34
+ * @ Modified time: 2024-10-03 20:41:12
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -9,24 +9,20 @@
 
 package solver.SokoState;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import solver.utils.Location;
 
 public class SokoMap {
-    
-    // The different possible cells of the map
-    enum SokoCell {
-        WALL,
-        CRATE,
-        PLAYER,
-        GOAL,
-        CRATE_ON_GOAL,
-        PLAYER_ON_GOAL,
-        NONE,   
-    }
 
     // This cannot be modified after it has been set
     // Again this class just makes it easier to query stuff from the map
-    private SokoCell[][] map;
+    // false means there's a wall on that cell, while true indicates otherwise
+    private boolean[][] map;
+
+    // The goal locations
+    private List<Integer> goals;
 
     /**
      * Creates a new map object.
@@ -35,28 +31,39 @@ public class SokoMap {
      */
     public SokoMap(char[][] map) {
 
-        // Init the map
-        this.map = new SokoCell[map.length][];
+        // Init the map and the goals
+        this.map = new boolean[map.length][];
+        this.goals = new ArrayList<>();
 
         // Populate the map
-        for(int i = 0; i < map.length; i++) {
+        for(int y = 0; y < map.length; y++) {
             
             // Grab row
-            char[] row = map[i];
+            char[] row = map[y];
 
             // Create row
-            this.map[i] = new SokoCell[row.length];
+            this.map[y] = new boolean[row.length];
 
             // For each cell
-            for(int j = 0; j < row.length; j++) {
-                switch(row[j]) {
-                    case '#': this.map[i][j] = SokoCell.WALL; break;
-                    case '$': this.map[i][j] = SokoCell.CRATE; break;
-                    case '@': this.map[i][j] = SokoCell.PLAYER; break;
-                    case '.': this.map[i][j] = SokoCell.GOAL; break;
-                    case '+': this.map[i][j] = SokoCell.PLAYER_ON_GOAL; break;
-                    case '*': this.map[i][j] = SokoCell.CRATE_ON_GOAL; break;
-                    default:  this.map[i][j] = SokoCell.NONE; break;
+            for(int x = 0; x < row.length; x++) {
+                
+                // Default everything to true (empty)
+                this.map[y][x] = true;
+                
+                // Insert stuff based on map
+                switch(row[x]) {
+
+                    // A wall exists
+                    case '#': 
+                        this.map[y][x] = false; 
+                        break;
+
+                    // A goal was found
+                    case '.': 
+                    case '+': 
+                    case '*': 
+                        this.goals.add(Location.encode(x, y));
+                        break;
                 }
             }
         }
@@ -64,29 +71,22 @@ public class SokoMap {
 
     /**
      * Private to ensure that invalid coordinates are not placed here.
-     * Crates in goals are crates too.
+     * Returns the presence of a wall on a cell.
      * 
-     * @return  The obstacle (wall, crate, or nothing) at a given cell.
+     * @return  The presence of wall on a given cell.
      */
-    private char getObstacle(int x, int y) {
-        switch(this.map[y][x]) {        
-            case SokoCell.CRATE:
-            case SokoCell.CRATE_ON_GOAL:
-                return 'c';
-            case SokoCell.WALL:
-                return 'w';
-            default:
-                return ' ';
-        }
+    private boolean hasWall(int x, int y) {
+        return this.map[y][x]; 
     }
 
     /**
-     * Returns whether or not a crate or wall is above a given cell.
+     * Returns whether or not a wall is above a given cell.
+     * True means there's a wall or it's OOB.
      * 
      * @param   location    The location to inspect.
-     * @return              'c' if a crate exists there, 'w' if a wall, '!' if OOB, and ' ' if none.
+     * @return              true if wall exists, false otherwise.
      */
-    public char getObstacleNorth(int location) {
+    public boolean hasWallNorth(int location) {
         
         // Grab coords
         short[] coords = Location.decode(location);
@@ -95,19 +95,20 @@ public class SokoMap {
 
         // Check if in bounds
         if(y - 1 >= 0)
-            return this.getObstacle(x, y - 1);
+            return this.hasWall(x, y - 1);
 
         // Out of bounds
-        return '!';
+        return true;
     }
 
     /**
-     * Returns whether or not a crate or wall is below a given cell.
+     * Returns whether or not a wall is below a given cell.
+     * True means there's a wall or it's OOB.
      * 
      * @param   location    The location to inspect.
-     * @return              'c' if a crate exists there, 'w' if a wall, '!' if OOB, and ' ' if none.
+     * @return              true if wall exists, false otherwise.
      */
-    public char getObstacleSouth(int location) {
+    public boolean hasWallSouth(int location) {
         
         // Grab coords
         short[] coords = Location.decode(location);
@@ -116,19 +117,20 @@ public class SokoMap {
 
         // Check if in bounds
         if(y + 1 < this.map.length)
-            return this.getObstacle(x, y + 1);
+            return this.hasWall(x, y + 1);
 
         // Out of bounds
-        return '!';
+        return true;
     }
 
     /**
-     * Returns whether or not a crate or wall is left a given cell.
+     * Returns whether or not a wall is left a given cell.
+     * True means there's a wall or it's OOB.
      * 
      * @param   location    The location to inspect.
-     * @return              'c' if a crate exists there, 'w' if a wall, '!' if OOB, and ' ' if none.
+     * @return              true if wall exists, false otherwise.
      */
-    public char getObstacleWest(int location) {
+    public boolean hasWallWest(int location) {
         
         // Grab coords
         short[] coords = Location.decode(location);
@@ -137,19 +139,20 @@ public class SokoMap {
 
         // Check if in bounds
         if(x - 1 >= 0)
-            return this.getObstacle(x - 1, y);
+            return this.hasWall(x - 1, y);
 
         // Out of bounds
-        return '!';
+        return true;
     }
 
     /**
-     * Returns whether or not a crate or wall is right a given cell.
+     * Returns whether or not a wall is right a given cell.
+     * True means there's a wall or it's OOB.
      * 
      * @param   location    The location to inspect.
-     * @return              'c' if a crate exists there, 'w' if a wall, '!' if OOB, and ' ' if none.
+     * @return              true if wall exists, false otherwise.
      */
-    public char getObstacleEast(int location) {
+    public boolean hasWallEast(int location) {
         
         // Grab coords
         short[] coords = Location.decode(location);
@@ -158,9 +161,9 @@ public class SokoMap {
 
         // Check if in bounds
         if(x + 1 < this.map.length)
-            return this.getObstacle(x + 1, y);
+            return this.hasWall(x + 1, y);
 
         // Out of bounds
-        return '!';
+        return true;
     }
 }
