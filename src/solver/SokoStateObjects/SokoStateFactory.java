@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 22:44:08
- * @ Modified time: 2024-10-03 23:33:01
+ * @ Modified time: 2024-10-04 01:10:41
  * @ Description:
  * 
  * The sole duty of this class is to instantiate specific instances of the state.
@@ -48,12 +48,12 @@ public class SokoStateFactory {
     public static SokoState createNextStateNorth(SokoState currentState, SokoMap map) {
         
         // Player location
-        int newPlayer = currentState.getPlayer() + Location.NORTH;
+        int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
 
         // If no wall, check if it has a crate
-        switch(currentState.getObstacleNorth(newPlayer, map)) {
+        switch(currentState.getObstacleNorth(player, map)) {
             
             // Player is obstructed
             case 'w': return null;
@@ -62,7 +62,7 @@ public class SokoStateFactory {
             case 'c': 
                 
                 // Grab the crate
-                SokoCrate crate = currentState.getCrate(newPlayer);
+                SokoCrate crate = currentState.getCrate(player + Location.NORTH);
 
                 // If crate can't move
                 if(!crate.canMoveNorth())
@@ -70,14 +70,14 @@ public class SokoStateFactory {
 
                 // Otherwise, move crate
                 for(int i = 0; i < crates.length; i++)
-                    if(crates[i] == newPlayer)
+                    if(crates[i] == player + Location.NORTH)
                         crates[i] += Location.NORTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "u");
+                return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, "u");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "u");
+            default: return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, "u");
         }
     }
 
@@ -91,12 +91,12 @@ public class SokoStateFactory {
     public static SokoState createNextStateEast(SokoState currentState, SokoMap map) {
 
         // Player location
-        int newPlayer = currentState.getPlayer() + Location.EAST;
+        int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
 
         // If no wall, check if it has a crate
-        switch(currentState.getObstacleEast(newPlayer, map)) {
+        switch(currentState.getObstacleEast(player, map)) {
             
             // Player is obstructed
             case 'w': return null;
@@ -105,7 +105,7 @@ public class SokoStateFactory {
             case 'c': 
                 
                 // Grab the crate
-                SokoCrate crate = currentState.getCrate(newPlayer);
+                SokoCrate crate = currentState.getCrate(player + Location.EAST);
 
                 // If crate can't move
                 if(!crate.canMoveEast())
@@ -113,14 +113,14 @@ public class SokoStateFactory {
 
                 // Otherwise, move crate
                 for(int i = 0; i < crates.length; i++)
-                    if(crates[i] == newPlayer)
+                    if(crates[i] == player + Location.EAST)
                         crates[i] += Location.EAST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "r");
+                return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, "r");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "r");
+            default: return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, "r");
         }
     }
 
@@ -134,12 +134,12 @@ public class SokoStateFactory {
     public static SokoState createNextStateWest(SokoState currentState, SokoMap map) {
 
         // Player location
-        int newPlayer = currentState.getPlayer() + Location.WEST;
+        int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
 
         // If no wall, check if it has a crate
-        switch(currentState.getObstacleWest(newPlayer, map)) {
+        switch(currentState.getObstacleWest(player, map)) {
             
             // Player is obstructed
             case 'w': return null;
@@ -148,7 +148,7 @@ public class SokoStateFactory {
             case 'c': 
                 
                 // Grab the crate
-                SokoCrate crate = currentState.getCrate(newPlayer);
+                SokoCrate crate = currentState.getCrate(player + Location.WEST);
 
                 // If crate can't move
                 if(!crate.canMoveWest())
@@ -156,14 +156,14 @@ public class SokoStateFactory {
 
                 // Otherwise, move crate
                 for(int i = 0; i < crates.length; i++)
-                    if(crates[i] == newPlayer)
+                    if(crates[i] == player + Location.WEST)
                         crates[i] += Location.WEST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "l");
+                return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, "l");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "l");
+            default: return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, "l");
         }
     }
 
@@ -177,12 +177,12 @@ public class SokoStateFactory {
     public static SokoState createNextStateSouth(SokoState currentState, SokoMap map) {
 
         // Player location
-        int newPlayer = currentState.getPlayer() + Location.SOUTH;
+        int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
 
         // If no wall, check if it has a crate
-        switch(currentState.getObstacleSouth(newPlayer, map)) {
+        switch(currentState.getObstacleSouth(player, map)) {
             
             // Player is obstructed
             case 'w': return null;
@@ -191,7 +191,7 @@ public class SokoStateFactory {
             case 'c': 
                 
                 // Grab the crate
-                SokoCrate crate = currentState.getCrate(newPlayer);
+                SokoCrate crate = currentState.getCrate(player + Location.SOUTH);
 
                 // If crate can't move
                 if(!crate.canMoveSouth())
@@ -199,14 +199,14 @@ public class SokoStateFactory {
 
                 // Otherwise, move crate
                 for(int i = 0; i < crates.length; i++)
-                    if(crates[i] == newPlayer)
+                    if(crates[i] == player + Location.SOUTH)
                         crates[i] += Location.SOUTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "d");
+                return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, "d");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(newPlayer, crates, map, history, "d");
+            default: return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, "d");
         }
     }
 }

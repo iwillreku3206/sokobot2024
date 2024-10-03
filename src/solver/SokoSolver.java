@@ -1,22 +1,30 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-03 22:57:06
+ * @ Modified time: 2024-10-04 01:12:46
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
  * We'll figure out a way to measure "importance" later on.
  */
 
-package solver.SokoStateObjects;
+package solver;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Set;
 
+import solver.SokoStateObjects.SokoMap;
+import solver.SokoStateObjects.SokoState;
+import solver.SokoStateObjects.SokoStateComparator;
+import solver.SokoStateObjects.SokoStateFactory;
 import solver.utils.Location;
 
-public class SokoGame {
+public class SokoSolver {
 
     // The actual map that stores other info common to the states
     // For instance, wall and goal placement
@@ -27,15 +35,21 @@ public class SokoGame {
     // Look at the SokoState file for more info.
     private PriorityQueue<SokoState> states;
 
+    // Visited states
+    private Set<BigInteger> visited;
+
     /**
      * Initialize the game.
      * Initially, we should have a single state in the queue.
      * We then add the next possible VALID states.
      */
-    public SokoGame(char[][] charMap) {
+    public SokoSolver(char[][] charMap) {
 
         // Create the map
         this.map = new SokoMap(charMap);
+
+        // Init visited
+        this.visited = new HashSet<>();
 
         // Init the priority queue with an initial size of 32
         // The comparator compares the states priority evaluations
@@ -91,5 +105,50 @@ public class SokoGame {
             .stream()
             .mapToInt(i -> i)
             .toArray();
+    }
+
+    /**
+     * Attempts to solve the puzzle.
+     * 
+     * @return  A string containing the attempted solution.
+     */
+    public String solve() {
+
+        // ! remove this counter
+        // ! just here so we dont go infinitely long
+        int counter = 0;
+        
+        // While we have states to inspect
+        while(!this.states.isEmpty()) {
+            
+            // Get the latest in the queue
+            SokoState state = this.states.poll();
+
+            // Add the state serial to the set
+            this.visited.add(state.getSerial());
+
+            // If we won
+            if(state.getStatus(this.map) == SokoState.StateStatus.WON)
+                return state.getHistory();
+
+            // If the state is a dud
+            if(state.getStatus(this.map) == SokoState.StateStatus.LOST)
+                continue;
+
+            // Otherwise, keep checking
+            SokoState[] newStates = {
+                SokoStateFactory.createNextStateNorth(state, this.map),
+                SokoStateFactory.createNextStateEast(state, this.map),
+                SokoStateFactory.createNextStateWest(state, this.map),
+                SokoStateFactory.createNextStateSouth(state, this.map),
+            };
+
+            // Add the valid states we haven't visited
+            for(SokoState newState : newStates)
+                if(newState != null && !this.visited.contains(newState.getSerial()))
+                    this.states.add(newState);
+        }
+
+        return "lululululu";
     }
 }

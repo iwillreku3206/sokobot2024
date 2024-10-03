@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-03 23:20:24
+ * @ Modified time: 2024-10-04 00:25:19
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -49,7 +49,7 @@ public class SokoMap {
                 
                 // Default everything to true (empty)
                 this.map[y][x] = true;
-                
+
                 // Insert stuff based on map
                 switch(row[x]) {
 
@@ -80,7 +80,7 @@ public class SokoMap {
         short x = Location.decodeX(location);
         short y = Location.decodeY(location);
 
-        return this.map[y][x];
+        return !this.map[y][x];
     }
 
     /**

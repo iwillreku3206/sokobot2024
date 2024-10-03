@@ -1,7 +1,5 @@
 package solver;
 
-import solver.SokoStateObjects.SokoGame;
-
 public class SokoBot {
 
   public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
@@ -28,9 +26,14 @@ public class SokoBot {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // Test
-    SokoGame game = new SokoGame(mapData);
+    SokoSolver game = new SokoSolver(map);
     
-    return "rdrurul";
+    String sol = game.solve();
+
+    // ! remove
+    System.out.println(sol);
+
+    return sol;
   }
 
 }

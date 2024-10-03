@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-03 23:24:11
+ * @ Modified time: 2024-10-04 00:53:26
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -11,16 +11,19 @@
 
 package solver.SokoStateObjects;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.math.BigInteger;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Location;
 
 public class SokoState {
 
-    enum StateStatus {
+    public enum StateStatus {
         WON,        // All crates are on goals
         LOST,       // All crates are stuck / some crates are permanently stuck
         PENDING,    // Keep trying!
@@ -29,7 +32,7 @@ public class SokoState {
     // A reference to actual crate objects
     // We use these for convenience of computations
     // These are indexed by their locations
-    private HashMap<Integer, SokoCrate> crates;
+    private Map<Integer, SokoCrate> crates;
 
     // The location of the player
     private int player;
@@ -282,10 +285,34 @@ public class SokoState {
      * 
      * @return  A hash or serial that uniquely represents the state.
      */
-    public int getSerial() {
+    public BigInteger getSerial() {
+
+        // Get crate locations in order
+        int[] crates = this.crates.keySet()
+            .stream()
+            .mapToInt(i -> i)
+            .sorted()
+            .toArray();
        
-        // ! figure out a way to serialize states
-        return 1; 
+        // The serial
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(baos);
+
+        // Serialize the state
+        // Unfortunately needs a try catch
+        try {
+            dos.writeInt(this.player);
+            for(int crate : crates)
+                dos.writeInt(crate);
+        
+        // Exception handler
+        } catch (IOException e) {
+            System.out.println("Something went wrong during state serialization.");
+            e.printStackTrace();
+        }
+
+        // Convert to a byte array
+        return new BigInteger(baos.toByteArray());
     }
 
     /**
@@ -297,6 +324,7 @@ public class SokoState {
     public int getPriority() {
         
         // ! todo implement
-        return 1;
+        // ! create better heuristic
+        return this.getHistory().length();
     }
 }

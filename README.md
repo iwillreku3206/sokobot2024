@@ -10,7 +10,9 @@ Note: if class instantiation becomes a significant overhead, we might refactor o
 
 
 
-
+So... refactor the StateFactory class... too much redundancy.
 
 
 Another note.. the player is currently an implicit concept... should we turn it into its own class? idfk
+
+"unless it moved a crate, then undoing its previous movve is meaningless"
