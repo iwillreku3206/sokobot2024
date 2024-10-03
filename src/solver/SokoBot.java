@@ -3,20 +3,24 @@ package solver;
 public class SokoBot {
 
   public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
-    /*
-     * YOU NEED TO REWRITE THE IMPLEMENTATION OF THIS METHOD TO MAKE THE BOT SMARTER
-     */
-    /*
-     * Default stupid behavior: Think (sleep) for 3 seconds, and then return a
-     * sequence
-     * that just moves left and right repeatedly.
-     */
-    try {
-      Thread.sleep(3000);
-    } catch (Exception e) {
-      e.printStackTrace();
+
+    // Print the data to the screen for debug
+    for(int i = 0; i < mapData.length; i++) {
+      for(int j = 0; j < mapData.length; j++) {
+        char block = mapData[i][j];
+        char item = itemsData[i][j];
+
+        if(item != ' ')
+          System.out.print(item);
+        else
+          System.out.print(block);
+      }
+      System.out.print('\n');
     }
-    return "lrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlr";
+
+    System.out.println(((byte) 0b11111111) & ((byte) -120));
+    
+    return "lr";
   }
 
 }
