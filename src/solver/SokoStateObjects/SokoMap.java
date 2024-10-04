@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-04 18:31:48
+ * @ Modified time: 2024-10-04 22:03:28
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -161,10 +161,15 @@ public class SokoMap {
     public boolean hasWallEast(int location) {
         
         // Grab east cell
-        int east = location + Location.EAST; 
+        int east = location + Location.EAST;
+        int y = Location.decodeY(location); 
+
+        // Invalid y
+        if(y < 0 || y > this.map.length)
+            return true;
 
         // Check if in bounds
-        if(Location.decodeX(east) < this.map.length)
+        if(Location.decodeX(east) < this.map[y].length)
             return this.hasWall(east);
 
         // Out of bounds

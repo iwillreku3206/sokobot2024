@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 22:44:08
- * @ Modified time: 2024-10-04 01:10:41
+ * @ Modified time: 2024-10-04 21:00:56
  * @ Description:
  * 
  * The sole duty of this class is to instantiate specific instances of the state.
@@ -22,20 +22,21 @@ public class SokoStateFactory {
      * @param   map         The map that contextualizes the information of the player and crates.
      */
     public static SokoState createInitialState(int player, int[] crates, SokoMap map) {
-        return new SokoState(player, crates, map, "");
+        return new SokoState(player, crates, map, "", 0);
     }
 
     /**
      * Creates an new state with inherited history.
      * 
-     * @param   player      An integer representing the location of the player.
-     * @param   crates      Integers representing the location of the crates.
-     * @param   map         The map that contextualizes the information of the player and crates.
-     * @param   history     The history of moves for that state.
-     * @param   move        A new move by the player.
+     * @param   player          An integer representing the location of the player.
+     * @param   crates          Integers representing the location of the crates.
+     * @param   map             The map that contextualizes the information of the player and crates.
+     * @param   history         The history of moves for that state.
+     * @param   historyLength   The length of the history for that state.
+     * @param   move            A new move by the player.
      */
-    private static SokoState createMoveState(int player, int[] crates, SokoMap map, String history, String move) {
-        return new SokoState(player, crates, map, history + move);
+    private static SokoState createMoveState(int player, int[] crates, SokoMap map, String history, int historyLength, String move) {
+        return new SokoState(player, crates, map, history + move, historyLength + 1);
     }
 
     /**
@@ -51,6 +52,7 @@ public class SokoStateFactory {
         int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
+        int historyLength = currentState.getHistoryLength();
 
         // If no wall, check if it has a crate
         switch(currentState.getObstacleNorth(player, map)) {
@@ -74,10 +76,10 @@ public class SokoStateFactory {
                         crates[i] += Location.NORTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, "u");
+                return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, historyLength, "u");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, "u");
+            default: return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, historyLength, "u");
         }
     }
 
@@ -94,6 +96,7 @@ public class SokoStateFactory {
         int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
+        int historyLength = currentState.getHistoryLength();
 
         // If no wall, check if it has a crate
         switch(currentState.getObstacleEast(player, map)) {
@@ -117,10 +120,10 @@ public class SokoStateFactory {
                         crates[i] += Location.EAST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, "r");
+                return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, historyLength, "r");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, "r");
+            default: return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, historyLength, "r");
         }
     }
 
@@ -137,6 +140,7 @@ public class SokoStateFactory {
         int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
+        int historyLength = currentState.getHistoryLength();
 
         // If no wall, check if it has a crate
         switch(currentState.getObstacleWest(player, map)) {
@@ -160,10 +164,10 @@ public class SokoStateFactory {
                         crates[i] += Location.WEST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, "l");
+                return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, historyLength, "l");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, "l");
+            default: return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, historyLength, "l");
         }
     }
 
@@ -180,6 +184,7 @@ public class SokoStateFactory {
         int player = currentState.getPlayer();
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
+        int historyLength = currentState.getHistoryLength();
 
         // If no wall, check if it has a crate
         switch(currentState.getObstacleSouth(player, map)) {
@@ -203,10 +208,10 @@ public class SokoStateFactory {
                         crates[i] += Location.SOUTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, "d");
+                return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, historyLength, "d");
 
             // Only the player moves
-            default: return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, "d");
+            default: return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, historyLength, "d");
         }
     }
 }

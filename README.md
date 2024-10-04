@@ -7,20 +7,20 @@ Checkbox
 - [x] base3.txt
 - [x] base4.txt
 - [x] twoboxes1.txt
-- [ ] twoboxes2.txt
-- [ ] twoboxes3.txt
-- [ ] threeboxes1.txt
+- [x] twoboxes2.txt
+- [x] twoboxes3.txt
+- [x] threeboxes1.txt
 - [x] threeboxes2.txt
-- [ ] threeboxes3.txt
+- [x] threeboxes3.txt
 - [x] fourboxes1.txt
-- [ ] fourboxes2.txt 
-- [ ] fourboxes3.txt    (TLE)
+- [x] fourboxes2.txt 
+- [x] fourboxes3.txt
 - [x] fiveboxes1.txt
-- [ ] fiveboxes2.txt    (TLE)
+- [x] fiveboxes2.txt
 - [x] fiveboxes3.txt
 - [ ] original1.txt     (TLE)
-- [ ] original2.txt
-- [ ] original3.txt     
+- [ ] original2.txt     (TLE)
+- [ ] original3.txt     (TLE)
 
 
 This is actually pretty hard.

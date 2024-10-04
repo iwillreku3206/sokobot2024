@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 20:35:30
+ * @ Modified time: 2024-10-04 22:06:09
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -28,7 +28,7 @@ public class SokoState {
     // Adjusts how much the heuristic influences priority evaluation
     // 0.0 means not at all and 1.0 means it contributes a lot
     public static final float HEURISTIC_WEIGHT_SOLUTION_LENGTH = 1.0f;
-    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 1.0f;
+    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.5f;
 
     public static final int HEURISTIC_BIAS_SOLUTION_LENGTH = 0;
     public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
@@ -50,6 +50,7 @@ public class SokoState {
 
     // The history of the state (what moves were taken to get there)
     private String history;
+    private int historyLength;
 
     // The serial of the state
     // Should only be computed once
@@ -60,12 +61,13 @@ public class SokoState {
      * Note that this class only stores data that changes between states.
      * All other data are stored by the SokoGame class.
      * 
-     * @param   player      An integer representing the location of the player.
-     * @param   crates      Integers representing the location of the crates.
-     * @param   map         The map that contextualizes the information of the player and crates.
-     * @param   history     The history of the state (what moves got us there).
+     * @param   player          An integer representing the location of the player.
+     * @param   crates          Integers representing the location of the crates.
+     * @param   map             The map that contextualizes the information of the player and crates.
+     * @param   history         The history of the state (what moves got us there).
+     * @param   historyLength   The length of the history of the state.
      */
-    public SokoState(int player, int[] crates, SokoMap map, String history) {
+    public SokoState(int player, int[] crates, SokoMap map, String history, int historyLength) {
 
         // Init the arrays
         this.crates = new HashMap<>();
@@ -75,6 +77,7 @@ public class SokoState {
 
         // Init the history
         this.history = history;
+        this.historyLength = historyLength;
 
         // Create the crates
         for(int i = 0; i < crates.length; i++) {
@@ -318,6 +321,15 @@ public class SokoState {
     }
 
     /**
+     * Return the length of the history.
+     * 
+     * @return  The length of the history string.
+     */
+    public int getHistoryLength() {
+        return this.historyLength;
+    }
+
+    /**
      * This allows us to check whether or not we hit the same state twice.
      * Hitting the same state twice indicates a loop, which we try to avoid.
      * 
@@ -369,7 +381,7 @@ public class SokoState {
     public int getPriority() {
 
         // Get the variables
-        int h = this.history.length();
+        int h = this.historyLength;
         int g = this.getGoodCrateCount();
 
         // Ain't no way,, this shit worked

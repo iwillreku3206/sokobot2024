@@ -359,7 +359,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
   }
 
   public void playSolution(String solutionString) {
-    playSolution(solutionString, 100);
+    playSolution(solutionString, 50);
   }
 
   public void playSolution(String solutionString, int delay) {

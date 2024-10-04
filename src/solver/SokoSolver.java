@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-04 20:09:30
+ * @ Modified time: 2024-10-04 22:05:42
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -112,10 +112,6 @@ public class SokoSolver {
      * @return  A string containing the attempted solution.
      */
     public String solve() {
-
-        // ! remove this counter
-        // ! just here so we dont go infinitely long
-        int counter = 0;
         
         // While we have states to inspect
         while(!this.states.isEmpty()) {
@@ -148,6 +144,6 @@ public class SokoSolver {
                     this.states.add(newState);
         }
 
-        return "lululululu";
+        return "No solution found.";
     }
 }
