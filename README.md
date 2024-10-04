@@ -2,6 +2,8 @@
 
 Checkbox
 
+- [x] stuck1.txt        (No Solution Found - true) 
+- [x] stuck2.txt        (No Solution Found - true) 
 - [x] base1.txt
 - [x] base2.txt
 - [x] base3.txt

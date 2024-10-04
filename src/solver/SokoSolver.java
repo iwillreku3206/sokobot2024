@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-04 22:05:42
+ * @ Modified time: 2024-10-04 23:40:17
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -34,8 +34,8 @@ public class SokoSolver {
     // Look at the SokoState file for more info.
     private PriorityQueue<SokoState> states;
 
-    // Visited states
-    private Set<BigInteger> visited;
+    // Visited states 
+    private Set<BigInteger> visitedStates;
 
     /**
      * Initialize the game.
@@ -48,11 +48,14 @@ public class SokoSolver {
         this.map = new SokoMap(charMap);
 
         // Init visited
-        this.visited = new TreeSet<>();
+        this.visitedStates = new TreeSet<>();
+
+        // Create the comparator
+        SokoStateComparator comparator = new SokoStateComparator(this.map);
 
         // Init the priority queue with an initial size of 32
         // The comparator compares the states priority evaluations
-        this.states = new PriorityQueue<SokoState>(32, new SokoStateComparator());
+        this.states = new PriorityQueue<SokoState>(32, comparator);
 
         // The initial state
         SokoState initialState = SokoStateFactory.createInitialState(
@@ -119,8 +122,8 @@ public class SokoSolver {
             // Get the latest in the queue
             SokoState state = this.states.poll();
 
-            // Add the state serial to the set
-            this.visited.add(state.getSerial());
+            // Add the state serials to their sets
+            this.visitedStates.add(state.getSerial());
 
             // If we won
             if(state.getStatus(this.map) == SokoState.StateStatus.WON)
@@ -139,9 +142,19 @@ public class SokoSolver {
             };
 
             // Add the valid states we haven't visited
-            for(SokoState newState : newStates)
-                if(newState != null && !this.visited.contains(newState.getSerial()))
-                    this.states.add(newState);
+            for(SokoState newState : newStates) {
+                
+                // Invalid state
+                if(newState == null)
+                    continue;
+
+                // The state has been visited
+                if(this.visitedStates.contains(newState.getSerial()))
+                    continue;
+
+                // Otherwise, queue the state
+                this.states.add(newState);
+            }
         }
 
         return "No solution found.";

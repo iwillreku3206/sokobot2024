@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-04 20:18:22
- * @ Modified time: 2024-10-04 20:34:49
+ * @ Modified time: 2024-10-04 22:25:22
  * @ Description:
  * 
  * Helper functions for the heuristic computation.
@@ -55,7 +55,13 @@ public class Heuristic {
      * @return          The lerped value.
      */
     public static float weight(float x, float weight) {
-        return lerp(x, 1, weight);
+
+        // Do a positive weighting
+        if(weight >= 0)
+            return lerp(x, 1, weight);
+
+        // Do a negative weighting
+        return -lerp(x, 1, -weight);
     }
 
     /**

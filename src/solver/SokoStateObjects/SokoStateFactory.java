@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 22:44:08
- * @ Modified time: 2024-10-04 21:00:56
+ * @ Modified time: 2024-10-04 23:12:34
  * @ Description:
  * 
  * The sole duty of this class is to instantiate specific instances of the state.
@@ -22,7 +22,7 @@ public class SokoStateFactory {
      * @param   map         The map that contextualizes the information of the player and crates.
      */
     public static SokoState createInitialState(int player, int[] crates, SokoMap map) {
-        return new SokoState(player, crates, map, "", 0);
+        return new SokoState(player, crates, false, map, "", 0);
     }
 
     /**
@@ -36,7 +36,22 @@ public class SokoStateFactory {
      * @param   move            A new move by the player.
      */
     private static SokoState createMoveState(int player, int[] crates, SokoMap map, String history, int historyLength, String move) {
-        return new SokoState(player, crates, map, history + move, historyLength + 1);
+        return new SokoState(player, crates, false, map, history + move, historyLength + 1);
+    }
+
+    /**
+     * Creates an new state with inherited history.
+     * This differs from the method above in that a crate moved during this state.
+     * 
+     * @param   player          An integer representing the location of the player.
+     * @param   crates          Integers representing the location of the crates.
+     * @param   map             The map that contextualizes the information of the player and crates.
+     * @param   history         The history of moves for that state.
+     * @param   historyLength   The length of the history for that state.
+     * @param   move            A new move by the player.
+     */
+    private static SokoState createMoveStateWCrate(int player, int[] crates, SokoMap map, String history, int historyLength, String move) {
+        return new SokoState(player, crates, true, map, history + move, historyLength + 1);
     }
 
     /**
@@ -76,7 +91,7 @@ public class SokoStateFactory {
                         crates[i] += Location.NORTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, historyLength, "u");
+                return SokoStateFactory.createMoveStateWCrate(player + Location.NORTH, crates, map, history, historyLength, "u");
 
             // Only the player moves
             default: return SokoStateFactory.createMoveState(player + Location.NORTH, crates, map, history, historyLength, "u");
@@ -120,7 +135,7 @@ public class SokoStateFactory {
                         crates[i] += Location.EAST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, historyLength, "r");
+                return SokoStateFactory.createMoveStateWCrate(player + Location.EAST, crates, map, history, historyLength, "r");
 
             // Only the player moves
             default: return SokoStateFactory.createMoveState(player + Location.EAST, crates, map, history, historyLength, "r");
@@ -164,7 +179,7 @@ public class SokoStateFactory {
                         crates[i] += Location.WEST;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, historyLength, "l");
+                return SokoStateFactory.createMoveStateWCrate(player + Location.WEST, crates, map, history, historyLength, "l");
 
             // Only the player moves
             default: return SokoStateFactory.createMoveState(player + Location.WEST, crates, map, history, historyLength, "l");
@@ -208,7 +223,7 @@ public class SokoStateFactory {
                         crates[i] += Location.SOUTH;
 
                 // Create new state
-                return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, historyLength, "d");
+                return SokoStateFactory.createMoveStateWCrate(player + Location.SOUTH, crates, map, history, historyLength, "d");
 
             // Only the player moves
             default: return SokoStateFactory.createMoveState(player + Location.SOUTH, crates, map, history, historyLength, "d");

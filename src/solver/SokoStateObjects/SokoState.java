@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 22:06:09
+ * @ Modified time: 2024-10-04 23:55:55
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -25,13 +25,21 @@ import solver.utils.Location;
 public class SokoState {
 
     // Tweak this parameter, this seems like a good value for now
-    // Adjusts how much the heuristic influences priority evaluation
+    // Adjusts how much the heuristic influences cost evaluation
     // 0.0 means not at all and 1.0 means it contributes a lot
     public static final float HEURISTIC_WEIGHT_SOLUTION_LENGTH = 1.0f;
-    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.5f;
+    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.67f;
+    public static final float HEURISTIC_WEIGHT_DISTANCE = 0.0f;
 
     public static final int HEURISTIC_BIAS_SOLUTION_LENGTH = 0;
-    public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
+    public static final int HEURISTIC_BIAS_GOOD_COUNT = 25;
+    public static final int HEURISTIC_BIAS_DISTANCE = 100;
+
+    // These determine whether or not their effects on the heuristic value are inverted or not
+    // By default good crates are inverted because more of them means a smaller cost value
+    public static final boolean HEURISTIC_INVERT_SOLUTION_LENGTH = false;
+    public static final boolean HEURISTIC_INVERT_GOOD_COUNT = true;
+    public static final boolean HEURISTIC_INVERT_DISTANCE = false;
 
     // What state the state is in
     public enum StateStatus {
@@ -45,6 +53,11 @@ public class SokoState {
     // These are indexed by their locations
     private Map<Integer, SokoCrate> crates;
 
+    // Crate moves are the number of moves that have moved crates
+    // Think of crateCentroid as the vector sum of the locations of the crates.
+    private int crateMoves = 0;
+    private int crateCentroid = 0;
+
     // The location of the player
     private int player;
 
@@ -54,7 +67,7 @@ public class SokoState {
 
     // The serial of the state
     // Should only be computed once
-    private BigInteger serial;
+    private BigInteger stateSerial;
 
     /**
      * Creates a new state object using only serialized data.
@@ -63,14 +76,16 @@ public class SokoState {
      * 
      * @param   player          An integer representing the location of the player.
      * @param   crates          Integers representing the location of the crates.
+     * @param   crateMoved      Whether or not a crate was moved during this state.
      * @param   map             The map that contextualizes the information of the player and crates.
      * @param   history         The history of the state (what moves got us there).
      * @param   historyLength   The length of the history of the state.
      */
-    public SokoState(int player, int[] crates, SokoMap map, String history, int historyLength) {
+    public SokoState(int player, int[] crates, boolean crateMoved, SokoMap map, String history, int historyLength) {
 
         // Init the arrays
         this.crates = new HashMap<>();
+        if(crateMoved) this.crateMoves++;
         
         // Set the locations
         this.player = player;
@@ -81,7 +96,12 @@ public class SokoState {
 
         // Create the crates
         for(int i = 0; i < crates.length; i++) {
+
+            // Grab the location of the crate
             int crateLocation = crates[i];
+
+            // Add to the crate sum
+            this.crateCentroid += crateLocation; 
 
             // Insert a crate into the hashmap
             this.crates.put(
@@ -330,17 +350,19 @@ public class SokoState {
     }
 
     /**
-     * This allows us to check whether or not we hit the same state twice.
-     * Hitting the same state twice indicates a loop, which we try to avoid.
+     * The number of crate moves performed so far.
      * 
-     * @return  A hash or serial that uniquely represents the state.
+     * @return  How many crate moves have we done.
      */
-    public BigInteger getSerial() {
+    public int getCrateMoves() {
+        return this.crateMoves;
+    }
 
-        // If it's already defined
-        if(this.serial != null)
-            return this.serial;
-
+    /**
+     * Updates the serials for the object.
+     */
+    private void computeSerial() {
+        
         // Get crate locations in order
         int[] crates = this.crates.keySet()
             .stream()
@@ -355,50 +377,79 @@ public class SokoState {
         // Serialize the state
         // Unfortunately needs a try catch
         try {
-            dos.writeInt(this.player);
             for(int crate : crates)
                 dos.writeInt(crate);
-        
-        // Exception handler
+            dos.writeInt(this.player);
+            
+            // Exception handler
         } catch (IOException e) {
             System.out.println("Something went wrong during state serialization.");
             e.printStackTrace();
-        }
-
-        // Convert to a byte array
-        this.serial = new BigInteger(baos.toByteArray());
-
-        // Return
-        return this.serial;
+        }    
+        
+        this.stateSerial = new BigInteger(baos.toByteArray());
     }
 
     /**
-     * Returns an estimate of the priority score of the state.
+     * This allows us to check whether or not we hit the same state twice.
+     * Hitting the same state twice indicates a loop, which we try to avoid.
+     * 
+     * @return  A hash or serial that uniquely represents the state.
+     */
+    public BigInteger getSerial() {
+
+        // If it's already defined
+        if(this.stateSerial != null)
+            return this.stateSerial;
+
+        // Update serials
+        this.computeSerial();
+
+        // Return
+        return this.stateSerial;
+    }
+
+    /**
+     * Returns an estimate of the cost of the state.
+     * Higher cost means less priority.
      * Note that we use integers so things are computed much faster.
      * 
-     * @return  The estimate of the priority for the state.
+     * @return  The estimate of the cost for the state.
      */
-    public int getPriority() {
+    public int getCost(SokoMap map) {
 
-        // Get the variables
+        // The crate-based heuritic
+        int crateC = this.crateCentroid;
+        int goalC = map.getGoalCentroid();
+        int cx = Location.decodeX(crateC) - Location.decodeX(goalC); 
+        int cy = Location.decodeY(crateC) - Location.decodeY(goalC); 
+        
+        // History length and successful crate placements
+        int c = cx * cx + cy * cy;
         int h = this.historyLength;
         int g = this.getGoodCrateCount();
 
-        // Ain't no way,, this shit worked
-        return (int) (
-
-            // The solution length heuristic 
-            Heuristic.weight(
-                Heuristic.bias(
-                    h,  HEURISTIC_BIAS_SOLUTION_LENGTH), 
-                        HEURISTIC_WEIGHT_SOLUTION_LENGTH) *
-
-            // The good crate count heuristic
-            Heuristic.weight(
-                Heuristic.invert(
-                    Heuristic.bias(
-                        g,  HEURISTIC_BIAS_GOOD_COUNT)),
-                            HEURISTIC_WEIGHT_GOOD_COUNT)
+        float cHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_DISTANCE
+                ? Heuristic.invert(Heuristic.bias(c, HEURISTIC_BIAS_DISTANCE))
+                : Heuristic.bias(c, HEURISTIC_BIAS_DISTANCE),
+            HEURISTIC_WEIGHT_DISTANCE
         );
+
+        float hHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_SOLUTION_LENGTH 
+                ? -Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION_LENGTH)
+                : Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION_LENGTH),
+            HEURISTIC_WEIGHT_SOLUTION_LENGTH
+        );
+
+        float gHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_GOOD_COUNT 
+                ? Heuristic.invert(Heuristic.bias(g, HEURISTIC_BIAS_GOOD_COUNT))
+                : Heuristic.bias(g, HEURISTIC_BIAS_GOOD_COUNT),
+            HEURISTIC_WEIGHT_GOOD_COUNT
+        );
+
+        return (int) (hHeuristic * gHeuristic * cHeuristic);
     }
 }

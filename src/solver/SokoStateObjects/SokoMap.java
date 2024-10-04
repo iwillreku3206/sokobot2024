@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-04 22:03:28
+ * @ Modified time: 2024-10-04 23:44:17
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -23,6 +23,9 @@ public class SokoMap {
 
     // The goal locations
     private List<Integer> goals;
+    
+    // A vector sum of the goal locations
+    private int goalCentroid = 0;
 
     /**
      * Creates a new map object.
@@ -62,6 +65,7 @@ public class SokoMap {
                     case '.': 
                     case '+': 
                     case '*': 
+                        this.goalCentroid += Location.encode(x, y);
                         this.goals.add(Location.encode(x, y));
                         break;
                 }
@@ -174,6 +178,15 @@ public class SokoMap {
 
         // Out of bounds
         return true;
+    }
+
+    /**
+     * Returns the center of the goals.
+     * 
+     * @return  The approximate center of the goals.
+     */
+    public int getGoalCentroid() {
+        return this.goalCentroid;
     }
 
     /**
