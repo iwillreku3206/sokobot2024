@@ -75,7 +75,7 @@ public class SokoSolver {
 
         // Return the location of the player
         for(int y = 0; y < charMap.length; y++)
-            for(int x = 0; x < charMap.length; x++)
+            for(int x = 0; x < charMap[0].length; x++)
                 if(charMap[y][x] == '@' || charMap[y][x] == '+')
                     return Location.encode(x, y);
 
@@ -96,7 +96,7 @@ public class SokoSolver {
 
         // Append crates
         for(int y = 0; y < charMap.length; y++)
-            for(int x = 0; x < charMap.length; x++)
+            for(int x = 0; x < charMap[0].length; x++)
                 if(charMap[y][x] == '$' || charMap[y][x] == '*')
                     crates.add(Location.encode(x, y));
                     
