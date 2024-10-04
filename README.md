@@ -37,7 +37,6 @@ Note: if class instantiation becomes a significant overhead, we might refactor o
 
 So... refactor the StateFactory class... too much redundancy.
 
+cool shit:
 
-Another note.. the player is currently an implicit concept... should we turn it into its own class? idfk
-
-"unless it moved a crate, then undoing its previous movve is meaningless"
+https://stackoverflow.com/questions/24817584/how-to-trigger-key-press-event-explicitly-on-button-click-java
