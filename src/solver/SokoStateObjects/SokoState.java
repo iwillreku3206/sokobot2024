@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 23:55:55
+ * @ Modified time: 2024-10-05 00:17:55
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -28,12 +28,12 @@ public class SokoState {
     // Adjusts how much the heuristic influences cost evaluation
     // 0.0 means not at all and 1.0 means it contributes a lot
     public static final float HEURISTIC_WEIGHT_SOLUTION_LENGTH = 1.0f;
-    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.67f;
-    public static final float HEURISTIC_WEIGHT_DISTANCE = 0.0f;
+    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.8f;
+    public static final float HEURISTIC_WEIGHT_DISTANCE = 0.05f;
 
     public static final int HEURISTIC_BIAS_SOLUTION_LENGTH = 0;
     public static final int HEURISTIC_BIAS_GOOD_COUNT = 25;
-    public static final int HEURISTIC_BIAS_DISTANCE = 100;
+    public static final int HEURISTIC_BIAS_DISTANCE = 0;
 
     // These determine whether or not their effects on the heuristic value are inverted or not
     // By default good crates are inverted because more of them means a smaller cost value
@@ -419,15 +419,18 @@ public class SokoState {
     public int getCost(SokoMap map) {
 
         // The crate-based heuritic
+        int crateCount = this.crates.size();
         int crateC = this.crateCentroid;
         int goalC = map.getGoalCentroid();
         int cx = Location.decodeX(crateC) - Location.decodeX(goalC); 
         int cy = Location.decodeY(crateC) - Location.decodeY(goalC); 
         
+        // C represents the approximate "distance" of all crates from the goals
+        float c = (cx * cx + cy * cy) / (crateCount * crateCount);
+
         // History length and successful crate placements
-        int c = cx * cx + cy * cy;
-        int h = this.historyLength;
-        int g = this.getGoodCrateCount();
+        float h = this.historyLength;
+        float g = this.getGoodCrateCount();
 
         float cHeuristic = Heuristic.weight(
             HEURISTIC_INVERT_DISTANCE

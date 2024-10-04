@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-04 23:40:17
+ * @ Modified time: 2024-10-05 00:07:00
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -156,6 +156,7 @@ public class SokoSolver {
                 this.states.add(newState);
             }
         }
+
 
         return "No solution found.";
     }

@@ -20,7 +20,7 @@ Checkbox
 - [x] fiveboxes1.txt
 - [x] fiveboxes2.txt
 - [x] fiveboxes3.txt
-- [ ] original1.txt     (TLE)
+- [x] original1.txt
 - [ ] original2.txt     (TLE)
 - [ ] original3.txt     (TLE)
 
