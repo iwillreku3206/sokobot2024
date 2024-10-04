@@ -10,17 +10,17 @@ Checkbox
 - [ ] twoboxes2.txt
 - [ ] twoboxes3.txt
 - [ ] threeboxes1.txt
-- [ ] threeboxes2.txt   (returns empty string)
+- [x] threeboxes2.txt
 - [ ] threeboxes3.txt
 - [x] fourboxes1.txt
 - [ ] fourboxes2.txt 
 - [ ] fourboxes3.txt    (TLE)
-- [ ] fiveboxes1.txt    (returns empty string)
-- [ ] fiveboxes2.txt
-- [ ] fiveboxes3.txt
-- [ ] original1.txt
+- [x] fiveboxes1.txt
+- [ ] fiveboxes2.txt    (TLE)
+- [ ] fiveboxes3.txt    (TLE)
+- [ ] original1.txt     (TLE)
 - [ ] original2.txt
-- [ ] original3.txt     (TLE)
+- [ ] original3.txt     
 
 
 This is actually pretty hard.
