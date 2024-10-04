@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-04 02:35:06
+ * @ Modified time: 2024-10-04 20:09:30
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -12,8 +12,7 @@ package solver;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -49,7 +48,7 @@ public class SokoSolver {
         this.map = new SokoMap(charMap);
 
         // Init visited
-        this.visited = new HashSet<>();
+        this.visited = new TreeSet<>();
 
         // Init the priority queue with an initial size of 32
         // The comparator compares the states priority evaluations

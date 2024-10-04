@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 18:43:41
+ * @ Modified time: 2024-10-04 20:35:30
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -19,10 +19,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import solver.SokoObjects.SokoCrate;
+import solver.utils.Heuristic;
 import solver.utils.Location;
 
 public class SokoState {
 
+    // Tweak this parameter, this seems like a good value for now
+    // Adjusts how much the heuristic influences priority evaluation
+    // 0.0 means not at all and 1.0 means it contributes a lot
+    public static final float HEURISTIC_WEIGHT_SOLUTION_LENGTH = 1.0f;
+    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 1.0f;
+
+    public static final int HEURISTIC_BIAS_SOLUTION_LENGTH = 0;
+    public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
+
+    // What state the state is in
     public enum StateStatus {
         WON,        // All crates are on goals
         LOST,       // All crates are stuck / some crates are permanently stuck
@@ -357,7 +368,25 @@ public class SokoState {
      */
     public int getPriority() {
 
+        // Get the variables
+        int h = this.history.length();
+        int g = this.getGoodCrateCount();
+
         // Ain't no way,, this shit worked
-        return this.getHistory().length() / (this.getGoodCrateCount() + 1);
+        return (int) (
+
+            // The solution length heuristic 
+            Heuristic.weight(
+                Heuristic.bias(
+                    h,  HEURISTIC_BIAS_SOLUTION_LENGTH), 
+                        HEURISTIC_WEIGHT_SOLUTION_LENGTH) *
+
+            // The good crate count heuristic
+            Heuristic.weight(
+                Heuristic.invert(
+                    Heuristic.bias(
+                        g,  HEURISTIC_BIAS_GOOD_COUNT)),
+                            HEURISTIC_WEIGHT_GOOD_COUNT)
+        );
     }
 }

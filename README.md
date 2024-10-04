@@ -17,7 +17,7 @@ Checkbox
 - [ ] fourboxes3.txt    (TLE)
 - [x] fiveboxes1.txt
 - [ ] fiveboxes2.txt    (TLE)
-- [ ] fiveboxes3.txt    (TLE)
+- [x] fiveboxes3.txt
 - [ ] original1.txt     (TLE)
 - [ ] original2.txt
 - [ ] original3.txt     
