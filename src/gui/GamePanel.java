@@ -5,7 +5,6 @@ import javax.swing.SwingUtilities;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.RenderingHints.Key;
 import java.awt.event.KeyListener;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -297,23 +296,18 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
   public void keyPressed(KeyEvent e) {
     if (freePlay) {
       switch (e.getKeyCode()) {
-        case KeyEvent.VK_W:
         case KeyEvent.VK_UP:
           executeMove(0);
           break;
-        case KeyEvent.VK_S:
         case KeyEvent.VK_DOWN:
           executeMove(1);
           break;
-        case KeyEvent.VK_A:
         case KeyEvent.VK_LEFT:
           executeMove(2);
           break;
-        case KeyEvent.VK_D:
         case KeyEvent.VK_RIGHT:
           executeMove(3);
           break;
-        case KeyEvent.VK_R:
         case KeyEvent.VK_ESCAPE:
           GameFrame topFrame = (GameFrame) SwingUtilities.getWindowAncestor(this);
 
@@ -359,7 +353,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
   }
 
   public void playSolution(String solutionString) {
-    playSolution(solutionString, 50);
+    playSolution(solutionString, 100);
   }
 
   public void playSolution(String solutionString, int delay) {
@@ -406,7 +400,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
       this.solutionTimeString = String.format("%.2f", elapsedSolutionTime / 1000000000.0) + "s";
       this.repaint();
-    } else if (e.getSource() == solutionTimer && false) {
+    } else if (e.getSource() == solutionTimer) {
       // Solution was not found
       solutionTimer.stop();
       checkForSolutionTimer.stop();
