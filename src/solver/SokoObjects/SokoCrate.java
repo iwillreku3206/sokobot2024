@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-04 00:28:51
+ * @ Modified time: 2024-10-04 18:37:38
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -72,6 +72,9 @@ public class SokoCrate {
 
     // The location of the crate
     private int location;
+
+    // Whether or not the crate is on a goal
+    private boolean isGood;
     
     /**
      * Creates a new crate state based on provided input.
@@ -162,6 +165,24 @@ public class SokoCrate {
      */
     public int getLocation() {
         return this.location;
+    }
+
+    /**
+     * I really hate how we have to break this class's immutable nature... but here we are for optimization.
+     * 
+     * @param   isGood  Whether or not the crate is on top of a goal.
+     */
+    public void setGood(boolean isGood) {
+        this.isGood = isGood; 
+    }
+
+    /**
+     * Returns whether or not the crate is good.
+     * 
+     * @return  A boolean indicating whether or not the crate is on a goal.
+     */
+    public boolean isGood() {
+        return this.isGood;
     }
 
     /**

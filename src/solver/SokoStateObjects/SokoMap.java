@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-04 02:53:27
+ * @ Modified time: 2024-10-04 18:31:48
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -65,13 +65,7 @@ public class SokoMap {
                         this.goals.add(Location.encode(x, y));
                         break;
                 }
-
-                // ! remove
-                System.out.print(row[x]);
             }
-
-            // ! remove
-            System.out.println();
         }
     }
 

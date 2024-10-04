@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 17:51:53
+ * @ Modified time: 2024-10-04 18:43:41
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -16,9 +16,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Location;
@@ -41,6 +39,10 @@ public class SokoState {
 
     // The history of the state (what moves were taken to get there)
     private String history;
+
+    // The serial of the state
+    // Should only be computed once
+    private BigInteger serial;
 
     /**
      * Creates a new state object using only serialized data.
@@ -78,6 +80,27 @@ public class SokoState {
                     .setS(this.getObstacleSouth(crateLocation, map))
                     .build());
         }
+
+        // Set the good crates
+        for(int goal : map.getGoals())
+            if(this.crates.containsKey(goal))
+                this.crates.get(goal).setGood(true);
+    }
+
+    /**
+     * Returns the number of good crates we got.
+     * 
+     * @return  The number of crates on goals.
+     */
+    private int getGoodCrateCount() {
+
+        // Count good crates
+        int goodCrateCount = 0;
+        for(SokoCrate crate : this.crates.values())
+            if(crate.isGood())
+                goodCrateCount++;
+            
+        return goodCrateCount;
     }
 
     /**
@@ -212,32 +235,20 @@ public class SokoState {
         boolean allCratesAreStuck = true;
         boolean allCratesAreGood = true;
 
-        // Keep track of the good crates
-        Set<Integer> goodCrates = new HashSet<>();
-
         // Check if all the goals have crates
-        for(int goal : map.getGoals()) {
-            if(this.crates.containsKey(goal))
-                goodCrates.add(goal);
-            else
+        for(int goal : map.getGoals())
+            if(!this.crates.containsKey(goal))
                 allCratesAreGood = false;
-        }
 
         // We won!
         // It is important to check for this condition first
         // because crates can be stuck in a winning state
-        if(allCratesAreGood) {
-
-            // ! remove
-            System.out.println("goals " + map.getGoals().length);
-            System.out.println("crates " + crates.size());
-            System.out.println("good crates " + goodCrates.size());
+        if(allCratesAreGood)
             return StateStatus.WON;
-        }
 
         // Check if at least one crate is permanently stuck
         for(SokoCrate crate : this.crates.values()) 
-            if(crate.isStuckPermanently() && !goodCrates.contains(crate.getLocation()))
+            if(crate.isStuckPermanently() && !crate.isGood())
                 return StateStatus.LOST;
 
         // Check if all crates are at least temporarily stuck
@@ -303,6 +314,10 @@ public class SokoState {
      */
     public BigInteger getSerial() {
 
+        // If it's already defined
+        if(this.serial != null)
+            return this.serial;
+
         // Get crate locations in order
         int[] crates = this.crates.keySet()
             .stream()
@@ -328,7 +343,10 @@ public class SokoState {
         }
 
         // Convert to a byte array
-        return new BigInteger(baos.toByteArray());
+        this.serial = new BigInteger(baos.toByteArray());
+
+        // Return
+        return this.serial;
     }
 
     /**
@@ -338,9 +356,8 @@ public class SokoState {
      * @return  The estimate of the priority for the state.
      */
     public int getPriority() {
-        
-        // ! todo implement
-        // ! create better heuristic
-        return -this.getHistory().length();
+
+        // Ain't no way,, this shit worked
+        return this.getHistory().length() / (this.getGoodCrateCount() + 1);
     }
 }
