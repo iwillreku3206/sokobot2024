@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-04 02:32:27
+ * @ Modified time: 2024-10-04 17:51:53
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -341,6 +341,6 @@ public class SokoState {
         
         // ! todo implement
         // ! create better heuristic
-        return this.getHistory().length();
+        return -this.getHistory().length();
     }
 }

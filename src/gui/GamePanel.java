@@ -406,7 +406,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
       this.solutionTimeString = String.format("%.2f", elapsedSolutionTime / 1000000000.0) + "s";
       this.repaint();
-    } else if (e.getSource() == solutionTimer) {
+    } else if (e.getSource() == solutionTimer && false) {
       // Solution was not found
       solutionTimer.stop();
       checkForSolutionTimer.stop();
