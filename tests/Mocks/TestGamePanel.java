@@ -404,6 +404,7 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
 
     } else if (e.getSource() == solutionTimer) {
       // Solution was not found
+      solutionThread.interrupt();
       solutionTimer.stop();
       checkForSolutionTimer.stop();
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
@@ -412,5 +413,20 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
       this.repaint();
       this.done = true;
     }
+  }
+
+  public String getTime() {
+    return this.solutionTimeString;
+  }
+  
+  
+  public String getMoves() {
+    return this.solutionString.length() + "";
+  }
+
+  public void close() {
+    solutionTimer.stop();
+    checkForSolutionTimer.stop();
+    solutionThread.interrupt();
   }
 }
