@@ -1,4 +1,4 @@
-package tests.Mocks;
+package tests.mocks;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;

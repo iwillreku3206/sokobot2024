@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-05 00:30:11
- * @ Modified time: 2024-10-05 01:39:24
+ * @ Modified time: 2024-10-05 02:57:30
  * @ Description:
  * 
  * Helps us automate testing.
@@ -13,18 +13,25 @@ import javax.swing.JFrame;
 import java.awt.AWTException;
 import java.awt.event.KeyEvent;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.util.List;
+import java.util.ArrayList;
+
 import reader.FileReader;
 import reader.MapData;
-import solver.SokoBot;
-import tests.Mocks.TestGamePanel;
+import tests.mocks.TestGamePanel;
 
 public class Tester {
 
     /**
      * ! todo run the tests here
      * @throws AWTException 
+     * @throws IOException 
      */
-    public static void main(String[] args) throws AWTException {
+    public static void main(String[] args) throws AWTException, IOException {
         
         // Create mock frame
         JFrame frame = new JFrame();
@@ -37,34 +44,31 @@ public class Tester {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // ! perfect, we can load different maps!
-        String[] mapNames = {
-            "stuck1",
-            "stuck2",
-            "base1",
-            "base2",
-            "base3",
-            "base4",
-            "base5",
-            "base6",
-            "fiveboxes1",
-            "fiveboxes2",
-            "fiveboxes3",
-            "fourboxes1",
-            "fourboxes2",
-            "fourboxes3",
-            "threeboxes1",
-            "threeboxes2",
-            "threeboxes3",
-            "twoboxes1",
-            "twoboxes2",
-            "twoboxes3",
-            "original1",
-            "original2",
-            "original3",
-        };
+        List<String> mapNames = new ArrayList<>(); 
+        
+        File folder = new File("maps/");
+        File[] files = folder.listFiles();
+        if(files != null) {
+
+            // Go through all files
+            for(File file : files) {
+
+                // Not a file
+                if(!file.isFile())
+                    continue;
+
+                // Only text files
+                if(!file.getName().contains(".txt"))
+                    continue;
+
+                // Get only the filename
+                mapNames.add(file.getName().split("\\.")[0]);
+            }
+        }
+                
         int counter = 0;
 
-        while(counter < mapNames.length) {
+        while(counter < mapNames.size()) {
 
             // Wait for bot to finish
             if(panel != null && !panel.isInitting && !panel.done)
@@ -72,9 +76,10 @@ public class Tester {
 
             // Read the file
             FileReader reader = new FileReader();
-            MapData map = reader.readFile(mapNames[counter++]);
+            MapData map = reader.readFile(mapNames.get(counter++));
 
             // Load the map
+            if(panel != null) frame.remove(panel);
             panel = new TestGamePanel();
 
             // Add the panel to the frame

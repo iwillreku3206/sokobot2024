@@ -37,6 +37,5 @@ Note: if class instantiation becomes a significant overhead, we might refactor o
 
 So... refactor the StateFactory class... too much redundancy.
 
-cool shit:
-
-https://stackoverflow.com/questions/24817584/how-to-trigger-key-press-event-explicitly-on-button-click-java
+lifted code from here to allow us to generate maps:
+https://github.com/miki151/sokoban
