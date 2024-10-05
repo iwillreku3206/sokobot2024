@@ -49,9 +49,6 @@ public class SokoBot {
     
     String sol = game.solve();
 
-    // ! remove
-    System.out.println(sol);
-
     return sol;
   }
 

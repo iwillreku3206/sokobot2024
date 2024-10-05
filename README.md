@@ -36,6 +36,3 @@ Note: if class instantiation becomes a significant overhead, we might refactor o
 
 
 So... refactor the StateFactory class... too much redundancy.
-
-lifted code from here to allow us to generate maps:
-https://github.com/miki151/sokoban

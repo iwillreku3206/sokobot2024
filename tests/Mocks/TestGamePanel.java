@@ -70,8 +70,8 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   private long solutionEndTime;
 
   private final int SOLUTION_TIME_LIMIT = 15000;
-  public boolean done = false;
-  public boolean isInitting = true;
+  private boolean done = false;
+  private boolean initted = false;
 
   public TestGamePanel() {
     this.setBackground(Color.BLACK);
@@ -96,7 +96,7 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
 
   public void loadMap(MapData mapData) {
 
-    this.isInitting = false;
+    this.initted = true;
 
     progress = 0;
     moves = 0;
@@ -428,5 +428,31 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
     solutionTimer.stop();
     checkForSolutionTimer.stop();
     solutionThread.interrupt();
+  }
+
+  public boolean isDone() {
+    return this.done;
+  }
+
+  public boolean isInitting() {
+    return !this.initted;
+  }
+  
+  public String getSolution() {
+    return this.solutionThread.getSolution();
+  }
+
+  public boolean hasWon() {
+    
+    // If at least one of the crates isnt on a goal
+    for(int y = 0; y < this.items.length; y++) {
+      for(int x = 0; x < this.items[y].length; x++) {
+        if(this.items[y][x] == '$' && this.map[y][x] != '.')
+          return false;
+      }
+    }
+
+    // The player won
+    return true;
   }
 }
