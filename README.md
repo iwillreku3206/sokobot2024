@@ -36,6 +36,12 @@ In the case of our implementation, the `SokoState` class handles the duty of rep
 
 Every state can be assigned a priority score that tells us how important it is. More important states are checked first when performing a search for a valid solution. There are a few things that can affect this evaluation, but we have decided to use the following parameters:
 
+> Heuristic for the priority score
+>
+> * `solution_length`
+> * `good_crate_count`
+> * `crate_goal_centroid_distance`
+
 * `solution_length`
 
     Considers how many moves were needed to get to the current state. By default, our approach prefers states which require less moves. However, when inverting this heuristic, our algorithm actually finds solutions *in less time*, despite the solution length being unreasonably long. For certain maps, longer solutions are easier to find.
@@ -46,7 +52,7 @@ Every state can be assigned a priority score that tells us how important it is. 
 
     This just refers to the number of crates on goals for a given state. Our approach prefers states where more of the crates are already in their place, which makes sense, although it is important to note that some solutions require the momentary shifting of crates off of their goals to reach a final solution. 
 
-* `centroid_distance`
+* `crate_goal_centroid_distance`
 
     Centroid is just a fancy word for center of mass. In this case, we're comparing the average location of the crates to that of the goals (in other words, their centroids). States with the crates closer to the goals are preferred. 
     
@@ -54,21 +60,36 @@ Every state can be assigned a priority score that tells us how important it is. 
 
 These three parameters are unified into a single value that represents the priority score of a given state. For added flexibility, coefficients were also defined which allows changing the "composition" of the priority score; that is, all three heuristics may not necessarily have equal weight, and the way the algorithm combines these heuristics can be modified.
 
-### 2.3 Identifying dead-end states
+### 2.3 Identifying viable states
 
-Of course, evaluating the priority of a state only makes sense when the state we're scoring is *viable*. Some states are pointless to try and continue, such as when a crate gets stuck in some corner of the map. In general, the only times states become futile are when crates get stuck in some way. It is thus important to define a precise meaning for "stuck" in this case. Before we discuss the types of dead-end states, we first outline the two possible "stuck scenarios" a crate can be in.
+Of course, evaluating the priority of a state only makes sense when the state we're scoring is *viable*. Some states are pointless to try and continue, such as when a crate gets stuck in some corner of the map. In general, the only times states become futile are when crates get stuck in some way. We define precise meanings for "stuck" to help rigorize this idea.
+
+> **Types of stuck**
+>
+> * Permanently stuck crates
+> * Temporarily stuck crates
 
 * Permanently stuck crates
 
-    This is easier to identify. Any crate that ends up in a corner between two walls is ***permanently stuck***. The logic for checking this also accounts for crates stuck in between more than two walls. Nevertheless, it is important to remember that when speaking of precisely two walls, only *adjacent* walls render permanently stuck crates. Walls on opposite sides can represent an opening of some sort and do not make a crate permanently stuck.
+    This is easier to identify. Any crate that ends up in a corner between two walls is ***permanently stuck***. Our logic for checking this also accounts for crates stuck in between more than two walls. Nevertheless, it is important to remember that when considering precisely two walls, only *adjacent* walls create permanently stuck crates. Walls on opposite sides can represent an opening of some sort and do not make a crate permanently stuck, as shown on the right.
+
+    <!-- !! // ! TODO INSERT A PICTURE  -->
 
 * Temporarily stuck crates
 
     The idea here is the same, except the scenario involves at least one other crate. A crate is ***temporarily stuck*** if it is obstructed on at least two adjacent sides by at least one crate and some walls. The examples below illustrate the scenario. It is imperative that the latter case (permanent stuckness) is checked before evaluating temporary stuckness, because otherwise something of the sort shown on the right may be evaluated as temporarily stuck.
 
-    TODO INSERT A PICTURE OF CRATE SURROUNDED BY THREE WALLS AND A CRATE
+    <!-- !! // ! TODO INSERT A PICTURE OF CRATE SURROUNDED BY THREE WALLS AND A CRATE -->
 
-In our approach, there are three criteria that identify dead-end states. But before
+Now that we've gotten those out of the way, we can now precisely define when a state stops being viable. In our approach, there are three criteria that identify "dead-end states". 
+
+> **Criteria for dead-end states**
+> 
+>1. At least one crate is *permanently stuck* and not on a goal. 
+>2. All crates are at least *temporarily stuck* and at least one is not on a goal.
+>3. The player is surrounded by 4 walls. 
+
+The third criteria honestly feels a bit trivial, but we include it lest degenerate maps are generated (map generation is covered later in this document).
 
 3.3 State serialization
 
