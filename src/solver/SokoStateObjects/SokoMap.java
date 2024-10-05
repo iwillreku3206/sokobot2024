@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-04 23:44:17
+ * @ Modified time: 2024-10-05 19:29:00
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -96,88 +96,14 @@ public class SokoMap {
     }
 
     /**
-     * Returns whether or not a wall is above a given cell.
-     * True means there's a wall or it's OOB.
+     * Returns the presence of a wall on an adjacent cell.
      * 
      * @param   location    The location to inspect.
-     * @return              true if wall exists, false otherwise.
+     * @param   direction   The direction of the adjacent cell.
+     * @return              The presence of wall on the adjacent cell.
      */
-    public boolean hasWallNorth(int location) {
-        
-        // Grab coords
-        int north = location + Location.NORTH;
-
-        // Check if in bounds
-        if(Location.decodeY(north) >= 0)
-            return this.hasWall(north);
-
-        // Out of bounds
-        return true;
-    }
-
-    /**
-     * Returns whether or not a wall is below a given cell.
-     * True means there's a wall or it's OOB.
-     * 
-     * @param   location    The location to inspect.
-     * @return              true if wall exists, false otherwise.
-     */
-    public boolean hasWallSouth(int location) {
-
-        // Get the south cell
-        int south = location + Location.SOUTH;
-
-        // Check if in bounds
-        if(Location.decodeY(south) < this.map.length)
-            return this.hasWall(south);
-
-        // Out of bounds
-        return true;
-    }
-
-    /**
-     * Returns whether or not a wall is left a given cell.
-     * True means there's a wall or it's OOB.
-     * 
-     * @param   location    The location to inspect.
-     * @return              true if wall exists, false otherwise.
-     */
-    public boolean hasWallWest(int location) {
-        
-        // Grab west cell
-        int west = location + Location.WEST; 
-
-        // Check if in bounds
-        if(Location.decodeX(west) >= 0)
-            return this.hasWall(west);
-
-        // Out of bounds
-        return true;
-    }
-
-    /**
-     * Returns whether or not a wall is right a given cell.
-     * True means there's a wall or it's OOB.
-     * 
-     * @param   location    The location to inspect.
-     * @return              true if wall exists, false otherwise.
-     */
-    public boolean hasWallEast(int location) {
-        
-        // Grab east cell
-        int east = location + Location.EAST;
-        int y = Location.decodeY(location); 
-
-        // Invalid y
-        if(y < 0 || y > this.map.length)
-            return true;
-
-        // Check if in bounds
-        if(Location.decodeX(east) < this.map[y].length)
-            return this.hasWall(east);
-
-        // Out of bounds
-        return true;
+    public boolean hasWall(int location, int direction) {
+        return this.hasWall(location + direction);
     }
 
     /**

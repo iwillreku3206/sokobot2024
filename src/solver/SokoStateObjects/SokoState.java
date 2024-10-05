@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-05 00:17:55
+ * @ Modified time: 2024-10-05 19:29:20
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -108,10 +108,10 @@ public class SokoState {
                 crateLocation,
                 SokoCrate
                     .create(crateLocation)
-                    .setN(this.getObstacleNorth(crateLocation, map))
-                    .setE(this.getObstacleEast(crateLocation, map))
-                    .setW(this.getObstacleWest(crateLocation, map))
-                    .setS(this.getObstacleSouth(crateLocation, map))
+                    .setN(this.getObstacle(crateLocation, Location.NORTH, map))
+                    .setE(this.getObstacle(crateLocation, Location.EAST, map))
+                    .setW(this.getObstacle(crateLocation, Location.WEST, map))
+                    .setS(this.getObstacle(crateLocation, Location.SOUTH, map))
                     .build());
         }
 
@@ -154,106 +154,35 @@ public class SokoState {
     }
 
     /**
-     * Returns whether or not a crate is above a given cell.
-     * True means there's a crate.
+     * Checks whether or not a crate exists on the cell adjacent to location,
+     * specified by direction.
      * 
-     * @param   location    The location to inspect.
-     * @return              true if crate exists, false otherwise.
+     * @param   location    The location to start at.
+     * @param   direction   The direction of the cell to check.
+     * @return              Whether or not a cell exists there.
      */
-    private boolean hasCrateNorth(int location) {
-        return this.hasCrate(location + Location.NORTH);
+    public boolean hasCrate(int location, int direction) {
+        return this.hasCrate(location + direction);
     }
-
+    
     /**
-     * Returns whether or not a crate is below a given cell.
-     * True means there's a crate.
+     * Retrieves whether or not there's a wall or a crate adjacent to a cell.
      * 
-     * @param   location    The location to inspect.
-     * @return              true if crate exists, false otherwise.
-     */
-    private boolean hasCrateSouth(int location) {
-        return this.hasCrate(location + Location.SOUTH);
-    }
-
-    /**
-     * Returns whether or not a crate is left a given cell.
-     * True means there's a crate.
-     * 
-     * @param   location    The location to inspect.
-     * @return              true if crate exists, false otherwise.
-     */
-    private boolean hasCrateWest(int location) {
-        return this.hasCrate(location + Location.WEST);
-    }
-
-    /**
-     * Returns whether or not a crate is right a given cell.
-     * True means there's a crate.
-     * 
-     * @param   location    The location to inspect.
-     * @return              true if crate exists, false otherwise.
-     */
-    private boolean hasCrateEast(int location) {
-        return this.hasCrate(location + Location.EAST);
-    }
-
-    /**
-     * Retrieves whether or not there's a wall or a crate above a given cell.
-     * 
-     * @param   location    The location to inspect.
+     * @param   location    The location to start at.
+     * @param   direction   The direction of the neighbor to inspect.
      * @param   map         The map to use.
      * @return
      */
-    public char getObstacleNorth(int location, SokoMap map) {
-        if(map.hasWallNorth(location))
+    public char getObstacle(int location, int direction, SokoMap map) {
+        
+        // Check for wall
+        if(map.hasWall(location, direction))
             return 'w';
-        if(this.hasCrateNorth(location))
-            return 'c';
-        return ' ';
-    }
 
-    /**
-     * Retrieves whether or not there's a wall or a crate below a given cell.
-     * 
-     * @param   location    The location to inspect.
-     * @param   map         The map to use.
-     * @return
-     */
-    public char getObstacleSouth(int location, SokoMap map) {
-        if(map.hasWallSouth(location))
-            return 'w';
-        if(this.hasCrateSouth(location))
+        // Check for crate
+        if(this.hasCrate(location, direction))
             return 'c';
-        return ' ';
-    }
-
-    /**
-     * Retrieves whether or not there's a wall or a crate left a given cell.
-     * 
-     * @param   location    The location to inspect.
-     * @param   map         The map to use.
-     * @return
-     */
-    public char getObstacleWest(int location, SokoMap map) {
-        if(map.hasWallWest(location))
-            return 'w';
-        if(this.hasCrateWest(location))
-            return 'c';
-        return ' ';
-    }
-
-    /**
-     * Retrieves whether or not there's a wall or a crate right a given cell.
-     * 
-     * @param   location    The location to inspect.
-     * @param   map         The map to use.
-     * @return
-     */
-    public char getObstacleEast(int location, SokoMap map) {
-        if(map.hasWallEast(location))
-            return 'w';
-        if(this.hasCrateEast(location))
-            return 'c';
+        
         return ' ';
     }
 
@@ -308,6 +237,18 @@ public class SokoState {
         if(!this.hasCrate(location))
             return null;
         return this.crates.get(location);
+    }
+
+    /**
+     * Returns a crate we can use to test stuff.
+     * 
+     * @param   location    The location of the crate.
+     * @return              Crate object or null if not found.
+     */
+    public SokoCrate getCrate(int location, int direction) {
+        if(!this.hasCrate(location, direction))
+            return null;
+        return this.crates.get(location + direction);
     }
 
     /**

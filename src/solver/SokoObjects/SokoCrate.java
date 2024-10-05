@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-04 22:03:15
+ * @ Modified time: 2024-10-05 19:32:59
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -123,39 +123,23 @@ public class SokoCrate {
     }
 
     /**
-     * Returns whether or not the crate can move north.
+     * Returns whether or not the crate can move in the given direction.
      * 
-     * @return  Whether or not the crate can or can't move.
+     * @param   direction   The direction to check.
+     * @return              Whether or not the move is viable.
      */
-    public boolean canMoveNorth() {
-        return (STUCKSTATES[0] & this.neighbors) != STUCKSTATES[0];
-    }
+    public boolean canMove(int direction) {
+        
+        // Return appropriate check
+        switch(direction) {
+            case Location.NORTH:    return (STUCKSTATES[0] & this.neighbors) != STUCKSTATES[0];
+            case Location.EAST:     return (STUCKSTATES[1] & this.neighbors) != STUCKSTATES[1];
+            case Location.SOUTH:    return (STUCKSTATES[2] & this.neighbors) != STUCKSTATES[2];
+            case Location.WEST:     return (STUCKSTATES[3] & this.neighbors) != STUCKSTATES[3];
+        }
 
-    /**
-     * Returns whether or not the crate can move east.
-     * 
-     * @return  Whether or not the crate can or can't move.
-     */
-    public boolean canMoveEast() {
-        return (STUCKSTATES[1] & this.neighbors) != STUCKSTATES[1];
-    }
-
-    /**
-     * Returns whether or not the crate can move south.
-     * 
-     * @return  Whether or not the crate can or can't move.
-     */
-    public boolean canMoveSouth() {
-        return (STUCKSTATES[2] & this.neighbors) != STUCKSTATES[2];
-    }
-
-    /**
-     * Returns whether or not the crate can move west.
-     * 
-     * @return  Whether or not the crate can or can't move.
-     */
-    public boolean canMoveWest() {
-        return (STUCKSTATES[3] & this.neighbors) != STUCKSTATES[3];
+        // Invalid value
+        return false;
     }
 
     /**

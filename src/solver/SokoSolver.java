@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-05 00:07:00
+ * @ Modified time: 2024-10-05 19:34:53
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -135,10 +135,10 @@ public class SokoSolver {
 
             // Otherwise, keep checking
             SokoState[] newStates = {
-                SokoStateFactory.createNextStateNorth(state, this.map),
-                SokoStateFactory.createNextStateEast(state, this.map),
-                SokoStateFactory.createNextStateWest(state, this.map),
-                SokoStateFactory.createNextStateSouth(state, this.map),
+                SokoStateFactory.createNextState(state, Location.NORTH, this.map),
+                SokoStateFactory.createNextState(state, Location.EAST, this.map),
+                SokoStateFactory.createNextState(state, Location.WEST, this.map),
+                SokoStateFactory.createNextState(state, Location.SOUTH, this.map),
             };
 
             // Add the valid states we haven't visited
