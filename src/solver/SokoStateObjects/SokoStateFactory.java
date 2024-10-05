@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 22:44:08
- * @ Modified time: 2024-10-05 19:41:57
+ * @ Modified time: 2024-10-05 19:55:54
  * @ Description:
  * 
  * The sole duty of this class is to instantiate specific instances of the state.
@@ -9,9 +9,7 @@
 
 package solver.SokoStateObjects;
 
-import java.util.EnumMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Location;
