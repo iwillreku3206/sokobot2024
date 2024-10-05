@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-05 00:32:46
- * @ Modified time: 2024-10-05 12:47:09
+ * @ Modified time: 2024-10-05 13:57:39
  * @ Description:
  * 
  * Represents an isolated test.
@@ -84,7 +84,6 @@ public class Test {
     private void log() {
 
         // ! CHANGE THIS AND MAKE IT BETTER
-        System.out.println("=================");
         System.out.println("Test Name:       " + name);
         System.out.println("Test File:       " + mapName);
         System.out.println("Time Taken:      " + this.panel.getTime());

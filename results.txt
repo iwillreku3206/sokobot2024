@@ -1,0 +1,40 @@
+##########################
+Test timestamp is 14:04:42 05/10/2024 - 14:04:43 05/10/2024:
+Test Name:       tests\test169
+Test File:       tests\test169
+Time Taken:      0.06s
+Number of Moves: 9
+Won:             true
+Solution:        rdldlurrr
+
+
+##########################
+Test timestamp is 14:04:43 05/10/2024 - 14:04:45 05/10/2024:
+Test Name:       tests\test17
+Test File:       tests\test17
+Time Taken:      0.08s
+Number of Moves: 18
+Won:             true
+Solution:        ldddrluurddldrdrdl
+
+
+##########################
+Test timestamp is 14:04:45 05/10/2024 - 14:04:46 05/10/2024:
+Test Name:       tests\test170
+Test File:       tests\test170
+Time Taken:      0.12s
+Number of Moves: 18
+Won:             true
+Solution:        dlluudruuuurdrdldd
+
+
+##########################
+Test timestamp is 14:04:46 05/10/2024 - 14:04:48 05/10/2024:
+Test Name:       tests\test171
+Test File:       tests\test171
+Time Taken:      0.07s
+Number of Moves: 11
+Won:             true
+Solution:        rddlurulldd
+
+

@@ -408,6 +408,7 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
       solutionTimer.stop();
       checkForSolutionTimer.stop();
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
+      this.solutionString = "Timed out.";
       this.solutionTimeString = String.format("%.2f", elapsedSolutionTime / 1000000000.0);
       this.statusString = STATUS_SOLUTION_TIMEOUT;
       this.repaint();
@@ -437,9 +438,9 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   public boolean isInitting() {
     return !this.initted;
   }
-  
+
   public String getSolution() {
-    return this.solutionThread.getSolution();
+    return this.solutionString;
   }
 
   public boolean hasWon() {
