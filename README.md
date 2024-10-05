@@ -14,11 +14,11 @@ Sokoban is an NP-hard problem, meaning to say it is at least as hard as the prob
 
 In this section, we will gradually introduce the concepts underlying our approach and the different actions taken by the overall algorithm. Eventually, with domain language in place, we will be able to phrase our model succintly:
 
-$$ \textbf{"States } \text{evolve over time and can be assigned a } \textbf{priority score } \text{based on the state and its } \textbf{map} \text{."} $$
+$$ \text{"} States \text{ evolve over time and can be assigned a } priority \text{ } score \text{ based on the state and its } map \text{."} $$
 
 Likewise, the algorithm that operates over these concepts can be worded in about just as many words:
 
-$$ \textbf{"Viable states } \text{are } \textit{queued } \text{by priority until a } \textbf{winning state } \text{is } \textit{found } \text{or the queue empties."} $$
+$$ \text{"}Viable \text{ } states \text{ are queued } by \text{ } priority \text{ until a } winning \text{ } state \text{ is found or the queue empties."} $$
 
 The statements above will become clearer as we flesh out the meaning of the highlighted words within the context of the domain (Sokoban).
 
