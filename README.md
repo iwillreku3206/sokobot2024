@@ -1,8 +1,12 @@
 ![intelligent-systems-through-sokoban](./README/title.png)
 
-![overview](./README/header-overview.png)
+![overview](./README/headers/header-overview.png)
 
-### 1.1 Brief description of game
+<center>
+<img src="./README/sokoban.png">
+</center>
+
+### 1.1 Brief description of Sokoban
 
 Sokoban is a simple single-player puzzle game. The goal of the player is to be able to rearrange the crates so that they occupy all the designated locations on the map. The difficulty arises from the fact that some moves result in configurations that offer no reversals: some moves cannot be undone. And once the player is stuck in a bad configuration, restarting becomes the only option.
 
@@ -10,7 +14,7 @@ Sokoban is a simple single-player puzzle game. The goal of the player is to be a
 
 Sokoban is an NP-hard problem, meaning to say it is at least as hard as the problems in the NP complexity class. NP-hard problems are difficult to solve, but once solutions are found they are easy to verify. This is true of Sokoban: finding the solution may take a considerable amount of effort, but running through the solution can easily verify its validity.
 
-![approach](./README/header-approach.png)
+![approach](./README/headers/header-approach.png)
 
 In this section, we will gradually introduce the concepts underlying our approach and the different actions taken by the overall algorithm. Eventually, with domain language in place, we will be able to phrase our model succintly:
 
@@ -64,7 +68,7 @@ These three parameters are unified into a single value that represents the prior
 
 Of course, evaluating the priority of a state only makes sense when the state we're scoring is *viable*. Some states are pointless to try and continue, such as when a crate gets stuck in some corner of the map. In general, the only times states become futile are when crates get stuck in some way. We define precise meanings for "stuck" to help rigorize this idea.
 
-> **Types of stuck**
+> Types of stuck
 >
 > * Permanently stuck crates
 > * Temporarily stuck crates
@@ -83,29 +87,25 @@ Of course, evaluating the priority of a state only makes sense when the state we
 
 Now that we've gotten those out of the way, we can now precisely define when a state stops being viable. In our approach, there are three criteria that identify "dead-end states". 
 
-> **Criteria for dead-end states**
+> Criteria for dead-end states
 > 
 >1. At least one crate is *permanently stuck* and not on a goal. 
 >2. All crates are at least *temporarily stuck* and at least one is not on a goal.
 >3. The player is surrounded by 4 walls. 
 
-The third criteria honestly feels a bit trivial, but we include it lest degenerate maps are generated (map generation is covered later in this document).
+The third criteria honestly feels a bit trivial, but we include it lest degenerate maps are encountered (this was particularly a concern during the testing phase of the project; map generation is discussed later in this document).
 
-3.3 State serialization
+### 2.4 Avoiding repeat states
 
-    * helps avoid repeating states
+    <!-- ! // ! explain state serialization  -->
 
-3.4 State priorities
+### 2.5 The `SokoSolver` class
 
-    3.4.1 Move count heuristic
+    <!-- ! // ! explain the actual algo here + pseudocode -->
 
-    3.4.2 Centroid distance heuristic
-
-    3.4.3 Good crates heuristic
-
-![testing-framework](./README/header-testing-framework.png)
+![testing-framework](./README/headers/header-testing-framework.png)
    
-    4.1 Testing approach
+    3.1 Testing approach
     
         * to automate the testing process, a mock of the original Java files were created
     
@@ -115,13 +115,13 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
     
         * also it looked more visually appealing to watch
 
-    4.1 The Test class
+    3.2 The Test class
     
         * helps isolate tests
     
         * makes sure to instantiate the involved objects each time, so no state is preserved
 
-    4.2 The problem with having a Java test driver 
+    3.3 The problem with having a Java test driver 
     
         * apparently, if a method isn't finished running within a thread, calling its .interrupt() method does nothing
     
@@ -129,27 +129,27 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
     
         * it is thus necessary to start each test as a separate process
 
-    4.3 `tester.py`
+    3.4 `tester.py`
     
         * this represents the test driver
 
-    4.4 Map generation and map corpuses
+    3.5 Map generation and map corpuses
     
         * explain valid file formats 
     
         * the map generation code was lifted from [here](https://github.com/xbandrade/sokoban-solver-generator/commits?author=xbandrade)
 
-![implementation-technicalities](./README/header-implementation-technicalities.png)
+![implementation-technicalities](./README/headers/header-implementation-technicalities.png)
 
-    2.1 Storing coordinates core effectively
+    4.1 Storing coordinates core effectively
 
         * using a single integer and sharing bits
 
-    2.2 Separating state from constants
+    4.2 Separating state from constants
 
         * using a class for the state + another class for what doesn't change
    
-    2.3 Rationale of overarching design patterns
+    4.3 Rationale of overarching design patterns
 
         * using a state factory
 
