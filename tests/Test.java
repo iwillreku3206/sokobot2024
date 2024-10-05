@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-05 00:32:46
- * @ Modified time: 2024-10-05 13:57:39
+ * @ Modified time: 2024-10-05 14:12:14
  * @ Description:
  * 
  * Represents an isolated test.
@@ -84,12 +84,13 @@ public class Test {
     private void log() {
 
         // ! CHANGE THIS AND MAKE IT BETTER
-        System.out.println("Test Name:       " + name);
-        System.out.println("Test File:       " + mapName);
-        System.out.println("Time Taken:      " + this.panel.getTime());
-        System.out.println("Number of Moves: " + this.panel.getMoves());
-        System.out.println("Won:             " + this.panel.hasWon());
-        System.out.println("Solution:        " + this.panel.getSolution());
+        System.out.println("Test Name:          " + name);
+        System.out.println("Test File:          " + mapName);
+        System.out.println("Time Taken:         " + this.panel.getTime());
+        System.out.println("Number of Moves:    " + this.panel.getMoves());
+        System.out.println("Number of Crates:   " + this.panel.getCrates());
+        System.out.println("Won:                " + this.panel.hasWon());
+        System.out.println("Solution:           " + this.panel.getSolution());
     }
 
     /**

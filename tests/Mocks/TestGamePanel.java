@@ -425,6 +425,17 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
     return this.solutionString.length() + "";
   }
 
+  public String getCrates() {
+    int crateCount = 0;
+    for(int y = 0; y < this.items.length; y++) {
+      for(int x = 0; x < this.items[y].length; x++) {
+        if(this.items[y][x] == '$')
+          crateCount++;
+      }
+    }
+    return crateCount + "";
+  }
+
   public void close() {
     solutionTimer.stop();
     checkForSolutionTimer.stop();
