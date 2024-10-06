@@ -14,10 +14,11 @@ RESET_COLORS = "\033[0m"
 
 CSV_FILE = "result_tests.csv"
 
-COL_INFO = {
-    "time_taken": "#A66E38", 
-    "no_move": "#FFAD60", 
-    "no_c": "#FFEEAD"  
+COLUMN_COLORS = {
+    "time_taken": "#ABE188", 
+    "no_move": "#F7EF99", 
+    "no_c": "#F1BB87",
+    #"sol_len": "#F78E69"
 }
 
 BASIS_STATS = {
@@ -76,7 +77,7 @@ def remove_seconds(input: str):
     """
     return input.rstrip("s"); 
 
-def plot_dynamic_grid(col_info: list[str], df: pd.DataFrame):
+def plot_dynamic_grid(col_info: list[tuple[str, str]], df: pd.DataFrame):
     num_plots = len(col_info)
     
     # Define the number of rows and columns based on the number of plots
@@ -90,10 +91,17 @@ def plot_dynamic_grid(col_info: list[str], df: pd.DataFrame):
     axes = axes.flatten()
     
     # Loop through the pairs and create a scatter plot for each
-    for i, col in enumerate(col_info):
-        df.sort_index()
-        axes[i].scatter(x=df.index, y=df[col], color=COL_INFO[col], label=col)
-        axes[i].set(xlabel="Tests", ylabel=col, title = "Statistic for " + col)
+    for i, (x_ax, y_col) in enumerate(col_info):
+        
+        if (x_ax == "index"):
+            df.sort_index()
+            axes[i].scatter(x=df.index, y=df[y_col], color=COLUMN_COLORS[y_col], label=y_col)
+            axes[i].set(xlabel="Tests", ylabel=y_col, title = "Statistic for {}".format(y_col))
+        else:
+            df.sort_values(x_ax);
+            axes[i].scatter(x=df[x_ax], y=df[y_col], color=COLUMN_COLORS[y_col], label=y_col)
+            axes[i].set(xlabel=x_ax, ylabel=y_col, title="Statistic for {} vs {}".format(x_ax, y_col))
+       
     
     # Hide any unused subplots if the number of pairs is less than the grid size
     for j in range(i + 1, len(axes)):
@@ -105,37 +113,51 @@ def plot_dynamic_grid(col_info: list[str], df: pd.DataFrame):
     # Show the plots
     plt.show()
 
-def analyze_data() -> None:
-    df = pd.read_csv(CSV_FILE);
-    
-    
-    # Those that are successful
-    has_won_true = df["has_won"] == True;
-    has_failed   = df["has_won"] == False;
-    df_failed    = df[has_failed];
-    df_sucessful = df[has_won_true];
-    
-    warnings.filterwarnings('ignore')
-    df_sucessful["time_taken"] = df_sucessful["time_taken"].transform(remove_seconds)
-    df_sucessful["time_taken"] = df_sucessful["time_taken"].astype(float);
-    df_failed["time_taken"] = df_failed["time_taken"].transform(remove_seconds)
-    df_failed["time_taken"] = df_failed["time_taken"].astype(float);
-    
-    print(df.head())
-    
-    # Some important statistics for each succesful runs
+def preprocess_df(df: pd.DataFrame) -> None:
+    df["time_taken"] = df["time_taken"].transform(remove_seconds)
+    df["time_taken"] = df["time_taken"].astype(float);
+
+def sum_statistics(df: pd.DataFrame) -> None:
     print("")
-    for col, color in COL_INFO.items():
+    for col, color in COLUMN_COLORS.items():
         print("Statistics of " + colored_out(color) + col + RESET_COLORS + ":")
         for name, stat in BASIS_STATS.items():
-            print(name, round( df_failed[col].agg(stat), 2))
+            print(name, round(df[col].agg(stat), 2))
         print("")
     
-    df.reset_index();
+
     
-    graph_pairs = ["time_taken", "no_c", "no_move"]
+def analyze_data() -> None:
+    warnings.filterwarnings('ignore')
+    
+    df = pd.read_csv(CSV_FILE);
+    df_sucessful  = df[df["has_won"] == True];
+    df_failed    = df[df["has_won"] == False];
+    
+    preprocess_df(df_failed)
+    preprocess_df(df_sucessful)
+    
+    print(df.head())
+    print("")
+
+    print("Has won?");
+    print("Won  : " + str(df_sucessful.shape[0]))
+    print("Fail : " + str(df_failed.shape[0]))
+    
+    df.reset_index();
+    graph_pairs = [("index", "time_taken"), ("index", "no_move"), ("no_move", "time_taken" )]
+    
+    # Succesful Tests
+    df_sucessful.reset_index()
+    sum_statistics(df_sucessful)
     plot_dynamic_grid(graph_pairs, df_sucessful);
+    
+    # Failed Tests
+    df_failed.reset_index()
+    sum_statistics(df_failed)
     plot_dynamic_grid(graph_pairs, df_failed)
+    
+    
             
 def generate_graph(df: pd.DataFrame, col_name: str, ax: plt.axes):
     """Generates a pyplot graph
@@ -145,7 +167,7 @@ def generate_graph(df: pd.DataFrame, col_name: str, ax: plt.axes):
         col_name (str): _description_
         ax (plt.axes): _description_
     """
-    plt.scatter(df.index, df[col_name], color=COL_INFO[col_name], label=col_name)
+    plt.scatter(df.index, df[col_name], color=COLUMN_COLORS[col_name], label=col_name)
     ax.set(xlabel="index", ylabel=col_name, title = "Statistic for " + col_name)
     
     
