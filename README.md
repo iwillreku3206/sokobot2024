@@ -141,7 +141,7 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
 
 ![implementation-technicalities](./README/headers/header-implementation-technicalities.png)
 
-    4.1 Storing coordinates core effectively
+    4.1 Storing coordinates more effectively
 
         * using a single integer and sharing bits
 
@@ -192,3 +192,8 @@ TODO
 
 
 So... refactor the StateFactory class... too much redundancy.
+
+sources:
+
+https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
