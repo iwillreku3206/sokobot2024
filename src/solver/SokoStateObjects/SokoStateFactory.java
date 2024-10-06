@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 22:44:08
- * @ Modified time: 2024-10-05 19:55:54
+ * @ Modified time: 2024-10-06 17:59:29
  * @ Description:
  * 
  * The sole duty of this class is to instantiate specific instances of the state.
@@ -17,11 +17,11 @@ import solver.utils.Location;
 public class SokoStateFactory {
 
     // A mapping from directions to moves
-    private static Map<Integer, String> DIRECTION_TO_MOVE_MAP = Map.of(
-        Location.NORTH, "u",
-        Location.EAST, "r",
-        Location.WEST, "l",
-        Location.SOUTH, "d"
+    private static Map<Integer, Character> DIRECTION_TO_MOVE_MAP = Map.of(
+        Location.NORTH, 'u',
+        Location.EAST, 'r',
+        Location.WEST, 'l',
+        Location.SOUTH, 'd'
     );
     
     /**
@@ -32,7 +32,7 @@ public class SokoStateFactory {
      * @param   map         The map that contextualizes the information of the player and crates.
      */
     public static SokoState createInitialState(int player, int[] crates, SokoMap map) {
-        return new SokoState(player, crates, false, map, "", 0);
+        return new SokoState(player, crates, false, false, map, "", 0);
     }
 
     /**
@@ -44,9 +44,18 @@ public class SokoStateFactory {
      * @param   history         The history of moves for that state.
      * @param   historyLength   The length of the history for that state.
      * @param   move            A new move by the player.
+     * @param   lastMove        The previous move.
      */
-    private static SokoState createMoveState(int player, int[] crates, SokoMap map, String history, int historyLength, String move) {
-        return new SokoState(player, crates, false, map, history + move, historyLength + 1);
+    private static SokoState createMoveState(int player, int[] crates, SokoMap map, String history, int historyLength, char move, char lastMove) {
+        return new SokoState(
+            player,             // Player location
+            crates,             // Crate locations
+            false,              // A crate was moved
+            move != lastMove,   // A 'turn' occurred
+            map,                // The map reference
+            history + move,     // New string of moves
+            historyLength + 1   // Current history length
+        );
     }
 
     /**
@@ -59,9 +68,18 @@ public class SokoStateFactory {
      * @param   history         The history of moves for that state.
      * @param   historyLength   The length of the history for that state.
      * @param   move            A new move by the player.
+     * @param   lastMove        The previous move.
      */
-    private static SokoState createMoveStateWCrate(int player, int[] crates, SokoMap map, String history, int historyLength, String move) {
-        return new SokoState(player, crates, true, map, history + move, historyLength + 1);
+    private static SokoState createMoveStateWCrate(int player, int[] crates, SokoMap map, String history, int historyLength, char move, char lastMove) {
+        return new SokoState(
+            player,             // Player location
+            crates,             // Crate locations
+            true,               // A crate was moved
+            move != lastMove,   // A 'turn' occurred
+            map,                // The map reference
+            history + move,     // New string of moves
+            historyLength + 1   // Current history length
+        );
     }
 
     /**
@@ -81,7 +99,7 @@ public class SokoStateFactory {
         // Other state properties
         int[] crates = currentState.getCrateLocations();
         String history = currentState.getHistory();
-        int historyLength = currentState.getHistoryLength();
+        int historyLength = currentState.getMoveCount();
 
         // If no wall, check if it has a crate
         switch(currentState.getObstacle(player, moveDirection, map)) {
@@ -111,7 +129,8 @@ public class SokoStateFactory {
                     map, 
                     history, 
                     historyLength,
-                    DIRECTION_TO_MOVE_MAP.get(moveDirection));
+                    DIRECTION_TO_MOVE_MAP.get(moveDirection),
+                    currentState.getLastMove());
 
             // Only the player moves
             default: 
@@ -121,7 +140,8 @@ public class SokoStateFactory {
                     map, 
                     history, 
                     historyLength, 
-                    DIRECTION_TO_MOVE_MAP.get(moveDirection));
+                    DIRECTION_TO_MOVE_MAP.get(moveDirection),
+                    currentState.getLastMove());
         }
     }
 }

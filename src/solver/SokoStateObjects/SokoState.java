@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-05 19:29:20
+ * @ Modified time: 2024-10-06 18:30:31
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -23,21 +23,24 @@ import solver.utils.Heuristic;
 import solver.utils.Location;
 
 public class SokoState {
+    public static final float HEURISTIC_WEIGHT_MOVE_COUNT = 0.22f;
+    public static final float HEURISTIC_WEIGHT_CRATE_MOVE_COUNT = 0.3f;
+    public static final float HEURISTIC_WEIGHT_TURN_COUNT = 0.48f;
 
     // Tweak this parameter, this seems like a good value for now
     // Adjusts how much the heuristic influences cost evaluation
     // 0.0 means not at all and 1.0 means it contributes a lot
-    public static final float HEURISTIC_WEIGHT_SOLUTION_LENGTH = 1.0f;
-    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 0.8f;
+    public static final float HEURISTIC_WEIGHT_SOLUTION = 1.0f;
+    public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 1.0f;
     public static final float HEURISTIC_WEIGHT_DISTANCE = 0.05f;
 
-    public static final int HEURISTIC_BIAS_SOLUTION_LENGTH = 0;
+    public static final int HEURISTIC_BIAS_SOLUTION = 0;
     public static final int HEURISTIC_BIAS_GOOD_COUNT = 25;
     public static final int HEURISTIC_BIAS_DISTANCE = 0;
 
     // These determine whether or not their effects on the heuristic value are inverted or not
     // By default good crates are inverted because more of them means a smaller cost value
-    public static final boolean HEURISTIC_INVERT_SOLUTION_LENGTH = false;
+    public static final boolean HEURISTIC_INVERT_SOLUTION = false;
     public static final boolean HEURISTIC_INVERT_GOOD_COUNT = true;
     public static final boolean HEURISTIC_INVERT_DISTANCE = false;
 
@@ -55,15 +58,18 @@ public class SokoState {
 
     // Crate moves are the number of moves that have moved crates
     // Think of crateCentroid as the vector sum of the locations of the crates.
-    private int crateMoves = 0;
     private int crateCentroid = 0;
+    
+    // Move-based heuristics
+    private int crateMoveCount = 0;
+    private int turnCount = 0;
 
     // The location of the player
     private int player;
 
     // The history of the state (what moves were taken to get there)
     private String history;
-    private int historyLength;
+    private int moveCount;
 
     // The serial of the state
     // Should only be computed once
@@ -81,18 +87,19 @@ public class SokoState {
      * @param   history         The history of the state (what moves got us there).
      * @param   historyLength   The length of the history of the state.
      */
-    public SokoState(int player, int[] crates, boolean crateMoved, SokoMap map, String history, int historyLength) {
+    public SokoState(int player, int[] crates, boolean crateMoved, boolean turned, SokoMap map, String history, int historyLength) {
 
         // Init the arrays
         this.crates = new HashMap<>();
-        if(crateMoved) this.crateMoves++;
+        if(crateMoved) this.crateMoveCount++;
+        if(turned) this.turnCount++;
         
         // Set the locations
         this.player = player;
 
         // Init the history
         this.history = history;
-        this.historyLength = historyLength;
+        this.moveCount = historyLength;
 
         // Create the crates
         for(int i = 0; i < crates.length; i++) {
@@ -264,6 +271,21 @@ public class SokoState {
     }
 
     /**
+     * Returns the last performed move.
+     * 
+     * @return  The last move performed.
+     */
+    public char getLastMove() {
+        
+        // No moves yet
+        if(this.moveCount <= 0)
+            return '!';
+            
+        // Get last move
+        return this.history.charAt(this.moveCount - 1);
+    }
+
+    /**
      * Return the location of the player.
      * 
      * @return  The player location.
@@ -286,8 +308,8 @@ public class SokoState {
      * 
      * @return  The length of the history string.
      */
-    public int getHistoryLength() {
-        return this.historyLength;
+    public int getMoveCount() {
+        return this.moveCount;
     }
 
     /**
@@ -295,8 +317,17 @@ public class SokoState {
      * 
      * @return  How many crate moves have we done.
      */
-    public int getCrateMoves() {
-        return this.crateMoves;
+    public int getCrateMoveCount() {
+        return this.crateMoveCount;
+    }
+
+    /**
+     * The number of turns performed so far.
+     * 
+     * @return  How turns have we done.
+     */
+    public int getTurnCount() {
+        return this.turnCount;
     }
 
     /**
@@ -370,7 +401,12 @@ public class SokoState {
         float c = (cx * cx + cy * cy) / (crateCount * crateCount);
 
         // History length and successful crate placements
-        float h = this.historyLength;
+        float h = 
+            this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
+            this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
+            this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
+        
+        // Number of good crates
         float g = this.getGoodCrateCount();
 
         float cHeuristic = Heuristic.weight(
@@ -381,10 +417,10 @@ public class SokoState {
         );
 
         float hHeuristic = Heuristic.weight(
-            HEURISTIC_INVERT_SOLUTION_LENGTH 
-                ? -Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION_LENGTH)
-                : Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION_LENGTH),
-            HEURISTIC_WEIGHT_SOLUTION_LENGTH
+            HEURISTIC_INVERT_SOLUTION 
+                ? -Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION)
+                : Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION),
+            HEURISTIC_WEIGHT_SOLUTION
         );
 
         float gHeuristic = Heuristic.weight(

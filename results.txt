@@ -1,52 +1,52 @@
 ##########################
-Test timestamp is 17:00:46 06/10/2024 - 17:00:47 06/10/2024:
+Test timestamp is 18:30:34 06/10/2024 - 18:30:36 06/10/2024:
 Test Name:          base1
 Test File:          base1
-Time Taken:         0.13s
-Number of Moves:    15
+Time Taken:         0.09s
+Number of Moves:    43
 Number of Crates:   2
 Won:                true
-Solution:           ldrrruuudruulll
+Solution:           ulurrdddruuuddllldrrrlllurrrullulurrdrrulll
 
 
 ##########################
-Test timestamp is 17:00:47 06/10/2024 - 17:00:49 06/10/2024:
+Test timestamp is 18:30:36 06/10/2024 - 18:30:38 06/10/2024:
 Test Name:          base2
 Test File:          base2
-Time Taken:         0.09s
-Number of Moves:    16
+Time Taken:         0.12s
+Number of Moves:    39
 Number of Crates:   2
 Won:                true
-Solution:           drrruldlurrruull
+Solution:           drrrrulldlllurulururrrrdllrddlldllurdru
 
 
 ##########################
-Test timestamp is 17:00:49 06/10/2024 - 17:00:50 06/10/2024:
+Test timestamp is 18:30:38 06/10/2024 - 18:30:41 06/10/2024:
 Test Name:          base3
 Test File:          base3
-Time Taken:         0.31s
-Number of Moves:    28
+Time Taken:         0.22s
+Number of Moves:    162
 Number of Crates:   2
 Won:                true
-Solution:           rrrruulluldrrdrddddluuuurull
+Solution:           dddruuurrdrddludrrrrulllurrrulllllldddllurulurulurrrrdrddddluuddrrrrulllurrruluullllrrrdddlluuddddrrrrulllurrrulllurrrulllldddddrrrrullluurrrulllurrrulllllldurrdl
 
 
 ##########################
-Test timestamp is 17:00:50 06/10/2024 - 17:00:53 06/10/2024:
+Test timestamp is 18:30:41 06/10/2024 - 18:30:46 06/10/2024:
 Test Name:          base4
 Test File:          base4
-Time Taken:         1.11s
-Number of Moves:    29
+Time Taken:         1.80s
+Number of Moves:    173
 Number of Crates:   3
 Won:                true
-Solution:           rrrrdddluuuruullrdrdllldlulur
+Solution:           dddruuurrdrddludrrrrulllurrrulllllldddllurulurulurrrrdrdrdddrrulurululddddlluruuluulldddddlluuuuururrrrrdllurrddlulllrurrdddldrdrdrruulluluuldrdlrdddluuuurullulldldrdrrrrdru
 
 
 ##########################
-Test timestamp is 17:00:53 06/10/2024 - 17:00:54 06/10/2024:
+Test timestamp is 18:30:46 06/10/2024 - 18:30:48 06/10/2024:
 Test Name:          base5
 Test File:          base5
-Time Taken:         0.07s
+Time Taken:         0.08s
 Number of Moves:    11
 Number of Crates:   3
 Won:                true
@@ -54,35 +54,365 @@ Solution:           rrddllddrru
 
 
 ##########################
-Test timestamp is 17:00:54 06/10/2024 - 17:00:56 06/10/2024:
+Test timestamp is 18:30:48 06/10/2024 - 18:30:50 06/10/2024:
 Test Name:          base6
 Test File:          base6
-Time Taken:         0.06s
-Number of Moves:    32
+Time Taken:         0.09s
+Number of Moves:    40
 Number of Crates:   1
 Won:                true
-Solution:           ldddrrdrulurrrdruuuudddlluuuurrr
+Solution:           ldddrdrullurrrrrddrrrulluuuudddlluuuurrr
 
 
 ##########################
-Test timestamp is 17:00:56 06/10/2024 - 17:00:59 06/10/2024:
+Test timestamp is 18:30:50 06/10/2024 - 18:30:54 06/10/2024:
 Test Name:          fiveboxes1
 Test File:          fiveboxes1
-Time Taken:         1.55s
-Number of Moves:    83
+Time Taken:         1.39s
+Number of Moves:    174
 Number of Crates:   5
 Won:                true
-Solution:           rdrrruuldldllurruuluurdrrulllrdddrrddludluuuluurrdluldrdddlldrlddruulurdruuuulurddl
+Solution:           rdrrruuldluddllurdlddrudluuurrldlurrurrddlruulluluurddduurrulldldrdrrddllrruulluuuldrddrrddlludrudluuuddlldrlddrudluuurruulurdddlduruuluurrrdlluldurddlrddlldddruulurdruuuulur
 
 
 ##########################
-Test timestamp is 17:00:59 06/10/2024 - 17:01:03 06/10/2024:
+Test timestamp is 18:30:54 06/10/2024 - 18:30:58 06/10/2024:
 Test Name:          fiveboxes2
 Test File:          fiveboxes2
-Time Taken:         0.65s
-Number of Moves:    139
+Time Taken:         0.53s
+Number of Moves:    170
 Number of Crates:   5
 Won:                true
-Solution:           ldlldlruuldrrruldldddrruuddlluuururrdldddlluuulurrldddludllurrdrdrruuululldduurrdrrulldrdddlluluurrurdlllurrldlddrullldrrurduulurdrrddrrldl
+Solution:           lddullurlddlruuldurrdrrullrdlldddrruuddlluuururrdldddlluuulurrldddludllurrldrrdrruuululldduurrdrrullrddddlluluurrurddduulllddrudlulldrrllurrrduluurrlldddruulurdrrddrdlrur
+
+
+##########################
+Test timestamp is 18:30:58 06/10/2024 - 18:31:05 06/10/2024:
+Test Name:          fiveboxes3
+Test File:          fiveboxes3
+Time Taken:         2.38s
+Number of Moves:    352
+Number of Crates:   5
+Won:                true
+Solution:           drdlurrrdllrddlullldllurrrrrdruuruulddulldrdllrururrdlullddrulurdldllurrdrulldlddrulurdlllurdrdruuuldrdldruulurrrdlldllrdruurrullldldrdrudlululddurrurddlulururrrdllrrullldrdldruulurrdrurruuldrdllddrudlullddlulrdruulurrdrrulddruuruulddllurdrruuldrdllddrudluuuldurrdldllddlululdrrdruulurdrrdruluuldurrrdlddlullrrdruulddruurullldrdlulldurrdldllrruuldrdlul
+
+
+##########################
+Test timestamp is 18:31:05 06/10/2024 - 18:31:08 06/10/2024:
+Test Name:          fourboxes1
+Test File:          fourboxes1
+Time Taken:         0.18s
+Number of Moves:    146
+Number of Crates:   4
+Won:                true
+Solution:           lulldrluulurdddludruuurldddrurrdllrulluurrdullddrdrruluullddldrrlluruuldurrrddldlludrudrurrdllrrulllldrlurrruullldurrrddllulurdddludrurrdllrrulllu
+
+
+##########################
+Test timestamp is 18:31:08 06/10/2024 - 18:31:14 06/10/2024:
+Test Name:          fourboxes2
+Test File:          fourboxes2
+Time Taken:         0.71s
+Number of Moves:    326
+Number of Crates:   4
+Won:                true
+Solution:           lulrddlullldluurdrrrudlllluluurdurdduuldldrdrrrlludrrruruuldldurrdldllldlurrrrdrudlullldluuddrurrrdruuddlullldluuluurdurddulldrdrrrruuldrdlrulururrdldlddrudlullldludrurrrulururrdlduuldlddrdruudlluurdldlluddluuddrurrurrddlullldluuluurdlurrddulldrdrrrlludrrrdrulluururrdlddlllllulururddlddrurruururdllddlldluuulurrddldrrrrudluur
+
+
+##########################
+Test timestamp is 18:31:14 06/10/2024 - 18:31:20 06/10/2024:
+Test Name:          fourboxes3
+Test File:          fourboxes3
+Time Taken:         0.77s
+Number of Moves:    373
+Number of Crates:   4
+Won:                true
+Solution:           lrurrdldddrurrdlrddluuddruuullrdllldllurrrrurdllluruurullldrlulldrrurrdddrdrrddluruullrdrddluulluudrdrrulldlldllurrrrurdlllurrluudddrrrddludruuullrdllluruuruldddrluuulldllurdrruldrurddduullllurdrrrddrdllrrrrddludruuulldlldllurrruudrrdllrrrddlurulddruuullldlrrlluruululdrrddrrdrddluullldllurruruurulldrddrdlrrrulldludldllurruruuddldrrlurrrdddluullluruurulddddrrddruuulldluuu
+
+
+##########################
+Test timestamp is 18:31:20 06/10/2024 - 18:31:26 06/10/2024:
+Test Name:          original1
+Test File:          original1
+Time Taken:         0.90s
+Number of Moves:    355
+Number of Crates:   6
+Won:                true
+Solution:           ullluuulullddurllldddrrrrrrrrrrrurdldrullllllllllllulldrrrrrrrrrrrrrrrllllllllllllluuurrdduulldddrrrrrrrrrrrdrrllurlllllllllluuuruuulddddduulldddrrrrrrluuullulddduuuuurrdlddrrdddrrrrlllddlllluuudrrrrrrrrrdrulurrduldllllllluuulullddduullddldrrrrrrrrrrrrdrudluurdllllllddlllluurrruuulluulurrddllddddrrruuullldddlluuurldddrrrrruuulululdddduulldddrrrrrrrrrrrr
+
+
+##########################
+Test timestamp is 18:31:26 06/10/2024 - 18:31:42 06/10/2024:
+Test Name:          original2
+Test File:          original2
+Time Taken:         15.00
+Number of Moves:    10
+Number of Crates:   10
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:31:42 06/10/2024 - 18:31:58 06/10/2024:
+Test Name:          original3
+Test File:          original3
+Time Taken:         15.00
+Number of Moves:    10
+Number of Crates:   11
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:31:58 06/10/2024 - 18:31:59 06/10/2024:
+Test Name:          stuck1
+Test File:          stuck1
+Time Taken:         0.05s
+Number of Moves:    18
+Number of Crates:   1
+Won:                false
+Solution:           No solution found.
+
+
+##########################
+Test timestamp is 18:31:59 06/10/2024 - 18:32:01 06/10/2024:
+Test Name:          stuck2
+Test File:          stuck2
+Time Taken:         0.06s
+Number of Moves:    18
+Number of Crates:   2
+Won:                false
+Solution:           No solution found.
+
+
+##########################
+Test timestamp is 18:32:01 06/10/2024 - 18:32:04 06/10/2024:
+Test Name:          threeboxes1
+Test File:          threeboxes1
+Time Taken:         0.16s
+Number of Moves:    170
+Number of Crates:   3
+Won:                true
+Solution:           drrrrrddlululldrrllulldrurrrrllllldrrurrdrlulldrlllurrrrrddrruulllrrrddludlulrullldrrllllurdrrrrdrruullddrudlulluldrrruldrdrurulddlululdrrdrrululdllurrldllludrrrrdrurulll
+
+
+##########################
+Test timestamp is 18:32:04 06/10/2024 - 18:32:08 06/10/2024:
+Test Name:          threeboxes2
+Test File:          threeboxes2
+Time Taken:         0.25s
+Number of Moves:    265
+Number of Crates:   3
+Won:                true
+Solution:           drrdddrddluudluruuruulddddrdlruluululldrrlurrdddrddluuuuddlllddrururuuruldddrddlulldluurdrruldrruluddlldluurdrrruluuddldruuuruuldddulllurrdrrulldludrrddrddluudlldluurdrrdruuluurullrddddlldluurrldrruuulllurdrrruulddllurdrrulldrddrdllrdruuluulllurrdrruulddddldrlulldr
+
+
+##########################
+Test timestamp is 18:32:08 06/10/2024 - 18:32:11 06/10/2024:
+Test Name:          threeboxes3
+Test File:          threeboxes3
+Time Taken:         0.12s
+Number of Moves:    159
+Number of Crates:   3
+Won:                true
+Solution:           lulrullldddrrudlluuurrrddrdruuldlldlluuurrdulldrurrdulldrllddrrurldlluuurrdllurrrdrdrulllllddrrurldlluurrdrruldldlluururdrdrurdllulllddrrudlluurrddlluururrdldr
+
+
+##########################
+Test timestamp is 18:32:11 06/10/2024 - 18:32:13 06/10/2024:
+Test Name:          twoboxes1
+Test File:          twoboxes1
+Time Taken:         0.06s
+Number of Moves:    44
+Number of Crates:   2
+Won:                true
+Solution:           lulldrurdrddlludrruuldldrlurrululldrlurrdldr
+
+
+##########################
+Test timestamp is 18:32:13 06/10/2024 - 18:32:15 06/10/2024:
+Test Name:          twoboxes2
+Test File:          twoboxes2
+Time Taken:         0.07s
+Number of Moves:    62
+Number of Crates:   2
+Won:                true
+Solution:           drrurdllllddrulurrrurrdllddrudluulrurrdluldllulddurrrrddlurull
+
+
+##########################
+Test timestamp is 18:32:15 06/10/2024 - 18:32:17 06/10/2024:
+Test Name:          twoboxes3
+Test File:          twoboxes3
+Time Taken:         0.07s
+Number of Moves:    92
+Number of Crates:   2
+Won:                true
+Solution:           lulldrrddludruuulldrlurrdrdrrulllulldrdrrldluuurdrdldludruurrrdlrulllddluuddrurldluurrrrdlll
+
+
+##########################
+Test timestamp is 18:32:17 06/10/2024 - 18:32:19 06/10/2024:
+Test Name:          generated\test1
+Test File:          generated\test1
+Time Taken:         0.07s
+Number of Moves:    13
+Number of Crates:   2
+Won:                true
+Solution:           rdruuuldduuld
+
+
+##########################
+Test timestamp is 18:32:19 06/10/2024 - 18:32:22 06/10/2024:
+Test Name:          generated\test10
+Test File:          generated\test10
+Time Taken:         0.53s
+Number of Moves:    96
+Number of Crates:   5
+Won:                true
+Solution:           lddlddlllurrullurdddluuuurrddduurrdrdldluuruullllddddrrllurrrurrddlllrrruululdddrruuluullddldldr
+
+
+##########################
+Test timestamp is 18:32:22 06/10/2024 - 18:32:27 06/10/2024:
+Test Name:          generated\test2
+Test File:          generated\test2
+Time Taken:         3.00s
+Number of Moves:    91
+Number of Crates:   4
+Won:                true
+Solution:           dlllurrulllldrdrulurddrrrullllulururdldddluuuurrrrddddruuddlllllurrrruuldlddlluruddluuuurdd
+
+
+##########################
+Test timestamp is 18:32:27 06/10/2024 - 18:32:28 06/10/2024:
+Test Name:          generated\test3
+Test File:          generated\test3
+Time Taken:         0.06s
+Number of Moves:    10
+Number of Crates:   4
+Won:                true
+Solution:           rdrluldrrr
+
+
+##########################
+Test timestamp is 18:32:28 06/10/2024 - 18:32:32 06/10/2024:
+Test Name:          generated\test4
+Test File:          generated\test4
+Time Taken:         2.30s
+Number of Moves:    53
+Number of Crates:   5
+Won:                true
+Solution:           lullldlluuurrrrdrrrrrullllllldddrluuulrrrdrrrrrddludl
+
+
+##########################
+Test timestamp is 18:32:32 06/10/2024 - 18:32:49 06/10/2024:
+Test Name:          generated\test5
+Test File:          generated\test5
+Time Taken:         15.00
+Number of Moves:    10
+Number of Crates:   6
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:32:49 06/10/2024 - 18:32:51 06/10/2024:
+Test Name:          generated\test6
+Test File:          generated\test6
+Time Taken:         0.09s
+Number of Moves:    41
+Number of Crates:   6
+Won:                true
+Solution:           lululllldldrrruldllllurdluuuurrrrddddllur
+
+
+##########################
+Test timestamp is 18:32:51 06/10/2024 - 18:33:08 06/10/2024:
+Test Name:          generated\test7
+Test File:          generated\test7
+Time Taken:         14.89s
+Number of Moves:    88
+Number of Crates:   6
+Won:                true
+Solution:           lurdluudrdrruldruruullrddrrllldllurrldluurddrruruuuldluldurddrrrldldlulurddruudlluruulld
+
+
+##########################
+Test timestamp is 18:33:08 06/10/2024 - 18:33:09 06/10/2024:
+Test Name:          generated\test8
+Test File:          generated\test8
+Time Taken:         0.13s
+Number of Moves:    17
+Number of Crates:   3
+Won:                true
+Solution:           rrdddldluurdrrull
+
+
+##########################
+Test timestamp is 18:33:09 06/10/2024 - 18:33:11 06/10/2024:
+Test Name:          generated\test9
+Test File:          generated\test9
+Time Taken:         0.13s
+Number of Moves:    48
+Number of Crates:   5
+Won:                true
+Solution:           urdlddlluururrrrdulldldrdrudllllurrullurrrrrdlll
+
+
+##########################
+Test timestamp is 18:33:11 06/10/2024 - 18:33:26 06/10/2024:
+Test Name:          sokoban-info\10-10_Sokoban-The-Bagatelle-collection-10
+Test File:          sokoban-info\10-10_Sokoban-The-Bagatelle-collection-10
+Time Taken:         11.22s
+Number of Moves:    195
+Number of Crates:   7
+Won:                true
+Solution:           rrddduuuurddrddldluulldrrddluruuurrddldludruruullddulldrruuruuldlldurrrdrddlulldrlddruluuudrdlurrrdldlruruludllurdrddlulurdddludrururuuldllduurddddluulldrrlurruulldurrdrrulluurdldddldlluruuurlddr
+
+
+##########################
+Test timestamp is 18:33:26 06/10/2024 - 18:33:42 06/10/2024:
+Test Name:          sokoban-info\10-11_Sokoban-The-Bagatelle-collection-11
+Test File:          sokoban-info\10-11_Sokoban-The-Bagatelle-collection-11
+Time Taken:         15.05
+Number of Moves:    10
+Number of Crates:   12
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:33:42 06/10/2024 - 18:33:58 06/10/2024:
+Test Name:          sokoban-info\10-12_Sokoban-The-Bagatelle-collection-12
+Test File:          sokoban-info\10-12_Sokoban-The-Bagatelle-collection-12
+Time Taken:         15.04
+Number of Moves:    10
+Number of Crates:   7
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:33:58 06/10/2024 - 18:34:15 06/10/2024:
+Test Name:          sokoban-info\10-13_Sokoban-The-Bagatelle-collection-13
+Test File:          sokoban-info\10-13_Sokoban-The-Bagatelle-collection-13
+Time Taken:         15.00
+Number of Moves:    10
+Number of Crates:   8
+Won:                false
+Solution:           Timed out.
+
+
+##########################
+Test timestamp is 18:34:15 06/10/2024 - 18:34:31 06/10/2024:
+Test Name:          sokoban-info\10-14_Sokoban-The-Bagatelle-collection-14
+Test File:          sokoban-info\10-14_Sokoban-The-Bagatelle-collection-14
+Time Taken:         15.00
+Number of Moves:    10
+Number of Crates:   13
+Won:                false
+Solution:           Timed out.
 
 
