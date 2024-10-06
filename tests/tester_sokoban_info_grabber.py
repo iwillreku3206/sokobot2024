@@ -30,6 +30,8 @@ MAP_GROUPS = {
     '12': 20,
     '13': 13,
     '14': 21,
+    '15': 50,
+    '16': 50, 
 }
 
 def generate_map_url(group_number, map_number, home=HOME):
@@ -119,7 +121,7 @@ def retrieve_boards(home=HOME, map_groups=MAP_GROUPS, out=''):
     """
     
     # So we don't repeat requests when re-running
-    finished_file = open(os.path.join(out, 'done.txt'), 'a+')
+    finished_file = open(os.path.join(out, 'done.txt'), 'r+')
     finished_maps = [ line.split('_')[0] for line in finished_file.readlines() ]
     
     # Grab the different groups
