@@ -12,12 +12,28 @@
 import os
 import time
 import datetime
+import csv
+import re
+from sys import platform
 
-
+IS_CSV = True
 OUT_FILE = 'results.txt'
 TIMESTAMP_FORMAT = '%H:%M:%S %d/%m/%Y'
 MAP_FOLDER = 'maps'
 MAP_NAMES = []
+
+"""
+##########################
+Test timestamp is 15:59:03 06/10/2024 - 15:59:05 06/10/2024:
+Test Name:          fourboxes1
+Test File:          fourboxes1
+Time Taken:         0.18s
+Number of Moves:    86
+Number of Crates:   4
+Won:                true
+Solution:           lullulurrrlldddlurrrdluluurrdullddrdrruluullddldrrluuuldrurrddldluulurdddlurrrrdlllulu
+"""
+
 
 def get_timestamp(format: str =TIMESTAMP_FORMAT) -> str:
     """Returns the timestamp at a given point in time.
@@ -58,6 +74,38 @@ def get_maps(folder=MAP_FOLDER):
     # Return map names
     return map_names
 
+def process_to_csv(test_name: str, map_name: str) -> None:
+    """Process output of tests and stores into csv.
+
+    Args:
+        test_name (string): The name of the test.
+        map_name (string): The name of the map.
+    """
+    with open('result_tests.csv', 'a', newline='') as csvfile:
+        fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_move', 'no_c', 'has_won', 'solution'];
+        writer = csv.writer(csvfile)
+        
+        # Do the test
+        start = get_timestamp()
+        out_text = os.popen("java -classpath out tests.Tester {} {}".format(test_name, map_name)).read()
+        end = get_timestamp()
+        
+        # Process information per row
+        test_info: list[str] = re.split(r'\n', out_text);
+        row_info = [];
+        
+        for test_data in test_info:
+            # Split (Data_name : Data_value) into array
+            test_data = test_data.split(":")
+            test_data = [t.strip() for t in test_data];
+            
+            # Get rid of \n
+            if len(test_data) == 2:
+                #append Data_value
+                row_info.append(test_data[1]) 
+                
+        writer.writerow(row_info)
+    
 def do_test(test_name, map_name, out):
     """Performs a single isolated test.
     Automatically logs its results to the out file. 
@@ -68,22 +116,25 @@ def do_test(test_name, map_name, out):
         out (string): The name of the output file.
     """
     
-    # Open results file
-    result = open('results.txt', 'a');
-    
-    # Do the test
-    start = get_timestamp()
-    out_text = os.popen("java -classpath out tests.Tester {} {}".format(test_name, map_name)).read()
-    end = get_timestamp()
-    
-    # Append results
-    result.write('##########################\n')
-    result.write('Test timestamp is {} - {}:\n'.format(start, end))
-    result.write(out_text)
-    result.write('\n\n');
-    
-    # Close file
-    result.close()
+    if (IS_CSV):
+        process_to_csv(test_name, map_name);
+    else: # text file
+        # Open results file
+        result = open('results.txt', 'a');
+        
+        # Do the test
+        start = get_timestamp()
+        out_text = os.popen("java -classpath out tests.Tester {} {}".format(test_name, map_name)).read()
+        end = get_timestamp()
+        
+        # Append results
+        result.write('##########################\n')
+        result.write('Test timestamp is {} - {}:\n'.format(start, end))
+        result.write(out_text)
+        result.write('\n\n');
+        
+        # Close file
+        result.close()
     
 def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     """Performs all the tests for the specified map names.
@@ -98,13 +149,16 @@ def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     # Overwrite the old results
     if overwrite:
         open(out, 'w').close()
+        with open('result_tests.csv', 'w', newline='') as csvfile:
+            fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_move', 'no_c', 'has_won', 'solution'];
+            writer = csv.writer(csvfile);
+            writer.writerow(fieldnames)
 
     # Don't forget to place it in /dist/
-    os.popen("javac -classpath out/ tests/Tester.java")
-
+    os.popen("javac `find . | grep \\.java$` -d out/ -cp out").read()
+    
     # Iterate through them and run tests
     for map_name in maps:
-        
         # Perform the test
         do_test(map_name, map_name, out);
         

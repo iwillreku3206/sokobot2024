@@ -57,7 +57,7 @@ def get_parsed_html(url):
     """
     
     response = requests.get(url)
-    return BeautifulSoup(response.text)
+    return BeautifulSoup(response.text, features='lxml')
 
 def get_title(html):
     """Retrieves the title of the page from the html.
