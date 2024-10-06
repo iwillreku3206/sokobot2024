@@ -13,12 +13,13 @@ import os
 import time
 import datetime
 
+
 OUT_FILE = 'results.txt'
 TIMESTAMP_FORMAT = '%H:%M:%S %d/%m/%Y'
 MAP_FOLDER = 'maps'
 MAP_NAMES = []
 
-def get_timestamp(format=TIMESTAMP_FORMAT):
+def get_timestamp(format: str =TIMESTAMP_FORMAT) -> str:
     """Returns the timestamp at a given point in time.
     Automatically formats the timestamp according to the template provided.
 
@@ -97,7 +98,10 @@ def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     # Overwrite the old results
     if overwrite:
         open(out, 'w').close()
-    
+
+    # Don't forget to place it in /dist/
+    os.popen("javac -classpath out/ tests/Tester.java")
+
     # Iterate through them and run tests
     for map_name in maps:
         

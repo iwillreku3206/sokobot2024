@@ -1,4 +1,4 @@
-package tests.mocks;
+package tests.Mocks;
 
 import solver.SokoBot;
 

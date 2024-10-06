@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import reader.FileReader;
 import reader.MapData;
 import solver.SokoBot;
-import tests.mocks.TestGamePanel;
+import tests.Mocks.TestGamePanel;
 
 public class Test {
 
