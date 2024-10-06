@@ -1,0 +1,88 @@
+##########################
+Test timestamp is 17:00:46 06/10/2024 - 17:00:47 06/10/2024:
+Test Name:          base1
+Test File:          base1
+Time Taken:         0.13s
+Number of Moves:    15
+Number of Crates:   2
+Won:                true
+Solution:           ldrrruuudruulll
+
+
+##########################
+Test timestamp is 17:00:47 06/10/2024 - 17:00:49 06/10/2024:
+Test Name:          base2
+Test File:          base2
+Time Taken:         0.09s
+Number of Moves:    16
+Number of Crates:   2
+Won:                true
+Solution:           drrruldlurrruull
+
+
+##########################
+Test timestamp is 17:00:49 06/10/2024 - 17:00:50 06/10/2024:
+Test Name:          base3
+Test File:          base3
+Time Taken:         0.31s
+Number of Moves:    28
+Number of Crates:   2
+Won:                true
+Solution:           rrrruulluldrrdrddddluuuurull
+
+
+##########################
+Test timestamp is 17:00:50 06/10/2024 - 17:00:53 06/10/2024:
+Test Name:          base4
+Test File:          base4
+Time Taken:         1.11s
+Number of Moves:    29
+Number of Crates:   3
+Won:                true
+Solution:           rrrrdddluuuruullrdrdllldlulur
+
+
+##########################
+Test timestamp is 17:00:53 06/10/2024 - 17:00:54 06/10/2024:
+Test Name:          base5
+Test File:          base5
+Time Taken:         0.07s
+Number of Moves:    11
+Number of Crates:   3
+Won:                true
+Solution:           rrddllddrru
+
+
+##########################
+Test timestamp is 17:00:54 06/10/2024 - 17:00:56 06/10/2024:
+Test Name:          base6
+Test File:          base6
+Time Taken:         0.06s
+Number of Moves:    32
+Number of Crates:   1
+Won:                true
+Solution:           ldddrrdrulurrrdruuuudddlluuuurrr
+
+
+##########################
+Test timestamp is 17:00:56 06/10/2024 - 17:00:59 06/10/2024:
+Test Name:          fiveboxes1
+Test File:          fiveboxes1
+Time Taken:         1.55s
+Number of Moves:    83
+Number of Crates:   5
+Won:                true
+Solution:           rdrrruuldldllurruuluurdrrulllrdddrrddludluuuluurrdluldrdddlldrlddruulurdruuuulurddl
+
+
+##########################
+Test timestamp is 17:00:59 06/10/2024 - 17:01:03 06/10/2024:
+Test Name:          fiveboxes2
+Test File:          fiveboxes2
+Time Taken:         0.65s
+Number of Moves:    139
+Number of Crates:   5
+Won:                true
+Solution:           ldlldlruuldrrruldldddrruuddlluuururrdldddlluuulurrldddludllurrdrdrruuululldduurrdrrulldrdddlluluurrurdlllurrldlddrullldrrurduulurdrrddrrldl
+
+
