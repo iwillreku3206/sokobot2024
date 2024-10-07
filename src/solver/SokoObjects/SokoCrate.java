@@ -1,22 +1,12 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-07 17:20:19
+ * @ Modified time: 2024-10-07 20:10:16
  * @ Description:
  * 
  * A class that represents a crate's state.
  * This is important for us to know whether or not a crate is stuck or not.
- * We have two types of stuck:
- * 
- *      A. Permanently stuck:
- *          At least two adjacent sides of the crate are walls.
- *      B. Temporarily stuck:
- *          At least two adjacent sidesof the crate are walls or crates.
- * 
- * We know we've reached a bum state when either 
- * 
- *      (1) all crates are temporarily stuck (B)            AND at least one of them is not on a goal
- *      (2) at least one crate is permanently stuck (A)     AND at least one of them is not on a goal
+ * (Or rather to separate the logic for determining stuckness more cleanly).
  */
 
 package solver.SokoObjects;
@@ -29,21 +19,12 @@ import solver.utils.*;
 public class SokoCrate {
 
     // Bit combinations for crates that are temporarily stuck 
-    public static final byte[] STUCKSTATES_TEMPORARY = {
+    public static final byte[] STUCKSTATES = {
         
         (byte) (Grid.NORTH  + Grid.EAST),   // North and east are occupied by wall or crate
         (byte) (Grid.EAST   + Grid.SOUTH),  // East and south are occupied by wall or crate
         (byte) (Grid.SOUTH  + Grid.WEST),   // South and west are occupied by wall or crate
         (byte) (Grid.WEST   + Grid.NORTH),  // West and north are occupied by wall or crate
-    };
-
-    // Bit combinations representing crates that are permanently stuck
-    public static final byte[] STUCKSTATES_PERMANENT = {
-
-        (byte) (STUCKSTATES_TEMPORARY[0] + (STUCKSTATES_TEMPORARY[0] << 1)),  // North and east are occupied by wall
-        (byte) (STUCKSTATES_TEMPORARY[1] + (STUCKSTATES_TEMPORARY[1] << 1)),  // East and south are occupied by wall
-        (byte) (STUCKSTATES_TEMPORARY[2] + (STUCKSTATES_TEMPORARY[2] << 1)),  // South and west are occupied by wall
-        (byte) (STUCKSTATES_TEMPORARY[3] + (STUCKSTATES_TEMPORARY[3] << 1)),  // West and north are occupied by wall
     };
 
     // VERY IMPORTANT: The 'neighbors' variable does not represent the number of neighbors for a given crate.
@@ -58,8 +39,7 @@ public class SokoCrate {
     //            ^^    ''    ''  ''   ''        ''  South neighbor          
     //              ^^  ''    ''  ''   ''        ''  West neighbor
     // 
-    // If a given pair of bits shows 01, it means an adjacent CRATE is present in that location.
-    // If a given pair of bits shows 11, it means an adjacent WALL is present there.
+    // If a given pair of bits shows 11, it means an adjacent WALL or CRATE is present there.
     //
     // We do this for the sake of convenience (when checking what stuff are beside the crate)
     // and for efficiency (bitwise ops are fast)
@@ -82,35 +62,15 @@ public class SokoCrate {
     }
 
     /**
-     * Returns whether or not the crate is stuck permanently.
-     * 
-     * @return  The permanent stuckness state of the crate.
-     */
-    public boolean isStuckPermanently() {
-
-        // For each of the permanent stuck states, check if its the case that at least one is satisfied
-        for(int i = 0; i < 4; i++)
-            if((STUCKSTATES_PERMANENT[i] & this.neighbors) == STUCKSTATES_PERMANENT[i])
-                return true;
-
-        // Otherwise, return false
-        return false;
-    }
-
-    /**
      * Returns whether or not the crate is stuck temporarily.
      * 
      * @return  The temporary stuckness state of the crate.
      */
-    public boolean isStuckTemporarily() {
-
-        // If it's already stuck permanently, it can't be stuck temporarily
-        if(this.isStuckPermanently())
-            return false;
+    public boolean isStuck() {
         
         // For each of the temporary stuck states, check if its the case that at least one is satisfied
         for(int i = 0; i < 4; i++)
-            if((STUCKSTATES_TEMPORARY[i] & this.neighbors) == STUCKSTATES_TEMPORARY[i])
+            if((STUCKSTATES[i] & this.neighbors) == STUCKSTATES[i])
                 return true;
                 
         // Otherwise, return false
@@ -214,34 +174,26 @@ public class SokoCrate {
         }
 
         // Set the north neighbor
-        public Builder setN(char c) { 
-            this.neighbors |= 
-                (c == 'w' ? 0b11000000 : 
-                (c == 'c' ? 0b01000000 : 0b00000000));
+        public Builder setN(boolean hasNeighbor) { 
+            this.neighbors |= hasNeighbor ? Grid.NORTH : 0;
             return this;
         };
 
         // Set the east neighbor
-        public Builder setE(char c) { 
-            this.neighbors |= 
-                (c == 'w' ? 0b00110000 : 
-                (c == 'c' ? 0b00010000 : 0b00000000));
+        public Builder setE(boolean hasNeighbor) { 
+            this.neighbors |= hasNeighbor ? Grid.EAST : 0;
             return this;
         };
 
         // Set the south neighbor
-        public Builder setS(char c) { 
-            this.neighbors |= 
-                (c == 'w' ? 0b00001100 : 
-                (c == 'c' ? 0b00000100 : 0b00000000));
+        public Builder setS(boolean hasNeighbor) { 
+            this.neighbors |= hasNeighbor ? Grid.SOUTH : 0;
             return this;
         };
 
         // Set the west neighbor
-        public Builder setW(char c) { 
-            this.neighbors |= 
-                (c == 'w' ? 0b00000011 : 
-                (c == 'c' ? 0b00000001 : 0b00000000));
+        public Builder setW(boolean hasNeighbor) { 
+            this.neighbors |= hasNeighbor ? Grid.WEST : 0;
             return this;
         };
 

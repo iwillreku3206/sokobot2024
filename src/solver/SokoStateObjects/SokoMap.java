@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-07 19:52:40
+ * @ Modified time: 2024-10-07 20:08:18
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -26,8 +26,6 @@ public class SokoMap {
     // Stores whether or not locations are stuckable
     // Stuckable locations are locations where boxes cannot be moved out of (even if the boxes aren't stuck)
     // Stuckable locations also account for goals, and if goals are nearby then they do not count as stuckable
-    // ! todo todo todoooo
-    // ! preprocess map for this or smth
     private boolean[][] passable;
 
     // The goal locations
@@ -168,6 +166,12 @@ public class SokoMap {
                             break;
                         }
 
+                        // If it has a goal, then this region should be passable
+                        if(this.hasGoal(currentLocation)) {
+                            allCellsUnpassable = false;
+                            break;
+                        }
+
                         // If side hasn't been defined
                         if(side == 0) {
 
@@ -238,6 +242,12 @@ public class SokoMap {
 
                         // If it has a wall, then we're checking the wrong pair of corners
                         if(this.hasWall(currentLocation)) {
+                            allCellsUnpassable = false;
+                            break;
+                        }
+
+                        // If it has a goal, then this region should be passable
+                        if(this.hasGoal(currentLocation)) {
                             allCellsUnpassable = false;
                             break;
                         }

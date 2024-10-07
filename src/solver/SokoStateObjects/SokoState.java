@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-07 19:58:13
+ * @ Modified time: 2024-10-07 20:13:20
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -118,10 +118,10 @@ public class SokoState {
                 crateLocation,
                 SokoCrate
                     .create(crateLocation)
-                    .setN(this.getObstacle(crateLocation, Location.NORTH, map, crates))
-                    .setE(this.getObstacle(crateLocation, Location.EAST, map, crates))
-                    .setW(this.getObstacle(crateLocation, Location.WEST, map, crates))
-                    .setS(this.getObstacle(crateLocation, Location.SOUTH, map, crates))
+                    .setN(this.hasObstacle(crateLocation, Location.NORTH, map, crates))
+                    .setE(this.hasObstacle(crateLocation, Location.EAST, map, crates))
+                    .setW(this.hasObstacle(crateLocation, Location.WEST, map, crates))
+                    .setS(this.hasObstacle(crateLocation, Location.SOUTH, map, crates))
                     .build());
         }
 
@@ -183,20 +183,20 @@ public class SokoState {
      * @param   direction   The direction of the neighbor to inspect.
      * @param   map         The map to use.
      * @param   crates      A list of crates; specified during init.
-     * @return
+     * @return              Whether or not there is an obstacle there.
      */
-    private char getObstacle(int location, int direction, SokoMap map, int[] crates) {
+    private boolean hasObstacle(int location, int direction, SokoMap map, int[] crates) {
         
         // Check for wall
         if(map.hasWall(location, direction))
-            return 'w';
+            return true;
 
         // Check for crate
         for(int crate : crates)
             if(crate == location + direction)
-                return 'c';
+                return true;
         
-        return ' ';
+        return false;
     }
     
     /**
@@ -245,7 +245,7 @@ public class SokoState {
                 allCratesAreGood = false;
 
             // Preprocess unstuck crates
-            if(!crate.isStuckPermanently() && !crate.isStuckTemporarily()) 
+            if(!crate.isStuck()) 
                 unstuckCrates.add(crate.getLocation());
         }
 
@@ -262,7 +262,7 @@ public class SokoState {
 
         // Check if all crates are at least temporarily stuck
         for(SokoCrate crate : crateCollection) 
-            if(!crate.isStuckPermanently() && !crate.isStuckTemporarily())
+            if(!crate.isStuck())
                 allCratesAreStuck = false;
 
         // Check if crates are stuck in groups

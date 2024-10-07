@@ -1,0 +1,48 @@
+test_name,test_file,time_taken,no_move,no_c,has_won,solution
+base1,base1,0.06s,15,2,true,ldrrrurullldluu
+base2,base2,0.06s,18,2,true,drrrrulldlurrurull
+base3,base3,0.12s,48,2,true,uluurrrrdrdddddluurulllullddddrruluulurdrrrurull
+base4,base4,0.44s,54,3,true,dddruuurrdrddluurullldllurdddruuurrdddrrrrullluruluull
+base5,base5,0.05s,11,3,true,rrddllddrru
+base6,base6,0.06s,34,1,true,lddddrulurrrrrddruuuuudddlluuuurrr
+base7,base7,1.36s,44,11,true,rrrrrdurdurrrduldurrrduldullldllulduldulduld
+fiveboxes1,fiveboxes1,0.40s,94,5,true,rdrrruuldldllurruuluurdrrulllrdddrrddludlulldrlddruuruuuluurrdlrrullldrddddlddluuurdruuulrulur
+fiveboxes2,fiveboxes2,0.34s,158,5,true,ldllurdldlruuldrrrdurulldldddrruuddlluuururrdldddlluuulurrldddludllurrdrdrrurdluuululldduurrdrrulldrddrrldllluluurrurdlllurrdrddrdluuulluldddruulurddllldrrurd
+fiveboxes3,fiveboxes3,1.36s,236,5,true,drdlurrrdllrddlullldllurrrrrdruuruulddrullldrdlrulurrrdlullddrudlllurrurlddrullldddrulurdlllurdrruuldrdllulddurrururrdlluldrdlrururrruuldrdllldldlluldrrruruurdrruuldrdlluldrddrudlullllrurdrruurrdluldrdllluldrrrdruurullldrdlldllrruuldrdl
+fourboxes1,fourboxes1,0.16s,85,4,true,lullulurrldddlurrrdluluurrdullddrdrruluullddldrrlluruuldrurrddldluulurdddluudrrrrdlll
+fourboxes2,fourboxes2,0.40s,188,4,true,lulrddlullldluuluurdurddulldrdrrrruruuldldurrdldlllrrrdruuldllldlurudluluurrddldrrrruuldrdllldlurrruruurrdluldlddrdruuddlullluuulldrurddulldrdrudrrrluururrdlddllurlurddllllulururddulddrrrr
+fourboxes3,fourboxes3,0.46s,227,4,true,lrurrdlddrrrdlrddluullrrddruuulldlldllurrrrurdllluruuulldrlulldrrllurrrrdddrdrrulldluuuruldddrdrrddluurulldlldllurrrrurdllluruuulldrlurrdddrdllrrrrulldluuurullrdddrrrdddluurullrdlluuuddlddllurrrrurrdddluulluuurulddddrrrulldluuu
+original1,original1,0.53s,266,6,true,ullluuululldlldddrrrrrrrrrrrrrlllllllllllllulldrrrrrrrrrrrrrrlllllllllllluuurrrldduulldddrrrrrrrrrrrdrulurrdllllllllllluuuuruulddddduullddldrrrrrrrrrrrrrdrllulllllluuullulddduulldddrrrrrrrrrrrurdldrullllllluuulluuurddllddddddrrrruuluuullulddduulldddrrrrrrrrrrrdrulur
+original2,original2,15.00,10,10,false,Timed out.
+original3,original3,15.00,10,11,false,Timed out.
+stuck1,stuck1,0.06s,18,1,false,No solution found.
+stuck2,stuck2,0.05s,18,2,false,No solution found.
+threeboxes1,threeboxes1,0.13s,107,3,true,drdrurrrddlululldrrrdrruldruulllrrddlulllulldrrrrulrdrlluldrrurddrruullddrudluuldrdrurulddlululdrrrulldlllu
+threeboxes2,threeboxes2,0.19s,149,3,true,dldrurrdddrddluudlruuuruulddddrdluuurullldrlurrdddrddluuuuruldddlllddrururuurulldrddrddluuuurulddddlllurrdruuuruulddllurdrddrdllruuuruulddddldrullldr
+threeboxes3,threeboxes3,0.07s,109,3,true,lulrullldddrrurrruldlldlluuurrrduldulldrrllddrrurrlldlluururdurdlllddrrudlluurrdrlullurrrdrdulldrldlluurrrrrd
+twoboxes1,twoboxes1,0.06s,29,2,true,lulldrurdrddlluruulldrurddldr
+twoboxes2,twoboxes2,0.06s,50,2,true,drrurrdluldlllddrudluurrrurrdllllulddrurrrddlurull
+twoboxes3,twoboxes3,0.07s,68,2,true,lulldrrddludruurdluulldrlurrdrdrrulllulldrdrrululdrddluuddrururrdlll
+generated\test1,generated\test1,0.06s,13,2,true,rdruuuldduuld
+generated\test10,generated\test10,0.65s,32,5,true,ldddlurrddlruuluulllldrurddrdrdl
+generated\test2,generated\test2,0.13s,23,4,true,dlllurdruullllururrdrld
+generated\test3,generated\test3,0.06s,10,4,true,rdrluldrrr
+generated\test4,generated\test4,0.44s,39,5,true,llllurrrurrrrddludlruruullllllllddldrrr
+generated\test5,generated\test5,0.16s,35,6,true,dldullurrrrdurddrdluldlulldrrrrdlll
+generated\test6,generated\test6,0.06s,27,6,true,lulullddludlludlluuuurrrrdd
+generated\test7,generated\test7,0.19s,18,6,true,lurrdrurrllllurrrr
+generated\test8,generated\test8,0.06s,15,3,true,ddddrrrululdldr
+generated\test9,generated\test9,0.06s,18,5,true,ddrurulddruuurdlll
+sokoban-info\10-10_Sokoban-The-Bagatelle-collection-10,sokoban-info\10-10_Sokoban-The-Bagatelle-collection-10,3.74s,121,7,true,rrurddldduurrddldluuudlldrrddluruuuruuldlldurrurddrddluudlluddrddludruuulurdddlulldrruruulldurrdrrulluurdldddldllururluur
+sokoban-info\10-11_Sokoban-The-Bagatelle-collection-11,sokoban-info\10-11_Sokoban-The-Bagatelle-collection-11,15.00,10,12,false,Timed out.
+sokoban-info\10-12_Sokoban-The-Bagatelle-collection-12,sokoban-info\10-12_Sokoban-The-Bagatelle-collection-12,14.85s,167,7,true,dururrddlluurrdrrdlddlddruuuurululllddrrllulldrulurrrrrddddlllluurrrlluurrdullddlddrrrruullluulldrdrrrrddlddlllulurrrudlludddrudluluruuluurdddduulururrrddllrruulldldrr
+sokoban-info\10-13_Sokoban-The-Bagatelle-collection-13,sokoban-info\10-13_Sokoban-The-Bagatelle-collection-13,1.54s,110,8,true,uurrlludddrurldluuuluurdddulurrrddluruurrddlruulldldllurdrdddllurdruuddluuuluurdddrrurrdllrullrdrrddluruuuulld
+sokoban-info\10-14_Sokoban-The-Bagatelle-collection-14,sokoban-info\10-14_Sokoban-The-Bagatelle-collection-14,15.00,10,13,false,Timed out.
+sokoban-info\10-15_Sokoban-The-Bagatelle-collection-15,sokoban-info\10-15_Sokoban-The-Bagatelle-collection-15,15.00,10,7,false,Timed out.
+sokoban-info\10-16_Sokoban-The-Bagatelle-collection-16,sokoban-info\10-16_Sokoban-The-Bagatelle-collection-16,15.00,10,10,false,Timed out.
+sokoban-info\10-17_Sokoban-The-Bagatelle-collection-17,sokoban-info\10-17_Sokoban-The-Bagatelle-collection-17,15.00,10,9,false,Timed out.
+sokoban-info\10-18_Sokoban-The-Bagatelle-collection-18,sokoban-info\10-18_Sokoban-The-Bagatelle-collection-18,15.02,10,6,false,Timed out.
+sokoban-info\10-19_Sokoban-The-Bagatelle-collection-19,sokoban-info\10-19_Sokoban-The-Bagatelle-collection-19,15.00,10,9,false,Timed out.
+sokoban-info\10-1_Sokoban-The-Bagatelle-collection-1,sokoban-info\10-1_Sokoban-The-Bagatelle-collection-1,15.03,10,30,false,Timed out.
+sokoban-info\10-20_Sokoban-The-Bagatelle-collection-20,sokoban-info\10-20_Sokoban-The-Bagatelle-collection-20,10.33s,626,5,true,urrldrurruulllllldlddrdrdrrrrdrruruuullrrdddldlluruuuuddddlllllululuuluurddduurrrrrrurrdlllllllrrrrrrdddddlllllulullllulllddrrurulllrrrdrrruuluurddduurrrrrrrddllrrrrdddldluuuddlllllulullllulllddrrurulrdrrrrdrdrrrrruuuuddddlllllululuuurrrrrrurrdllllllldlluurddduurrrrrrrdddddlllllululllluluulldlddrulururrddllddrrurulrdrrrrdrdrrrrruuulldrurrrdddlluuuudddddlullllululuulurrrrrrrurrdllllllldlluurddduurrrrrrurdddldrdddlullllululllluluullddddrruuudddllulldrruuuldurururrdlddllrrrdrrruururrrrrrddldlllurrrdruudrrdddldllullllululuulurrrrrrrurrdllllllldlluurddduurrrrrrrdddddlllllululllluldulluururddullddrrllddllurdruurruulldldrddlu
+sokoban-info\10-2_Sokoban-The-Bagatelle-collection-2,sokoban-info\10-2_Sokoban-The-Bagatelle-collection-2,15.00,10,12,false,Timed out.
