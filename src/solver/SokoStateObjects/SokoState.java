@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-07 22:06:44
+ * @ Modified time: 2024-10-08 00:43:01
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -471,7 +471,7 @@ public class SokoState {
         float h = 
             +this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
             +this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
-            -this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
+            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
         
         // Number of good crates
         float g = this.getGoodCrateCount();

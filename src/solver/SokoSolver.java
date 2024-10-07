@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-07 22:03:56
+ * @ Modified time: 2024-10-08 00:44:38
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -148,9 +148,8 @@ public class SokoSolver {
         SokoState state = this.states.poll();
 
         // If visited earlier after it was put in queue
-        // ! why does this fuck up the search??
-        // ! if(this.visitedStates.contains(state.getSerial()))
-        // !     return "";
+        if(this.visitedStates.contains(state.getSerial()))
+            return "";
 
         // Add the state serials to their sets
         this.visitedStates.add(state.getSerial());
