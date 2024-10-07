@@ -1,531 +1,531 @@
 test_name,test_file,time_taken,no_move,no_c,has_won,solution
-threeboxes2,threeboxes2,0.68s,149,3,true,dldrurrdddrddluudlruuuruulddddrdluuurullldrlurrdddrddluuuuruldddlllddrururuurulldrddrddluuuurulddddlllurrdruuuruulddllurdrddrdllruuuruulddddldrullldr
+threeboxes2,threeboxes2,0.51s,161,3,true,dldrurrdddrddluudluruulrruulddddrdldruuluululldrrurdddrddluuuuruldddlllddrururrddluuuuruuldldlurrrdlddrdllldluurrdruuulrruulddddrdllruuuullldrrllurrrdddldrullldr
 stuck1,stuck1,0.18s,18,1,false,No solution found.
-base6,base6,0.22s,34,1,true,lddddrulurrrrrddruuuuudddlluuuurrr
-base2,base2,0.23s,18,2,true,drrrrulldlurrurull
-threeboxes3,threeboxes3,0.34s,109,3,true,lulrullldddrrurrruldlldlluuurrrduldulldrrllddrrurrlldlluururdurdlllddrrudlluurrdrlullurrrdrdulldrldlluurrrrrd
-original1,original1,1.86s,264,6,true,ullluuululldlldddrrrrrrrrrrrrrlllllllllllllulldrrrrrrrrrrrrrrllllllluuululldrldduuuruuldddlldddrrrrrrrrrrrurdldrrlullllllluuululldrldduulldddrrrrrrrrrrrdrulurrdlllllllluuullulddduulldddrrrrrrrrrrrrllllllluuulluuurddllddddddrrrruuluuullulddduulldddrrrrrrrrrrrdrulur
-fiveboxes1,fiveboxes1,1.15s,94,5,true,rdrrruuldldllurruuluurdrrulllrdddrrddludlulldrlddruuruuuluurrdlrrullldrddddlddluuurdruuulrulur
-base1,base1,0.29s,15,2,true,ldrrrurullldluu
-base7,base7,1.81s,56,11,true,rrrrdurrdurrrdulldulldurrrdurrdurdllulldllluldrrulllduld
-base5,base5,0.20s,11,3,true,rrddllddrru
-base3,base3,0.33s,48,2,true,uluurrrrdrdddddluurulllullddddrruluulurdrrrurull
-twoboxes3,twoboxes3,0.23s,68,2,true,lulldrrddludruurdluulldrlurrdrdrrulllulldrdrrululdrddluuddrururrdlll
-twoboxes1,twoboxes1,0.21s,29,2,true,lulldrurdrddlluruulldrurddldr
-fourboxes1,fourboxes1,0.51s,85,4,true,lullulurrldddlurrrdluluurrdullddrdrruluullddldrrlluruuldrurrddldluulurdddluudrrrrdlll
-fiveboxes2,fiveboxes2,1.06s,158,5,true,ldllurdldlruuldrrrdurulldldddrruuddlluuururrdldddlluuulurrldddludllurrdrdrrurdluuululldduurrdrrulldrddrrldllluluurrurdlllurrdrddrdluuulluldddruulurddllldrrurd
-fourboxes3,fourboxes3,1.44s,227,4,true,lrurrdlddrrrdlrddluullrrddruuulldlldllurrrrurdllluruuulldrlulldrrllurrrrdddrdrrulldluuuruldddrdrrddluurulldlldllurrrrurdllluruuulldrlurrdddrdllrrrrulldluuurullrdddrrrdddluurullrdlluuuddlddllurrrrurrdddluulluuurulddddrrrulldluuu
-twoboxes2,twoboxes2,0.28s,50,2,true,drrurrdluldlllddrudluurrrurrdllllulddrurrrddlurull
-original2,original2,15.01,10,10,false,Timed out.
-threeboxes1,threeboxes1,0.77s,107,3,true,drdrurrrddlululldrrrdrruldruulllrrddlulllulldrrrrulrdrlluldrrurddrruullddrudluuldrdrurulddlululdrrrulldlllu
-fiveboxes3,fiveboxes3,3.49s,236,5,true,drdlurrrdllrddlullldllurrrrrdruuruulddrullldrdlrulurrrdlullddrudlllurrurlddrullldddrulurdlllurdrruuldrdllulddurrururrdlluldrdlrururrruuldrdllldldlluldrrruruurdrruuldrdlluldrddrudlullllrurdrruurrdluldrdllluldrrrdruurullldrdlldllrruuldrdl
+base6,base6,0.19s,32,1,true,ldddrrdrulurrrdruuuudddlluuuurrr
+base2,base2,0.24s,18,2,true,drrrrulldlurrruull
+threeboxes3,threeboxes3,0.27s,87,3,true,lulrullldddrrurrruldlldlluuurrrduldulldrrllddrrurldlluururrdrdrullulldrdrrurdllluurdldr
+original1,original1,1.56s,260,6,true,ullluuululldlldddrrrrrrrrrrrrrdllulllllllllllulldrrrrrrrrrrrrrrllllllluuulullddduulldddrrrrrrrrrrrurdldrrullllllllllluuuruuulddddduulldddrrrrrrrrrrrrurdlllllllluuullrullddduulldddrrrrrrrrrrrrllllllluuululuurddllddddddrrrruuluuullulddduulldddrrrrrrrrrrrdrudluur
+fiveboxes1,fiveboxes1,1.15s,122,5,true,rdrrruuldldllurruuluurdrrullldrddrrddlluudlldrlddruluurrurrddlulldrllddruluurruuluurrdluldrdddlldddruuddluuurdruuulrudluur
+base1,base1,0.26s,25,2,true,ldrrrurulddlllurrurulldlu
+base7,base7,1.47s,68,11,true,rrrdurdurrdurdurdurrrduldlulldluldlluldrrrrrrlllllulldlurrdrrrrrrurd
+base5,base5,0.18s,11,3,true,rrddllddrru
+base3,base3,0.28s,47,2,true,dddruuurrrdddluurullluuurrrdllrddllulldrldrdruu
+twoboxes3,twoboxes3,0.22s,68,2,true,lulldrrddludruuulldrlurrdrdrrulllulldrdrrldluuurdrdldluuddruurrrdlll
+twoboxes1,twoboxes1,0.20s,42,2,true,lulldrurdrddlludrruuldrululldrddrluuurdldr
+fourboxes1,fourboxes1,0.51s,104,4,true,lullulurrrlldddlurrrrdlluluurrdullddrdrruluullddldrrlluruuldrurrddldluulurddrrrdlrullldludrurrdllrrulllu
+fiveboxes2,fiveboxes2,1.09s,181,5,true,ldlldlruuldurdrrduuldldddrruuddlluuururrdldddlluuulurdddludruuurldddlllurrdrdrruuululldduurrdrrullrdddrrlldlluluurrurddulllurrdllddruulurdrrddrdluuulldddrluullldrrurdlllurrrurrddrdl
+fourboxes3,fourboxes3,1.29s,267,4,true,lrurrdlddrrrdllurdrddluuddruuulldlldllurrrrurdllluruuulldrlulldrrllurrrrdddrdllrrrrddluruulldluuurullrddddrurrddlurulldlldllurrrrurdllluruuulldrlurrdddrdlrrrulldllruuuddrrdrddluuruldlluuurulldrdddrruldluuudddldllurrrrurrddluddruuuldllurdlluruurulddddrrddruuullrdlluuu
+twoboxes2,twoboxes2,0.22s,48,2,true,drrurrdluldlllddrulurrrurrdllllulddurrrrddlurull
+original2,original2,15.03,10,10,false,Timed out.
+threeboxes1,threeboxes1,0.42s,106,3,true,drdrurrrddlululldrurrlldrrdrruulrdlullrrddlulllulldrrrrulldlurrrdrdrrulldrrulullldllurdrrrluldrrdrudruulll
+fiveboxes3,fiveboxes3,2.99s,246,5,true,drdlurrrdllrddlullldllurrrrrdruuruulddulldrdlruurrdlullddrulurlddllddruluurrdrullldrdlllurdrruuldrdllururrrdlluldrdlulldduurrdluldurrurrrrruuldrdlllurdrruuldrdllddrudluuuldurddllllrurrurdurrdllurddlllurdrdruululdrdlulldrdluurrrdllddlulrdruuuldrdl
 original3,original3,15.01,10,11,false,Timed out.
-stuck2,stuck2,0.19s,18,2,false,No solution found.
-fourboxes2,fourboxes2,1.26s,188,4,true,lulrddlullldluuluurdurddulldrdrrrruruuldldurrdldlllrrrdruuldllldlurudluluurrddldrrrruuldrdllldlurrruruurrdluldlddrdruuddlullluuulldrurddulldrdrudrrrluururrdlddllurlurddllllulururddulddrrrr
-base4,base4,1.90s,54,3,true,dddruuurrdrddluurullldllurdddruuurrdddrrrrullluruluull
+stuck2,stuck2,0.17s,18,2,false,No solution found.
+fourboxes2,fourboxes2,1.06s,216,4,true,lulrddlullldluuluurrddldrrrruruuldldurrdldllldluruuullddrdrrrrdruuldllluddluuluurrddldrrrruuldrdllldlurrrurddrudluluruurrdluldlddlluuullddrdrudrrrrudlllldluuluurdlurrddulldrdrrrrluururrdlddllurlurlddllluluurdrdldrrrr
+base4,base4,0.85s,55,3,true,dddruuurrrdddluurulurululldrurdrddllldlurrrurullulllddr
 sokoban-info/10-17_Sokoban-The-Bagatelle-collection-17,sokoban-info/10-17_Sokoban-The-Bagatelle-collection-17,15.01,10,9,false,Timed out.
 sokoban-info/3-54_Sokoban-Boxxle-2-54,sokoban-info/3-54_Sokoban-Boxxle-2-54,15.01,10,19,false,Timed out.
-sokoban-info/12-16_Sokoban-The-Cantrip-collection-16,sokoban-info/12-16_Sokoban-The-Cantrip-collection-16,15.01,10,8,false,Timed out.
-sokoban-info/5-4_Sokoban-Micro-Cosmos-4,sokoban-info/5-4_Sokoban-Micro-Cosmos-4,0.93s,111,4,true,rrrruuldrdlllurlddlluurrlldllurrddrrullrrrrruuldrdlllurdrruuldrdlullddlluurrrrdrullldrrlldllurrrlulddluulldrrrr
-sokoban-info/2-93_Sokoban-Boxxle-1-93,sokoban-info/2-93_Sokoban-Boxxle-1-93,2.34s,209,6,true,llluuudddrrruuuldulrrurrddllddllluulurrludrrlldddrddluuuuluruuruuldddddddrrruurruullullrrdrrddlludddllluuuuurrrdddrruullulllddrrlluuruulddrrrdrrddllulllldrddrrrudllddluuuulurrluuruuldddddduurrlldddrddluuuulurr
+sokoban-info/12-16_Sokoban-The-Cantrip-collection-16,sokoban-info/12-16_Sokoban-The-Cantrip-collection-16,15.02,10,8,false,Timed out.
+sokoban-info/5-4_Sokoban-Micro-Cosmos-4,sokoban-info/5-4_Sokoban-Micro-Cosmos-4,0.88s,135,4,true,rrrruuldrdlllurdldlluurrddllullurrddrrulldrrurrruuldrdlllurdrruuldrdlullddlluurrrrdrullldrulddllurlurrrdrlullddluulldrlurrrdrrllulldrrr
+sokoban-info/2-93_Sokoban-Boxxle-1-93,sokoban-info/2-93_Sokoban-Boxxle-1-93,2.13s,185,6,true,uuuldururrddllddllluuurrlluurldddddrddluuuulurrluuruuldddddddrrruurruullullrrdrrddlludddllluuluruurrrddduuulllddrrlluurrrdrrddllullldddrddluuuulurrrlluuruuldddddddrddluuudrrrudllluulurr
 sokoban-info/3-87_Sokoban-Boxxle-2-87,sokoban-info/3-87_Sokoban-Boxxle-2-87,15.01,10,7,false,Timed out.
-sokoban-info/2-100_Sokoban-Boxxle-1-100,sokoban-info/2-100_Sokoban-Boxxle-1-100,15.01,10,16,false,Timed out.
+sokoban-info/2-100_Sokoban-Boxxle-1-100,sokoban-info/2-100_Sokoban-Boxxle-1-100,15.00,10,16,false,Timed out.
 sokoban-info/3-106_Sokoban-Boxxle-2-106,sokoban-info/3-106_Sokoban-Boxxle-2-106,15.00,10,14,false,Timed out.
-sokoban-info/5-26_Sokoban-Micro-Cosmos-26,sokoban-info/5-26_Sokoban-Micro-Cosmos-26,2.85s,222,5,true,dlulururrrrdruuuddllllldddrruuddllulururrrrdrrulldrruluuruuldllulldrdddllurdrdurrdrrulllllulddldrdrruuddlluuuurdrddlruurrdrrullllrrdruuuruuldddurulllulldrddllddldrdrruuurrdrrullruuullulldrrrllddllddddrruuudddlluuurldddrrul
-sokoban-info/5-25_Sokoban-Micro-Cosmos-25,sokoban-info/5-25_Sokoban-Micro-Cosmos-25,1.09s,142,4,true,urrdddlldlululldrrrrruruulllldurrdldldruuuldrrurrddldldluuulurrldddrrurrdllldluuurururddulldldddrurrruldllluulurrrurddulldlddludllurrdruuddluu
-sokoban-info/3-71_Sokoban-Boxxle-2-71,sokoban-info/3-71_Sokoban-Boxxle-2-71,15.02,10,8,false,Timed out.
+sokoban-info/5-26_Sokoban-Micro-Cosmos-26,sokoban-info/5-26_Sokoban-Micro-Cosmos-26,2.47s,232,5,true,dlulururrrrdrulllllddrruddllulururrrrdrrullruuruuldllulldrrldddllurdrrrdrrulllllrudrrruuruuldlrdrulllulldrddldrdurrdrrullrudlllrrruuruulddduullulldrdddrrdrrulldrruluurulllulldrddllddldrluruurruurrllddllddddrruuudddllulururldldrdrrul
+sokoban-info/5-25_Sokoban-Micro-Cosmos-25,sokoban-info/5-25_Sokoban-Micro-Cosmos-25,1.02s,140,4,true,urrdddlldlululldrrrrruruulllldurrdldldruuuldurrrrddldldluuulurrldddrrurrdllldluuurururddulldllurrrllldrdddrurrruldlldluluuddllurrdruurururdd
+sokoban-info/3-71_Sokoban-Boxxle-2-71,sokoban-info/3-71_Sokoban-Boxxle-2-71,15.01,10,8,false,Timed out.
 sokoban-info/2-37_Sokoban-Boxxle-1-37,sokoban-info/2-37_Sokoban-Boxxle-1-37,15.01,10,19,false,Timed out.
-sokoban-info/4-34_Sokoban-Mini-Cosmos-34,sokoban-info/4-34_Sokoban-Mini-Cosmos-34,0.42s,123,3,true,rrdruuluuldrddllluluurdrrurddrddluludlluluurdrrddlludrruullddrrrdruuldllluurrurddrdlluruuldllddrrurulddllullurdrdrrurrddluu
+sokoban-info/4-34_Sokoban-Mini-Cosmos-34,sokoban-info/4-34_Sokoban-Mini-Cosmos-34,0.33s,131,3,true,rrdruuluuldrddllluluurdrrurddrddluludllullururdrrddllulurddrruullddrrrdruuldllluurrurddrdlluruuldllddrrurulrdldllullurdrdrrurrddluu
 sokoban-info/8-5_Sokoban-The-DH1-collection-5,sokoban-info/8-5_Sokoban-The-DH1-collection-5,15.01,10,16,false,Timed out.
-sokoban-info/3-64_Sokoban-Boxxle-2-64,sokoban-info/3-64_Sokoban-Boxxle-2-64,15.00,10,9,false,Timed out.
-sokoban-info/3-63_Sokoban-Boxxle-2-63,sokoban-info/3-63_Sokoban-Boxxle-2-63,15.01,10,13,false,Timed out.
-sokoban-info/4-24_Sokoban-Mini-Cosmos-24,sokoban-info/4-24_Sokoban-Mini-Cosmos-24,1.35s,213,3,true,uuulldlrurrdddllludrrruuulllllddrudluurrrrrrurddulllldlrurrrrdddllddrrurulddllululluudlluurrrrrrurddddllddrrurullrddlluulrrruuullllllldrdrdrluulurrrrrurddddllddrruruluuulldddduuuulldlddrrdrulllullurrrurrrrdddlludl
-sokoban-info/3-102_Sokoban-Boxxle-2-102,sokoban-info/3-102_Sokoban-Boxxle-2-102,15.01,10,11,false,Timed out.
-sokoban-info/4-1_Sokoban-Mini-Cosmos-1,sokoban-info/4-1_Sokoban-Mini-Cosmos-1,0.19s,39,1,true,uuluurlddrrurruullddrdddlluurlddrruulur
-sokoban-info/6-18_Sokoban-Pico-Cosmos-18,sokoban-info/6-18_Sokoban-Pico-Cosmos-18,13.73s,241,8,true,lluurudlluruurrdrdullrrddllururrrddludlulldrlulldrddrruulrrurrdlllddlluururrdrdlrululldllurdrruuullddrluurrdlddrullldrddrruululdrrdrrululldllurdrrdrruruldruuuldrddldlluuluurdlddllurdrrdrruruulllullddldrluruurrddulrrrrddldlldlludrruurdldlluur
+sokoban-info/3-64_Sokoban-Boxxle-2-64,sokoban-info/3-64_Sokoban-Boxxle-2-64,15.01,10,9,false,Timed out.
+sokoban-info/3-63_Sokoban-Boxxle-2-63,sokoban-info/3-63_Sokoban-Boxxle-2-63,15.05,10,13,false,Timed out.
+sokoban-info/4-24_Sokoban-Mini-Cosmos-24,sokoban-info/4-24_Sokoban-Mini-Cosmos-24,1.27s,213,3,true,uuulldlrurrdddllludrrruuulllllddrudluurrrrrrurddduulllldlrurrdddddrrurullrddllululluudllurdluurrrrrrurddddllddrrurullrddlluulrudrruuulllldldlulurrrrrdururddddllldrdrruruluuulldddduuuullldddrrdruudllluuurrrrrdddlll
+sokoban-info/3-102_Sokoban-Boxxle-2-102,sokoban-info/3-102_Sokoban-Boxxle-2-102,15.00,10,11,false,Timed out.
+sokoban-info/4-1_Sokoban-Mini-Cosmos-1,sokoban-info/4-1_Sokoban-Mini-Cosmos-1,0.18s,51,1,true,uuluurlddrddrrurruuluullddrdddlluurlddrruullluurrdr
+sokoban-info/6-18_Sokoban-Pico-Cosmos-18,sokoban-info/6-18_Sokoban-Pico-Cosmos-18,11.54s,207,8,true,lluurudlluruurrdlrrddllururrrddludlulldrrlullldrddrruulrrurrdlllddlluururrdrdluulldrlllurdrruuullddrluurrdlddrullldrddrruululdrrdrrululluurdlddrlllurldrrrdrrurulruuldllduullddldrluruurrdlrrrrddldllurdldlluur
 sokoban-info/3-8_Sokoban-Boxxle-2-8,sokoban-info/3-8_Sokoban-Boxxle-2-8,15.01,10,15,false,Timed out.
 sokoban-info/2-92_Sokoban-Boxxle-1-92,sokoban-info/2-92_Sokoban-Boxxle-1-92,15.00,10,10,false,Timed out.
 Index 100 out of bounds for length 100,24),51),29)
 sokoban-info/3-73_Sokoban-Boxxle-2-73,sokoban-info/3-73_Sokoban-Boxxle-2-73,15.00,10,11,false,Timed out.
-sokoban-info/3-21_Sokoban-Boxxle-2-21,sokoban-info/3-21_Sokoban-Boxxle-2-21,15.00,10,11,false,Timed out.
+sokoban-info/3-21_Sokoban-Boxxle-2-21,sokoban-info/3-21_Sokoban-Boxxle-2-21,15.01,10,11,false,Timed out.
 sokoban-info/3-119_Sokoban-Boxxle-2-119,sokoban-info/3-119_Sokoban-Boxxle-2-119,15.00,10,12,false,Timed out.
 sokoban-info/15-29_Sokoban-Sasquatch-29,sokoban-info/15-29_Sokoban-Sasquatch-29,15.00,10,18,false,Timed out.
 sokoban-info/3-78_Sokoban-Boxxle-2-78,sokoban-info/3-78_Sokoban-Boxxle-2-78,15.01,10,11,false,Timed out.
 sokoban-info/10-14_Sokoban-The-Bagatelle-collection-14,sokoban-info/10-14_Sokoban-The-Bagatelle-collection-14,15.00,10,13,false,Timed out.
-sokoban-info/7-8_Sokoban-Nabo-Cosmos-8,sokoban-info/7-8_Sokoban-Nabo-Cosmos-8,0.91s,181,5,true,uurrurddrddlluurrddlddlururuulduuuldllddrrudllddrluurrurulddlluurrdrrdlluuurddulllddddrruuudddlluuuurrdrrddlruulluurdlllddddrruuuddrruululdrrddllddrudluuuurrddlddluuddruuruullddrrul
-sokoban-info/3-17_Sokoban-Boxxle-2-17,sokoban-info/3-17_Sokoban-Boxxle-2-17,15.00,10,14,false,Timed out.
-sokoban-info/6-9_Sokoban-Pico-Cosmos-9,sokoban-info/6-9_Sokoban-Pico-Cosmos-9,15.03,10,8,false,Timed out.
-sokoban-info/2-24_Sokoban-Boxxle-1-24,sokoban-info/2-24_Sokoban-Boxxle-1-24,15.01,10,8,false,Timed out.
-sokoban-info/15-14_Sokoban-Sasquatch-14,sokoban-info/15-14_Sokoban-Sasquatch-14,1.33s,111,6,true,uuullddrluurrdldllddrruruluurdldddlluuururrrrdddlludrruuulldrlulldldddrrudlluuurrlldddrrurrrrrddlluullluddlluur
-sokoban-info/14-16_Sokoban-The-Maelstrom-collection-16,sokoban-info/14-16_Sokoban-The-Maelstrom-collection-16,15.00,10,22,false,Timed out.
-sokoban-info/4-28_Sokoban-Mini-Cosmos-28,sokoban-info/4-28_Sokoban-Mini-Cosmos-28,0.56s,219,3,true,rruluululldduurrdrrulddddllurdrullddlluurrluuurrdrddrdlldllluurrrdrulddllluuruuurrdrdurulllulddduurrrdddlddllluurlddrrruurrdluuululldddrrlllddrrrurulruddldllluurrrlluuurrrrdlullldddrrddlurruuurulllulddurrrdddlddllluurrr
-sokoban-info/3-55_Sokoban-Boxxle-2-55,sokoban-info/3-55_Sokoban-Boxxle-2-55,1.58s,121,5,true,lllulrdrruruuluulldldruurrddrdddllluuulllddrrlluuurdrrddrdrruldruuulllddrluulrrruulldlrdrrrdddllurdruldlulllluuurrdlrulld
-sokoban-info/5-8_Sokoban-Micro-Cosmos-8,sokoban-info/5-8_Sokoban-Micro-Cosmos-8,0.78s,141,4,true,uluurdrrdddldluuulurddddruruulrddlluululldrddrruulrrrddldludruruullluurdldrullldrddrrrruuulldlruuldldurrddulurrrdddldluuururdlllulldrrurdrrul
+sokoban-info/7-8_Sokoban-Nabo-Cosmos-8,sokoban-info/7-8_Sokoban-Nabo-Cosmos-8,0.82s,187,5,true,uurrurddrddlluuddrddlururuuluuldurddduulllddrrudlluurrllddrrurrdlluuurdlllddddrruuddlluuuurrrduuldllddddrruuudddlluuuurrdrrddlruulluurdlllddddrruuuddrruululdrrddllddruluuurrddlruullddrrul
+sokoban-info/3-17_Sokoban-Boxxle-2-17,sokoban-info/3-17_Sokoban-Boxxle-2-17,15.01,10,14,false,Timed out.
+sokoban-info/6-9_Sokoban-Pico-Cosmos-9,sokoban-info/6-9_Sokoban-Pico-Cosmos-9,15.01,10,8,false,Timed out.
+sokoban-info/2-24_Sokoban-Boxxle-1-24,sokoban-info/2-24_Sokoban-Boxxle-1-24,15.02,10,8,false,Timed out.
+sokoban-info/15-14_Sokoban-Sasquatch-14,sokoban-info/15-14_Sokoban-Sasquatch-14,1.30s,95,6,true,uuullddrluurrdluldldddrruuddlluuururrrrdddllrruuulldrurdlullldrlldddrruudrrrudrrddlluullldlluur
+sokoban-info/14-16_Sokoban-The-Maelstrom-collection-16,sokoban-info/14-16_Sokoban-The-Maelstrom-collection-16,15.01,10,22,false,Timed out.
+sokoban-info/4-28_Sokoban-Mini-Cosmos-28,sokoban-info/4-28_Sokoban-Mini-Cosmos-28,0.58s,229,3,true,rruluululldduuurdrdrdddldluurddllluurrluuurrdrdduurullrdddrdlldllluurrrdrullluuurrdrrulldrdulululddduurrdrddlddllluurrluuurrrdddrdlruluululldddrrlllddrrruruuddldllluurrrddludlluuruuurrrrdlullldddrdrruuurulllulddurrrddddldllluurrr
+sokoban-info/3-55_Sokoban-Boxxle-2-55,sokoban-info/3-55_Sokoban-Boxxle-2-55,1.52s,108,5,true,llludrrruuuluulldldrlllurdrruurrddrdddllluuulllddrrlluurrrrlddrdrruuulllddrrdruldluluulluldrrrrruullddlllurr
+sokoban-info/5-8_Sokoban-Micro-Cosmos-8,sokoban-info/5-8_Sokoban-Micro-Cosmos-8,0.82s,141,4,true,uluurdrrdddldluuululldrurrdddrruulrddlluululldrddrluulurrurdlldddrruulrrrddldlurruullluldrrrrddlluddruruullluurddrruldllulldrrrruldrurdllllur
 sokoban-info/3-120_Sokoban-Boxxle-2-120,sokoban-info/3-120_Sokoban-Boxxle-2-120,15.01,10,21,false,Timed out.
-sokoban-info/3-19_Sokoban-Boxxle-2-19,sokoban-info/3-19_Sokoban-Boxxle-2-19,15.04,10,13,false,Timed out.
-sokoban-info/9-4_Sokoban-The-DH2-collection-4,sokoban-info/9-4_Sokoban-The-DH2-collection-4,15.01,10,15,false,Timed out.
-sokoban-info/4-17_Sokoban-Mini-Cosmos-17,sokoban-info/4-17_Sokoban-Mini-Cosmos-17,0.27s,83,2,true,rdruululldldldldlddrurudldluururlddrurudldluururrdluldruururrddlldldlrulldrrulurdru
-sokoban-info/11-12_Sokoban-The-Bagatelle-2-collection-12,sokoban-info/11-12_Sokoban-The-Bagatelle-2-collection-12,15.00,10,9,false,Timed out.
-sokoban-info/2-3_Sokoban-Boxxle-1-3,sokoban-info/2-3_Sokoban-Boxxle-1-3,0.27s,36,5,true,rururuullrrddlulrddlddruuudluurldrru
-sokoban-info/7-11_Sokoban-Nabo-Cosmos-11,sokoban-info/7-11_Sokoban-Nabo-Cosmos-11,0.87s,235,3,true,rdluruullldddddrdrruludlddlluuruuuulurrrrddlddulrddlddlluuruurrddrdlruluulluulurrrurdllldddddrllddrruruldruudlddlluuruurrurrdlllrddlddlluurrdruudlluuuuddrrurrdlldddldlluuruuuulurrrurrdldulrddldddlluuuuurrurdllldddddlddrrurruluulrurrdll
-sokoban-info/3-16_Sokoban-Boxxle-2-16,sokoban-info/3-16_Sokoban-Boxxle-2-16,15.00,10,19,false,Timed out.
+sokoban-info/3-19_Sokoban-Boxxle-2-19,sokoban-info/3-19_Sokoban-Boxxle-2-19,15.00,10,13,false,Timed out.
+sokoban-info/9-4_Sokoban-The-DH2-collection-4,sokoban-info/9-4_Sokoban-The-DH2-collection-4,15.04,10,15,false,Timed out.
+sokoban-info/4-17_Sokoban-Mini-Cosmos-17,sokoban-info/4-17_Sokoban-Mini-Cosmos-17,0.27s,86,2,true,rdruululldldldldlddrurudldluururlddrurudldluururrrldluldrdlruruuurrdrdllldllurdrudllld
+sokoban-info/11-12_Sokoban-The-Bagatelle-2-collection-12,sokoban-info/11-12_Sokoban-The-Bagatelle-2-collection-12,15.04,10,9,false,Timed out.
+sokoban-info/2-3_Sokoban-Boxxle-1-3,sokoban-info/2-3_Sokoban-Boxxle-1-3,0.31s,36,5,true,rururuullrrddlulrddludddruuudluurdru
+sokoban-info/7-11_Sokoban-Nabo-Cosmos-11,sokoban-info/7-11_Sokoban-Nabo-Cosmos-11,0.94s,229,3,true,rdluruuuldlldddddrdrruldldlluuruuuuurrrdddllrddlddlluuruurrddrdluuulluulurrrurdllldddddrllddrruruudlddlluuruurrddlruuurrdlllrdddldlluuruuuuddddrdruudlluurrurrdlldddldlluuruuuulurrrurrdlddlddddldlluuruuuuurrurdllldddddrruulrurrdll
+sokoban-info/3-16_Sokoban-Boxxle-2-16,sokoban-info/3-16_Sokoban-Boxxle-2-16,15.01,10,19,false,Timed out.
 sokoban-info/3-112_Sokoban-Boxxle-2-112,sokoban-info/3-112_Sokoban-Boxxle-2-112,15.00,10,18,false,Timed out.
 sokoban-info/14-4_Sokoban-The-Maelstrom-collection-4,sokoban-info/14-4_Sokoban-The-Maelstrom-collection-4,15.01,10,19,false,Timed out.
-sokoban-info/3-7_Sokoban-Boxxle-2-7,sokoban-info/3-7_Sokoban-Boxxle-2-7,15.00,10,11,false,Timed out.
-sokoban-info/3-79_Sokoban-Boxxle-2-79,sokoban-info/3-79_Sokoban-Boxxle-2-79,15.01,10,12,false,Timed out.
-sokoban-info/2-60_Sokoban-Boxxle-1-60,sokoban-info/2-60_Sokoban-Boxxle-1-60,15.01,10,27,false,Timed out.
-sokoban-info/2-50_Sokoban-Boxxle-1-50,sokoban-info/2-50_Sokoban-Boxxle-1-50,15.01,10,13,false,Timed out.
-sokoban-info/3-2_Sokoban-Boxxle-2-2,sokoban-info/3-2_Sokoban-Boxxle-2-2,0.74s,62,4,true,drrurduluurddldllurdruruuldrdrdllddrudluuulldrurruuldrdrdrrull
-sokoban-info/10-9_Sokoban-The-Bagatelle-collection-9,sokoban-info/10-9_Sokoban-The-Bagatelle-collection-9,15.03,10,14,false,Timed out.
+sokoban-info/3-7_Sokoban-Boxxle-2-7,sokoban-info/3-7_Sokoban-Boxxle-2-7,15.01,10,11,false,Timed out.
+sokoban-info/3-79_Sokoban-Boxxle-2-79,sokoban-info/3-79_Sokoban-Boxxle-2-79,15.00,10,12,false,Timed out.
+sokoban-info/2-60_Sokoban-Boxxle-1-60,sokoban-info/2-60_Sokoban-Boxxle-1-60,15.00,10,27,false,Timed out.
+sokoban-info/2-50_Sokoban-Boxxle-1-50,sokoban-info/2-50_Sokoban-Boxxle-1-50,15.00,10,13,false,Timed out.
+sokoban-info/3-2_Sokoban-Boxxle-2-2,sokoban-info/3-2_Sokoban-Boxxle-2-2,0.69s,54,4,true,drrurdluuurddldllurdrurrdllddruluulldrurruuldrdrdrrull
+sokoban-info/10-9_Sokoban-The-Bagatelle-collection-9,sokoban-info/10-9_Sokoban-The-Bagatelle-collection-9,15.00,10,14,false,Timed out.
 sokoban-info/14-18_Sokoban-The-Maelstrom-collection-18,sokoban-info/14-18_Sokoban-The-Maelstrom-collection-18,15.01,10,26,false,Timed out.
-sokoban-info/5-30_Sokoban-Micro-Cosmos-30,sokoban-info/5-30_Sokoban-Micro-Cosmos-30,0.97s,183,4,true,ldddrrrdullluuulldddrrrdrdrdrrululululrdrdrddlulululuuddlluuururrdldddrdrdrrululllrdrurdlluluuuullddddrrrdrrululrdddrlululuuudddrdruuldllluuuurrdddrrdrdddrruldlulululrdrdrdruuldlurull
+sokoban-info/5-30_Sokoban-Micro-Cosmos-30,sokoban-info/5-30_Sokoban-Micro-Cosmos-30,1.09s,207,4,true,ldddrrrdullluuulldddrrrdrdrdrrululululrdrdrdrdllulululuuddlluuururrdldddrdrdrdruululldrlurrdlluluuuulldrldddrrrdrrulrdrddluluuulrddluludlluuuurrrdlullddddrruuudddrruldllluuuurrdddrddrdrdrrululdlululrdrdruull
 sokoban-info/10-11_Sokoban-The-Bagatelle-collection-11,sokoban-info/10-11_Sokoban-The-Bagatelle-collection-11,15.01,10,12,false,Timed out.
-sokoban-info/3-11_Sokoban-Boxxle-2-11,sokoban-info/3-11_Sokoban-Boxxle-2-11,1.94s,111,5,true,lluulldruluurrldlddrdrrrururuuulldlrrlllullddrudlddrdrrruruludddllluluurdlururrrddddllluurdldrluruluddluuuurddd
-sokoban-info/3-88_Sokoban-Boxxle-2-88,sokoban-info/3-88_Sokoban-Boxxle-2-88,15.01,10,9,false,Timed out.
+sokoban-info/3-11_Sokoban-Boxxle-2-11,sokoban-info/3-11_Sokoban-Boxxle-2-11,2.08s,125,5,true,ururuuulldrulddullulldddrrddrruuudddlluulluuurrdrrllulldrruldlddruuddluuurdddrddrruuuullrrddddllluluurdldrurdldrluluruluurddd
+sokoban-info/3-88_Sokoban-Boxxle-2-88,sokoban-info/3-88_Sokoban-Boxxle-2-88,15.00,10,9,false,Timed out.
 sokoban-info/15-22_Sokoban-Sasquatch-22,sokoban-info/15-22_Sokoban-Sasquatch-22,15.01,10,8,false,Timed out.
-sokoban-info/2-108_Sokoban-Boxxle-1-108,sokoban-info/2-108_Sokoban-Boxxle-1-108,2.58s,102,6,true,urlddrrrllluurdrrurrddlrulururrdluldlddrruluurduldllldllurrrlddrlulldrrllurrurrrurrdllddrudluulrurrdll
-sokoban-info/5-20_Sokoban-Micro-Cosmos-20,sokoban-info/5-20_Sokoban-Micro-Cosmos-20,1.02s,194,4,true,lddldlruruullulldrddlddrurrururrruululldddrddllurdrudluuullulldrrrllddlddrurruruuddldlluuddrrurrdlllrruuurdrruululldddullulldrrrllddlddruudrrrruluudddllluuddrrruuurdrruulullddllulldrrrlldddrrrru
-sokoban-info/3-59_Sokoban-Boxxle-2-59,sokoban-info/3-59_Sokoban-Boxxle-2-59,15.00,10,10,false,Timed out.
+sokoban-info/2-108_Sokoban-Boxxle-1-108,sokoban-info/2-108_Sokoban-Boxxle-1-108,2.28s,96,6,true,urlddrrlluurdrrurrdlruurrdlrulldlllrrddrruluurrdluldllldllurrddrlulldrrllurrurrrurrdlllrrddlurul
+sokoban-info/5-20_Sokoban-Micro-Cosmos-20,sokoban-info/5-20_Sokoban-Micro-Cosmos-20,0.99s,192,4,true,lddldlrururrruulullddlrdrddllurdruluullulldrrrllddlddruudrrlldluuruddrrurrdlluruudddllruruurdrruululldddullulldrrrllddlddrurrrruldllluuddrrruuurdlullulldrdddrrruurrruulullddllulldrrrlldddrrrru
+sokoban-info/3-59_Sokoban-Boxxle-2-59,sokoban-info/3-59_Sokoban-Boxxle-2-59,15.01,10,10,false,Timed out.
 sokoban-info/3-30_Sokoban-Boxxle-2-30,sokoban-info/3-30_Sokoban-Boxxle-2-30,15.00,10,10,false,Timed out.
 sokoban-info/2-97_Sokoban-Boxxle-1-97,sokoban-info/2-97_Sokoban-Boxxle-1-97,15.00,10,17,false,Timed out.
-sokoban-info/3-1_Sokoban-Boxxle-2-1,sokoban-info/3-1_Sokoban-Boxxle-2-1,0.45s,90,3,true,uuulluurrddddldrrrlllurrulullurdluurrdddrddllururrrruulldurrddllldldruluuluurdddrddllururd
-sokoban-info/5-17_Sokoban-Micro-Cosmos-17,sokoban-info/5-17_Sokoban-Micro-Cosmos-17,3.32s,220,4,true,rurrdrdllrrulullldlddrruudrruullluurrurddddrdllrrululldllddrruulurldlluuluurddurrrrurdddlrdrdllrrululldllddrruullluulurrrrldduurrurddddulldlrurrdrdllrruluuullllldddrddrruulurddrruuuullldduullddrdrulluurrrrrddllrrddlldllu
-sokoban-info/11-6_Sokoban-The-Bagatelle-2-collection-6,sokoban-info/11-6_Sokoban-The-Bagatelle-2-collection-6,15.01,10,9,false,Timed out.
-sokoban-info/12-17_Sokoban-The-Cantrip-collection-17,sokoban-info/12-17_Sokoban-The-Cantrip-collection-17,14.64s,201,7,true,dllururrrdrdrrululldrurdlddlullulldruuurdrllddrrrddlludrruullulldrluruurdrrddlludrruullddddrruullulldrrllurrurrdullulddllurdrruuldrrrddurrullllddddrruudrulddlluuuurrrrdrdluulldduullddddrruuudddlluuuurr
-sokoban-info/3-26_Sokoban-Boxxle-2-26,sokoban-info/3-26_Sokoban-Boxxle-2-26,1.79s,72,7,true,urrrudrlddrdruruulruulllddlllddrulurddrruuuurrrddddlllrrruuldrdlruluurul
-sokoban-info/5-14_Sokoban-Micro-Cosmos-14,sokoban-info/5-14_Sokoban-Micro-Cosmos-14,1.03s,184,4,true,uuuurrurulddlluuuurrddlruullddddrrurullrddllddrruuuruluullddddrrddlldurruuuulrddddlldlddrurruuuuudddlldldruurruullddduuurruruluullddddrrurullrddlluurrddddlluudddlddruuurrddlruulldlddru
-sokoban-info/4-7_Sokoban-Mini-Cosmos-7,sokoban-info/4-7_Sokoban-Mini-Cosmos-7,0.37s,85,2,true,lullurrrldlluruurrdrdllrrulullddldrurddrrddlludrruuurullldduurrulullddrdlrurrddddlluu
-sokoban-info/2-8_Sokoban-Boxxle-1-8,sokoban-info/2-8_Sokoban-Boxxle-1-8,0.50s,49,5,true,lllulldulrrrdrrullllrrdlllrrrrrddlllulrdrrruullll
-sokoban-info/3-96_Sokoban-Boxxle-2-96,sokoban-info/3-96_Sokoban-Boxxle-2-96,15.01,10,15,false,Timed out.
-sokoban-info/11-10_Sokoban-The-Bagatelle-2-collection-10,sokoban-info/11-10_Sokoban-The-Bagatelle-2-collection-10,15.01,10,12,false,Timed out.
-sokoban-info/2-75_Sokoban-Boxxle-1-75,sokoban-info/2-75_Sokoban-Boxxle-1-75,15.01,10,25,false,Timed out.
-sokoban-info/2-66_Sokoban-Boxxle-1-66,sokoban-info/2-66_Sokoban-Boxxle-1-66,15.01,10,12,false,Timed out.
-sokoban-info/12-2_Sokoban-The-Cantrip-collection-2,sokoban-info/12-2_Sokoban-The-Cantrip-collection-2,15.09,10,8,false,Timed out.
-sokoban-info/12-11_Sokoban-The-Cantrip-collection-11,sokoban-info/12-11_Sokoban-The-Cantrip-collection-11,15.00,10,9,false,Timed out.
-sokoban-info/6-10_Sokoban-Pico-Cosmos-10,sokoban-info/6-10_Sokoban-Pico-Cosmos-10,15.06,10,8,false,Timed out.
+sokoban-info/3-1_Sokoban-Boxxle-2-1,sokoban-info/3-1_Sokoban-Boxxle-2-1,0.47s,78,3,true,uuulluurrddddldrrrluurrruulldurrddllldluulluurrddddldrruuluuuldldrulurrddddldr
+sokoban-info/5-17_Sokoban-Micro-Cosmos-17,sokoban-info/5-17_Sokoban-Micro-Cosmos-17,3.36s,226,4,true,urrrdrdllrrululldllddrruulluruurrurdddlldlurrrdrdllruuuulllddlludrdddrruuddlluuululuurdrrrrurddddrdllruulldlulldrddrruulurlllulurrrrrurddddrdllrrulullldrurruulllllldrddrddrruulurddrruuuullldduullddrdrudlluuurrrrrddllrrddlldllu
+sokoban-info/11-6_Sokoban-The-Bagatelle-2-collection-6,sokoban-info/11-6_Sokoban-The-Bagatelle-2-collection-6,15.00,10,9,false,Timed out.
+sokoban-info/12-17_Sokoban-The-Cantrip-collection-17,sokoban-info/12-17_Sokoban-The-Cantrip-collection-17,11.30s,177,7,true,dllururrrdrdrrululldrurduldddlullulldruuurdrrlllddrrrddlludrruulluluurdrrddlludrruulldlldrruuulddllurdrruuldurdrrdrrullllddddrruudrudldlluuuurrdurrdrdluullllddddrruuudddlluuuurr
+sokoban-info/3-26_Sokoban-Boxxle-2-26,sokoban-info/3-26_Sokoban-Boxxle-2-26,3.35s,104,7,true,drluurrrdduuudddrdruruullrruulllddrrurdddluulllllddrrlulurddrrrdruruullldurrrddllluurrdruuulddrddludruul
+sokoban-info/5-14_Sokoban-Micro-Cosmos-14,sokoban-info/5-14_Sokoban-Micro-Cosmos-14,1.26s,174,4,true,uuuurrurulddlluuuurrddlruullddddrrurullrddlluuddddrruuuruluullddddrrddlldlddrurruuudlldldruurruullddrruulluuuurrddlruullddddrrurullrddlluurrddddlluudddlddruuurrddlruulldlddru
+sokoban-info/4-7_Sokoban-Mini-Cosmos-7,sokoban-info/4-7_Sokoban-Mini-Cosmos-7,0.29s,81,2,true,lullurrrlluurrdrddrulllruullddldrlurrrurdrdldllddrruuurulllruullddrdlrurrddddlluu
+sokoban-info/2-8_Sokoban-Boxxle-1-8,sokoban-info/2-8_Sokoban-Boxxle-1-8,0.72s,62,5,true,lllulldulrrrdrrulldlllrrrrrddllludrrruullllrddrrruullulddlurul
+sokoban-info/3-96_Sokoban-Boxxle-2-96,sokoban-info/3-96_Sokoban-Boxxle-2-96,15.00,10,15,false,Timed out.
+sokoban-info/11-10_Sokoban-The-Bagatelle-2-collection-10,sokoban-info/11-10_Sokoban-The-Bagatelle-2-collection-10,15.00,10,12,false,Timed out.
+sokoban-info/2-75_Sokoban-Boxxle-1-75,sokoban-info/2-75_Sokoban-Boxxle-1-75,15.00,10,25,false,Timed out.
+sokoban-info/2-66_Sokoban-Boxxle-1-66,sokoban-info/2-66_Sokoban-Boxxle-1-66,15.00,10,12,false,Timed out.
+sokoban-info/12-2_Sokoban-The-Cantrip-collection-2,sokoban-info/12-2_Sokoban-The-Cantrip-collection-2,15.00,10,8,false,Timed out.
+sokoban-info/12-11_Sokoban-The-Cantrip-collection-11,sokoban-info/12-11_Sokoban-The-Cantrip-collection-11,15.01,10,9,false,Timed out.
+sokoban-info/6-10_Sokoban-Pico-Cosmos-10,sokoban-info/6-10_Sokoban-Pico-Cosmos-10,15.01,10,8,false,Timed out.
 sokoban-info/2-43_Sokoban-Boxxle-1-43,sokoban-info/2-43_Sokoban-Boxxle-1-43,15.01,10,16,false,Timed out.
 sokoban-info/9-5_Sokoban-The-DH2-collection-5,sokoban-info/9-5_Sokoban-The-DH2-collection-5,15.00,10,30,false,Timed out.
 sokoban-info/13-9_Sokoban-The-Cantrip-2-collection-9,sokoban-info/13-9_Sokoban-The-Cantrip-2-collection-9,15.00,10,9,false,Timed out.
-sokoban-info/13-5_Sokoban-The-Cantrip-2-collection-5,sokoban-info/13-5_Sokoban-The-Cantrip-2-collection-5,6.47s,92,8,true,urulluuullddduuurrdddlddulldluluurddlururlddrrrurrddldluddllurdluuddrrurururulluuulldrlurrdd
-sokoban-info/15-41_Sokoban-Sasquatch-41,sokoban-info/15-41_Sokoban-Sasquatch-41,15.01,10,16,false,Timed out.
-sokoban-info/15-10_Sokoban-Sasquatch-10,sokoban-info/15-10_Sokoban-Sasquatch-10,15.04,10,11,false,Timed out.
-sokoban-info/7-1_Sokoban-Nabo-Cosmos-1,sokoban-info/7-1_Sokoban-Nabo-Cosmos-1,0.63s,122,5,true,luuldrdrruruululldurrdlrrddldllururlddrurudllurlddlulurddrruuuullddldrdrruulrdrrulluulldduurrddddllurluddruruuullddldrlurr
-sokoban-info/3-77_Sokoban-Boxxle-2-77,sokoban-info/3-77_Sokoban-Boxxle-2-77,15.00,10,8,false,Timed out.
-sokoban-info/3-58_Sokoban-Boxxle-2-58,sokoban-info/3-58_Sokoban-Boxxle-2-58,3.19s,131,6,true,dddllurdlllululururrdlrrlllddrdrrrrruluullllrrrrdddllurdlllurrdllululluurrdrruldrrrrddrdlllurllllulluurdldrldrrrrrdrrudllulldrrrlur
-sokoban-info/2-34_Sokoban-Boxxle-1-34,sokoban-info/2-34_Sokoban-Boxxle-1-34,15.00,10,9,false,Timed out.
+sokoban-info/13-5_Sokoban-The-Cantrip-2-collection-5,sokoban-info/13-5_Sokoban-The-Cantrip-2-collection-5,7.68s,92,8,true,urulluuullddduuurrdddlddullrrurrddldldlluulurrllluurdurlddrdddrruldluuddrrururuuluuulldrurdd
+sokoban-info/15-41_Sokoban-Sasquatch-41,sokoban-info/15-41_Sokoban-Sasquatch-41,15.00,10,16,false,Timed out.
+sokoban-info/15-10_Sokoban-Sasquatch-10,sokoban-info/15-10_Sokoban-Sasquatch-10,15.05,10,11,false,Timed out.
+sokoban-info/7-1_Sokoban-Nabo-Cosmos-1,sokoban-info/7-1_Sokoban-Nabo-Cosmos-1,0.57s,92,5,true,rurrulullrrddldllururlddrurudllurldllurddrruuuullddldrluruurrddlrdrrullddlluudrruuullddrlldr
+sokoban-info/3-77_Sokoban-Boxxle-2-77,sokoban-info/3-77_Sokoban-Boxxle-2-77,15.01,10,8,false,Timed out.
+sokoban-info/3-58_Sokoban-Boxxle-2-58,sokoban-info/3-58_Sokoban-Boxxle-2-58,3.36s,135,6,true,dddllllululururrdrlllddrdrrrrruluulllrrrdddllurdlllurrllluuurrdlrrrrddrdlllulldrurrdrudlulldrrlllululldrrlluuurldddrrrrrrlllllluuurdldr
+sokoban-info/2-34_Sokoban-Boxxle-1-34,sokoban-info/2-34_Sokoban-Boxxle-1-34,15.01,10,9,false,Timed out.
 sokoban-info/15-16_Sokoban-Sasquatch-16,sokoban-info/15-16_Sokoban-Sasquatch-16,15.01,10,11,false,Timed out.
-sokoban-info/4-31_Sokoban-Mini-Cosmos-31,sokoban-info/4-31_Sokoban-Mini-Cosmos-31,0.26s,76,2,true,luluurrdrdrdllruululldddddrrruulluluurrdrdrdlddllluuudddrrruulluldrrruululld
-sokoban-info/3-50_Sokoban-Boxxle-2-50,sokoban-info/3-50_Sokoban-Boxxle-2-50,1.95s,132,6,true,ldddrdllruuuurrdluldurrrrdllulldddllurldrrudrdrruuluulllddldrdrluuuurrrrdduullllddddrrllulurrdldrluluruurddulurrrddrdululluldddlurrd
-sokoban-info/5-10_Sokoban-Micro-Cosmos-10,sokoban-info/5-10_Sokoban-Micro-Cosmos-10,0.68s,143,3,true,rddlrurullldduuurdrruluullddrluurrddrdlddlluuudddddrddluuuuudrruuuuulldldrrluurrddrddldlluuddrruruuluulldldrdddrruuudddlluuurldrlddrruruuldllur
-sokoban-info/11-7_Sokoban-The-Bagatelle-2-collection-7,sokoban-info/11-7_Sokoban-The-Bagatelle-2-collection-7,15.00,10,15,false,Timed out.
-sokoban-info/2-25_Sokoban-Boxxle-1-25,sokoban-info/2-25_Sokoban-Boxxle-1-25,15.01,10,7,false,Timed out.
-sokoban-info/15-37_Sokoban-Sasquatch-37,sokoban-info/15-37_Sokoban-Sasquatch-37,15.00,10,30,false,Timed out.
-sokoban-info/4-32_Sokoban-Mini-Cosmos-32,sokoban-info/4-32_Sokoban-Mini-Cosmos-32,0.26s,97,2,true,lulurrrdrdlrulullddddrruulrddlluuuluurdrrdrdlddlluuulurddddrruulrddlluuuluurdddrrrululrddlluluurd
-sokoban-info/12-6_Sokoban-The-Cantrip-collection-6,sokoban-info/12-6_Sokoban-The-Cantrip-collection-6,15.00,10,8,false,Timed out.
-sokoban-info/2-18_Sokoban-Boxxle-1-18,sokoban-info/2-18_Sokoban-Boxxle-1-18,4.67s,155,6,true,rddlddrddluudlldllurrrruudddruluuuruulddddduuuulldlrrurddduulldduullulldrrrrrurdlllllddrddrrurrlldlluuluulurrdrrddldrrluuurrdulllllddrrddluuluulurrdrrddldr
+sokoban-info/4-31_Sokoban-Mini-Cosmos-31,sokoban-info/4-31_Sokoban-Mini-Cosmos-31,0.30s,80,2,true,luluurrdrdrdllruululldddddrrruullulduuurrdrdrdllrddllluuudddrrruulluldrrruululld
+sokoban-info/3-50_Sokoban-Boxxle-2-50,sokoban-info/3-50_Sokoban-Boxxle-2-50,1.95s,135,6,true,ldddrdllrruluuurrdluldduurrrrdllulldddllurldrrrdrruululurrddullulldrldldrdrrululuurddduuldldrdrlulururrlddllurrurrdrrulllrdrdulullulddd
+sokoban-info/5-10_Sokoban-Micro-Cosmos-10,sokoban-info/5-10_Sokoban-Micro-Cosmos-10,0.63s,137,3,true,rddlrurullldduuudrrruluullddrluurrddrdlddlldduuuuddrruuuuulldldrrluurrdddulldddddrddluuuuuuurruulldldrdddrruuudddlluurlurdlddrruruuldllur
+sokoban-info/11-7_Sokoban-The-Bagatelle-2-collection-7,sokoban-info/11-7_Sokoban-The-Bagatelle-2-collection-7,15.01,10,15,false,Timed out.
+sokoban-info/2-25_Sokoban-Boxxle-1-25,sokoban-info/2-25_Sokoban-Boxxle-1-25,15.00,10,7,false,Timed out.
+sokoban-info/15-37_Sokoban-Sasquatch-37,sokoban-info/15-37_Sokoban-Sasquatch-37,15.01,10,30,false,Timed out.
+sokoban-info/4-32_Sokoban-Mini-Cosmos-32,sokoban-info/4-32_Sokoban-Mini-Cosmos-32,0.25s,95,2,true,lulurrrdrdlrulullddddrruulrddlluuuluurdrrdrdlddlluuulurddddrruulrddlluuuluurdddrruulrddlluluurd
+sokoban-info/12-6_Sokoban-The-Cantrip-collection-6,sokoban-info/12-6_Sokoban-The-Cantrip-collection-6,14.38s,279,8,true,ururrlldlddrrururruururrdddlddlluulldlddrrdruudlllulluuruurrdlldlddrrdrrrurruulldlrduurrruuulldlddullullddlddrrururrrllldldlluuruurrdrrururrdlrdddldlludrruruldruuuldrddldlluluururldlddruddrruruuldllddrrurulruuulddrullldduldururrrdddldlluulululldrrlldlddrrdrrdruurruullrrruuldrdll
+sokoban-info/2-18_Sokoban-Boxxle-1-18,sokoban-info/2-18_Sokoban-Boxxle-1-18,4.63s,163,6,true,rddlddrddlulldllurrrlulruddrrdruluuuruulddddduuuulldrurddduulldduullulldrrrrrurdduulldlllddrdrdrurrlldlluuluulurrdrrdduulllddrdrrrlllurdldrruudldluuluulurrdrrddldr
 sokoban-info/3-67_Sokoban-Boxxle-2-67,sokoban-info/3-67_Sokoban-Boxxle-2-67,15.01,10,11,false,Timed out.
-sokoban-info/14-9_Sokoban-The-Maelstrom-collection-9,sokoban-info/14-9_Sokoban-The-Maelstrom-collection-9,15.00,10,8,false,Timed out.
+sokoban-info/14-9_Sokoban-The-Maelstrom-collection-9,sokoban-info/14-9_Sokoban-The-Maelstrom-collection-9,15.03,10,8,false,Timed out.
 sokoban-info/6-3_Sokoban-Pico-Cosmos-3,sokoban-info/6-3_Sokoban-Pico-Cosmos-3,15.01,10,7,false,Timed out.
 sokoban-info/3-40_Sokoban-Boxxle-2-40,sokoban-info/3-40_Sokoban-Boxxle-2-40,15.01,10,13,false,Timed out.
-sokoban-info/8-4_Sokoban-The-DH1-collection-4,sokoban-info/8-4_Sokoban-The-DH1-collection-4,15.01,10,22,false,Timed out.
-sokoban-info/10-10_Sokoban-The-Bagatelle-collection-10,sokoban-info/10-10_Sokoban-The-Bagatelle-collection-10,10.49s,131,7,true,rrurddldduurrddldluuudlldrururuulddrrddluululldrddrddluuddrurudluludlldrruuuldrdrrruulldurrddldldluuruurrdlrulluurdldddldllururluur
-sokoban-info/4-11_Sokoban-Mini-Cosmos-11,sokoban-info/4-11_Sokoban-Mini-Cosmos-11,0.32s,76,2,true,dlullrddlluuudlluururrdrrdullulldrrlddddrrurrulllrddlluuudlluururrdlddrrruul
+sokoban-info/8-4_Sokoban-The-DH1-collection-4,sokoban-info/8-4_Sokoban-The-DH1-collection-4,15.00,10,22,false,Timed out.
+sokoban-info/10-10_Sokoban-The-Bagatelle-collection-10,sokoban-info/10-10_Sokoban-The-Bagatelle-collection-10,9.55s,117,7,true,rrddduuuurddrddldluulldrrddluruuuruulddulldrurrdrddluudddllurllldruruuldrdrddluudrruruulduldrrulluurdldddldllururluur
+sokoban-info/4-11_Sokoban-Mini-Cosmos-11,sokoban-info/4-11_Sokoban-Mini-Cosmos-11,0.34s,76,2,true,dlullrddlluuudlluururrdrrdullulldrrlddddrrurrulllrddlluuudlluururrdlddrrruul
 sokoban-info/3-36_Sokoban-Boxxle-2-36,sokoban-info/3-36_Sokoban-Boxxle-2-36,15.00,10,14,false,Timed out.
-sokoban-info/2-31_Sokoban-Boxxle-1-31,sokoban-info/2-31_Sokoban-Boxxle-1-31,15.01,10,10,false,Timed out.
-sokoban-info/4-14_Sokoban-Mini-Cosmos-14,sokoban-info/4-14_Sokoban-Mini-Cosmos-14,1.34s,157,3,true,rrrrddlllruuuurrddlllluurrddddldluuurruulldldruurrddrrdrdlllldluuurruururddddrdluuuulllldldrrluurrrrddddllldluudrrrruuuullddlldddruruuddrrrulullddldluuuuurrd
+sokoban-info/2-31_Sokoban-Boxxle-1-31,sokoban-info/2-31_Sokoban-Boxxle-1-31,15.00,10,10,false,Timed out.
+sokoban-info/4-14_Sokoban-Mini-Cosmos-14,sokoban-info/4-14_Sokoban-Mini-Cosmos-14,1.18s,149,3,true,rrrrudddlllruuuururdddlllluurrddddldluuurruulldldruurrddrrdrdlllldluuurruururdddlrdrdluuuulllldldruurrddrrddllldluuurruulldurrddlldddrurrruullrrddllu
 sokoban-info/12-15_Sokoban-The-Cantrip-collection-15,sokoban-info/12-15_Sokoban-The-Cantrip-collection-15,15.00,10,8,false,Timed out.
-sokoban-info/12-12_Sokoban-The-Cantrip-collection-12,sokoban-info/12-12_Sokoban-The-Cantrip-collection-12,2.85s,158,6,true,urrrurrdlrrrulluulldurrdddllldllurrrrruuullddrdruldluuurrddlldldllurrdluuurdrrruulldldrllddrudluuurrurrddrruldrddluulldrurrddlurulldllldllurrrrrlllluurdururrd
+sokoban-info/12-12_Sokoban-The-Cantrip-collection-12,sokoban-info/12-12_Sokoban-The-Cantrip-collection-12,2.58s,190,6,true,urrrurrdlrrdruulldllldllurrrrruuullddrluurrddrruldllluurrdullddrrldlldllururrdlruuurrddldllulurdddlurrrururrdlrddlullllurdldllurdrurrrrruuldululldlldurrurrdrrdddluudlllldllurrrrrllldlluruurd
 sokoban-info/2-105_Sokoban-Boxxle-1-105,sokoban-info/2-105_Sokoban-Boxxle-1-105,15.00,10,8,false,Timed out.
-sokoban-info/3-31_Sokoban-Boxxle-2-31,sokoban-info/3-31_Sokoban-Boxxle-2-31,0.51s,39,4,true,ddrudluuurrldlddrururudldllurrdldluurur
-sokoban-info/10-4_Sokoban-The-Bagatelle-collection-4,sokoban-info/10-4_Sokoban-The-Bagatelle-collection-4,15.02,10,6,false,Timed out.
+sokoban-info/3-31_Sokoban-Boxxle-2-31,sokoban-info/3-31_Sokoban-Boxxle-2-31,0.29s,45,4,true,urdlddrurlluurrlldddrururulddllurddluuurdrlur
+sokoban-info/10-4_Sokoban-The-Bagatelle-collection-4,sokoban-info/10-4_Sokoban-The-Bagatelle-collection-4,12.41s,291,6,true,llrrdullluldddddldrrrdrruluuluuddrddrruulrruruuldllullluldddddrdrdrruruululrdrddldllululuuuuurdrrrdullllddddrdrruuluuddrrrddldludlululldrrrdrruruururuuldllullluldddduuurrdddrrulrdrrurulddlddldllurllllurdrrdruuuludrrulrdrddldluuddruruullddllluuuuurrrrddlddddruruuruulrddlddldllullluruuuurrrrd
 sokoban-info/13-6_Sokoban-The-Cantrip-2-collection-6,sokoban-info/13-6_Sokoban-The-Cantrip-2-collection-6,15.00,10,8,false,Timed out.
-sokoban-info/2-27_Sokoban-Boxxle-1-27,sokoban-info/2-27_Sokoban-Boxxle-1-27,4.80s,78,6,true,lddddulldlllddrrurdrruuuuruullddullulddduurrrurrddldlrurullllulddurrrddrddldlu
-sokoban-info/13-11_Sokoban-The-Cantrip-2-collection-11,sokoban-info/13-11_Sokoban-The-Cantrip-2-collection-11,15.01,10,9,false,Timed out.
-sokoban-info/2-69_Sokoban-Boxxle-1-69,sokoban-info/2-69_Sokoban-Boxxle-1-69,15.01,10,16,false,Timed out.
-sokoban-info/5-5_Sokoban-Micro-Cosmos-5,sokoban-info/5-5_Sokoban-Micro-Cosmos-5,5.47s,148,6,true,rlddrdrruluullddlrrdrruluuuruuldddlluurlddrruruuldllddddldlluruuuurrddddlruulrddldlluruurrddldlurrrdrrullluurrdullddrdrruluuuruuldddlluurlddrruruuld
+sokoban-info/2-27_Sokoban-Boxxle-1-27,sokoban-info/2-27_Sokoban-Boxxle-1-27,3.38s,73,6,true,lldrdddulldlllddrrudrrruuuuruulldllulddduurrrurrdlldrddddllurruuluulluldd
+sokoban-info/13-11_Sokoban-The-Cantrip-2-collection-11,sokoban-info/13-11_Sokoban-The-Cantrip-2-collection-11,15.00,10,9,false,Timed out.
+sokoban-info/2-69_Sokoban-Boxxle-1-69,sokoban-info/2-69_Sokoban-Boxxle-1-69,15.00,10,16,false,Timed out.
+sokoban-info/5-5_Sokoban-Micro-Cosmos-5,sokoban-info/5-5_Sokoban-Micro-Cosmos-5,4.84s,138,6,true,ddlruurlddrdrruluuuruuldddlluurlddddldlluruuuurrddddlruulruullddrrddldlluruurrddldludrurrdrrullluurrdullddrdrruluuuruuldddlluurlddrruruuld
 sokoban-info/15-28_Sokoban-Sasquatch-28,sokoban-info/15-28_Sokoban-Sasquatch-28,15.01,10,17,false,Timed out.
 sokoban-info/14-2_Sokoban-The-Maelstrom-collection-2,sokoban-info/14-2_Sokoban-The-Maelstrom-collection-2,15.00,10,20,false,Timed out.
-sokoban-info/3-32_Sokoban-Boxxle-2-32,sokoban-info/3-32_Sokoban-Boxxle-2-32,15.00,10,11,false,Timed out.
+sokoban-info/3-32_Sokoban-Boxxle-2-32,sokoban-info/3-32_Sokoban-Boxxle-2-32,15.01,10,11,false,Timed out.
 sokoban-info/2-48_Sokoban-Boxxle-1-48,sokoban-info/2-48_Sokoban-Boxxle-1-48,15.01,10,20,false,Timed out.
-sokoban-info/4-36_Sokoban-Mini-Cosmos-36,sokoban-info/4-36_Sokoban-Mini-Cosmos-36,0.35s,82,3,true,dlldluuulluurrdrdlddrrruulldldruuulddruluullddrrdrddluuulluurrdrddlulluurrdullddrr
-sokoban-info/7-16_Sokoban-Nabo-Cosmos-16,sokoban-info/7-16_Sokoban-Nabo-Cosmos-16,1.04s,132,5,true,uldurdrddluurddddluurdlllurdrruuullddldruuurrddlruullddrruulluurdldddrruulrddlluuddrruldrddluulldrurrddldluudrruuldllurdrruuullddldr
+sokoban-info/4-36_Sokoban-Mini-Cosmos-36,sokoban-info/4-36_Sokoban-Mini-Cosmos-36,0.30s,82,3,true,dlldluuulluurrdrdlddrrruulldldrluruuldduuullddrrdrddluuulluurrdrddlulluurrdullddrr
+sokoban-info/7-16_Sokoban-Nabo-Cosmos-16,sokoban-info/7-16_Sokoban-Nabo-Cosmos-16,0.78s,122,5,true,uldurdrddluurddddluudllurdrdruuuulldduurrdldrululuurddrddlluurrddddludruuuullddldruuurrddddldluuuddrruuldllurdrruuullddldr
 sokoban-info/10-1_Sokoban-The-Bagatelle-collection-1,sokoban-info/10-1_Sokoban-The-Bagatelle-collection-1,15.01,10,30,false,Timed out.
 sokoban-info/3-68_Sokoban-Boxxle-2-68,sokoban-info/3-68_Sokoban-Boxxle-2-68,15.01,10,9,false,Timed out.
-sokoban-info/3-75_Sokoban-Boxxle-2-75,sokoban-info/3-75_Sokoban-Boxxle-2-75,15.01,10,11,false,Timed out.
-sokoban-info/4-39_Sokoban-Mini-Cosmos-39,sokoban-info/4-39_Sokoban-Mini-Cosmos-39,0.65s,122,3,true,ulurrrdduullddddrruulrddlluuulurrurrdllrddllulurrurduldlddddrrrruulllrrrddllldluuurrdurrddllldlurruullulurrurrdlddlluururd
+sokoban-info/3-75_Sokoban-Boxxle-2-75,sokoban-info/3-75_Sokoban-Boxxle-2-75,15.00,10,11,false,Timed out.
+sokoban-info/4-39_Sokoban-Mini-Cosmos-39,sokoban-info/4-39_Sokoban-Mini-Cosmos-39,0.48s,130,3,true,ulurrrdduullddddrruuudddldluuurluururrdlddlluururdllddddrrrruulllrrrddllldluuuulurrlddrrdullulurrurrdlddllulurrurdllddrrrrddllldlu
 sokoban-info/13-7_Sokoban-The-Cantrip-2-collection-7,sokoban-info/13-7_Sokoban-The-Cantrip-2-collection-7,15.01,10,8,false,Timed out.
-sokoban-info/5-6_Sokoban-Micro-Cosmos-6,sokoban-info/5-6_Sokoban-Micro-Cosmos-6,1.86s,89,5,true,llllurdrrruulullddllurddrlulururdurrdlrrddlludrruulullldddrruuldllurdrrdrluuruluulldddldr
-sokoban-info/6-5_Sokoban-Pico-Cosmos-5,sokoban-info/6-5_Sokoban-Pico-Cosmos-5,6.84s,182,6,true,ruurrurrddldllrddruruuldllurllldrrllurrruurrdrdrdllulluurrdullddrrllldllururlddrurrrddludruullldrurrddldluudrruuldllurldllurdrrrruuullddldllurdrruuurrdddlllluurlddrrrruuullddullddrrr
+sokoban-info/5-6_Sokoban-Micro-Cosmos-6,sokoban-info/5-6_Sokoban-Micro-Cosmos-6,1.39s,90,5,true,llllurdrrruululuullddduuurrddlddulurrrdlulldldrdrruuruluulldddrdruddrlululldrluruuurrddrdl
+sokoban-info/6-5_Sokoban-Pico-Cosmos-5,sokoban-info/6-5_Sokoban-Pico-Cosmos-5,5.55s,160,6,true,rruruurrddldlddruruuldllulldrruruurrdrdrdllulluurrdullddldllururldldrrurrrddlurullldrurrddldluudrruuldllurldllurdrrrruuulldduurrdddlllluurlddrrrruuullddullddrrr
 sokoban-info/2-58_Sokoban-Boxxle-1-58,sokoban-info/2-58_Sokoban-Boxxle-1-58,15.01,10,17,false,Timed out.
 sokoban-info/13-4_Sokoban-The-Cantrip-2-collection-4,sokoban-info/13-4_Sokoban-The-Cantrip-2-collection-4,15.01,10,9,false,Timed out.
-sokoban-info/15-9_Sokoban-Sasquatch-9,sokoban-info/15-9_Sokoban-Sasquatch-9,15.00,10,5,false,Timed out.
-sokoban-info/4-10_Sokoban-Mini-Cosmos-10,sokoban-info/4-10_Sokoban-Mini-Cosmos-10,0.52s,114,3,true,rddllulurllldddrruruuuulldurrddddldlluuurrduluurrddllldddrrurrruullduuullddrdulldddrruuddlluuuruurrddrrddllrruulld
-sokoban-info/2-91_Sokoban-Boxxle-1-91,sokoban-info/2-91_Sokoban-Boxxle-1-91,15.01,10,12,false,Timed out.
+sokoban-info/15-9_Sokoban-Sasquatch-9,sokoban-info/15-9_Sokoban-Sasquatch-9,15.01,10,5,false,Timed out.
+sokoban-info/4-10_Sokoban-Mini-Cosmos-10,sokoban-info/4-10_Sokoban-Mini-Cosmos-10,0.46s,110,3,true,rddllulurllldddrruruuuulldurrddddrruulrddlluuddldlluuuruurrddduuullddrdulldddrruudrldlluuuruurrddrrddllrruulld
+sokoban-info/2-91_Sokoban-Boxxle-1-91,sokoban-info/2-91_Sokoban-Boxxle-1-91,15.00,10,12,false,Timed out.
 sokoban-info/2-36_Sokoban-Boxxle-1-36,sokoban-info/2-36_Sokoban-Boxxle-1-36,15.01,10,9,false,Timed out.
-sokoban-info/12-7_Sokoban-The-Cantrip-collection-7,sokoban-info/12-7_Sokoban-The-Cantrip-collection-7,7.80s,149,6,true,dllllrrdruruululdlduruuldllddrdrruurrddldluudllulldrurrdrrruululldurrdldllluurrdrrulddlurrrddldluuluruuldlldddrluullurrrrurddullldddlurrluulldrurdldr
-sokoban-info/13-10_Sokoban-The-Cantrip-2-collection-10,sokoban-info/13-10_Sokoban-The-Cantrip-2-collection-10,15.01,10,8,false,Timed out.
-sokoban-info/15-1_Sokoban-Sasquatch-1,sokoban-info/15-1_Sokoban-Sasquatch-1,2.23s,160,3,true,llurrrrrllllddddddrrruuurruuruuldlldlluldddduruudlulurrdrrurrdrddllldddlllluruurululurrrrrldllddlddrdrruuurrruuldrdllruruuuldddrdluuullldlddldddrrruldlllurrrdru
-sokoban-info/5-33_Sokoban-Micro-Cosmos-33,sokoban-info/5-33_Sokoban-Micro-Cosmos-33,1.18s,193,4,true,ldlldrddrruulrddlluuddrrrddlludrruuluuluurddllddrrlluurrduurrddldluudrruulldllddrddrruuddlluurlluurruuldurddddlluulurdddrruulruuldldlurrrdlrurrddldluudrruulldlulldrurrdddlludrddrruuluuurrddldlu
-sokoban-info/7-19_Sokoban-Nabo-Cosmos-19,sokoban-info/7-19_Sokoban-Nabo-Cosmos-19,1.50s,136,4,true,drdddrrddluluuurldddlrrruldludldllurrruuururrdlluulldrdurdlddrrddlulrruldllruuuuddddldllururrdrruldllruuuruuldddduurrruldluldddldrldllur
+sokoban-info/12-7_Sokoban-The-Cantrip-collection-7,sokoban-info/12-7_Sokoban-The-Cantrip-collection-7,5.88s,163,6,true,dllllrrdruruululdldldruuruuldlldlddrurrdrllullulurrrrdrrululdlllddrrdrruurulllldlddrruluurrrddlrurulllldllurrrrurdrdrddldluluuruuldlldddludrrlurdlluruulldrlurrdldr
+sokoban-info/13-10_Sokoban-The-Cantrip-2-collection-10,sokoban-info/13-10_Sokoban-The-Cantrip-2-collection-10,15.00,10,8,false,Timed out.
+sokoban-info/15-1_Sokoban-Sasquatch-1,sokoban-info/15-1_Sokoban-Sasquatch-1,1.73s,146,3,true,uulddddduuururrrrdddlldddlllluruuruulurrrrldlldlulurrdlddddrdrrulruurruuruulddulldllurrrldllddlddrdrruuurrruuldrdllruuruuldddrdluuulllldddlddrrdru
+sokoban-info/5-33_Sokoban-Micro-Cosmos-33,sokoban-info/5-33_Sokoban-Micro-Cosmos-33,1.00s,199,4,true,ldlldrddrruuddrddlludrruuluuluurdllldrddrruulrddlluuruurddlllurdrrduulrrrddldluudrruullrrddllullddrddrruuddlluuruuuuldrdddlluulurdddrruulruuldldurrrrddldluudrruulldlulldrurrdddlludrddrruuluuurrddldlu
+sokoban-info/7-19_Sokoban-Nabo-Cosmos-19,sokoban-info/7-19_Sokoban-Nabo-Cosmos-19,1.36s,146,4,true,rddddrrddlulrruldluuudddldllurrruuururrdlluulldrdddrrddludruuldluuuuruldddddldllurrdllururdruuuruulddddrrddluruldllruuuruuldrdrruldluldddldrldllur
 sokoban-info/3-108_Sokoban-Boxxle-2-108,sokoban-info/3-108_Sokoban-Boxxle-2-108,15.00,10,11,false,Timed out.
-sokoban-info/4-12_Sokoban-Mini-Cosmos-12,sokoban-info/4-12_Sokoban-Mini-Cosmos-12,0.87s,144,3,true,dlulllddrrudlluuuullddrluurrddlluurrrrrddlddlluuudlluurrddddrruulluurlllddrluururdddrrddlluuudlluururrdlddddrruuruulrddrdlrullllddrrudlluurrdruu
-sokoban-info/15-15_Sokoban-Sasquatch-15,sokoban-info/15-15_Sokoban-Sasquatch-15,15.00,10,7,false,Timed out.
-sokoban-info/3-76_Sokoban-Boxxle-2-76,sokoban-info/3-76_Sokoban-Boxxle-2-76,15.05,10,59,false,Timed out.
+sokoban-info/4-12_Sokoban-Mini-Cosmos-12,sokoban-info/4-12_Sokoban-Mini-Cosmos-12,0.61s,130,3,true,dlulllddrrudlluuuullddrluurrrrrddlddlluuudlluurrddddrruulrddlluulluurrrlllddrrudlluururrdlddrrruulrddrdlulllddrrurrullddlluurrdruu
+sokoban-info/15-15_Sokoban-Sasquatch-15,sokoban-info/15-15_Sokoban-Sasquatch-15,15.01,10,7,false,Timed out.
+sokoban-info/3-76_Sokoban-Boxxle-2-76,sokoban-info/3-76_Sokoban-Boxxle-2-76,15.00,10,59,false,Timed out.
 sokoban-info/2-73_Sokoban-Boxxle-1-73,sokoban-info/2-73_Sokoban-Boxxle-1-73,15.01,10,11,false,Timed out.
-sokoban-info/15-4_Sokoban-Sasquatch-4,sokoban-info/15-4_Sokoban-Sasquatch-4,15.00,10,9,false,Timed out.
-sokoban-info/13-1_Sokoban-The-Cantrip-2-collection-1,sokoban-info/13-1_Sokoban-The-Cantrip-2-collection-1,15.01,10,9,false,Timed out.
+sokoban-info/15-4_Sokoban-Sasquatch-4,sokoban-info/15-4_Sokoban-Sasquatch-4,15.01,10,9,false,Timed out.
+sokoban-info/13-1_Sokoban-The-Cantrip-2-collection-1,sokoban-info/13-1_Sokoban-The-Cantrip-2-collection-1,15.07,10,9,false,Timed out.
 sokoban-info/3-99_Sokoban-Boxxle-2-99,sokoban-info/3-99_Sokoban-Boxxle-2-99,15.00,10,23,false,Timed out.
-sokoban-info/6-2_Sokoban-Pico-Cosmos-2,sokoban-info/6-2_Sokoban-Pico-Cosmos-2,6.23s,124,6,true,uurdrrulrurrurruulldlldlddrdllrruulldldrllddrruulduururrddlluurdurrrurruulldldrdllruururrddllulldurrddlulldrddlulldrddlulldr
-sokoban-info/2-49_Sokoban-Boxxle-1-49,sokoban-info/2-49_Sokoban-Boxxle-1-49,4.76s,142,7,true,lululuururrdduuuuurrddlrddrddluudlluuurrddrdldruuluulldlldlddruddrddludrurrrudllldluuddrurrruuruuluulldddlruuurrddrddlulluuurruulldddurrddrdll
+sokoban-info/6-2_Sokoban-Pico-Cosmos-2,sokoban-info/6-2_Sokoban-Pico-Cosmos-2,9.72s,154,6,true,uurdrrulrurrurruulldlldlddrdluuurdrudllddlrrululdldrllddrruudluldururururrdrurruulldurrddlldlldlruuurdrrruulldurrddlldlulldrddllrruulldurrddlulldrddlulldr
+sokoban-info/2-49_Sokoban-Boxxle-1-49,sokoban-info/2-49_Sokoban-Boxxle-1-49,4.55s,138,7,true,lululuururrdduuuuurrddlruullddrrddrddlulluuurrddrdluuulldlldlddruddrddluurdrrruuruuluulldddlruuurrddrddlulluuurrddrdldruuluuuulldddurrdddl
 sokoban-info/15-40_Sokoban-Sasquatch-40,sokoban-info/15-40_Sokoban-Sasquatch-40,15.00,10,24,false,Timed out.
 sokoban-info/10-15_Sokoban-The-Bagatelle-collection-15,sokoban-info/10-15_Sokoban-The-Bagatelle-collection-15,15.01,10,7,false,Timed out.
-sokoban-info/10-16_Sokoban-The-Bagatelle-collection-16,sokoban-info/10-16_Sokoban-The-Bagatelle-collection-16,15.00,10,10,false,Timed out.
-sokoban-info/4-15_Sokoban-Mini-Cosmos-15,sokoban-info/4-15_Sokoban-Mini-Cosmos-15,0.50s,90,2,true,rrurrdllldlluruulurrrurdddldldluuddrururrdluuulllldrlurrrrdddlldluuulurrrurddullldddrrrrul
+sokoban-info/10-16_Sokoban-The-Bagatelle-collection-16,sokoban-info/10-16_Sokoban-The-Bagatelle-collection-16,15.05,10,10,false,Timed out.
+sokoban-info/4-15_Sokoban-Mini-Cosmos-15,sokoban-info/4-15_Sokoban-Mini-Cosmos-15,0.32s,94,2,true,uulurrrurdlldlddrrurrdllldluuururrdulldllurrrurdlldlddrrrruldllluururrddrdllldluudrrruuulllldr
 sokoban-info/3-44_Sokoban-Boxxle-2-44,sokoban-info/3-44_Sokoban-Boxxle-2-44,15.00,10,14,false,Timed out.
 sokoban-info/15-31_Sokoban-Sasquatch-31,sokoban-info/15-31_Sokoban-Sasquatch-31,15.01,10,20,false,Timed out.
-sokoban-info/14-15_Sokoban-The-Maelstrom-collection-15,sokoban-info/14-15_Sokoban-The-Maelstrom-collection-15,15.01,10,20,false,Timed out.
-sokoban-info/5-35_Sokoban-Micro-Cosmos-35,sokoban-info/5-35_Sokoban-Micro-Cosmos-35,1.15s,74,5,true,drdrdruuruuldulldrdulldrdrudluuurrrddlldlululurrrdlddrurruuldrdllddruuldlu
-sokoban-info/6-7_Sokoban-Pico-Cosmos-7,sokoban-info/6-7_Sokoban-Pico-Cosmos-7,15.01,10,8,false,Timed out.
-sokoban-info/2-17_Sokoban-Boxxle-1-17,sokoban-info/2-17_Sokoban-Boxxle-1-17,15.00,10,6,false,Timed out.
-sokoban-info/2-74_Sokoban-Boxxle-1-74,sokoban-info/2-74_Sokoban-Boxxle-1-74,8.36s,137,7,true,luluuurrlldddrdrrdrruluurruulluullddllddrldrdrrdrudlulluuluurruurrddlrrrddlludrrurrdlddlldlluruurruullrrddlludrrurrdlddlldluuudddrurruull
-sokoban-info/15-18_Sokoban-Sasquatch-18,sokoban-info/15-18_Sokoban-Sasquatch-18,15.01,10,24,false,Timed out.
-sokoban-info/3-97_Sokoban-Boxxle-2-97,sokoban-info/3-97_Sokoban-Boxxle-2-97,15.00,10,10,false,Timed out.
-sokoban-info/12-8_Sokoban-The-Cantrip-collection-8,sokoban-info/12-8_Sokoban-The-Cantrip-collection-8,15.01,10,7,false,Timed out.
+sokoban-info/14-15_Sokoban-The-Maelstrom-collection-15,sokoban-info/14-15_Sokoban-The-Maelstrom-collection-15,15.00,10,20,false,Timed out.
+sokoban-info/5-35_Sokoban-Micro-Cosmos-35,sokoban-info/5-35_Sokoban-Micro-Cosmos-35,0.82s,92,5,true,drdrdruuruullldurrdulldllurdrrdulldruruldddruluurrrddlldlululurrrdlddrurruuldrdllddruuddlulu
+sokoban-info/6-7_Sokoban-Pico-Cosmos-7,sokoban-info/6-7_Sokoban-Pico-Cosmos-7,15.00,10,8,false,Timed out.
+sokoban-info/2-17_Sokoban-Boxxle-1-17,sokoban-info/2-17_Sokoban-Boxxle-1-17,12.18s,133,6,true,llddlddrluurdldddrrrulldluuuddrrrrruulludldulullrrdluruurrddrdllldlulrrrruuurrdlddlllulruurrddrdlldllddrudrrulldluuuddrrulrullrdddluu
+sokoban-info/2-74_Sokoban-Boxxle-1-74,sokoban-info/2-74_Sokoban-Boxxle-1-74,6.93s,169,7,true,luluuurrrruullddlldddrdrrdrruluuuulllldddrdrrdruuurruulllrdulluurrdullddrrddrruulrdrrdlddlldlluruurruullrrddlludddlllulurluurlddrddrrruurrurrdlllrrddlldlluruurrrddlldluu
+sokoban-info/15-18_Sokoban-Sasquatch-18,sokoban-info/15-18_Sokoban-Sasquatch-18,15.00,10,24,false,Timed out.
+sokoban-info/3-97_Sokoban-Boxxle-2-97,sokoban-info/3-97_Sokoban-Boxxle-2-97,15.01,10,10,false,Timed out.
+sokoban-info/12-8_Sokoban-The-Cantrip-collection-8,sokoban-info/12-8_Sokoban-The-Cantrip-collection-8,15.00,10,7,false,Timed out.
 sokoban-info/6-13_Sokoban-Pico-Cosmos-13,sokoban-info/6-13_Sokoban-Pico-Cosmos-13,15.00,10,7,false,Timed out.
 sokoban-info/15-20_Sokoban-Sasquatch-20,sokoban-info/15-20_Sokoban-Sasquatch-20,15.05,10,9,false,Timed out.
-sokoban-info/3-105_Sokoban-Boxxle-2-105,sokoban-info/3-105_Sokoban-Boxxle-2-105,15.00,10,17,false,Timed out.
-sokoban-info/15-21_Sokoban-Sasquatch-21,sokoban-info/15-21_Sokoban-Sasquatch-21,15.01,10,8,false,Timed out.
+sokoban-info/3-105_Sokoban-Boxxle-2-105,sokoban-info/3-105_Sokoban-Boxxle-2-105,15.01,10,17,false,Timed out.
+sokoban-info/15-21_Sokoban-Sasquatch-21,sokoban-info/15-21_Sokoban-Sasquatch-21,15.00,10,8,false,Timed out.
 sokoban-info/15-19_Sokoban-Sasquatch-19,sokoban-info/15-19_Sokoban-Sasquatch-19,15.01,10,9,false,Timed out.
-sokoban-info/4-37_Sokoban-Mini-Cosmos-37,sokoban-info/4-37_Sokoban-Mini-Cosmos-37,0.59s,116,3,true,dlluullddrluurrddrddluuddruuruullddlluururddurrddlluulururdldddrruululldlddrruurrddllrddluurruullllddrrlluurrduruuld
-sokoban-info/2-12_Sokoban-Boxxle-1-12,sokoban-info/2-12_Sokoban-Boxxle-1-12,2.25s,278,6,true,dllldddlldllurrlllluuurrrrrrrrrrrrrrlllllllllllllldllurrrrrrrrrrrrrrrllllllllllllldddrruuddlluuurrrrrrrrrrrrdrulurrlldlllllllllldddrrdlddluuuuuddlluuurrrrrrrrrrrrurdldrrulllllllldddlllddluuuuddlluuurrrrrrrrrrrrrllllllldddlldlddruulluuuurrrrdddllldluuuddlluulurrrrrrrrrrrrrurdldr
-sokoban-info/6-1_Sokoban-Pico-Cosmos-1,sokoban-info/6-1_Sokoban-Pico-Cosmos-1,15.01,10,6,false,Timed out.
-sokoban-info/2-95_Sokoban-Boxxle-1-95,sokoban-info/2-95_Sokoban-Boxxle-1-95,13.74s,187,6,true,rurrrurrdlllluuuurruulldddddlllddrrurrruulrddllulddlluuuururrdddurrddlluuuulldlddddrrurrrurrulllrddllldlluuuururrddduuuuurrddlruullddddrrddllrrurrdlluulluulldllurrrrddduuuuurrddlruulldddd
+sokoban-info/4-37_Sokoban-Mini-Cosmos-37,sokoban-info/4-37_Sokoban-Mini-Cosmos-37,0.31s,98,3,true,dlluullddrluurrddrruullddlluururddurrddlluuuurdldddrruulrddlluuddrddluudruruullllddrrlluurrduruuld
+sokoban-info/2-12_Sokoban-Boxxle-1-12,sokoban-info/2-12_Sokoban-Boxxle-1-12,1.85s,290,6,true,dllldddlldllulluuurrrrrrrrrrrrrrdllulllllllllllldllurrrrrrrrrrrrrrrllllllldddlldllurrlluuddlluuurrrrrrrrrrrrdrrudllururlldlllllllllldddrdddruldluuuuuddlluuurrrrrrrrrrrrurdldrrulllllllldddllduldluuuddlluuurrrrrrrrrrrrrllllllldddllldddruulurlluuurrrrdddllldluuuddlluullurrrrrrrrrrrrrrurdulddr
+sokoban-info/6-1_Sokoban-Pico-Cosmos-1,sokoban-info/6-1_Sokoban-Pico-Cosmos-1,15.00,10,6,false,Timed out.
+sokoban-info/2-95_Sokoban-Boxxle-1-95,sokoban-info/2-95_Sokoban-Boxxle-1-95,10.40s,197,6,true,rurrrurrdllllulllddrrurulruuurruulldddddldrrruulrddllldlluurluururrdddurrdrruldldllulruuulldlddddrrurrrurullrddlluuddldlluuuururrdddurrddlluuuuuurrddlruullddlldllurrrrddduuuuurrddlruullddddrrdrrdll
 sokoban-info/14-3_Sokoban-The-Maelstrom-collection-3,sokoban-info/14-3_Sokoban-The-Maelstrom-collection-3,15.01,10,12,false,Timed out.
-sokoban-info/6-11_Sokoban-Pico-Cosmos-11,sokoban-info/6-11_Sokoban-Pico-Cosmos-11,15.01,10,8,false,Timed out.
-sokoban-info/3-86_Sokoban-Boxxle-2-86,sokoban-info/3-86_Sokoban-Boxxle-2-86,4.31s,134,6,true,dddludrrddllulluuululldrdrlulurrdrdulldddrrrrdrruululdruuuldlldduurrrddludldlrururuulddulllrdduululldrdrluurdrrrrddllrurdrddlludrruull
-sokoban-info/4-9_Sokoban-Mini-Cosmos-9,sokoban-info/4-9_Sokoban-Mini-Cosmos-9,0.33s,107,2,true,lddldlluuurrruulldurrddddrruulrddlluuddldlluuuruurrdddurrddlluuuullddldddrrudlluuurrluurrdddullldddrruruuld
+sokoban-info/6-11_Sokoban-Pico-Cosmos-11,sokoban-info/6-11_Sokoban-Pico-Cosmos-11,15.00,10,8,false,Timed out.
+sokoban-info/3-86_Sokoban-Boxxle-2-86,sokoban-info/3-86_Sokoban-Boxxle-2-86,3.71s,130,6,true,dddlurdrddllulllluururdululldrurdldddrrrrdrruululduruuldlllrdduurrrddlldlrurruuldrdluulldduululldrdrlulurrdrrrddlrurdrddlludrruull
+sokoban-info/4-9_Sokoban-Mini-Cosmos-9,sokoban-info/4-9_Sokoban-Mini-Cosmos-9,0.30s,107,2,true,lddldlluuurrruulldurrddddrruulrddllldlluuuruurrdddlddlluuurrdrudlddlluuuruurrddrrddllrruulldullldddrruruuld
 sokoban-info/15-24_Sokoban-Sasquatch-24,sokoban-info/15-24_Sokoban-Sasquatch-24,15.00,10,13,false,Timed out.
 sokoban-info/2-89_Sokoban-Boxxle-1-89,sokoban-info/2-89_Sokoban-Boxxle-1-89,15.01,10,23,false,Timed out.
 sokoban-info/3-14_Sokoban-Boxxle-2-14,sokoban-info/3-14_Sokoban-Boxxle-2-14,15.01,10,15,false,Timed out.
-sokoban-info/2-61_Sokoban-Boxxle-1-61,sokoban-info/2-61_Sokoban-Boxxle-1-61,15.00,10,13,false,Timed out.
-sokoban-info/6-4_Sokoban-Pico-Cosmos-4,sokoban-info/6-4_Sokoban-Pico-Cosmos-4,15.01,10,8,false,Timed out.
-sokoban-info/2-1_Sokoban-Boxxle-1-1,sokoban-info/2-1_Sokoban-Boxxle-1-1,0.70s,113,3,true,rruuuuruulldrlurrdldddddlluurlddrruuuurrrlluulldrdrrrurddulllluurdldrrrlllddddllurdruuuurrrurdllluulldrlurrdldrrr
-sokoban-info/4-27_Sokoban-Mini-Cosmos-27,sokoban-info/4-27_Sokoban-Mini-Cosmos-27,0.61s,115,2,true,uruululldduurrdrdddldllluurrrdrruluurulllulddduurrdrdddllurdruuddlldlluurrrlddlluuruuurrrrdlullldddrdrruuurullluldd
-sokoban-info/3-39_Sokoban-Boxxle-2-39,sokoban-info/3-39_Sokoban-Boxxle-2-39,15.01,10,17,false,Timed out.
-sokoban-info/2-23_Sokoban-Boxxle-1-23,sokoban-info/2-23_Sokoban-Boxxle-1-23,8.52s,76,8,true,rddlduruuldrddddllluluurddluruluurdrldlurrrurdddlduruulddrdulullulddurdrrurd
-sokoban-info/3-93_Sokoban-Boxxle-2-93,sokoban-info/3-93_Sokoban-Boxxle-2-93,1.42s,102,4,true,dllllddrudluuuulllddrrlluurrrruldddrddludluruuulllddrrlluurrrdduuruulldurrddlddrrrurrdllllddlluulluurr
-sokoban-info/7-3_Sokoban-Nabo-Cosmos-3,sokoban-info/7-3_Sokoban-Nabo-Cosmos-3,2.02s,171,5,true,uldlldrluurllluurrrddlddlururuulllddrddrrurrdlluudlluluurrrddlruulllddrdrrdrruulrddllurllluluurrrddrdluuulllddrrlddddrruulrddlluurrruulddrululruulllddrrlluurrrddrddludllur
-sokoban-info/9-7_Sokoban-The-DH2-collection-7,sokoban-info/9-7_Sokoban-The-DH2-collection-7,15.03,10,16,false,Timed out.
-sokoban-info/8-10_Sokoban-The-DH1-collection-10,sokoban-info/8-10_Sokoban-The-DH1-collection-10,3.76s,108,7,true,rdddrruuddlluurrdrrddlddllururruulldurruuulldduldlddlddrrluluruulurrdrdrrulllrrdruuullddluldddlddruuddrdrrul
-sokoban-info/3-22_Sokoban-Boxxle-2-22,sokoban-info/3-22_Sokoban-Boxxle-2-22,15.01,10,19,false,Timed out.
-sokoban-info/2-103_Sokoban-Boxxle-1-103,sokoban-info/2-103_Sokoban-Boxxle-1-103,15.01,10,16,false,Timed out.
+sokoban-info/2-61_Sokoban-Boxxle-1-61,sokoban-info/2-61_Sokoban-Boxxle-1-61,15.01,10,13,false,Timed out.
+sokoban-info/6-4_Sokoban-Pico-Cosmos-4,sokoban-info/6-4_Sokoban-Pico-Cosmos-4,15.00,10,8,false,Timed out.
+sokoban-info/2-1_Sokoban-Boxxle-1-1,sokoban-info/2-1_Sokoban-Boxxle-1-1,0.56s,117,3,true,rruuuuruulldrurdldrlddddlluurlddrruuuurrrlluulldrdrrrurddulllluurdldrrrlllddddludluurddruuuurrrurdllluulldrlurrdldrrr
+sokoban-info/4-27_Sokoban-Mini-Cosmos-27,sokoban-info/4-27_Sokoban-Mini-Cosmos-27,0.33s,115,2,true,uruululldduurrdrrulllrdrdddldllluurrdrruuulululddduurrdrdddllurddllluurrddruruuddlluluuurrrrdldddllurdruuurullluldd
+sokoban-info/3-39_Sokoban-Boxxle-2-39,sokoban-info/3-39_Sokoban-Boxxle-2-39,15.00,10,17,false,Timed out.
+sokoban-info/2-23_Sokoban-Boxxle-1-23,sokoban-info/2-23_Sokoban-Boxxle-1-23,5.17s,73,8,true,rddldulrruuldrddddllluluurdrrdulldluuuurdrdurdrdduuluurddduldllulduuurddd
+sokoban-info/3-93_Sokoban-Boxxle-2-93,sokoban-info/3-93_Sokoban-Boxxle-2-93,1.13s,114,4,true,dlllllruurulrdlddddrulurrrurrdlllldluuulllddrrrrddlluruuulllddrrlluurrrruulldurrddlddlddrruurrurrdllllddlluulluurr
+sokoban-info/7-3_Sokoban-Nabo-Cosmos-3,sokoban-info/7-3_Sokoban-Nabo-Cosmos-3,1.54s,147,5,true,uldlldrulurllluurrrddlddlururuulllddrddrrurrdlluudlluluurrrddlruulllddrdrrdrruulrddllurllldddrruuruluddddlluurlddrruuruulddlluuluurrrddlrrddludllur
+sokoban-info/9-7_Sokoban-The-DH2-collection-7,sokoban-info/9-7_Sokoban-The-DH2-collection-7,15.01,10,16,false,Timed out.
+sokoban-info/8-10_Sokoban-The-DH1-collection-10,sokoban-info/8-10_Sokoban-The-DH1-collection-10,2.56s,98,7,true,rdddrrurrddlruullurdrddlddlluruudddruluulluurrddurruuullddllddlddrudluuruulurrdrdrrullrruullddluld
+sokoban-info/3-22_Sokoban-Boxxle-2-22,sokoban-info/3-22_Sokoban-Boxxle-2-22,15.00,10,19,false,Timed out.
+sokoban-info/2-103_Sokoban-Boxxle-1-103,sokoban-info/2-103_Sokoban-Boxxle-1-103,15.00,10,16,false,Timed out.
 sokoban-info/3-13_Sokoban-Boxxle-2-13,sokoban-info/3-13_Sokoban-Boxxle-2-13,15.01,10,18,false,Timed out.
-sokoban-info/4-8_Sokoban-Mini-Cosmos-8,sokoban-info/4-8_Sokoban-Mini-Cosmos-8,0.63s,107,3,true,luurrddurullldllurrrlluurrdrdllddrrurulluullddldrluruurrddlrrddllddrruuurulluulldduurrddldlrduludrdrrddlluu
-sokoban-info/2-51_Sokoban-Boxxle-1-51,sokoban-info/2-51_Sokoban-Boxxle-1-51,15.00,10,11,false,Timed out.
+sokoban-info/4-8_Sokoban-Mini-Cosmos-8,sokoban-info/4-8_Sokoban-Mini-Cosmos-8,0.45s,111,3,true,luurrddllullurrrlluurrdrdllddrrurulluullddldruuurrddlrurdddllddrruuurulluullddrdlrdrrddlluurruulldlurrrddddlluu
+sokoban-info/2-51_Sokoban-Boxxle-1-51,sokoban-info/2-51_Sokoban-Boxxle-1-51,15.08,10,11,false,Timed out.
 sokoban-info/10-18_Sokoban-The-Bagatelle-collection-18,sokoban-info/10-18_Sokoban-The-Bagatelle-collection-18,15.01,10,6,false,Timed out.
 sokoban-info/2-76_Sokoban-Boxxle-1-76,sokoban-info/2-76_Sokoban-Boxxle-1-76,15.01,10,49,false,Timed out.
-sokoban-info/2-59_Sokoban-Boxxle-1-59,sokoban-info/2-59_Sokoban-Boxxle-1-59,15.01,10,15,false,Timed out.
+sokoban-info/2-59_Sokoban-Boxxle-1-59,sokoban-info/2-59_Sokoban-Boxxle-1-59,15.00,10,15,false,Timed out.
 sokoban-info/13-12_Sokoban-The-Cantrip-2-collection-12,sokoban-info/13-12_Sokoban-The-Cantrip-2-collection-12,15.00,10,9,false,Timed out.
 sokoban-info/2-94_Sokoban-Boxxle-1-94,sokoban-info/2-94_Sokoban-Boxxle-1-94,15.01,10,19,false,Timed out.
 sokoban-info/3-47_Sokoban-Boxxle-2-47,sokoban-info/3-47_Sokoban-Boxxle-2-47,15.01,10,8,false,Timed out.
-sokoban-info/3-46_Sokoban-Boxxle-2-46,sokoban-info/3-46_Sokoban-Boxxle-2-46,15.01,10,11,false,Timed out.
+sokoban-info/3-46_Sokoban-Boxxle-2-46,sokoban-info/3-46_Sokoban-Boxxle-2-46,15.04,10,11,false,Timed out.
 sokoban-info/3-48_Sokoban-Boxxle-2-48,sokoban-info/3-48_Sokoban-Boxxle-2-48,15.01,10,14,false,Timed out.
-sokoban-info/3-103_Sokoban-Boxxle-2-103,sokoban-info/3-103_Sokoban-Boxxle-2-103,15.00,10,14,false,Timed out.
-sokoban-info/3-35_Sokoban-Boxxle-2-35,sokoban-info/3-35_Sokoban-Boxxle-2-35,15.01,10,12,false,Timed out.
-sokoban-info/13-13_Sokoban-The-Cantrip-2-collection-13,sokoban-info/13-13_Sokoban-The-Cantrip-2-collection-13,15.01,10,8,false,Timed out.
-sokoban-info/15-35_Sokoban-Sasquatch-35,sokoban-info/15-35_Sokoban-Sasquatch-35,15.05,10,31,false,Timed out.
-sokoban-info/5-39_Sokoban-Micro-Cosmos-39,sokoban-info/5-39_Sokoban-Micro-Cosmos-39,1.03s,177,4,true,urrddlddludruuruulldllddrrdrullluurrdullddrruuuuldrdddlluurlddrruuluurrdrddlruulullddlddrrdrudlulluurrduluurrdrddldldruuruululldrddrruulullddllurdrrdrruululldrddrddluuululldrddr
-sokoban-info/13-8_Sokoban-The-Cantrip-2-collection-8,sokoban-info/13-8_Sokoban-The-Cantrip-2-collection-8,15.01,10,10,false,Timed out.
-sokoban-info/4-38_Sokoban-Mini-Cosmos-38,sokoban-info/4-38_Sokoban-Mini-Cosmos-38,0.45s,74,3,true,drrrurulldrdlldllurrlurrurrdldllrruululddrdrullldrlurrrdlruruldllldrllddru
-sokoban-info/2-20_Sokoban-Boxxle-1-20,sokoban-info/2-20_Sokoban-Boxxle-1-20,1.22s,75,6,true,urlddruddluuuurddrrulrurrdlldddrrululuurrdldllllddrudluurluurddrllddrudluur
+sokoban-info/3-103_Sokoban-Boxxle-2-103,sokoban-info/3-103_Sokoban-Boxxle-2-103,15.06,10,14,false,Timed out.
+sokoban-info/3-35_Sokoban-Boxxle-2-35,sokoban-info/3-35_Sokoban-Boxxle-2-35,15.00,10,12,false,Timed out.
+sokoban-info/13-13_Sokoban-The-Cantrip-2-collection-13,sokoban-info/13-13_Sokoban-The-Cantrip-2-collection-13,15.00,10,8,false,Timed out.
+sokoban-info/15-35_Sokoban-Sasquatch-35,sokoban-info/15-35_Sokoban-Sasquatch-35,15.01,10,31,false,Timed out.
+sokoban-info/5-39_Sokoban-Micro-Cosmos-39,sokoban-info/5-39_Sokoban-Micro-Cosmos-39,0.81s,183,4,true,urrddlddluuullddrrurruululldrdddlluulurdddrruulruuldrddrruululldldruurrdllurrdrddllddrudluuuluurrdrddlruulullddrdulurdlllurrdrdrddlulluurrdrdluuluurdddulllurdrruuldrddrddluuululldrddr
+sokoban-info/13-8_Sokoban-The-Cantrip-2-collection-8,sokoban-info/13-8_Sokoban-The-Cantrip-2-collection-8,15.00,10,10,false,Timed out.
+sokoban-info/4-38_Sokoban-Mini-Cosmos-38,sokoban-info/4-38_Sokoban-Mini-Cosmos-38,0.35s,70,3,true,drrrurulldrdlldldluurrlurrurrdldllrruululddrdrudluuldldrllddruruurrrul
+sokoban-info/2-20_Sokoban-Boxxle-1-20,sokoban-info/2-20_Sokoban-Boxxle-1-20,0.80s,67,6,true,urlddrurrdlrdrrulluuurrdldlddrrulullllddrulurrlddluuuurddlddrudluur
 sokoban-info/3-115_Sokoban-Boxxle-2-115,sokoban-info/3-115_Sokoban-Boxxle-2-115,15.01,10,11,false,Timed out.
-sokoban-info/2-10_Sokoban-Boxxle-1-10,sokoban-info/2-10_Sokoban-Boxxle-1-10,0.64s,36,5,true,urrrdrrddlluululldrrrddluudrdrruldlu
-sokoban-info/6-6_Sokoban-Pico-Cosmos-6,sokoban-info/6-6_Sokoban-Pico-Cosmos-6,8.93s,269,7,true,ruululdllururdrdrrrdldlllluurllurururdrrddludlluruuldldldrddrrrruruluulldlruuldlddlururrddlruurrddddllludrrrurullruulllldrlurrrrddlurdddllluuurldddrrrurullluldulururdlddrrruulluldldldrrruluurdrrddlrddllluurrlludrrurdlllurldllurururdlldldrrrrruulldldllururlddrddlurdrrru
+sokoban-info/2-10_Sokoban-Boxxle-1-10,sokoban-info/2-10_Sokoban-Boxxle-1-10,0.37s,45,5,true,urrrdrrddlluululldrrrddrrulrulddllurdluuddrru
+sokoban-info/6-6_Sokoban-Pico-Cosmos-6,sokoban-info/6-6_Sokoban-Pico-Cosmos-6,6.44s,269,7,true,ruululdllururdrdrrrdldlllluurrlllurururdrrddludllurllldrurruuldldldrddrrrruruluulldlruuldlddlururrddludruurrddlruulluldrdrullldrlurrrddrddllluuururrddlulldddrruuluuuldldrdrrruulluldldldrrruluurdrrddrdldllluurrurdlllurldllurururdllddrrrruulldldddrrrudllluullururlddrddlu
 sokoban-info/2-99_Sokoban-Boxxle-1-99,sokoban-info/2-99_Sokoban-Boxxle-1-99,15.01,10,16,false,Timed out.
 sokoban-info/15-27_Sokoban-Sasquatch-27,sokoban-info/15-27_Sokoban-Sasquatch-27,15.01,10,12,false,Timed out.
 sokoban-info/9-3_Sokoban-The-DH2-collection-3,sokoban-info/9-3_Sokoban-The-DH2-collection-3,15.00,10,24,false,Timed out.
-sokoban-info/3-85_Sokoban-Boxxle-2-85,sokoban-info/3-85_Sokoban-Boxxle-2-85,15.01,10,15,false,Timed out.
-sokoban-info/4-5_Sokoban-Mini-Cosmos-5,sokoban-info/4-5_Sokoban-Mini-Cosmos-5,0.37s,110,2,true,uuururldllurrdlddrrruuruulddduulldllurrrldlddrrdrrulllrruuruulddduulldlddlddruuudrrdrrulllrruuulllldrddlddruuu
-sokoban-info/5-22_Sokoban-Micro-Cosmos-22,sokoban-info/5-22_Sokoban-Micro-Cosmos-22,5.96s,228,4,true,dlrddllluurrurrrdddlllldlurrruuluuurrrddlldludlluuurrddrdddlldluuurruuullddldruuurrrrllddrrrddrdllllldludrurruuddllluuudrruuullddldrdddrurrrrruluullrrdddlluulurdddllluurrurdllluuurrrrurdddddrdllllldluuuuddddrurrrruuuuulllllddldr
+sokoban-info/3-85_Sokoban-Boxxle-2-85,sokoban-info/3-85_Sokoban-Boxxle-2-85,15.00,10,15,false,Timed out.
+sokoban-info/4-5_Sokoban-Mini-Cosmos-5,sokoban-info/4-5_Sokoban-Mini-Cosmos-5,0.32s,114,2,true,uuururldllurrdlddrrruuruuldddurullldllurrrldlddrrdrrulllrruuruulddduullldddlddruuudrrdrrulllrruurullllldrddlddruuu
+sokoban-info/5-22_Sokoban-Micro-Cosmos-22,sokoban-info/5-22_Sokoban-Micro-Cosmos-22,4.74s,228,4,true,dlrddllluurrurrrdddlluuluuurrurdddlldllluuurrddrrrddrdluuulldddlldluuurrurrrdddlluuluuurrllllddldrrlluruurrrrurdddlldddlldluuuudrrurrruulllllddldrrlddrrruuddlldluuurrurdlllluruurrdurrrddddrdllllldluuurrudllddrrrrruuuuulllllddldr
 sokoban-info/3-90_Sokoban-Boxxle-2-90,sokoban-info/3-90_Sokoban-Boxxle-2-90,15.01,10,11,false,Timed out.
-sokoban-info/2-54_Sokoban-Boxxle-1-54,sokoban-info/2-54_Sokoban-Boxxle-1-54,15.01,10,13,false,Timed out.
-sokoban-info/3-60_Sokoban-Boxxle-2-60,sokoban-info/3-60_Sokoban-Boxxle-2-60,15.00,10,9,false,Timed out.
-sokoban-info/5-24_Sokoban-Micro-Cosmos-24,sokoban-info/5-24_Sokoban-Micro-Cosmos-24,3.65s,201,5,true,urruruuruulldldruurrddlddldllurdldllluurrluuurrdrdurulddduuruurrddlddldluddlllluurrrrldrdlurullluuurrdrrulddddldlruruuuruurrddlluldrrddldllulllddrluurrrrllluuurrdrrrddllldrruruulldurrddldlluruululldddr
-sokoban-info/3-56_Sokoban-Boxxle-2-56,sokoban-info/3-56_Sokoban-Boxxle-2-56,10.33s,85,5,true,uurrrrrrrdddullllllddrrrudllluurrrrlllldlluruurrrrrrrdddrdlllrruuuullldullllddrulurrr
+sokoban-info/2-54_Sokoban-Boxxle-1-54,sokoban-info/2-54_Sokoban-Boxxle-1-54,15.00,10,13,false,Timed out.
+sokoban-info/3-60_Sokoban-Boxxle-2-60,sokoban-info/3-60_Sokoban-Boxxle-2-60,15.01,10,9,false,Timed out.
+sokoban-info/5-24_Sokoban-Micro-Cosmos-24,sokoban-info/5-24_Sokoban-Micro-Cosmos-24,2.82s,211,5,true,urruruuruulldldururrddllrddldllurlddllluurrluuurrdrdduuruldruurrddlddldluddlllluurrrdrdluurdlulluuurrdrdddldlruruuurullrrurrddlluldlurrdrddldllulluuurrdrrrddlllrrruulldululldddlddrluuruuurrdrrrddldlluruululldddr
+sokoban-info/3-56_Sokoban-Boxxle-2-56,sokoban-info/3-56_Sokoban-Boxxle-2-56,6.96s,89,5,true,rrlluurrrrrrrddllllllddrrrudllluurrrrlllldlluruurrrrdurrrdddrdlllrruuuulllllllddrudluurrr
 sokoban-info/2-88_Sokoban-Boxxle-1-88,sokoban-info/2-88_Sokoban-Boxxle-1-88,15.01,10,8,false,Timed out.
-sokoban-info/2-104_Sokoban-Boxxle-1-104,sokoban-info/2-104_Sokoban-Boxxle-1-104,15.00,10,16,false,Timed out.
-sokoban-info/14-7_Sokoban-The-Maelstrom-collection-7,sokoban-info/14-7_Sokoban-The-Maelstrom-collection-7,15.07,10,34,false,Timed out.
+sokoban-info/2-104_Sokoban-Boxxle-1-104,sokoban-info/2-104_Sokoban-Boxxle-1-104,15.01,10,16,false,Timed out.
+sokoban-info/14-7_Sokoban-The-Maelstrom-collection-7,sokoban-info/14-7_Sokoban-The-Maelstrom-collection-7,15.09,10,34,false,Timed out.
 sokoban-info/2-26_Sokoban-Boxxle-1-26,sokoban-info/2-26_Sokoban-Boxxle-1-26,15.01,10,10,false,Timed out.
-sokoban-info/3-12_Sokoban-Boxxle-2-12,sokoban-info/3-12_Sokoban-Boxxle-2-12,8.09s,105,7,true,rruullllluddllddrrlluurrdullddrurrdldrluuuurrrrrddllurdruuddllurullluldddlluurdurrlddrddrlluuullddrrllurr
+sokoban-info/3-12_Sokoban-Boxxle-2-12,sokoban-info/3-12_Sokoban-Boxxle-2-12,5.14s,104,7,true,rruullllldllddrrlluurrdrdldrrlluuullddrlurrlldrruluruudrrrrrddllurdrudlluruldrruldlullulddllurrrldlddruu
 sokoban-info/12-1_Sokoban-The-Cantrip-collection-1,sokoban-info/12-1_Sokoban-The-Cantrip-collection-1,15.01,10,7,false,Timed out.
-sokoban-info/5-40_Sokoban-Micro-Cosmos-40,sokoban-info/5-40_Sokoban-Micro-Cosmos-40,0.80s,174,3,true,rurddrdluullllddrdrulluurrruulldurrddllrrrddlludrruuulullddrlulldrddrruululdurdrddrldluluuruurrdrddrdllluulllurdddrdrurruulllrruulldldururrddlluurrddrddlludrruuluullddrlulldr
-sokoban-info/2-15_Sokoban-Boxxle-1-15,sokoban-info/2-15_Sokoban-Boxxle-1-15,0.66s,60,4,true,lddrrddluluuurrdduurrdlrullllddrrdrullluurrddrdluldduuruurdd
-sokoban-info/14-8_Sokoban-The-Maelstrom-collection-8,sokoban-info/14-8_Sokoban-The-Maelstrom-collection-8,15.00,10,13,false,Timed out.
-sokoban-info/3-84_Sokoban-Boxxle-2-84,sokoban-info/3-84_Sokoban-Boxxle-2-84,15.01,10,12,false,Timed out.
-sokoban-info/2-2_Sokoban-Boxxle-1-2,sokoban-info/2-2_Sokoban-Boxxle-1-2,2.97s,88,4,true,ullldrrrurddddullldurrrddrdlllllrullulurrrdurrluullurrrdrddddrdlllulldlrrluruurrrdddllll
+sokoban-info/5-40_Sokoban-Micro-Cosmos-40,sokoban-info/5-40_Sokoban-Micro-Cosmos-40,0.59s,166,3,true,ruulldldrlddrdrulluuururrddllrrurddrdllludrruuulullddrlulldrddrruulrdddluluuruurrdrdddlluullddrdrulluulurldrddrrrruulllrruulldldururrddllrrrddlludrrrululuullddrlulldr
+sokoban-info/2-15_Sokoban-Boxxle-1-15,sokoban-info/2-15_Sokoban-Boxxle-1-15,0.39s,62,4,true,lddrrddluluuurrdduurrdlullldddrurdrullluurrddrdlrulldduuruurdd
+sokoban-info/14-8_Sokoban-The-Maelstrom-collection-8,sokoban-info/14-8_Sokoban-The-Maelstrom-collection-8,15.07,10,13,false,Timed out.
+sokoban-info/3-84_Sokoban-Boxxle-2-84,sokoban-info/3-84_Sokoban-Boxxle-2-84,15.00,10,12,false,Timed out.
+sokoban-info/2-2_Sokoban-Boxxle-1-2,sokoban-info/2-2_Sokoban-Boxxle-1-2,2.14s,83,4,true,ullldrrrurdllddrrdddllulllulurrrduruurrddddrdlllulrdllluuurrrrluurrddddrdlllllrrull
 sokoban-info/2-78_Sokoban-Boxxle-1-78,sokoban-info/2-78_Sokoban-Boxxle-1-78,15.01,10,15,false,Timed out.
-sokoban-info/12-13_Sokoban-The-Cantrip-collection-13,sokoban-info/12-13_Sokoban-The-Cantrip-collection-13,15.01,10,8,false,Timed out.
-sokoban-info/14-20_Sokoban-The-Maelstrom-collection-20,sokoban-info/14-20_Sokoban-The-Maelstrom-collection-20,15.01,10,25,false,Timed out.
+sokoban-info/12-13_Sokoban-The-Cantrip-collection-13,sokoban-info/12-13_Sokoban-The-Cantrip-collection-13,12.27s,144,8,true,urrduuuldlddrdruddrruulrdrruluulldulrrrdddldlluruururdlldddlululuurdrdrddlululuururdrddurrdlululllddruruuldlddrdrdrruurrdluuulllddrrlllluururdld
+sokoban-info/14-20_Sokoban-The-Maelstrom-collection-20,sokoban-info/14-20_Sokoban-The-Maelstrom-collection-20,15.00,10,25,false,Timed out.
 sokoban-info/3-80_Sokoban-Boxxle-2-80,sokoban-info/3-80_Sokoban-Boxxle-2-80,15.01,10,9,false,Timed out.
 sokoban-info/2-6_Sokoban-Boxxle-1-6,sokoban-info/2-6_Sokoban-Boxxle-1-6,15.00,10,5,false,Timed out.
-sokoban-info/5-32_Sokoban-Micro-Cosmos-32,sokoban-info/5-32_Sokoban-Micro-Cosmos-32,0.84s,88,4,true,ulullddrdrurrruullddlddrrudlluuruulddururuulldduurrddlddllluurrdrdluuuurrddrddlddlluuuur
-sokoban-info/3-110_Sokoban-Boxxle-2-110,sokoban-info/3-110_Sokoban-Boxxle-2-110,15.10,10,9,false,Timed out.
-sokoban-info/2-68_Sokoban-Boxxle-1-68,sokoban-info/2-68_Sokoban-Boxxle-1-68,15.01,10,15,false,Timed out.
-sokoban-info/5-34_Sokoban-Micro-Cosmos-34,sokoban-info/5-34_Sokoban-Micro-Cosmos-34,1.17s,156,4,true,dlllulldrluruurdrluldddrrrllllururrrlllddrudrrurrruulldurrddldlllluluurdldldrlururrrddlludrruulldlldrrllurrurrddrrulrruulldllluldrrrrurrddldlludrrulrruulldl
-sokoban-info/2-57_Sokoban-Boxxle-1-57,sokoban-info/2-57_Sokoban-Boxxle-1-57,15.00,10,12,false,Timed out.
-sokoban-info/15-2_Sokoban-Sasquatch-2,sokoban-info/15-2_Sokoban-Sasquatch-2,0.74s,59,4,true,rurrululdldlddrurudllldlddrruluurururldddluldurrrurudldluur
-sokoban-info/3-66_Sokoban-Boxxle-2-66,sokoban-info/3-66_Sokoban-Boxxle-2-66,15.01,10,25,false,Timed out.
-sokoban-info/5-11_Sokoban-Micro-Cosmos-11,sokoban-info/5-11_Sokoban-Micro-Cosmos-11,1.95s,153,5,true,rrddlddldlluruurrddlruulldrddlurrrruuluullddduuurrddlruulldduurrddrrulrdlllluurrdrdlrddllluuudrdldruururrdllldludddllurdruruulldurrddluddllurdruruurrddll
-sokoban-info/7-13_Sokoban-Nabo-Cosmos-13,sokoban-info/7-13_Sokoban-Nabo-Cosmos-13,1.52s,290,3,true,ddrrrruruurulllllrrrrdddldldluururlddruruurullrrdlddldlllluuuluurddddldrrrurrruurulllllrrrrdddllurdruurullllrrrddlldlddrudluurddlulluuuluurdddduulurrldddldrrrururruullllrrrrddlldldlldluuruuluurddurrrrrdddldllururruullllldddlddrurluuuluurddlurrrrrrddlldddlulluuddrrdruuurruullllldddldrrrdruu
+sokoban-info/5-32_Sokoban-Micro-Cosmos-32,sokoban-info/5-32_Sokoban-Micro-Cosmos-32,0.63s,84,4,true,ulullddrdrurrruulllrddlddrrudlluuruuldduurruullddrddllluurrdrdluuuurrddrddlddlluuuur
+sokoban-info/3-110_Sokoban-Boxxle-2-110,sokoban-info/3-110_Sokoban-Boxxle-2-110,15.00,10,9,false,Timed out.
+sokoban-info/2-68_Sokoban-Boxxle-1-68,sokoban-info/2-68_Sokoban-Boxxle-1-68,15.00,10,15,false,Timed out.
+sokoban-info/5-34_Sokoban-Micro-Cosmos-34,sokoban-info/5-34_Sokoban-Micro-Cosmos-34,0.88s,143,4,true,dlllulldrrrlluuurdrrlllddrudrrurrdllllrrrruruulldlddlluluurdrrddlludrruulldlldrururrddrruldruruulldurrddldllurulddruuurrddlldlllulldrrllurruuld
+sokoban-info/2-57_Sokoban-Boxxle-1-57,sokoban-info/2-57_Sokoban-Boxxle-1-57,15.01,10,12,false,Timed out.
+sokoban-info/15-2_Sokoban-Sasquatch-2,sokoban-info/15-2_Sokoban-Sasquatch-2,0.83s,71,4,true,dlddlluurururrdldlruuururrddlruulldlddrulldldurrdldlrurulldrrururudllur
+sokoban-info/3-66_Sokoban-Boxxle-2-66,sokoban-info/3-66_Sokoban-Boxxle-2-66,15.00,10,25,false,Timed out.
+sokoban-info/5-11_Sokoban-Micro-Cosmos-11,sokoban-info/5-11_Sokoban-Micro-Cosmos-11,1.45s,153,5,true,rrddlddldlluruurrdlrdrruuluullddrddrruuruldddlluurlddlruuluurrdrdluullddrrlddluuudddruururrdllldludddllurdrurrrudlluulldrurdlddllurdruluurrrurrdlllrrddll
+sokoban-info/7-13_Sokoban-Nabo-Cosmos-13,sokoban-info/7-13_Sokoban-Nabo-Cosmos-13,1.16s,252,3,true,ddrrrruruurulllllrrrrdddldldluururlddruruurullrdddldldlulluuuluurddddldrrrurrruuullllrrrrdddllurdruldllddrullluuuluurddddldrrrururrurulllllrrrrrdldlldldlldluuruuluurdrrrrrdddldllururruullllldddlddrurluuuluurdddduuurrrrrddlldddluruurruullllldddldrrrdruu
 sokoban-info/3-51_Sokoban-Boxxle-2-51,sokoban-info/3-51_Sokoban-Boxxle-2-51,15.01,10,16,false,Timed out.
-sokoban-info/10-6_Sokoban-The-Bagatelle-collection-6,sokoban-info/10-6_Sokoban-The-Bagatelle-collection-6,15.01,10,11,false,Timed out.
-sokoban-info/2-87_Sokoban-Boxxle-1-87,sokoban-info/2-87_Sokoban-Boxxle-1-87,15.00,10,9,false,Timed out.
-sokoban-info/15-25_Sokoban-Sasquatch-25,sokoban-info/15-25_Sokoban-Sasquatch-25,15.00,10,19,false,Timed out.
-sokoban-info/5-27_Sokoban-Micro-Cosmos-27,sokoban-info/5-27_Sokoban-Micro-Cosmos-27,1.66s,272,4,true,ldllddrdrruldldlluluurrurrddrdlruluullddrluurrddllullurrrlluurrdrdllddrrudllullddrdrrudlluluururrurrdlddrdluuuulullddrddrluuluurrdrdluullddldddrdrruruuulldlrdrdrudluluuruullddrrrrulddullluurrdullddrddrdruuuluullddldrluruurrddlruullddrrrddlddlluludrdrruruuuruldllluurrdrdll
-sokoban-info/5-21_Sokoban-Micro-Cosmos-21,sokoban-info/5-21_Sokoban-Micro-Cosmos-21,1.86s,191,5,true,dldlluurrdrruuullddllddrrdrruuddllulluurrdrrudddlldlurrruulldurrddlluuuuurrdddrruulrddllllddrrudlluuuuurrdrrddlllrddlluuullddrluurrdrrrruulldurrddllulrdddllulluurrrlllddrrddlurrruurruulldlldd
-sokoban-info/4-22_Sokoban-Mini-Cosmos-22,sokoban-info/4-22_Sokoban-Mini-Cosmos-22,0.75s,125,3,true,rruuuruldddlruurullulldrdrlulurrdrdddldllurrddrruludluruurullulldrdrlulurrdrdddduuurullldrurdddlddruuuurulldrddddluulldrlurrd
-sokoban-info/2-35_Sokoban-Boxxle-1-35,sokoban-info/2-35_Sokoban-Boxxle-1-35,15.10,10,10,false,Timed out.
-sokoban-info/3-3_Sokoban-Boxxle-2-3,sokoban-info/3-3_Sokoban-Boxxle-2-3,2.53s,61,5,true,lllurudrllluuurrdurdldlulurddddrrrudllluludrdruluuuldrrrddrdl
-sokoban-info/3-6_Sokoban-Boxxle-2-6,sokoban-info/3-6_Sokoban-Boxxle-2-6,15.01,10,7,false,Timed out.
+sokoban-info/10-6_Sokoban-The-Bagatelle-collection-6,sokoban-info/10-6_Sokoban-The-Bagatelle-collection-6,15.09,10,11,false,Timed out.
+sokoban-info/2-87_Sokoban-Boxxle-1-87,sokoban-info/2-87_Sokoban-Boxxle-1-87,15.01,10,9,false,Timed out.
+sokoban-info/15-25_Sokoban-Sasquatch-25,sokoban-info/15-25_Sokoban-Sasquatch-25,15.01,10,19,false,Timed out.
+sokoban-info/5-27_Sokoban-Micro-Cosmos-27,sokoban-info/5-27_Sokoban-Micro-Cosmos-27,1.40s,272,4,true,ldllddrdrruldldlluluurrurrddrdluuullddrluurrddllullurrrlluurrdrdllddrrudllullddrdrrudlluluururrurrdlddrdlruluullddrlullurdlddrdrruruuuluullddldddrdrrurruluulldlrdrdrruluuluullddrrrruldllluurrdullddrddrdruuuluullddldruuurrddlrrddlddlluludrdrruuruuluullddrrrruldllluurrdrdll
+sokoban-info/5-21_Sokoban-Micro-Cosmos-21,sokoban-info/5-21_Sokoban-Micro-Cosmos-21,1.48s,191,5,true,dldlluurrdrruuullddllddrrdrruuudddllulluurrdrrddlldlurrruulldurrddlluuuuurrdddrruulrddllllddrrudlluuuuurrdrrddlllrddlluuullddrluurrdrrrruulldurrddllulrdddllulluurrrlllddrrddlurrruurruulldlldd
+sokoban-info/4-22_Sokoban-Mini-Cosmos-22,sokoban-info/4-22_Sokoban-Mini-Cosmos-22,0.49s,135,3,true,rruuuruldddlddruuuuululldrdrlulurrdrdddldllurrddrrullrullldrlurrruurullulldrdrlulurrdrddddldruuuurullldrlurrdddlddrululldrlurrdruuurull
+sokoban-info/2-35_Sokoban-Boxxle-1-35,sokoban-info/2-35_Sokoban-Boxxle-1-35,15.01,10,10,false,Timed out.
+sokoban-info/3-3_Sokoban-Boxxle-2-3,sokoban-info/3-3_Sokoban-Boxxle-2-3,1.73s,39,5,true,llluluuurrdddrulludrrrululdllurdddrrdru
+sokoban-info/3-6_Sokoban-Boxxle-2-6,sokoban-info/3-6_Sokoban-Boxxle-2-6,14.62s,141,7,true,luuullldddluldurruurrrdddllluuurrrrruulllllddddldruuurrrdddllllruuuulldrlurrdddldrluruullurrurrrdurrddllllrrdddlllrrruuuuullldddduulluurrrrrr
 sokoban-info/2-47_Sokoban-Boxxle-1-47,sokoban-info/2-47_Sokoban-Boxxle-1-47,15.01,10,20,false,Timed out.
 sokoban-info/15-38_Sokoban-Sasquatch-38,sokoban-info/15-38_Sokoban-Sasquatch-38,15.00,10,25,false,Timed out.
-sokoban-info/15-5_Sokoban-Sasquatch-5,sokoban-info/15-5_Sokoban-Sasquatch-5,15.01,10,29,false,Timed out.
-sokoban-info/3-65_Sokoban-Boxxle-2-65,sokoban-info/3-65_Sokoban-Boxxle-2-65,2.52s,99,6,true,rrddldurrdlullldlddruddrrruulrddlllulurrudldluurdddrrruuludruruululllddddrlluruuurrrddrdldddlllulur
-sokoban-info/7-15_Sokoban-Nabo-Cosmos-15,sokoban-info/7-15_Sokoban-Nabo-Cosmos-15,2.44s,149,5,true,ullrurrululddurdddlulluluurdrrdrddlulldrluuluurdrrduurdrdldlldlluulurrrrdrddlluruullldddrlurdluulurrdurrdrruldlddlruuruldddruululldlddrluulurrdlddruu
-sokoban-info/2-30_Sokoban-Boxxle-1-30,sokoban-info/2-30_Sokoban-Boxxle-1-30,15.11,10,16,false,Timed out.
+sokoban-info/15-5_Sokoban-Sasquatch-5,sokoban-info/15-5_Sokoban-Sasquatch-5,15.00,10,29,false,Timed out.
+sokoban-info/3-65_Sokoban-Boxxle-2-65,sokoban-info/3-65_Sokoban-Boxxle-2-65,1.62s,98,6,true,rrddllldlddrurudllurldrrrruruulduulllddrdulduuurrrddldurrdllruuullldddrllddrdrrruuurulddddllluulur
+sokoban-info/7-15_Sokoban-Nabo-Cosmos-15,sokoban-info/7-15_Sokoban-Nabo-Cosmos-15,1.80s,119,5,true,ullldrururuuldrddlldluuluurdrrduurdrdldlldlluulurrrrdrddlluruulllldrddrlurlulurrrrdrrulldddlrruululldlddrluulurrldddruu
+sokoban-info/2-30_Sokoban-Boxxle-1-30,sokoban-info/2-30_Sokoban-Boxxle-1-30,15.01,10,16,false,Timed out.
 sokoban-info/2-79_Sokoban-Boxxle-1-79,sokoban-info/2-79_Sokoban-Boxxle-1-79,15.00,10,17,false,Timed out.
-sokoban-info/4-16_Sokoban-Mini-Cosmos-16,sokoban-info/4-16_Sokoban-Mini-Cosmos-16,0.69s,124,3,true,drururrdllldlluruurururdddldlruruulldldduulurrdlddrrurrdllldluuurururddulldldddrurrruluulldllurrrurdddrdllldluudrrruuulllldr
+sokoban-info/4-16_Sokoban-Mini-Cosmos-16,sokoban-info/4-16_Sokoban-Mini-Cosmos-16,0.49s,130,3,true,drururrdllldlluruurururdddldlruruulldllurrrurdlldlddrrurrdllldluuurururddulldldddrurrruldllluulurrrurdddrdllldluuddrurrruluulllldr
 sokoban-info/2-52_Sokoban-Boxxle-1-52,sokoban-info/2-52_Sokoban-Boxxle-1-52,15.01,10,9,false,Timed out.
-sokoban-info/2-11_Sokoban-Boxxle-1-11,sokoban-info/2-11_Sokoban-Boxxle-1-11,0.91s,67,4,true,dllllulldrrrrlllddlulurrurrdrrurrdlllrrrrddlludrrulullrrddludrrulul
-sokoban-info/7-17_Sokoban-Nabo-Cosmos-17,sokoban-info/7-17_Sokoban-Nabo-Cosmos-17,1.83s,168,5,true,dddlruuullddrluurrrdrddludrddluuruululllddrdrrdrulllulldrruluurrrddlldlurrruuldrdlrdrddluuullruurdrddlddruluurduulddddruululldruruuldrddllllurdrruruuldulldurrdrddrddluu
-sokoban-info/3-111_Sokoban-Boxxle-2-111,sokoban-info/3-111_Sokoban-Boxxle-2-111,15.00,10,9,false,Timed out.
-sokoban-info/4-6_Sokoban-Mini-Cosmos-6,sokoban-info/4-6_Sokoban-Mini-Cosmos-6,0.77s,129,3,true,dluuruururldllurrdlddrrdrrulllrdrruluuruulddulrddurullldllurrdldduururlldddlddruuudrrdrrulllrdrruluuruuldlllldrddlddruuudrrruurul
-sokoban-info/8-6_Sokoban-The-DH1-collection-6,sokoban-info/8-6_Sokoban-The-DH1-collection-6,15.00,10,17,false,Timed out.
-sokoban-info/15-3_Sokoban-Sasquatch-3,sokoban-info/15-3_Sokoban-Sasquatch-3,15.00,10,10,false,Timed out.
-sokoban-info/3-114_Sokoban-Boxxle-2-114,sokoban-info/3-114_Sokoban-Boxxle-2-114,15.00,10,13,false,Timed out.
-sokoban-info/2-80_Sokoban-Boxxle-1-80,sokoban-info/2-80_Sokoban-Boxxle-1-80,15.01,10,21,false,Timed out.
-sokoban-info/15-8_Sokoban-Sasquatch-8,sokoban-info/15-8_Sokoban-Sasquatch-8,15.00,10,7,false,Timed out.
+sokoban-info/2-11_Sokoban-Boxxle-1-11,sokoban-info/2-11_Sokoban-Boxxle-1-11,0.64s,77,4,true,ldllullldldrurrrrrlllllddrulururrdrrurrdllrrrddlludrruluulldlrurrdllrrddlurul
+sokoban-info/7-17_Sokoban-Nabo-Cosmos-17,sokoban-info/7-17_Sokoban-Nabo-Cosmos-17,1.34s,196,5,true,dddlruuullddrluurrrdrddludruulddrddluudruuululllddrdrrddruuludllulldrrlluruurrrddlldludrurruuldrddrddluuulldrluruurdrddlulldllurdrrulrrruldrdlddruudluulldruruuldrddllllurdrruruuldulldurrrdddrddluu
+sokoban-info/3-111_Sokoban-Boxxle-2-111,sokoban-info/3-111_Sokoban-Boxxle-2-111,15.07,10,9,false,Timed out.
+sokoban-info/4-6_Sokoban-Mini-Cosmos-6,sokoban-info/4-6_Sokoban-Mini-Cosmos-6,0.52s,132,3,true,dluurrrlluururldlddrrdrrulllrruuruuldddurullldlddrrdrruluuulldllurrrldlddlddruuudrrdrrulllrruuruuldlllldrddrrdrruluuruldddllllddruuu
+sokoban-info/8-6_Sokoban-The-DH1-collection-6,sokoban-info/8-6_Sokoban-The-DH1-collection-6,15.01,10,17,false,Timed out.
+sokoban-info/15-3_Sokoban-Sasquatch-3,sokoban-info/15-3_Sokoban-Sasquatch-3,15.01,10,10,false,Timed out.
+sokoban-info/3-114_Sokoban-Boxxle-2-114,sokoban-info/3-114_Sokoban-Boxxle-2-114,15.01,10,13,false,Timed out.
+sokoban-info/2-80_Sokoban-Boxxle-1-80,sokoban-info/2-80_Sokoban-Boxxle-1-80,15.00,10,21,false,Timed out.
+sokoban-info/15-8_Sokoban-Sasquatch-8,sokoban-info/15-8_Sokoban-Sasquatch-8,15.07,10,7,false,Timed out.
 sokoban-info/15-7_Sokoban-Sasquatch-7,sokoban-info/15-7_Sokoban-Sasquatch-7,15.00,10,6,false,Timed out.
 sokoban-info/10-7_Sokoban-The-Bagatelle-collection-7,sokoban-info/10-7_Sokoban-The-Bagatelle-collection-7,15.01,10,32,false,Timed out.
-sokoban-info/2-45_Sokoban-Boxxle-1-45,sokoban-info/2-45_Sokoban-Boxxle-1-45,15.01,10,21,false,Timed out.
-sokoban-info/8-1_Sokoban-The-DH1-collection-1,sokoban-info/8-1_Sokoban-The-DH1-collection-1,13.57s,230,8,true,luuluurrrddlrrddllrddlulrdruuruuluulllddrddrluuluurrrddlddlururuuldduulldrldruurrdllrrdrddlddlluuuurlddddrruulrddlluurudrdluuulllddrrlluurrrddrddllludrrruuluulllddrrlddrudrruluddllurdluurddrruldruuruullldurruullddrrrddldldllurrdru
-sokoban-info/2-85_Sokoban-Boxxle-1-85,sokoban-info/2-85_Sokoban-Boxxle-1-85,15.01,10,15,false,Timed out.
+sokoban-info/2-45_Sokoban-Boxxle-1-45,sokoban-info/2-45_Sokoban-Boxxle-1-45,15.06,10,21,false,Timed out.
+sokoban-info/8-1_Sokoban-The-DH1-collection-1,sokoban-info/8-1_Sokoban-The-DH1-collection-1,9.93s,234,8,true,luuluurrrddlrrddllrddluldrruuruuluulllddrddrluuluurrrddlddlururrddlruuluulddruulllddrluurrdlrrdrddlddlluuuurlddddrruuluuddrddlluurrdluuulllddrrlluurrrddrddllludrrruuluulllddrddrruuddllurdluurdldrrrulruruullldurruullddrrrddldldllurrdru
+sokoban-info/2-85_Sokoban-Boxxle-1-85,sokoban-info/2-85_Sokoban-Boxxle-1-85,15.00,10,15,false,Timed out.
 sokoban-info/3-113_Sokoban-Boxxle-2-113,sokoban-info/3-113_Sokoban-Boxxle-2-113,15.01,10,24,false,Timed out.
-sokoban-info/2-39_Sokoban-Boxxle-1-39,sokoban-info/2-39_Sokoban-Boxxle-1-39,15.01,10,15,false,Timed out.
+sokoban-info/2-39_Sokoban-Boxxle-1-39,sokoban-info/2-39_Sokoban-Boxxle-1-39,15.06,10,15,false,Timed out.
 sokoban-info/2-9_Sokoban-Boxxle-1-9,sokoban-info/2-9_Sokoban-Boxxle-1-9,15.01,10,6,false,Timed out.
-sokoban-info/3-29_Sokoban-Boxxle-2-29,sokoban-info/3-29_Sokoban-Boxxle-2-29,2.44s,101,6,true,rddrdrulluullllddrrudlluurrddrllluurrrrllddlddrruruudrrdlruudlllddlluurrrrdlrrudllulllddrrudlluurrdru
-sokoban-info/4-3_Sokoban-Mini-Cosmos-3,sokoban-info/4-3_Sokoban-Mini-Cosmos-3,0.38s,93,3,true,rruullluurlddrrurruulldurrddldddlludrruuurrddlruuluulldllddrddrruudrruuluulldllddrrlluurrdrdl
-sokoban-info/5-28_Sokoban-Micro-Cosmos-28,sokoban-info/5-28_Sokoban-Micro-Cosmos-28,0.41s,74,3,true,ldllururlddlllurrdrrururuuldldldururrdldllurdrudllldllurrrurrdldllulldrurr
-sokoban-info/3-49_Sokoban-Boxxle-2-49,sokoban-info/3-49_Sokoban-Boxxle-2-49,15.00,10,16,false,Timed out.
-sokoban-info/4-25_Sokoban-Mini-Cosmos-25,sokoban-info/4-25_Sokoban-Mini-Cosmos-25,0.42s,91,2,true,urullldduurrdddllldllurrrrllluurlddrrrdruuuruuldllddulldddrurrdrruluuruldddlluullddrrrdruuu
-sokoban-info/3-9_Sokoban-Boxxle-2-9,sokoban-info/3-9_Sokoban-Boxxle-2-9,15.08,10,11,false,Timed out.
+sokoban-info/3-29_Sokoban-Boxxle-2-29,sokoban-info/3-29_Sokoban-Boxxle-2-29,1.85s,101,6,true,rddruddruudlluullllddrrudrrurrddluluullddlddrrudlluurrrrdlulllddrrudlluurrdrurdlldlluuluurrrlddrdrrru
+sokoban-info/4-3_Sokoban-Mini-Cosmos-3,sokoban-info/4-3_Sokoban-Mini-Cosmos-3,0.33s,71,3,true,rruullluurlddrrrddlludrruulurrrddlruuluulldllddrddrruuddlluurlluurrdrdl
+sokoban-info/5-28_Sokoban-Micro-Cosmos-28,sokoban-info/5-28_Sokoban-Micro-Cosmos-28,0.33s,78,3,true,ldllururlddlllurrdrrururuuldldldururrdldllurldlrrrudllldllurrrurrdldllulldrurr
+sokoban-info/3-49_Sokoban-Boxxle-2-49,sokoban-info/3-49_Sokoban-Boxxle-2-49,15.01,10,16,false,Timed out.
+sokoban-info/4-25_Sokoban-Mini-Cosmos-25,sokoban-info/4-25_Sokoban-Mini-Cosmos-25,0.33s,89,2,true,urullldduurrddddlulldlluruurlddrrrdruuuruuldlldlldddrurrdruuuruldddlllluurrdullddrrrdruuu
+sokoban-info/3-9_Sokoban-Boxxle-2-9,sokoban-info/3-9_Sokoban-Boxxle-2-9,15.00,10,11,false,Timed out.
 sokoban-info/2-44_Sokoban-Boxxle-1-44,sokoban-info/2-44_Sokoban-Boxxle-1-44,15.01,10,15,false,Timed out.
-sokoban-info/2-21_Sokoban-Boxxle-1-21,sokoban-info/2-21_Sokoban-Boxxle-1-21,3.19s,179,7,true,ldlldlurrrdrdullddrdlruluuruurrdrrddllrruullullddlddrdrruldlluuurrdduuluurrdrrddllrruuldululldlllddrluurrdrrdrddlruuldrulullulldrdluurrrurrdrrddllrrululullddlddullururddlluurrrdrd
-sokoban-info/6-14_Sokoban-Pico-Cosmos-14,sokoban-info/6-14_Sokoban-Pico-Cosmos-14,15.00,10,8,false,Timed out.
+sokoban-info/2-21_Sokoban-Boxxle-1-21,sokoban-info/2-21_Sokoban-Boxxle-1-21,1.69s,143,7,true,ldlldlurrrdlrrduluurrdrrddllrruullullddlddrdrruldlluuuulldrurdrrdduuluurrdrrddllddlruurruullullddrdduuluurrdrdrdllruulullddrdulldduulldrluurdrd
+sokoban-info/6-14_Sokoban-Pico-Cosmos-14,sokoban-info/6-14_Sokoban-Pico-Cosmos-14,15.04,10,8,false,Timed out.
 sokoban-info/2-33_Sokoban-Boxxle-1-33,sokoban-info/2-33_Sokoban-Boxxle-1-33,15.01,10,11,false,Timed out.
-sokoban-info/4-19_Sokoban-Mini-Cosmos-19,sokoban-info/4-19_Sokoban-Mini-Cosmos-19,0.45s,88,2,true,uldludllurruurulddddrdrrululdluuulluurdldrurdddldrrlllurruurrulldlluurdldrurdddrdlrdrrul
-sokoban-info/3-23_Sokoban-Boxxle-2-23,sokoban-info/3-23_Sokoban-Boxxle-2-23,1.46s,109,6,true,luurruullrrddllddrruuudlluurrddddlluuullluurdldrlurrldrllurrrddrrddlluurruulllrrrddllulurldllurdrrdddrruldluu
-sokoban-info/5-23_Sokoban-Micro-Cosmos-23,sokoban-info/5-23_Sokoban-Micro-Cosmos-23,0.76s,117,4,true,dddrruuulrrdlddlluulurrldddrruulrddlluuluuurrdduulldddrddrruuruulrddlddlluurlluuurrdrrddllrruulldldludrrlururrdldllur
+sokoban-info/4-19_Sokoban-Mini-Cosmos-19,sokoban-info/4-19_Sokoban-Mini-Cosmos-19,0.30s,82,2,true,uldluuurulddddllurdruuulluurdrlldrluurdrdddldrruluurrulldlluurdldrlurrdddrdlrdrrul
+sokoban-info/3-23_Sokoban-Boxxle-2-23,sokoban-info/3-23_Sokoban-Boxxle-2-23,0.99s,111,6,true,luurruullrrddllddrruuudlluurrlldllluurdldrlurrldrurddrrddlludrruuuullldrurrddddlluuudrrdlululurldllurdrrdrddluu
+sokoban-info/5-23_Sokoban-Micro-Cosmos-23,sokoban-info/5-23_Sokoban-Micro-Cosmos-23,0.55s,113,4,true,dddrruuulrdddlluuluuurrdulldddrrlluuurrdduulldddrddrruuruulrddlddlluurlluuurrdrrddllrruulldldludrrlururrdldlllurr
 sokoban-info/14-13_Sokoban-The-Maelstrom-collection-13,sokoban-info/14-13_Sokoban-The-Maelstrom-collection-13,15.01,10,57,false,Timed out.
-sokoban-info/3-53_Sokoban-Boxxle-2-53,sokoban-info/3-53_Sokoban-Boxxle-2-53,15.01,10,8,false,Timed out.
+sokoban-info/3-53_Sokoban-Boxxle-2-53,sokoban-info/3-53_Sokoban-Boxxle-2-53,15.00,10,8,false,Timed out.
 sokoban-info/3-20_Sokoban-Boxxle-2-20,sokoban-info/3-20_Sokoban-Boxxle-2-20,15.01,10,13,false,Timed out.
-sokoban-info/3-117_Sokoban-Boxxle-2-117,sokoban-info/3-117_Sokoban-Boxxle-2-117,2.57s,99,6,true,drrrulrurrddldrrruulullldldllurrdrrddlluuddrrurrruurrddllllrrrruuldlulullldldllurrdddrrurrrurrdllll
-sokoban-info/6-16_Sokoban-Pico-Cosmos-16,sokoban-info/6-16_Sokoban-Pico-Cosmos-16,15.01,10,8,false,Timed out.
+sokoban-info/3-117_Sokoban-Boxxle-2-117,sokoban-info/3-117_Sokoban-Boxxle-2-117,2.39s,117,6,true,drrruurrddldrluruulldldllurrdrrdrrlldlluuddrrurrruulullldldddrrurrruurrdlrdllllrrruuldulullldldllurrdddrrurrrurrdllll
+sokoban-info/6-16_Sokoban-Pico-Cosmos-16,sokoban-info/6-16_Sokoban-Pico-Cosmos-16,12.85s,243,8,true,rrdrrlluludrddrurululdrrruluulldrdrddlulurdlllurdrruuullddldruuurrdlrddrdldlluurlddrruluurdlllurdrruuullddrluurrdlddrrrrdlulluldddrururulddlluulldruruurrddrdrdllruullruulldrdrrddlluddlluurudlddrruluurdlllurdrruuullddldrluruurrdddrlulrdrdrrulul
 sokoban-info/3-69_Sokoban-Boxxle-2-69,sokoban-info/3-69_Sokoban-Boxxle-2-69,15.00,10,11,false,Timed out.
-sokoban-info/7-18_Sokoban-Nabo-Cosmos-18,sokoban-info/7-18_Sokoban-Nabo-Cosmos-18,1.22s,200,4,true,rrdrddlruululllldldddrrlluuururrrrdrddllulldrdlrrddlluuddrruuluurdrruululllldldddrrddrruuddlluururldllluuururrrrdrddllulldurrddllddrruuldluuurdurdllddruurrruululllldldddrrdrrudlluurdllluuururrrrdrddll
-sokoban-info/3-45_Sokoban-Boxxle-2-45,sokoban-info/3-45_Sokoban-Boxxle-2-45,15.04,10,13,false,Timed out.
-sokoban-info/6-15_Sokoban-Pico-Cosmos-15,sokoban-info/6-15_Sokoban-Pico-Cosmos-15,15.00,10,7,false,Timed out.
-sokoban-info/3-37_Sokoban-Boxxle-2-37,sokoban-info/3-37_Sokoban-Boxxle-2-37,15.03,10,18,false,Timed out.
+sokoban-info/7-18_Sokoban-Nabo-Cosmos-18,sokoban-info/7-18_Sokoban-Nabo-Cosmos-18,0.81s,186,4,true,lldldddrrrllluuururrrrdrddlldlddlurulrruulddurrruululllldldddrrddrruuddlluurllluuururrrrdrddllulldurrddllddrruuddlluurdluuurrdulldddruurrruululllldldddrrdrrudlluurdurdlllluuururrrrdrddll
+sokoban-info/3-45_Sokoban-Boxxle-2-45,sokoban-info/3-45_Sokoban-Boxxle-2-45,15.01,10,13,false,Timed out.
+sokoban-info/6-15_Sokoban-Pico-Cosmos-15,sokoban-info/6-15_Sokoban-Pico-Cosmos-15,12.37s,264,7,true,rdrdrddluludrrululuurdrddlddrrruulldldrulluurdrddldlulluurrdullddrrlluurruruuldldurrdldddlluurlddrruruululdrrddludddrudluuurrrrddllldlulluuruururdllddlddrrrrrruulldulldruuddddlulluurrdrdlrululuurdrdrrrddlludlululuurdrdrddlululuururdrddldddluruuruulllddrllddrrdruru
+sokoban-info/3-37_Sokoban-Boxxle-2-37,sokoban-info/3-37_Sokoban-Boxxle-2-37,15.01,10,18,false,Timed out.
 sokoban-info/2-63_Sokoban-Boxxle-1-63,sokoban-info/2-63_Sokoban-Boxxle-1-63,15.01,10,20,false,Timed out.
-sokoban-info/2-53_Sokoban-Boxxle-1-53,sokoban-info/2-53_Sokoban-Boxxle-1-53,8.20s,164,6,true,rrddrrrddlddrdrrruulllulduruulllduuullddrrdduurrurdddddurruuruuldllllluullddrrrrurduldllddlddruudrrurdrruurulllddldlldluuruulluurrdddduurrllddldrluruurrurddullldddr
-sokoban-info/3-10_Sokoban-Boxxle-2-10,sokoban-info/3-10_Sokoban-Boxxle-2-10,15.01,10,10,false,Timed out.
-sokoban-info/9-6_Sokoban-The-DH2-collection-6,sokoban-info/9-6_Sokoban-The-DH2-collection-6,15.02,10,40,false,Timed out.
-sokoban-info/12-19_Sokoban-The-Cantrip-collection-19,sokoban-info/12-19_Sokoban-The-Cantrip-collection-19,15.01,10,8,false,Timed out.
-sokoban-info/6-19_Sokoban-Pico-Cosmos-19,sokoban-info/6-19_Sokoban-Pico-Cosmos-19,15.01,10,7,false,Timed out.
-sokoban-info/6-20_Sokoban-Pico-Cosmos-20,sokoban-info/6-20_Sokoban-Pico-Cosmos-20,15.02,10,7,false,Timed out.
-sokoban-info/5-15_Sokoban-Micro-Cosmos-15,sokoban-info/5-15_Sokoban-Micro-Cosmos-15,4.52s,171,4,true,lldlluruuulurrurddrdlrddlldluuuulurddddrrrrdrrullluurrdullddllrrrdrruluullddlldlluruurrrllluururddrdddlldluuurrllulurrurddrdluullddddrrrrdrrulldrruluulrddlllldllurrrrrdruu
-sokoban-info/3-57_Sokoban-Boxxle-2-57,sokoban-info/3-57_Sokoban-Boxxle-2-57,1.53s,61,5,true,lddddldrruluuuullddrluurrddddrdluuuuurrrddldulrruullldddurddl
+sokoban-info/2-53_Sokoban-Boxxle-1-53,sokoban-info/2-53_Sokoban-Boxxle-1-53,4.08s,150,6,true,rrddrrurdddlddrdrrruulllulduruullluullddrrdurrurdddddurruuruuldllllluullddrrrrurdlllddlddrurrurdrruurullldduullluullddrrddldrluruurldddrldluuruurrurdd
+sokoban-info/3-10_Sokoban-Boxxle-2-10,sokoban-info/3-10_Sokoban-Boxxle-2-10,15.00,10,10,false,Timed out.
+sokoban-info/9-6_Sokoban-The-DH2-collection-6,sokoban-info/9-6_Sokoban-The-DH2-collection-6,15.00,10,40,false,Timed out.
+sokoban-info/12-19_Sokoban-The-Cantrip-collection-19,sokoban-info/12-19_Sokoban-The-Cantrip-collection-19,14.99s,138,8,true,uullldldluulururrurrdlldldllurdddrururrudrddlulululdrrdrrululuurdddrddluluudllurdrdrruluuullddrlldlddrudluulurrruurrddlrdrddluludlldludruu
+sokoban-info/6-19_Sokoban-Pico-Cosmos-19,sokoban-info/6-19_Sokoban-Pico-Cosmos-19,11.36s,384,7,true,lllldduurrdldlurrurrdldddllludrrruululldrurrdddllludllurdrruuddlllururlddrruluurduurluldrddlddrrruuulullddrurrdddlluururdllddludllururlddrruluurduluurdlddrrrurullldldddrrrudllluurlddrrruulluurrrdrdlllulldrurrdddllludrudlllurdrruuddlluururldlddrruluururluldrddlddrrruulrulullddrurrdrruldlddlludrruuruulrddlddlluururdlllurluurdlddrrruulldrlldrddrrudllluruuuuldrdddldllururlddrurudldluur
+sokoban-info/6-20_Sokoban-Pico-Cosmos-20,sokoban-info/6-20_Sokoban-Pico-Cosmos-20,11.76s,312,7,true,ulrddldrluruuldllururdrdddlluurduuuldldrdrrrruullldurrrddllullddddrruuulullurdduuurduldddrrdddlluuddrruuurruullldurrrddllulllururdrdddddlluuuulurururdddlulldrddddrruuurruulllruuldldddrruululdrdrddddlluururdluruuldrullldrurrdddlluulurururdddurrdddlluululldrddddrruuudddlluuuulurrruuldlddddddrruuuuddddlluurlddrruu
+sokoban-info/5-15_Sokoban-Micro-Cosmos-15,sokoban-info/5-15_Sokoban-Micro-Cosmos-15,1.79s,167,4,true,lldlluruuudddrluuulurrurddrdddlldluuuulurddddrrrrdrrullluurrdulllrddlldlluruurrrllluururddrdddlldluuurrllulurrurddrdluulldddddrurrrdrrulldrruluulrdddlullldllurrrrrdruu
+sokoban-info/3-57_Sokoban-Boxxle-2-57,sokoban-info/3-57_Sokoban-Boxxle-2-57,1.23s,83,5,true,ldddruluurrrddlduldldldrrudlluruurrruulllddddrdlruluurddlurruruulllllddrluurrdddrdl
 sokoban-info/3-38_Sokoban-Boxxle-2-38,sokoban-info/3-38_Sokoban-Boxxle-2-38,15.01,10,13,false,Timed out.
 sokoban-info/2-16_Sokoban-Boxxle-1-16,sokoban-info/2-16_Sokoban-Boxxle-1-16,15.01,10,20,false,Timed out.
 sokoban-info/10-5_Sokoban-The-Bagatelle-collection-5,sokoban-info/10-5_Sokoban-The-Bagatelle-collection-5,15.01,10,14,false,Timed out.
 sokoban-info/15-36_Sokoban-Sasquatch-36,sokoban-info/15-36_Sokoban-Sasquatch-36,15.01,10,15,false,Timed out.
-sokoban-info/2-13_Sokoban-Boxxle-1-13,sokoban-info/2-13_Sokoban-Boxxle-1-13,0.71s,57,4,true,ullulldrrrluuurrdluldrdlurrrdlulldddrruuruldddlluurldllur
-sokoban-info/5-1_Sokoban-Micro-Cosmos-1,sokoban-info/5-1_Sokoban-Micro-Cosmos-1,0.86s,58,4,true,rrruuldllrrrdlluldlddrrudlluurduurrurddlluldllluurdldrrlur
-sokoban-info/4-20_Sokoban-Mini-Cosmos-20,sokoban-info/4-20_Sokoban-Mini-Cosmos-20,0.72s,128,3,true,lluuurulddddllurdruuulluurdldrlurrddduurrulldddldrrdrrululldrlllurdruuulluurdldrurdddrdluuurrullrdllluurdldrrlurrrdluldddrddrrul
-sokoban-info/5-12_Sokoban-Micro-Cosmos-12,sokoban-info/5-12_Sokoban-Micro-Cosmos-12,1.77s,81,6,true,uluurddlurululuurdduurrdldddluruurrdluldruullldrldrddrruuldluluurdurddrrululldldr
-sokoban-info/9-9_Sokoban-The-DH2-collection-9,sokoban-info/9-9_Sokoban-The-DH2-collection-9,15.05,10,11,false,Timed out.
+sokoban-info/2-13_Sokoban-Boxxle-1-13,sokoban-info/2-13_Sokoban-Boxxle-1-13,0.49s,29,4,true,ullulldrruuurrddlldllurdrdrru
+sokoban-info/5-1_Sokoban-Micro-Cosmos-1,sokoban-info/5-1_Sokoban-Micro-Cosmos-1,0.60s,54,4,true,rrruuldrdlluldlddrrudlluurdururrdlluldllluurdldrrllurr
+sokoban-info/4-20_Sokoban-Mini-Cosmos-20,sokoban-info/4-20_Sokoban-Mini-Cosmos-20,0.57s,138,3,true,lluuurulddddrruldludllurruulluurdulddrlurrdddldrrdrrululluurrullddddrlllurldrruuulluurdldrurdrrullddulluurdldrrddrdluuulurrrdluldddrddrrul
+sokoban-info/5-12_Sokoban-Micro-Cosmos-12,sokoban-info/5-12_Sokoban-Micro-Cosmos-12,1.61s,89,6,true,uluurddlurululuurdurrdldduuulldrldrdrduluuurrdldurrdlluullddrddrruuldrurululddrululldrldr
+sokoban-info/9-9_Sokoban-The-DH2-collection-9,sokoban-info/9-9_Sokoban-The-DH2-collection-9,15.01,10,11,false,Timed out.
 sokoban-info/11-9_Sokoban-The-Bagatelle-2-collection-9,sokoban-info/11-9_Sokoban-The-Bagatelle-2-collection-9,15.01,10,10,false,Timed out.
-sokoban-info/11-2_Sokoban-The-Bagatelle-2-collection-2,sokoban-info/11-2_Sokoban-The-Bagatelle-2-collection-2,15.00,10,11,false,Timed out.
-sokoban-info/10-8_Sokoban-The-Bagatelle-collection-8,sokoban-info/10-8_Sokoban-The-Bagatelle-collection-8,15.01,10,8,false,Timed out.
-sokoban-info/5-29_Sokoban-Micro-Cosmos-29,sokoban-info/5-29_Sokoban-Micro-Cosmos-29,0.60s,93,4,true,lddrurruuldrdlldllurlddrdrurulruruulddldddluluururdrruuldrdlulldlddrrruuldruruuldrdlddlruuuld
-sokoban-info/4-33_Sokoban-Mini-Cosmos-33,sokoban-info/4-33_Sokoban-Mini-Cosmos-33,0.57s,116,3,true,lldluuruurdlddrrrurrululdllulddlddrurudrruruuldllddrrurrullddlluurrddllllurdrrruullulddurrrddllulurulddlddrudluurdru
-sokoban-info/2-106_Sokoban-Boxxle-1-106,sokoban-info/2-106_Sokoban-Boxxle-1-106,15.01,10,10,false,Timed out.
-sokoban-info/7-6_Sokoban-Nabo-Cosmos-6,sokoban-info/7-6_Sokoban-Nabo-Cosmos-6,1.65s,154,5,true,ululldrurrdddlluururuullldllddrrrllluurrdrdddrruuulrdddlluurlluullddrrrddlludrrrruuddlluuluullddrddrrrruululdrrddlluurrddlllluurrludlddrrrruululddullddrrr
+sokoban-info/11-2_Sokoban-The-Bagatelle-2-collection-2,sokoban-info/11-2_Sokoban-The-Bagatelle-2-collection-2,15.01,10,11,false,Timed out.
+sokoban-info/10-8_Sokoban-The-Bagatelle-collection-8,sokoban-info/10-8_Sokoban-The-Bagatelle-collection-8,15.00,10,8,false,Timed out.
+sokoban-info/5-29_Sokoban-Micro-Cosmos-29,sokoban-info/5-29_Sokoban-Micro-Cosmos-29,0.34s,109,4,true,lddrurruuldrdlldlddruruuldrdldludrurulurruulddldddluluururdrruuldrdlulldlddrudrruldruuruuldlddrdluuurrdlrulld
+sokoban-info/4-33_Sokoban-Mini-Cosmos-33,sokoban-info/4-33_Sokoban-Mini-Cosmos-33,0.37s,102,3,true,lldluuruurdlddrrrurrululdllulddlddrurudrruruuldllddrrudlluurrddllllurdrrruulluldrrrddlludllururuldddru
+sokoban-info/2-106_Sokoban-Boxxle-1-106,sokoban-info/2-106_Sokoban-Boxxle-1-106,15.00,10,10,false,Timed out.
+sokoban-info/7-6_Sokoban-Nabo-Cosmos-6,sokoban-info/7-6_Sokoban-Nabo-Cosmos-6,1.41s,186,5,true,ululldrurrdddlluururduuullldllddrrrddrruuddlluullluurrdrdddrruuulrdddlluururdllddrruuddlluuluullddrrrddlludrruuluullddrddrrrruululdurdrddlllluururrdlrrddlluuddlluurlddrrrruululddullddrrr
 sokoban-info/3-109_Sokoban-Boxxle-2-109,sokoban-info/3-109_Sokoban-Boxxle-2-109,15.01,10,9,false,Timed out.
-sokoban-info/7-10_Sokoban-Nabo-Cosmos-10,sokoban-info/7-10_Sokoban-Nabo-Cosmos-10,7.59s,257,5,true,uudddldruuuulullddddrrlluuuullddrluurrrrdrddldlluuudlluurrddddluruuullddrdrullldrrdrrruruulullluldddrddrrrdruuddlullluurdulluurrrrdrrullllddlddrrrurudlddrudlullluurduuurrrrdlrulllldddldrluulldrurrddludruuuululdddldrluruurrrrrdddlddruuuurulllllulddduurrddddr
-sokoban-info/3-118_Sokoban-Boxxle-2-118,sokoban-info/3-118_Sokoban-Boxxle-2-118,15.01,10,6,false,Timed out.
+sokoban-info/7-10_Sokoban-Nabo-Cosmos-10,sokoban-info/7-10_Sokoban-Nabo-Cosmos-10,4.03s,240,5,true,uudddldruuuulullddddrrlluuuullddrluurrdduurrdrddldlluuudlluurrddddluruuullddrdrullldrrdrrruruululllulddurrrrdrddlddruudlllluurdllluruurrdurrdrrulllllrddlddrrrurudldllluurdldrlullurdrruuululdddldrluruurrrrrrdlddlddruuuurullllddddrluuuululddd
+sokoban-info/3-118_Sokoban-Boxxle-2-118,sokoban-info/3-118_Sokoban-Boxxle-2-118,15.00,10,6,false,Timed out.
 sokoban-info/3-4_Sokoban-Boxxle-2-4,sokoban-info/3-4_Sokoban-Boxxle-2-4,15.01,10,13,false,Timed out.
-sokoban-info/2-67_Sokoban-Boxxle-1-67,sokoban-info/2-67_Sokoban-Boxxle-1-67,15.04,10,16,false,Timed out.
+sokoban-info/2-67_Sokoban-Boxxle-1-67,sokoban-info/2-67_Sokoban-Boxxle-1-67,15.01,10,16,false,Timed out.
 sokoban-info/3-82_Sokoban-Boxxle-2-82,sokoban-info/3-82_Sokoban-Boxxle-2-82,15.01,10,15,false,Timed out.
-sokoban-info/3-92_Sokoban-Boxxle-2-92,sokoban-info/3-92_Sokoban-Boxxle-2-92,15.01,10,16,false,Timed out.
-sokoban-info/10-12_Sokoban-The-Bagatelle-collection-12,sokoban-info/10-12_Sokoban-The-Bagatelle-collection-12,15.08,10,7,false,Timed out.
-sokoban-info/8-8_Sokoban-The-DH1-collection-8,sokoban-info/8-8_Sokoban-The-DH1-collection-8,15.03,10,10,false,Timed out.
+sokoban-info/3-92_Sokoban-Boxxle-2-92,sokoban-info/3-92_Sokoban-Boxxle-2-92,15.00,10,16,false,Timed out.
+sokoban-info/10-12_Sokoban-The-Bagatelle-collection-12,sokoban-info/10-12_Sokoban-The-Bagatelle-collection-12,15.01,10,7,false,Timed out.
+sokoban-info/8-8_Sokoban-The-DH1-collection-8,sokoban-info/8-8_Sokoban-The-DH1-collection-8,15.00,10,10,false,Timed out.
 sokoban-info/14-5_Sokoban-The-Maelstrom-collection-5,sokoban-info/14-5_Sokoban-The-Maelstrom-collection-5,15.01,10,9,false,Timed out.
-sokoban-info/2-86_Sokoban-Boxxle-1-86,sokoban-info/2-86_Sokoban-Boxxle-1-86,15.00,10,7,false,Timed out.
-sokoban-info/9-8_Sokoban-The-DH2-collection-8,sokoban-info/9-8_Sokoban-The-DH2-collection-8,15.01,10,12,false,Timed out.
+sokoban-info/2-86_Sokoban-Boxxle-1-86,sokoban-info/2-86_Sokoban-Boxxle-1-86,15.04,10,7,false,Timed out.
+sokoban-info/9-8_Sokoban-The-DH2-collection-8,sokoban-info/9-8_Sokoban-The-DH2-collection-8,15.08,10,12,false,Timed out.
 sokoban-info/9-1_Sokoban-The-DH2-collection-1,sokoban-info/9-1_Sokoban-The-DH2-collection-1,15.01,10,18,false,Timed out.
-sokoban-info/14-1_Sokoban-The-Maelstrom-collection-1,sokoban-info/14-1_Sokoban-The-Maelstrom-collection-1,15.01,10,9,false,Timed out.
+sokoban-info/14-1_Sokoban-The-Maelstrom-collection-1,sokoban-info/14-1_Sokoban-The-Maelstrom-collection-1,15.00,10,9,false,Timed out.
 sokoban-info/2-98_Sokoban-Boxxle-1-98,sokoban-info/2-98_Sokoban-Boxxle-1-98,15.01,10,14,false,Timed out.
 sokoban-info/2-72_Sokoban-Boxxle-1-72,sokoban-info/2-72_Sokoban-Boxxle-1-72,15.01,10,18,false,Timed out.
-sokoban-info/10-3_Sokoban-The-Bagatelle-collection-3,sokoban-info/10-3_Sokoban-The-Bagatelle-collection-3,15.01,10,11,false,Timed out.
+sokoban-info/10-3_Sokoban-The-Bagatelle-collection-3,sokoban-info/10-3_Sokoban-The-Bagatelle-collection-3,15.00,10,11,false,Timed out.
 sokoban-info/6-17_Sokoban-Pico-Cosmos-17,sokoban-info/6-17_Sokoban-Pico-Cosmos-17,15.00,10,8,false,Timed out.
-sokoban-info/7-2_Sokoban-Nabo-Cosmos-2,sokoban-info/7-2_Sokoban-Nabo-Cosmos-2,11.12s,144,7,true,dddlldluuuurdduluudddddrurruulldldruuululluurrdrddulrdddluuruuluurddddlddrurruuuulldddldruuulddrddluruuuuuldllddrruddrddluuulluurrdrdduluullddrr
-sokoban-info/5-38_Sokoban-Micro-Cosmos-38,sokoban-info/5-38_Sokoban-Micro-Cosmos-38,1.73s,230,4,true,ddrdruuuurullulldlddduuururrdrdddddluluurlddrruuuddddlulldllurrdlluruuuururrdlddrrurullrddddllrdruuuuululdrrddddllldllurrdluuuuururrdrddddllldluudrrrruulldurruululldrddrruululdrrddddllldllurrdlluruuddrrrdruuulldurrddllldllurrrrdru
+sokoban-info/7-2_Sokoban-Nabo-Cosmos-2,sokoban-info/7-2_Sokoban-Nabo-Cosmos-2,13.40s,172,7,true,dddlldluuuuudrddlddrurruulldldruuululluurrdrdddrruulrddllululluurrdrdluuurdlddrrrddlldluudrrruulldldruuuluurdddrruulrddlluluurdrrddlldludrurruulllllddrrruddlulluurrdullddrr
+sokoban-info/5-38_Sokoban-Micro-Cosmos-38,sokoban-info/5-38_Sokoban-Micro-Cosmos-38,1.31s,218,4,true,ddrdruuuurullulldlddduuururrdrdddddluluurlddrruuddllldllurrdlluruuuururrdlddrrurulluldrrddddllldllurrdluuuuururrdrdddddlulldluuuddrrrdruuulldurrurullulldrrlddrrurulluldlurrdrdddddlulldllurrrrdruuulldurrddllldllurrrrdru
 sokoban-info/3-5_Sokoban-Boxxle-2-5,sokoban-info/3-5_Sokoban-Boxxle-2-5,15.00,10,13,false,Timed out.
-sokoban-info/2-102_Sokoban-Boxxle-1-102,sokoban-info/2-102_Sokoban-Boxxle-1-102,15.01,10,18,false,Timed out.
+sokoban-info/2-102_Sokoban-Boxxle-1-102,sokoban-info/2-102_Sokoban-Boxxle-1-102,15.00,10,18,false,Timed out.
 sokoban-info/11-11_Sokoban-The-Bagatelle-2-collection-11,sokoban-info/11-11_Sokoban-The-Bagatelle-2-collection-11,15.00,10,31,false,Timed out.
 sokoban-info/15-26_Sokoban-Sasquatch-26,sokoban-info/15-26_Sokoban-Sasquatch-26,15.00,10,12,false,Timed out.
 sokoban-info/14-19_Sokoban-The-Maelstrom-collection-19,sokoban-info/14-19_Sokoban-The-Maelstrom-collection-19,15.00,10,8,false,Timed out.
-sokoban-info/4-4_Sokoban-Mini-Cosmos-4,sokoban-info/4-4_Sokoban-Mini-Cosmos-4,0.30s,81,1,true,uuulurrrldlddrrruuruuldddurulllldddrrdrrulllrdrruluuullldddlddruuudrrdruuuulllldr
+sokoban-info/4-4_Sokoban-Mini-Cosmos-4,sokoban-info/4-4_Sokoban-Mini-Cosmos-4,0.25s,79,1,true,uuulurrrldlddrrruuruuldddurullldlddrrdrrulllrdrruluuulldlddlddruuudrrruuulllldr
 sokoban-info/2-82_Sokoban-Boxxle-1-82,sokoban-info/2-82_Sokoban-Boxxle-1-82,15.01,10,8,false,Timed out.
 sokoban-info/2-42_Sokoban-Boxxle-1-42,sokoban-info/2-42_Sokoban-Boxxle-1-42,15.01,10,11,false,Timed out.
-sokoban-info/15-23_Sokoban-Sasquatch-23,sokoban-info/15-23_Sokoban-Sasquatch-23,15.02,10,14,false,Timed out.
+sokoban-info/15-23_Sokoban-Sasquatch-23,sokoban-info/15-23_Sokoban-Sasquatch-23,15.01,10,14,false,Timed out.
 sokoban-info/3-70_Sokoban-Boxxle-2-70,sokoban-info/3-70_Sokoban-Boxxle-2-70,15.01,10,7,false,Timed out.
-sokoban-info/2-19_Sokoban-Boxxle-1-19,sokoban-info/2-19_Sokoban-Boxxle-1-19,0.73s,86,4,true,dldlddrrruurulrdlddlluudrdruuruurrdluldrrullldulldrrduuldldlddrrrudlllurdrruuddllurdru
-sokoban-info/10-13_Sokoban-The-Bagatelle-collection-13,sokoban-info/10-13_Sokoban-The-Bagatelle-collection-13,6.02s,110,8,true,uurrllddrurlluuluurddduurrddluruurrdddlruuulldldllurulddrrdddllurdrudlluruddruululuurdddrrulruurrddlrdllrrddlu
-sokoban-info/2-28_Sokoban-Boxxle-1-28,sokoban-info/2-28_Sokoban-Boxxle-1-28,15.01,10,6,false,Timed out.
+sokoban-info/2-19_Sokoban-Boxxle-1-19,sokoban-info/2-19_Sokoban-Boxxle-1-19,0.60s,86,4,true,dldlddrrruuruldddllurdruuruuldullddurrlldldrdrruuddllulurururrdlrurrdlrullllldrlddrdru
+sokoban-info/10-13_Sokoban-The-Bagatelle-collection-13,sokoban-info/10-13_Sokoban-The-Bagatelle-collection-13,3.62s,114,8,true,uurrllddrurlluuluurdrrdduulldurrurrdllrrddlurdddlullruurdldldllururrdldllurrluuluurdddrrurrdllulrdrrddludruuuuulld
+sokoban-info/2-28_Sokoban-Boxxle-1-28,sokoban-info/2-28_Sokoban-Boxxle-1-28,10.83s,133,6,true,lllddlluuruulurrdlddldllurrddrrululldruruuldrdlddrrurulddlluruulurrlddrrdldluuulurlurdddddlullurrddrruluddrururrdlllldluuudruudddluuu
 sokoban-info/11-4_Sokoban-The-Bagatelle-2-collection-4,sokoban-info/11-4_Sokoban-The-Bagatelle-2-collection-4,15.00,10,8,false,Timed out.
 sokoban-info/2-41_Sokoban-Boxxle-1-41,sokoban-info/2-41_Sokoban-Boxxle-1-41,15.01,10,14,false,Timed out.
 sokoban-info/3-100_Sokoban-Boxxle-2-100,sokoban-info/3-100_Sokoban-Boxxle-2-100,15.00,10,8,false,Timed out.
 sokoban-info/3-18_Sokoban-Boxxle-2-18,sokoban-info/3-18_Sokoban-Boxxle-2-18,15.01,10,13,false,Timed out.
-sokoban-info/3-25_Sokoban-Boxxle-2-25,sokoban-info/3-25_Sokoban-Boxxle-2-25,2.70s,75,8,true,rrdlldlldrururrullldrdlrulurrdrdlullddddllluurrllddrrudllurdrruuddlllurrdru
+sokoban-info/3-25_Sokoban-Boxxle-2-25,sokoban-info/3-25_Sokoban-Boxxle-2-25,1.19s,71,8,true,ddldddlllurruddruuldllurdrruuruurrddlruldruullldrldrulurrrddllrruuldrdl
 sokoban-info/3-89_Sokoban-Boxxle-2-89,sokoban-info/3-89_Sokoban-Boxxle-2-89,15.01,10,9,false,Timed out.
-sokoban-info/11-1_Sokoban-The-Bagatelle-2-collection-1,sokoban-info/11-1_Sokoban-The-Bagatelle-2-collection-1,15.01,10,36,false,Timed out.
-sokoban-info/4-21_Sokoban-Mini-Cosmos-21,sokoban-info/4-21_Sokoban-Mini-Cosmos-21,0.55s,87,2,true,rruuuruldlluurdrddddllurdruuurullulldrdrluurdrdddlddrruluuuulldrlurrddddldrluulldrlurrd
-sokoban-info/5-3_Sokoban-Micro-Cosmos-3,sokoban-info/5-3_Sokoban-Micro-Cosmos-3,0.71s,147,3,true,lluuurrrllldddrrrrruuuululldurrdrddlulluurrdrdldrddllllluuuuurrddlruulldddduurruururddrddlulllruullddrrrrudlluururddrdllluullddduuurrddlrrruulllldd
+sokoban-info/11-1_Sokoban-The-Bagatelle-2-collection-1,sokoban-info/11-1_Sokoban-The-Bagatelle-2-collection-1,15.00,10,36,false,Timed out.
+sokoban-info/4-21_Sokoban-Mini-Cosmos-21,sokoban-info/4-21_Sokoban-Mini-Cosmos-21,0.34s,73,2,true,rruuuruldlluurdldrurdddldllurrddrruluuuruldlluurdldrlurrddddldruullldrurd
+sokoban-info/5-3_Sokoban-Micro-Cosmos-3,sokoban-info/5-3_Sokoban-Micro-Cosmos-3,0.60s,167,3,true,lluuurrrllluurrdulldddddrrrrruuuulullrrdrddlulluurrdrdldrddllllluuuuurrrurddullddlruulldddduuuurrrrdrddlulllrrrudlluururddrdlllrruulllldddurluurrrrddlllrrrdruululllldd
 sokoban-info/8-3_Sokoban-The-DH1-collection-3,sokoban-info/8-3_Sokoban-The-DH1-collection-3,15.01,10,6,false,Timed out.
-sokoban-info/4-18_Sokoban-Mini-Cosmos-18,sokoban-info/4-18_Sokoban-Mini-Cosmos-18,0.64s,144,3,true,rdruululldldldldlddrururudldllurururrrllldlddrurudldllurururrdlrulldrdlrulldrruruuurrdrddlulluldruurrdrdllruulldldrdlruuurrddlruulldlddrulddllur
+sokoban-info/4-18_Sokoban-Mini-Cosmos-18,sokoban-info/4-18_Sokoban-Mini-Cosmos-18,0.43s,138,3,true,rdruululldldldldlddrururudldldluurururrrluurrdrddlulllldlddrurudllururrdluldrdlrulldrruruuurrdrddlulluldrdlrulururrdrdllruulldlddrudldllur
 sokoban-info/3-24_Sokoban-Boxxle-2-24,sokoban-info/3-24_Sokoban-Boxxle-2-24,15.01,10,12,false,Timed out.
-sokoban-info/3-95_Sokoban-Boxxle-2-95,sokoban-info/3-95_Sokoban-Boxxle-2-95,15.04,10,9,false,Timed out.
+sokoban-info/3-95_Sokoban-Boxxle-2-95,sokoban-info/3-95_Sokoban-Boxxle-2-95,15.01,10,9,false,Timed out.
 sokoban-info/12-5_Sokoban-The-Cantrip-collection-5,sokoban-info/12-5_Sokoban-The-Cantrip-collection-5,15.01,10,8,false,Timed out.
-sokoban-info/5-37_Sokoban-Micro-Cosmos-37,sokoban-info/5-37_Sokoban-Micro-Cosmos-37,1.99s,226,4,true,uulldllurrrurduldlllddlluurrdrdddlludrruuururrddldlrurrdlluruulldllurlllddrddrruuddlluuluurrdrdddlluuluurrrrrurdddldlrurrdllrruluullldlullddrddrruuluurrrrddldlruruullllddrudluurrrurddullldlullddrddrrurrrruldllluulurrrurdddrdll
+sokoban-info/5-37_Sokoban-Micro-Cosmos-37,sokoban-info/5-37_Sokoban-Micro-Cosmos-37,1.43s,236,4,true,uulldllurrldldlluurrdrrururddduulldldddlludrruulurrurrddldlrurrdllrruluulldllurrllllddrddrruuddlluuluurrdrurrurdddldlrurrdlluruullllllddrddrruuluurrrrdddllrrruluullllddrulurrrurddullldlullddrddrrurrrruldlllulrudluullddrluurrrrrurdddrdll
 sokoban-info/8-7_Sokoban-The-DH1-collection-7,sokoban-info/8-7_Sokoban-The-DH1-collection-7,15.00,10,12,false,Timed out.
 sokoban-info/3-61_Sokoban-Boxxle-2-61,sokoban-info/3-61_Sokoban-Boxxle-2-61,15.01,10,13,false,Timed out.
 sokoban-info/3-74_Sokoban-Boxxle-2-74,sokoban-info/3-74_Sokoban-Boxxle-2-74,15.01,10,9,false,Timed out.
-sokoban-info/4-29_Sokoban-Mini-Cosmos-29,sokoban-info/4-29_Sokoban-Mini-Cosmos-29,0.54s,76,2,true,lluuruurulllddrdruudlllddrluuruurrdrruuldldddrddlluudlluurrluulurrdrdduurrdl
+sokoban-info/4-29_Sokoban-Mini-Cosmos-29,sokoban-info/4-29_Sokoban-Mini-Cosmos-29,0.32s,70,2,true,lluuruuullddlddrluurrdrrddlludrruuluuddrddlluudlluurrluurrddurruuldrdl
 sokoban-info/3-43_Sokoban-Boxxle-2-43,sokoban-info/3-43_Sokoban-Boxxle-2-43,15.00,10,16,false,Timed out.
-sokoban-info/3-34_Sokoban-Boxxle-2-34,sokoban-info/3-34_Sokoban-Boxxle-2-34,15.01,10,11,false,Timed out.
-sokoban-info/2-4_Sokoban-Boxxle-1-4,sokoban-info/2-4_Sokoban-Boxxle-1-4,0.39s,60,3,true,ruudrruuruulldlluldrrrullrrdldulurrrrddlddlluuddrruuruulldll
-sokoban-info/7-12_Sokoban-Nabo-Cosmos-12,sokoban-info/7-12_Sokoban-Nabo-Cosmos-12,3.80s,149,5,true,uulldlddrluurdlururrddldulrrrddrdllluururduluullddrdrudrdullululldrdrrlluurdrrrddrdlldluuudddrurruluulllulldrdddrrrdluuuurrddrdlldluuurlddlluuuururrd
-sokoban-info/3-104_Sokoban-Boxxle-2-104,sokoban-info/3-104_Sokoban-Boxxle-2-104,15.01,10,14,false,Timed out.
-sokoban-info/7-14_Sokoban-Nabo-Cosmos-14,sokoban-info/7-14_Sokoban-Nabo-Cosmos-14,2.70s,138,5,true,uulururdlddrrrdlururuuldlldldrrdrruurullrrdlddllurdlulldrluuruulddlurrddrruruuldllddrrdrudlulldrlurrruddlrullluurrdrdldruululldllurrdddluu
-sokoban-info/3-33_Sokoban-Boxxle-2-33,sokoban-info/3-33_Sokoban-Boxxle-2-33,15.01,10,34,false,Timed out.
-sokoban-info/10-20_Sokoban-The-Bagatelle-collection-20,sokoban-info/10-20_Sokoban-The-Bagatelle-collection-20,15.08,10,5,false,Timed out.
-sokoban-info/4-23_Sokoban-Mini-Cosmos-23,sokoban-info/4-23_Sokoban-Mini-Cosmos-23,0.77s,131,2,true,uuulldlrulllddrudluurrrrrrurddduulldddddrrurullrrdldllululluulurrrrrurddduulllldlddrrdruddrrurulllddrruruluuulldddduuuulldlddrrdruu
+sokoban-info/3-34_Sokoban-Boxxle-2-34,sokoban-info/3-34_Sokoban-Boxxle-2-34,15.00,10,11,false,Timed out.
+sokoban-info/2-4_Sokoban-Boxxle-1-4,sokoban-info/2-4_Sokoban-Boxxle-1-4,0.36s,54,3,true,ruudrruuruulldlluldrrdurullrrrrddlddlluuddrruuruulldll
+sokoban-info/7-12_Sokoban-Nabo-Cosmos-12,sokoban-info/7-12_Sokoban-Nabo-Cosmos-12,3.00s,149,5,true,uulldlddrluurdlururrddllrrrddrdllluudddrurrululuuullddrddurudlululldrdrrlluurdrrrdddldluuudddrurruluulllulldrdddrrrdluuuurrddrdlldluuurlddlluuuururrd
+sokoban-info/3-104_Sokoban-Boxxle-2-104,sokoban-info/3-104_Sokoban-Boxxle-2-104,15.00,10,14,false,Timed out.
+sokoban-info/7-14_Sokoban-Nabo-Cosmos-14,sokoban-info/7-14_Sokoban-Nabo-Cosmos-14,1.93s,114,5,true,uulururdlddrrrdlururuuldllduuldldrdrrdrruurulllldlddrruluurrrdddlruurullllddrrdruudllluurrdrdldruululldllurrdddluu
+sokoban-info/3-33_Sokoban-Boxxle-2-33,sokoban-info/3-33_Sokoban-Boxxle-2-33,15.00,10,34,false,Timed out.
+sokoban-info/10-20_Sokoban-The-Bagatelle-collection-20,sokoban-info/10-20_Sokoban-The-Bagatelle-collection-20,15.01,10,5,false,Timed out.
+sokoban-info/4-23_Sokoban-Mini-Cosmos-23,sokoban-info/4-23_Sokoban-Mini-Cosmos-23,0.68s,119,2,true,uuulldlrurrdddllluudlluurrrrrrurddddllddrrurullrddlluudlullululurrrrrrurddddllddrrurulllrruuullddddurruuulllldlddrrdruu
 sokoban-info/12-14_Sokoban-The-Cantrip-collection-14,sokoban-info/12-14_Sokoban-The-Cantrip-collection-14,15.01,10,8,false,Timed out.
-sokoban-info/7-5_Sokoban-Nabo-Cosmos-5,sokoban-info/7-5_Sokoban-Nabo-Cosmos-5,1.09s,116,4,true,luruurrdddrdlldllluluurrdrulllddrdrrurrrululllrrruullldurrrddllulurdddluruururdllddrrddldludlluluurrruuldrdlrulurrrd
-sokoban-info/11-8_Sokoban-The-Bagatelle-2-collection-8,sokoban-info/11-8_Sokoban-The-Bagatelle-2-collection-8,15.00,10,27,false,Timed out.
-sokoban-info/2-107_Sokoban-Boxxle-1-107,sokoban-info/2-107_Sokoban-Boxxle-1-107,15.01,10,46,false,Timed out.
+sokoban-info/7-5_Sokoban-Nabo-Cosmos-5,sokoban-info/7-5_Sokoban-Nabo-Cosmos-5,0.80s,114,4,true,luruurrdddrdlldllluluurrdrulllddrdrrrurrululllrrruullldurrurdddllulurdddluruurlddrrddldludlluluurrruuldrdlruururdd
+sokoban-info/11-8_Sokoban-The-Bagatelle-2-collection-8,sokoban-info/11-8_Sokoban-The-Bagatelle-2-collection-8,15.01,10,27,false,Timed out.
+sokoban-info/2-107_Sokoban-Boxxle-1-107,sokoban-info/2-107_Sokoban-Boxxle-1-107,15.00,10,46,false,Timed out.
 sokoban-info/2-65_Sokoban-Boxxle-1-65,sokoban-info/2-65_Sokoban-Boxxle-1-65,15.01,10,14,false,Timed out.
-sokoban-info/3-28_Sokoban-Boxxle-2-28,sokoban-info/3-28_Sokoban-Boxxle-2-28,2.55s,75,8,true,llddrururruuldldrllruruuldulldrrduurdrdlullddurrdldludddruldrrrullruuuldldr
-sokoban-info/2-56_Sokoban-Boxxle-1-56,sokoban-info/2-56_Sokoban-Boxxle-1-56,15.01,10,25,false,Timed out.
-sokoban-info/2-84_Sokoban-Boxxle-1-84,sokoban-info/2-84_Sokoban-Boxxle-1-84,10.65s,217,5,true,luullddlruurrddlluuuurrddllddddddlluuuluurdrldddlddruuuudddrruuuurrrdlddrddluuuurulllddddrluuuurrdddrddluuuurulddddlluuuuuurrddlruullddrruuuullddrrdddddrddluuuudddlllldluuruuluurdddduulurrldddlddruuuulurddddrrrruuurul
-sokoban-info/2-29_Sokoban-Boxxle-1-29,sokoban-info/2-29_Sokoban-Boxxle-1-29,15.01,10,8,false,Timed out.
-sokoban-info/5-18_Sokoban-Micro-Cosmos-18,sokoban-info/5-18_Sokoban-Micro-Cosmos-18,1.67s,197,4,true,dllllururruuldldddrrrdruuuruuldlldldldruuruuldldduurrdlrurrddlddruuurullldlddrlulldrrllurrururrddddludruuuulluldlddruddrrdruuurulrdlddlllulldrrrrllllurruruulddlddrrrdruuuruulddduulldllddrrrdruuurul
-sokoban-info/3-83_Sokoban-Boxxle-2-83,sokoban-info/3-83_Sokoban-Boxxle-2-83,15.01,10,10,false,Timed out.
-sokoban-info/3-27_Sokoban-Boxxle-2-27,sokoban-info/3-27_Sokoban-Boxxle-2-27,1.21s,128,5,true,dldrdrrrrrruuulldlllrrrurrdlrddluuruldrddlllllluluurdrrrrrdruddllludllluluurdrrrrlddlllulurrrrddlludrrrrruluddlluurrllddllluurrr
-sokoban-info/13-2_Sokoban-The-Cantrip-2-collection-2,sokoban-info/13-2_Sokoban-The-Cantrip-2-collection-2,7.94s,174,7,true,drruuudruurldlluurdulddrdddllurdruurrdlluuluurdrrdrrulrdddllulluluurdrdrlulldrdddllurdruuuluurddlurrrdddrruuullrrdddlllluuluurddluururrddlrrrdddlluuddrruulrddllllurdldllurdru
-sokoban-info/5-13_Sokoban-Micro-Cosmos-13,sokoban-info/5-13_Sokoban-Micro-Cosmos-13,0.72s,150,4,true,drrruullulldlddrrrudllluururdlurrdrrddlludrruullddlddrrudlluuruuulldrurdrrddlddlluuudddrruulrddlluurrruullulldrrlllddrrudlluururrdlddddrruuludrddlluuu
-sokoban-info/3-72_Sokoban-Boxxle-2-72,sokoban-info/3-72_Sokoban-Boxxle-2-72,15.01,10,25,false,Timed out.
-sokoban-info/4-26_Sokoban-Mini-Cosmos-26,sokoban-info/4-26_Sokoban-Mini-Cosmos-26,0.66s,171,3,true,urullldurrddddlulldllurrrudrdruuuruuldddduurullldduurrdddrddluuuuddllldlluruurlddrrrdrdruullruuruuldlldllddrrrdrrulllrruuruldddllldllurrrrdruuudddlullluurrdullddrrrdrrulll
+sokoban-info/3-28_Sokoban-Boxxle-2-28,sokoban-info/3-28_Sokoban-Boxxle-2-28,3.37s,65,8,true,rruuldldrlllddrurulrruuuldulldrdrrllurdddlddrudrrulldruuluurdldlu
+sokoban-info/2-56_Sokoban-Boxxle-1-56,sokoban-info/2-56_Sokoban-Boxxle-1-56,15.00,10,25,false,Timed out.
+sokoban-info/2-84_Sokoban-Boxxle-1-84,sokoban-info/2-84_Sokoban-Boxxle-1-84,8.96s,215,5,true,luullddlruurrddllddddlluuuluurdrldddlddruuuddrruuuurrdddrddluuuuruluulluurrddddlluurrdddddrddluuuuruluullddddddrluuuuuurrddlruulldddurrdddrddluudlllluuuluurdrldddlddruudrruuddrruuuruluuuullddrrdddddrdllllldluuruulur
+sokoban-info/2-29_Sokoban-Boxxle-1-29,sokoban-info/2-29_Sokoban-Boxxle-1-29,15.00,10,8,false,Timed out.
+sokoban-info/5-18_Sokoban-Micro-Cosmos-18,sokoban-info/5-18_Sokoban-Micro-Cosmos-18,1.32s,203,4,true,dllllururruuldldddrrruruulldldldrllurruruuldldurrrrddlddruuurullldlddrluuruuldrrrddddlullllurdrrrruuullllddldrrrrdruuuruldddllllluruurrdldldrrrdrudlulluuuldrddrrruuruuldddurullldlddrrdruuurulddddlullllur
+sokoban-info/3-83_Sokoban-Boxxle-2-83,sokoban-info/3-83_Sokoban-Boxxle-2-83,15.00,10,10,false,Timed out.
+sokoban-info/3-27_Sokoban-Boxxle-2-27,sokoban-info/3-27_Sokoban-Boxxle-2-27,1.38s,134,5,true,dldrdrrrrrruuulldlllrrrurrdlrddluurulrdddlllllluluurdrrrrrddlllllulurddrrrrrurulddllllluurrrrrddlludllluurrrrlddrrrulullddlludlulurrrr
+sokoban-info/13-2_Sokoban-The-Cantrip-2-collection-2,sokoban-info/13-2_Sokoban-The-Cantrip-2-collection-2,7.21s,154,7,true,drruuuluurdulddrdddllurdruurrdllrrulluluurdrrdrrddllulludrurllluurdldrdrruuldllurddddllurdruuurrddrruullddlluuluurduurrddlrdrrddlludllurdldllurdrurrrruuul
+sokoban-info/5-13_Sokoban-Micro-Cosmos-13,sokoban-info/5-13_Sokoban-Micro-Cosmos-13,0.55s,152,4,true,drrruullulldlddrluururdlurrdrrddlllrudrruullrrddlllddrrudlluuruuulldrurdrrddlddlluuudddrruulrddlluurrruullulldrrlllddrrudlluururrdlddddrruululdrrddlluuu
+sokoban-info/3-72_Sokoban-Boxxle-2-72,sokoban-info/3-72_Sokoban-Boxxle-2-72,15.00,10,25,false,Timed out.
+sokoban-info/4-26_Sokoban-Mini-Cosmos-26,sokoban-info/4-26_Sokoban-Mini-Cosmos-26,0.57s,169,3,true,urullldurrddddlulldllurrrrdruuuruuldddduuulldduurrdddllrrrddluuuddlulldlluruurlddrrrdrdruuluuruulddulldllddrrrdrdruuluuruldddllldllurrrrdruuuddlllluurrdullddrrrdrdruulll
 sokoban-info/15-32_Sokoban-Sasquatch-32,sokoban-info/15-32_Sokoban-Sasquatch-32,15.00,10,14,false,Timed out.
-sokoban-info/7-7_Sokoban-Nabo-Cosmos-7,sokoban-info/7-7_Sokoban-Nabo-Cosmos-7,13.64s,226,7,true,dddlldluuluurrduluurduluurdulddddlddrudddrurruulldurrddllrruulldllurrddrruuuulldurrddddlldluudrrruuuullddduuuuddddldrluruuuuluurddddddlluurlddrruuddlddruulluurrurruulldldrdddlluurlddrruuddllurdluuruuruulddddruuddllddrruuddllur
-sokoban-info/4-35_Sokoban-Mini-Cosmos-35,sokoban-info/4-35_Sokoban-Mini-Cosmos-35,0.32s,90,3,true,dlluluurdllldddrrurrruulllrrrddllludrrruulldldrluruuldrddldlluuurrurddullldddrruuddlluuurr
-sokoban-info/5-9_Sokoban-Micro-Cosmos-9,sokoban-info/5-9_Sokoban-Micro-Cosmos-9,2.62s,225,4,true,ldluurdrrurrdlllrruuuluurddullldllurrrrdrddldlluludrdrrurrdlluruuluurdddululllldrddrddluuuulurrrrdrddldlrurrdllrruluuluurddlullldddddrurrurrdlllldluuuulurrrrdrdululllddddrrrrruluuluurddddrdlllldluuuulurrrlldddddrurrrruluuuuld
-sokoban-info/7-4_Sokoban-Nabo-Cosmos-4,sokoban-info/7-4_Sokoban-Nabo-Cosmos-4,1.76s,216,4,true,lldddrrrllluuurrrrdrrulllldrddldrrllulluuurrlldddrrdrrdrdruululldruluurlddrrdulluululldddrrrdrdrlulluruururrdlluldddllluuurrrrdlddldrrdrdrrulululluululldddrrdruuurulldrddrrdldrululldrurrddluruldluuudddrdrdrruldlurull
-sokoban-info/15-39_Sokoban-Sasquatch-39,sokoban-info/15-39_Sokoban-Sasquatch-39,15.01,10,20,false,Timed out.
-sokoban-info/2-7_Sokoban-Boxxle-1-7,sokoban-info/2-7_Sokoban-Boxxle-1-7,2.25s,127,5,true,uuuluulldldlurddrddluluurduuullrrrrrdddrddluullluluruldrddrddluuuururrddrdlllrruuulldllurrldddrddluludrudluuudddrruluuddrrruuul
+sokoban-info/7-7_Sokoban-Nabo-Cosmos-7,sokoban-info/7-7_Sokoban-Nabo-Cosmos-7,9.61s,232,7,true,dddlldluuluurrddlluuruurduluurdldddlddrudddrurruulruuuulrddllrrddlldurrddllrruulldllurrdddlurrruuuulldduurrddddllludrrruuuuuullrrddlldddldrluruuurruulldddddlluurlddrruuurruulldldruuulddrddddlluurlddrruuudlldrdluurruulddlddrruuddllur
+sokoban-info/4-35_Sokoban-Mini-Cosmos-35,sokoban-info/4-35_Sokoban-Mini-Cosmos-35,0.29s,94,3,true,dlluluurdllldddrrurrruulllurdrrddllludrrruulldldrluruuldrddldlluuurrduurddlulldddrruuddlluuurr
+sokoban-info/5-9_Sokoban-Micro-Cosmos-9,sokoban-info/5-9_Sokoban-Micro-Cosmos-9,1.91s,233,4,true,ldluurdrrurrdllllrrruuuluurddullldllurrrrdrddldlluludrdrrurrdlluruuluurdddduululllldrddrddluuuulurrrrdrddldlruruulullldddddrurrurrdlllrrruluuluurddddldlldluuuulurrrlldddddrurrurrdllrruluuuuldrddddllldluuuulurrrrurddduullllddddrrrrrul
+sokoban-info/7-4_Sokoban-Nabo-Cosmos-4,sokoban-info/7-4_Sokoban-Nabo-Cosmos-4,1.50s,224,4,true,lldddrrrllluuurrrrdrrulllldrddldrlulluuurrdrdddrdrrulullldrrlurrdulluululldddrrruurullrrrrdlluldddldrlulluuurrrrlddddrdrdrrululullldruuululldddrrdruuurulldrddrrdldruullldrurrddludrdrrulululddrdrruldlululudrdrrulldrdruululluu
+sokoban-info/15-39_Sokoban-Sasquatch-39,sokoban-info/15-39_Sokoban-Sasquatch-39,15.00,10,20,false,Timed out.
+sokoban-info/2-7_Sokoban-Boxxle-1-7,sokoban-info/2-7_Sokoban-Boxxle-1-7,1.48s,92,5,true,uuuluulldldlurullrdrddrddluudluuurulrrrrdddllluulurdddrrrrddlurullldlludrudluuddruuddluuudru
 sokoban-info/10-19_Sokoban-The-Bagatelle-collection-19,sokoban-info/10-19_Sokoban-The-Bagatelle-collection-19,15.01,10,9,false,Timed out.
 sokoban-info/15-11_Sokoban-Sasquatch-11,sokoban-info/15-11_Sokoban-Sasquatch-11,15.00,10,6,false,Timed out.
-sokoban-info/2-14_Sokoban-Boxxle-1-14,sokoban-info/2-14_Sokoban-Boxxle-1-14,15.01,10,11,false,Timed out.
-sokoban-info/8-9_Sokoban-The-DH1-collection-9,sokoban-info/8-9_Sokoban-The-DH1-collection-9,15.05,10,7,false,Timed out.
-sokoban-info/3-62_Sokoban-Boxxle-2-62,sokoban-info/3-62_Sokoban-Boxxle-2-62,15.00,10,11,false,Timed out.
-sokoban-info/14-10_Sokoban-The-Maelstrom-collection-10,sokoban-info/14-10_Sokoban-The-Maelstrom-collection-10,15.00,10,8,false,Timed out.
-sokoban-info/2-55_Sokoban-Boxxle-1-55,sokoban-info/2-55_Sokoban-Boxxle-1-55,15.01,10,13,false,Timed out.
-sokoban-info/12-9_Sokoban-The-Cantrip-collection-9,sokoban-info/12-9_Sokoban-The-Cantrip-collection-9,15.01,10,7,false,Timed out.
-sokoban-info/14-11_Sokoban-The-Maelstrom-collection-11,sokoban-info/14-11_Sokoban-The-Maelstrom-collection-11,15.03,10,29,false,Timed out.
-sokoban-info/2-32_Sokoban-Boxxle-1-32,sokoban-info/2-32_Sokoban-Boxxle-1-32,15.01,10,8,false,Timed out.
+sokoban-info/2-14_Sokoban-Boxxle-1-14,sokoban-info/2-14_Sokoban-Boxxle-1-14,15.00,10,11,false,Timed out.
+sokoban-info/8-9_Sokoban-The-DH1-collection-9,sokoban-info/8-9_Sokoban-The-DH1-collection-9,14.59s,262,7,true,dlddrurdlddlururuurrddllulluruuldrdrddrruulldlldrruldddlulluuuurrurrddrrddllrruulldldururrddllrruulldllurruulldllddddrrdrruuuuddddllulluuuurrurdlllddddrrdrruuullduudrrdddllurdlulluuuurrurrdduulldddrduluurdlullddddrruuuruldddrrrruullluldrrrrddllludlddrudlulluuuur
+sokoban-info/3-62_Sokoban-Boxxle-2-62,sokoban-info/3-62_Sokoban-Boxxle-2-62,15.01,10,11,false,Timed out.
+sokoban-info/14-10_Sokoban-The-Maelstrom-collection-10,sokoban-info/14-10_Sokoban-The-Maelstrom-collection-10,15.01,10,8,false,Timed out.
+sokoban-info/2-55_Sokoban-Boxxle-1-55,sokoban-info/2-55_Sokoban-Boxxle-1-55,15.00,10,13,false,Timed out.
+sokoban-info/12-9_Sokoban-The-Cantrip-collection-9,sokoban-info/12-9_Sokoban-The-Cantrip-collection-9,15.02,10,7,false,Timed out.
+sokoban-info/14-11_Sokoban-The-Maelstrom-collection-11,sokoban-info/14-11_Sokoban-The-Maelstrom-collection-11,15.00,10,29,false,Timed out.
+sokoban-info/2-32_Sokoban-Boxxle-1-32,sokoban-info/2-32_Sokoban-Boxxle-1-32,15.00,10,8,false,Timed out.
 sokoban-info/12-3_Sokoban-The-Cantrip-collection-3,sokoban-info/12-3_Sokoban-The-Cantrip-collection-3,15.01,10,8,false,Timed out.
 sokoban-info/12-10_Sokoban-The-Cantrip-collection-10,sokoban-info/12-10_Sokoban-The-Cantrip-collection-10,15.01,10,8,false,Timed out.
 sokoban-info/15-12_Sokoban-Sasquatch-12,sokoban-info/15-12_Sokoban-Sasquatch-12,15.01,10,15,false,Timed out.
 sokoban-info/3-52_Sokoban-Boxxle-2-52,sokoban-info/3-52_Sokoban-Boxxle-2-52,15.01,10,14,false,Timed out.
 sokoban-info/3-41_Sokoban-Boxxle-2-41,sokoban-info/3-41_Sokoban-Boxxle-2-41,15.00,10,12,false,Timed out.
 sokoban-info/2-83_Sokoban-Boxxle-1-83,sokoban-info/2-83_Sokoban-Boxxle-1-83,15.01,10,18,false,Timed out.
-sokoban-info/2-40_Sokoban-Boxxle-1-40,sokoban-info/2-40_Sokoban-Boxxle-1-40,15.00,10,32,false,Timed out.
+sokoban-info/2-40_Sokoban-Boxxle-1-40,sokoban-info/2-40_Sokoban-Boxxle-1-40,15.01,10,32,false,Timed out.
 sokoban-info/12-4_Sokoban-The-Cantrip-collection-4,sokoban-info/12-4_Sokoban-The-Cantrip-collection-4,15.00,10,9,false,Timed out.
 sokoban-info/15-34_Sokoban-Sasquatch-34,sokoban-info/15-34_Sokoban-Sasquatch-34,15.01,10,19,false,Timed out.
 sokoban-info/3-107_Sokoban-Boxxle-2-107,sokoban-info/3-107_Sokoban-Boxxle-2-107,15.00,10,10,false,Timed out.
-sokoban-info/4-13_Sokoban-Mini-Cosmos-13,sokoban-info/4-13_Sokoban-Mini-Cosmos-13,0.59s,106,2,true,ddrrrrrululluurrdddrdllluulluurrrurddddullddldluuurruulldldrlururrrrdddrdlllldluuurruulldurrddllrruurrddll
-sokoban-info/9-2_Sokoban-The-DH2-collection-2,sokoban-info/9-2_Sokoban-The-DH2-collection-2,15.01,10,30,false,Timed out.
-sokoban-info/12-18_Sokoban-The-Cantrip-collection-18,sokoban-info/12-18_Sokoban-The-Cantrip-collection-18,8.68s,152,8,true,uullrrddluruldlldlluruurururrdllrddrddluuuddlldllurrrlluurrdrrddlullruldrrdruuldlluurdldrluruuurrdlrulldddrrddlurululldddlluluurrrdrlddllurdrudlluluurrd
+sokoban-info/4-13_Sokoban-Mini-Cosmos-13,sokoban-info/4-13_Sokoban-Mini-Cosmos-13,0.52s,104,2,true,ddrrrrrululluurrdddrdllluulluurrrurddddullddldluuurrrrdrdlllldlurruuuulldldrrrddlluddruruullddrrrrrulull
+sokoban-info/9-2_Sokoban-The-DH2-collection-2,sokoban-info/9-2_Sokoban-The-DH2-collection-2,15.00,10,30,false,Timed out.
+sokoban-info/12-18_Sokoban-The-Cantrip-collection-18,sokoban-info/12-18_Sokoban-The-Cantrip-collection-18,6.01s,186,8,true,uullrrddlullrrruldlldllurrdlluruurururrdllrddrddluuuddlldllurrrlluurrdldllluurlddrdrruurrrddludruullrdlldllurdluluurrllddrdrurruuuurrdlrulldddullrrdrudrddlulldlluluurrrlllddrrrdlluluurrd
 sokoban-info/15-13_Sokoban-Sasquatch-13,sokoban-info/15-13_Sokoban-Sasquatch-13,15.01,10,10,false,Timed out.
 sokoban-info/2-38_Sokoban-Boxxle-1-38,sokoban-info/2-38_Sokoban-Boxxle-1-38,15.01,10,15,false,Timed out.
 sokoban-info/15-33_Sokoban-Sasquatch-33,sokoban-info/15-33_Sokoban-Sasquatch-33,15.01,10,19,false,Timed out.
-sokoban-info/2-77_Sokoban-Boxxle-1-77,sokoban-info/2-77_Sokoban-Boxxle-1-77,7.48s,168,6,true,luuuurrrdllrrurrdllddrddluuuurullldldddrrlluuurrrurrdllddrddluuuulrrrulllrddddlllulldrrddlururldluddruuuuurrrdddllrruuullldddlddruuuuddddluulurddruudrrrdruuluulurrrdlll
+sokoban-info/2-77_Sokoban-Boxxle-1-77,sokoban-info/2-77_Sokoban-Boxxle-1-77,4.43s,168,6,true,luuuurrrdllurrrrdllddrddluuuurullldruldldddrrlluuurrurrdlddrddluuuulrdddlllulldrrrlddluuruuururrdddrdlllrruuuulldldddlddruurrrdruuluulrrrullldrdddllluuddddluulurdddruuu
 sokoban-info/13-3_Sokoban-The-Cantrip-2-collection-3,sokoban-info/13-3_Sokoban-The-Cantrip-2-collection-3,15.01,10,9,false,Timed out.
-sokoban-info/4-2_Sokoban-Mini-Cosmos-2,sokoban-info/4-2_Sokoban-Mini-Cosmos-2,0.31s,68,2,true,rrurruulldllluurlddrrurruullddullddrrurrrddlldlludrruulurlullddrrurd
-sokoban-info/12-20_Sokoban-The-Cantrip-collection-20,sokoban-info/12-20_Sokoban-The-Cantrip-collection-20,15.00,10,8,false,Timed out.
+sokoban-info/4-2_Sokoban-Mini-Cosmos-2,sokoban-info/4-2_Sokoban-Mini-Cosmos-2,0.25s,72,2,true,rrurruulldllluurlddrrurruullddullddrrurrrddllulurdddlludrruuluullddrrurd
+sokoban-info/12-20_Sokoban-The-Cantrip-collection-20,sokoban-info/12-20_Sokoban-The-Cantrip-collection-20,15.01,10,8,false,Timed out.
 sokoban-info/11-5_Sokoban-The-Bagatelle-2-collection-5,sokoban-info/11-5_Sokoban-The-Bagatelle-2-collection-5,15.01,10,28,false,Timed out.
-sokoban-info/5-2_Sokoban-Micro-Cosmos-2,sokoban-info/5-2_Sokoban-Micro-Cosmos-2,3.85s,225,4,true,luuurdrrddrurrrrrurrrurdllllddrulurrrurrddlrulllluldrdllldlullluurdldrrrrrrdrulllllldluulllddrulurrrurdldrrrruuldrdllldlurulllrrrdrrrrrurrrurdllllddrulurrrurrdlllluldrdllllllrrrrrrurrrrddlurulllluldurddlllrruurdrrurdddlurulll
-sokoban-info/3-98_Sokoban-Boxxle-2-98,sokoban-info/3-98_Sokoban-Boxxle-2-98,15.00,10,12,false,Timed out.
-sokoban-info/4-40_Sokoban-Mini-Cosmos-40,sokoban-info/4-40_Sokoban-Mini-Cosmos-40,0.55s,100,3,true,drrudddlluuururdldlddrrurruullduuurdlldldddrruuuddrruulldlrdrruuluuldduldurdrrddlluulldrurrrddlldllu
-sokoban-info/2-5_Sokoban-Boxxle-1-5,sokoban-info/2-5_Sokoban-Boxxle-1-5,1.62s,124,4,true,urdrruurrddlllrrddlllluulurdddrrrruulllrrrddlllluuudrrruurdrdllllrrrddlllluurudllurdrrrrrrdlulllllddrrrrurrulllllrrrddlllluu
-sokoban-info/15-6_Sokoban-Sasquatch-6,sokoban-info/15-6_Sokoban-Sasquatch-6,15.00,10,13,false,Timed out.
+sokoban-info/5-2_Sokoban-Micro-Cosmos-2,sokoban-info/5-2_Sokoban-Micro-Cosmos-2,2.96s,227,4,true,uluurdrrddrurrrrrurrrurdllllddrulurrrddrrulrulllluldrdllldlullluurdldrrrrrrdrullllllullllddrulurrrurdldrrrruuldrdllldlurulllrrrdrrrrrurrrurdllllddrudluurrrurrdlllluldurddllllllrrrrrurrrrrddludlurruuldllluldrdlllrrurrrddrurullll
+sokoban-info/3-98_Sokoban-Boxxle-2-98,sokoban-info/3-98_Sokoban-Boxxle-2-98,15.01,10,12,false,Timed out.
+sokoban-info/4-40_Sokoban-Mini-Cosmos-40,sokoban-info/4-40_Sokoban-Mini-Cosmos-40,0.35s,114,3,true,drrudddlluuururdldlddrrurruulluurdlldldddrruululdrruddrruullddrruuluuldldrddrruulrddlldlludrruuulldrlurrrrddlldllu
+sokoban-info/2-5_Sokoban-Boxxle-1-5,sokoban-info/2-5_Sokoban-Boxxle-1-5,1.29s,148,4,true,urdrruurrddlllrrddlllluuudddrrrruulllrrrddlllluuddrrrruurrdlrulllllllurdrudrrrruldllllddrrrrurrulllllrrrddlllluulurdddrrrrurrulluuldrdlllrrrddlllluu
+sokoban-info/15-6_Sokoban-Sasquatch-6,sokoban-info/15-6_Sokoban-Sasquatch-6,15.01,10,13,false,Timed out.
 sokoban-info/2-62_Sokoban-Boxxle-1-62,sokoban-info/2-62_Sokoban-Boxxle-1-62,15.01,10,24,false,Timed out.
-sokoban-info/5-7_Sokoban-Micro-Cosmos-7,sokoban-info/5-7_Sokoban-Micro-Cosmos-7,0.58s,113,3,true,lddrrurulddlluuuurrddlruulldddlddrurruruluulldddldruuuurrddlruulldddlddrdrruuuruluulldddduuuurrddlrddlruruluulldd
+sokoban-info/5-7_Sokoban-Micro-Cosmos-7,sokoban-info/5-7_Sokoban-Micro-Cosmos-7,0.51s,133,3,true,lddrrurulddlluuuurrddlruulldddlddrurruruluulldddldruuuurrddlruulldddlddruulddrdrruuuruluullddduuurrddlrddddlluluurdlururrddlruuuulldd
 sokoban-info/2-22_Sokoban-Boxxle-1-22,sokoban-info/2-22_Sokoban-Boxxle-1-22,15.01,10,10,false,Timed out.
 sokoban-info/11-3_Sokoban-The-Bagatelle-2-collection-3,sokoban-info/11-3_Sokoban-The-Bagatelle-2-collection-3,15.01,10,8,false,Timed out.
-sokoban-info/7-20_Sokoban-Nabo-Cosmos-20,sokoban-info/7-20_Sokoban-Nabo-Cosmos-20,2.21s,162,5,true,lurldllurdlllurldrrruuullddldruuurrddlrdrrullrdrrrulldllddrrudlluurrddlluuuuullddrluurrdddrrddlluluruuullddldrrlluruurrddldludrdrdrruuurrdlrulllllddrulurrrdlrrrul
-sokoban-info/3-101_Sokoban-Boxxle-2-101,sokoban-info/3-101_Sokoban-Boxxle-2-101,15.01,10,16,false,Timed out.
+sokoban-info/7-20_Sokoban-Nabo-Cosmos-20,sokoban-info/7-20_Sokoban-Nabo-Cosmos-20,1.59s,166,5,true,lurldllurldllurdrdruuuullddldruuurrddlrdrrullrrdrrulldllddrrudlluurrlluuullddrluurrdddrrddlluluruuullddldrrluuurrddldluldrrdrdrruuulllrrrrrdluldulllddrudluurrrdlrrrul
+sokoban-info/3-101_Sokoban-Boxxle-2-101,sokoban-info/3-101_Sokoban-Boxxle-2-101,15.07,10,16,false,Timed out.
 sokoban-info/3-94_Sokoban-Boxxle-2-94,sokoban-info/3-94_Sokoban-Boxxle-2-94,15.00,10,9,false,Timed out.
-sokoban-info/7-9_Sokoban-Nabo-Cosmos-9,sokoban-info/7-9_Sokoban-Nabo-Cosmos-9,7.32s,180,5,true,dldruuluurrrdddrddluuuurullluldddrddludrrllulldrruruuldrdlruuluurdrrdddrddluuuurulllddlddrrlluuruuuldrrrdddrddlullluuruulddrulllurrurdrrdddrddluudllluuruluurdrrdddrddluuuurullluldd
+sokoban-info/7-9_Sokoban-Nabo-Cosmos-9,sokoban-info/7-9_Sokoban-Nabo-Cosmos-9,5.41s,190,5,true,uddldrlulldrlurruuuurdrrdddrddluuuurullluldddrddlrrllulldrruruuldrdluuuurdrrdddrddluuuurulllddlddrrlluuururrrdlddrddluuuddllluuruuulddllurrurdrrdddrddluuuddllluuruluurdrrdddrddluuuurullluldd
 sokoban-info/14-21_Sokoban-The-Maelstrom-collection-21,sokoban-info/14-21_Sokoban-The-Maelstrom-collection-21,15.00,10,17,false,Timed out.
-sokoban-info/2-90_Sokoban-Boxxle-1-90,sokoban-info/2-90_Sokoban-Boxxle-1-90,3.56s,202,5,true,ldlddlluuruuddlddrruruurrdrddlulluurrdrdllrdruuluuurruullddlllulldrrrrllldddrllddrrurudldlluurrddlluuruuulurrdrrrdduuuurrddlldddrddluuuudddllrrdruuluuurruulldddulllulldrrrrruurrddlruullddlllulddddlddrru
-sokoban-info/5-16_Sokoban-Micro-Cosmos-16,sokoban-info/5-16_Sokoban-Micro-Cosmos-16,2.29s,165,4,true,llddrdrulllururruulldddldrrdrruluullddrdrulllururrrrurullldululddddldrrluurrllddrdrrullrudrrudldluuulldldrrluurrddlluuuurrdduurrddlruullllddddrrrruuurullllulddddldrr
-sokoban-info/2-101_Sokoban-Boxxle-1-101,sokoban-info/2-101_Sokoban-Boxxle-1-101,15.01,10,40,false,Timed out.
+sokoban-info/2-90_Sokoban-Boxxle-1-90,sokoban-info/2-90_Sokoban-Boxxle-1-90,2.51s,186,5,true,ldlddlluuruuddlddrruruurrdrddlulluurrdrdldruuluuurruullddlllulldrrrrrlllulddddrllddrrudlluuruuulurrdrrrddduuuuurrddlldddrddlulludrruuuurruulldddulllulldrrrrruurrddlruullddlllldddrllddrru
+sokoban-info/5-16_Sokoban-Micro-Cosmos-16,sokoban-info/5-16_Sokoban-Micro-Cosmos-16,1.73s,149,4,true,lludddrdrudlullururruululddddldrrdrruludlruulldldrrdrulllururrrruulldululddddldrrdrruruuudlluulldddldrrruurrddlruulldduurrurulllddrruullluldddrldldrr
+sokoban-info/2-101_Sokoban-Boxxle-1-101,sokoban-info/2-101_Sokoban-Boxxle-1-101,15.00,10,40,false,Timed out.
 sokoban-info/3-91_Sokoban-Boxxle-2-91,sokoban-info/3-91_Sokoban-Boxxle-2-91,15.01,10,9,false,Timed out.
-sokoban-info/14-14_Sokoban-The-Maelstrom-collection-14,sokoban-info/14-14_Sokoban-The-Maelstrom-collection-14,1.56s,207,5,true,drdldllurrldlllurrdrruuulldduurrddldlulldrrlddrrrudllluulurrrrurrdlllldllurdddrrruulurdddllluulurrldddrrruuuuulldurrdrrdddlruuullddllulldrrlddrrruulluldlurrdrrdrruuullullddldruuurrddlrurrdddlldllludrrrurruul
-sokoban-info/15-30_Sokoban-Sasquatch-30,sokoban-info/15-30_Sokoban-Sasquatch-30,15.01,10,13,false,Timed out.
-sokoban-info/6-12_Sokoban-Pico-Cosmos-12,sokoban-info/6-12_Sokoban-Pico-Cosmos-12,15.01,10,7,false,Timed out.
-sokoban-info/8-2_Sokoban-The-DH1-collection-2,sokoban-info/8-2_Sokoban-The-DH1-collection-2,15.01,10,21,false,Timed out.
-sokoban-info/4-30_Sokoban-Mini-Cosmos-30,sokoban-info/4-30_Sokoban-Mini-Cosmos-30,1.08s,210,3,true,lluuddrruuluuullddrdrrddlluuruurrulllulldrddlddrluuruurrdrrullluldrrdddrddllulluurrdruurrulllulldrrrdddrddlluudlluurrdddrruuluurruuldlrrdlrulldrrulllrddurullulldrrrddlludrruululldrddrrurruuldrdlrulllulldrrrrurd
-sokoban-info/6-8_Sokoban-Pico-Cosmos-8,sokoban-info/6-8_Sokoban-Pico-Cosmos-8,15.00,10,8,false,Timed out.
-sokoban-info/2-70_Sokoban-Boxxle-1-70,sokoban-info/2-70_Sokoban-Boxxle-1-70,15.00,10,13,false,Timed out.
-sokoban-info/10-2_Sokoban-The-Bagatelle-collection-2,sokoban-info/10-2_Sokoban-The-Bagatelle-collection-2,15.00,10,12,false,Timed out.
-sokoban-info/5-19_Sokoban-Micro-Cosmos-19,sokoban-info/5-19_Sokoban-Micro-Cosmos-19,6.08s,165,6,true,rddddrruldlulluuurrdrduluurddullldddrruurulddddrruldluuurdlddrruldlulldllurrrluulduruulddrdddllurdruuuldrdrrlldllurdrurrdrrulllrdrruluuuuldrddddlulldllurrdlluruuuurd
-sokoban-info/3-116_Sokoban-Boxxle-2-116,sokoban-info/3-116_Sokoban-Boxxle-2-116,15.01,10,11,false,Timed out.
+sokoban-info/14-14_Sokoban-The-Maelstrom-collection-14,sokoban-info/14-14_Sokoban-The-Maelstrom-collection-14,1.22s,205,5,true,drdldllurrdllllurrdrruuullddldrllurruurrddlldllurdrudlddrrrudllluulurrrrurrdlllrdulldlddrrruuddllluururrurrdddlruuulldlldllurdddrrruulrddllluulurrldddrrruulluldrrrdrruuullduullddldruuurrddlrurrdlrddlldlllu
+sokoban-info/15-30_Sokoban-Sasquatch-30,sokoban-info/15-30_Sokoban-Sasquatch-30,15.00,10,13,false,Timed out.
+sokoban-info/6-12_Sokoban-Pico-Cosmos-12,sokoban-info/6-12_Sokoban-Pico-Cosmos-12,15.00,10,7,false,Timed out.
+sokoban-info/8-2_Sokoban-The-DH1-collection-2,sokoban-info/8-2_Sokoban-The-DH1-collection-2,15.00,10,21,false,Timed out.
+sokoban-info/4-30_Sokoban-Mini-Cosmos-30,sokoban-info/4-30_Sokoban-Mini-Cosmos-30,0.86s,190,3,true,lluuddrruuluuullddrdrrddlluuruurullulldrrrllddlddrluuruurrddlrurrullluldurdrdddrddllulluurrdruurrulllulldrrrdddrddlluudlluurrdruurruuldllrrrdlrulldduululldrrrddlludrrurruuldrdlullulldrrrrurd
+sokoban-info/6-8_Sokoban-Pico-Cosmos-8,sokoban-info/6-8_Sokoban-Pico-Cosmos-8,15.01,10,8,false,Timed out.
+sokoban-info/2-70_Sokoban-Boxxle-1-70,sokoban-info/2-70_Sokoban-Boxxle-1-70,15.04,10,13,false,Timed out.
+sokoban-info/10-2_Sokoban-The-Bagatelle-collection-2,sokoban-info/10-2_Sokoban-The-Bagatelle-collection-2,15.01,10,12,false,Timed out.
+sokoban-info/5-19_Sokoban-Micro-Cosmos-19,sokoban-info/5-19_Sokoban-Micro-Cosmos-19,4.33s,134,6,true,rddddrruldlulluuurrdrduluurddullldddrruurulurddldddrruldluuuruuldurdddlddrruldlulldllurruulduruulddrdddllurdruuulduuurdlddrddllurldrru
+sokoban-info/3-116_Sokoban-Boxxle-2-116,sokoban-info/3-116_Sokoban-Boxxle-2-116,15.00,10,11,false,Timed out.
 sokoban-info/14-6_Sokoban-The-Maelstrom-collection-6,sokoban-info/14-6_Sokoban-The-Maelstrom-collection-6,15.01,10,6,false,Timed out.
-sokoban-info/3-15_Sokoban-Boxxle-2-15,sokoban-info/3-15_Sokoban-Boxxle-2-15,15.01,10,17,false,Timed out.
-sokoban-info/3-42_Sokoban-Boxxle-2-42,sokoban-info/3-42_Sokoban-Boxxle-2-42,15.01,10,16,false,Timed out.
-sokoban-info/3-81_Sokoban-Boxxle-2-81,sokoban-info/3-81_Sokoban-Boxxle-2-81,15.01,10,16,false,Timed out.
+sokoban-info/3-15_Sokoban-Boxxle-2-15,sokoban-info/3-15_Sokoban-Boxxle-2-15,15.05,10,17,false,Timed out.
+sokoban-info/3-42_Sokoban-Boxxle-2-42,sokoban-info/3-42_Sokoban-Boxxle-2-42,15.02,10,16,false,Timed out.
+sokoban-info/3-81_Sokoban-Boxxle-2-81,sokoban-info/3-81_Sokoban-Boxxle-2-81,15.00,10,16,false,Timed out.
 sokoban-info/2-46_Sokoban-Boxxle-1-46,sokoban-info/2-46_Sokoban-Boxxle-1-46,15.01,10,8,false,Timed out.
-sokoban-info/14-17_Sokoban-The-Maelstrom-collection-17,sokoban-info/14-17_Sokoban-The-Maelstrom-collection-17,15.01,10,9,false,Timed out.
+sokoban-info/14-17_Sokoban-The-Maelstrom-collection-17,sokoban-info/14-17_Sokoban-The-Maelstrom-collection-17,15.00,10,9,false,Timed out.
 sokoban-info/15-17_Sokoban-Sasquatch-17,sokoban-info/15-17_Sokoban-Sasquatch-17,15.01,10,13,false,Timed out.
-sokoban-info/2-71_Sokoban-Boxxle-1-71,sokoban-info/2-71_Sokoban-Boxxle-1-71,15.00,10,15,false,Timed out.
-sokoban-info/5-36_Sokoban-Micro-Cosmos-36,sokoban-info/5-36_Sokoban-Micro-Cosmos-36,1.17s,148,4,true,ldlddrrrurldllluurdrdrdruulddrurruldldluulullddrruuluurdddullddrurrrddlululudrdrruldrrruldldluuldrurllullddrrlluurdrrrdrrulllldrluullddrurrdlurrrdll
-sokoban-info/2-81_Sokoban-Boxxle-1-81,sokoban-info/2-81_Sokoban-Boxxle-1-81,15.01,10,24,false,Timed out.
-sokoban-info/14-12_Sokoban-The-Maelstrom-collection-12,sokoban-info/14-12_Sokoban-The-Maelstrom-collection-12,14.26s,104,7,true,ddrluurdrrddluddlluuruulddrdrruulrddrruulrddlllddruulluluurdrdurlddludrrddlururruulldldluluurdldrdrrllur
-sokoban-info/5-31_Sokoban-Micro-Cosmos-31,sokoban-info/5-31_Sokoban-Micro-Cosmos-31,0.61s,109,4,true,rruuluulldllddrrlddrrdrudlulluuluurrduurrddldludrduurrddldluudrruuluulldllddrddrluuluurrurrddrddllulurddrddlu
-sokoban-info/9-10_Sokoban-The-DH2-collection-10,sokoban-info/9-10_Sokoban-The-DH2-collection-10,15.02,10,15,false,Timed out.
-sokoban-info/2-64_Sokoban-Boxxle-1-64,sokoban-info/2-64_Sokoban-Boxxle-1-64,15.01,10,6,false,Timed out.
-sokoban-info/2-96_Sokoban-Boxxle-1-96,sokoban-info/2-96_Sokoban-Boxxle-1-96,15.00,10,11,false,Timed out.
-generated/test4,generated/test4,2.09s,39,5,true,llllurrrurrrrddludlruruullllllllddldrrr
-generated/test8,generated/test8,0.29s,15,3,true,ddddrrrululdldr
-generated/test5,generated/test5,0.81s,35,6,true,dldullurrrrdurddrdluldlulldrrrrdlll
-generated/test1,generated/test1,0.23s,13,2,true,rdruuuldduuld
-generated/test9,generated/test9,0.36s,18,5,true,ddrurulddruuurdlll
-generated/test3,generated/test3,0.24s,10,4,true,rdrluldrrr
-generated/test6,generated/test6,0.31s,27,6,true,lulullddludlludlluuuurrrrdd
-generated/test7,generated/test7,0.99s,18,6,true,lurrdrurrllllurrrr
-generated/test10,generated/test10,2.76s,32,5,true,ldddlurrddlruuluulllldrurddrdrdl
-generated/test2,generated/test2,0.70s,23,4,true,dlllurdruullllururrdrld
+sokoban-info/2-71_Sokoban-Boxxle-1-71,sokoban-info/2-71_Sokoban-Boxxle-1-71,15.01,10,15,false,Timed out.
+sokoban-info/5-36_Sokoban-Micro-Cosmos-36,sokoban-info/5-36_Sokoban-Micro-Cosmos-36,1.03s,140,4,true,ldlddrrrurldllluurdrdrrulldrdrurruldllulullddrrlluuruurdddullddrurrrddlululurddrrulldrdrurrullddluluullddrrrruldllluurrdullddrurrdlrrurrdlll
+sokoban-info/2-81_Sokoban-Boxxle-1-81,sokoban-info/2-81_Sokoban-Boxxle-1-81,15.00,10,24,false,Timed out.
+sokoban-info/14-12_Sokoban-The-Maelstrom-collection-12,sokoban-info/14-12_Sokoban-The-Maelstrom-collection-12,11.63s,104,7,true,ddrluurdrrddluddlluurduuulddrdrruulrddlddruuddluululuurdrddrrruulrddllddludruurruulldldludrrlluluurdldrr
+sokoban-info/5-31_Sokoban-Micro-Cosmos-31,sokoban-info/5-31_Sokoban-Micro-Cosmos-31,0.55s,111,4,true,rruuluulldllddrddrrdrullluurlluurrduurrddldludrduurrddldluudddruuruuluulldllddrddrluuluurrurrddrddllulurddrddlu
+sokoban-info/9-10_Sokoban-The-DH2-collection-10,sokoban-info/9-10_Sokoban-The-DH2-collection-10,15.00,10,15,false,Timed out.
+sokoban-info/2-64_Sokoban-Boxxle-1-64,sokoban-info/2-64_Sokoban-Boxxle-1-64,15.00,10,6,false,Timed out.
+sokoban-info/2-96_Sokoban-Boxxle-1-96,sokoban-info/2-96_Sokoban-Boxxle-1-96,15.08,10,11,false,Timed out.
+generated/test4,generated/test4,1.20s,43,5,true,lullullurrrdrrrrrddludlrruuullllllllddldrrr
+generated/test8,generated/test8,0.25s,15,3,true,ddddrrrululdldr
+generated/test5,generated/test5,1.11s,34,6,true,rdddlldlluuurrduurrrddldrdllluulur
+generated/test1,generated/test1,0.21s,13,2,true,rruulddrululd
+generated/test9,generated/test9,0.26s,22,5,true,ddrurulddluluurrrrdlll
+generated/test3,generated/test3,0.20s,10,4,true,rdrluldrrr
+generated/test6,generated/test6,0.31s,25,6,true,lulullddludllulluuurrrrdd
+generated/test7,generated/test7,1.11s,28,6,true,lurrdrurrlldlllurrurrrdllllu
+generated/test10,generated/test10,1.77s,30,5,true,llrrdlddrulululllrdduurddldldr
+generated/test2,generated/test2,0.33s,20,4,true,dllluuurrlldddlluuur
