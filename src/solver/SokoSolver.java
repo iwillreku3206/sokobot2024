@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-08 00:44:38
+ * @ Modified time: 2024-10-08 03:46:20
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -10,7 +10,6 @@
 
 package solver;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.TreeSet;
 import java.util.List;

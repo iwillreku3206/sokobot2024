@@ -6,6 +6,14 @@
 <img src="./README/sokoban.png">
 </center>
 
+> **Legend**
+>
+> Here are the icons we will be using for the rest of the discussion for the sake of consistency.
+> 
+> <pre>
+>  wall       goal       crate      player    crate on goal
+> <img src="./visualizer/graphics/wall.png" width="40px" height="40px">      <img src="./visualizer/graphics/goal.png" width="40px" height="40px">      <img src="./visualizer/graphics/crate.png" width="40px" height="40px">      <img src="./visualizer/graphics/bot.png" width="40px" height="40px">        <img src="./visualizer/graphics/crategoal.png" width="40px" height="40px">
+> </pre> 
 ### 1.1 Brief description of Sokoban
 
 Sokoban is a simple single-player puzzle game. The goal of the player is to be able to rearrange the crates so that they occupy all the designated locations on the map. The difficulty arises from the fact that some moves result in configurations that offer no reversals: some moves cannot be undone. And once the player is stuck in a bad configuration, restarting becomes the only option.
@@ -42,19 +50,21 @@ Every state can be assigned a priority score that tells us how important it is. 
 
 > Heuristic for the priority score
 >
-> * `solution_length`
+> * `move_count`, `turn_move_count`, and `crate_move_count`
 > * `good_crate_count`
 > * `crate_goal_centroid_distance`
 
-* `solution_length`
+* `move_count`, `turn_move_count`, and `crate_move_count`
 
-    Considers how many moves were needed to get to the current state. By default, our approach prefers states which require less moves. However, when inverting this heuristic, our algorithm actually finds solutions *in less time*, despite the solution length being unreasonably long. For certain maps, longer solutions are easier to find.
+    These three values form one of the main heuristics and deal with the nature of the moves taken by the player so far. `move_count` simply refers to how many moves were needed to get to the current state. By default, our approach prefers states which require less moves. However, when inverting this heuristic, our algorithm actually finds solutions *in less time* for certain maps, despite the resulting solution being unreasonably long. Note that the way `move_count` is treated directly corresponds to whether or not we're doing depth-first search (DFS) or breadth-first search (BFS). Prioritizing longer solutions is akin to performing DFS, while the opposite mirrors BFS.
+    
+    The other two values, `turn_move_count` and `crate_move_count`, refer to the count of specific subsets of the moves performed by the player. The former counts how many moves represent a turn (a change in direction) of the player: the way the value is  set up prioritizes solutions that have less turns in order to make sure that the player does not wander aimlessly. The latter value counts how many moves involve pushing a crate. Such moves are preferred as they "get things done" (although it may have the unintended consequence of encouraging the bumping of crates off of their goals even after they've been placed there).
 
-    Note that this heuristic corresponds directly to whether or not we're doing depth-first search (DFS) or breadth-first search (BFS). Prioritizing longer solutions is akin to performing DFS, while the opposite mirrors BFS.
+    All in all, these three values are summed up (with `crate_move_count` being negated first to ensure it contributes to reducing the cost of the state), although do note that the sum is weighted and the three are not treated equally. These weights may be considered [hyperparameters](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)) of some sort.
 
 * `good_crate_count`
 
-    This just refers to the number of crates on goals for a given state. Our approach prefers states where more of the crates are already in their place, which makes sense, although it is important to note that some solutions require the momentary shifting of crates off of their goals to reach a final solution. 
+    This just refers to the number of crates on goals for a given state. Our approach prefers states where more of the crates are already on top of goals, which makes sense, although it is important to note that some solutions require the momentary shifting of "good crates" to reach a final solution. 
 
 * `crate_goal_centroid_distance`
 
@@ -62,7 +72,7 @@ Every state can be assigned a priority score that tells us how important it is. 
     
     Computing centroids is much more efficient than manually comparing crates and goals on a pair-wise basis. Thus, we do not attempt to do the latter (the former is $\mathcal{O}(n)$ while the latter is $\mathcal{O}(n^2)$ ).
 
-These three parameters are unified into a single value that represents the priority score of a given state. For added flexibility, coefficients were also defined which allows changing the "composition" of the priority score; that is, all three heuristics may not necessarily have equal weight, and the way the algorithm combines these heuristics can be modified.
+These three parameters are unified into a single value that represents the priority score of a given state. For added flexibility, coefficients were also defined which allows changing the "composition" of the priority score; that is, all three heuristics may not necessarily have equal weight, and the way the algorithm combines these heuristics can be modified. Again, these weights may be considered hyperparameters.
 
 ### 2.3 Identifying viable states
 
@@ -70,36 +80,35 @@ Of course, evaluating the priority of a state only makes sense when the state we
 
 > Types of stuck
 >
-> * Permanently stuck crates
-> * Temporarily stuck crates
+> * Wall-stuck crates
+> * Group-stuck crates
 
-* Permanently stuck crates
+* Wall-stuck crates
 
-    This is easier to identify. Any crate that ends up in a corner between two walls is ***permanently stuck***. Our logic for checking this also accounts for crates stuck in between more than two walls. Nevertheless, it is important to remember that when considering precisely two walls, only *adjacent* walls create permanently stuck crates. Walls on opposite sides can represent an opening of some sort and do not make a crate permanently stuck, as shown on the right.
+    This is easier to identify. Any crate that ends up in a corner OR on a wall it cannot be pushed out of is ***wall-stuck***. Identifying crates that are wall-stuck can be done by preprocessing the map and identifying the cells that lead to these scenarios. We elaborate the process further in the succeeding section.
 
-    <!-- !! // ! TODO INSERT A PICTURE  -->
+    <!-- ! // ! add pictures  -->
 
-* Temporarily stuck crates
 
-    The idea here is the same, except the scenario involves at least one other crate. A crate is ***temporarily stuck*** if it is obstructed on at least two adjacent sides by at least one crate and some walls. The examples below illustrate the scenario. It is imperative that the latter case (permanent stuckness) is checked before evaluating temporary stuckness, because otherwise something of the sort shown on the right may be evaluated as temporarily stuck.
+* Group-stuck crates
 
-    <!-- !! // ! TODO INSERT A PICTURE OF CRATE SURROUNDED BY THREE WALLS AND A CRATE -->
+    Crates that are stuck because they are surrounded by other crates that are *also* stuck are called ***group-stuck*** crates. The check here performs a recursive call through uninspected crates: neighboring crates are asked *recursively* whether or not they are stuck. If at least one of the recursive calls identifies a liberated crate, then the entire group is not permanently stuck; once the non-stuck crate is moved, it is possible for the other crates to become movable again. Otherwise, the entire group is permanently stuck and the state is a dead-end.
 
-Now that we've gotten those out of the way, we can now precisely define when a state stops being viable. In our approach, there are three criteria that identify "dead-end states". 
+    <!-- ! // ! add pictures too -->
 
-> Criteria for dead-end states
-> 
->1. At least one crate is *permanently stuck* and not on a goal. 
->2. All crates are at least *temporarily stuck* and at least one is not on a goal.
->3. The player is surrounded by 4 walls. 
 
-The third criteria honestly feels a bit trivial, but we include it lest degenerate maps are encountered (this was particularly a concern during the testing phase of the project; map generation is discussed later in this document).
+### 2.4 Preprocessing the map
 
-### 2.4 Avoiding repeat states
+Preprocessing the map is a much more involved process. Although the idea of extracting metadata from the map may seem expensive at first, the optimization this entails is worth the implementation. A large number of states can be pruned from the search space by doing this.  
+
+    <!-- ! // ! map preprocessing-->
+
+
+### 2.5 Avoiding repeat states
 
     <!-- ! // ! explain state serialization  -->
 
-### 2.5 The `SokoSolver` class
+### 2.6 The `SokoSolver` class
 
     <!-- ! // ! explain the actual algo here + pseudocode -->
 
@@ -203,3 +212,4 @@ sources:
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
 https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
 https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
+https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
