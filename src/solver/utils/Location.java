@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:46:54
- * @ Modified time: 2024-10-03 22:07:49
+ * @ Modified time: 2024-10-07 15:39:10
  * @ Description:
  * 
  * Utility functions for compressing location information into integers.
@@ -22,6 +22,14 @@ public class Location {
     public static final int SOUTH = 01;
     public static final int EAST = (01 << maskLength);
     public static final int WEST = (-1 << maskLength);
+
+    // An array for easy iters
+    public static final int[] DIRECTIONS = {
+        NORTH, 
+        SOUTH,
+        EAST,
+        WEST,
+    };
 
     /**
      * Returns a single integer that stores information about a coordinate pair.

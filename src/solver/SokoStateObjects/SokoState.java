@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-07 15:18:24
+ * @ Modified time: 2024-10-07 15:51:34
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -230,8 +230,8 @@ public class SokoState {
         boolean allCratesAreGood = true;
 
         // Check if all the goals have crates
-        for(int goal : map.getGoalLocations())
-            if(!this.crates.containsKey(goal))
+        for(SokoCrate crate : this.crates.values())
+            if(!crate.isGood())
                 allCratesAreGood = false;
 
         // We won!
@@ -245,10 +245,38 @@ public class SokoState {
             if(crate.isStuckPermanently() && !crate.isGood())
                 return StateStatus.LOST;
 
-        // Check if all crates are at least temporarily stuck
-        for(SokoCrate crate : this.crates.values()) 
-            if(!crate.isStuckPermanently() && !crate.isStuckTemporarily())
+        // Check if all crates are at least temporarily stuck OR
+        // At least two adjacent crates are temporarily stuck
+        for(SokoCrate crate : this.crates.values()) {
+
+            // A crate isn't stuck
+            if(!crate.isStuckPermanently() && !crate.isStuckTemporarily()) {
                 allCratesAreStuck = false;
+                break;
+            }
+
+            // If crate is okay, then it doesn't matter if it's stuck
+            if(crate.isGood())
+                continue;
+
+            // Otherwise, check if it's adjacent to any stuck crates
+            for(int direction : Location.DIRECTIONS) {
+
+                // Get adjacent location
+                int adjacency = crate.getLocation() + direction;
+    
+                // No neighbor in that direction
+                if(!this.crates.containsKey(adjacency))
+                    continue;
+
+                // Get adj crate
+                SokoCrate adjacentCrate = this.crates.get(adjacency);
+
+                // Check if adj crate stuck too
+                if(adjacentCrate.isStuckPermanently() || adjacentCrate.isStuckTemporarily())
+                    return StateStatus.LOST;
+            }
+        }
 
         // No more moves for this state
         if(allCratesAreStuck)

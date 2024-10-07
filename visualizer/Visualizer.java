@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-07 12:51:19
- * @ Modified time: 2024-10-07 15:23:33
+ * @ Modified time: 2024-10-07 15:33:37
  * @ Description:
  * 
  * Visualizes the states visited by the bot.
@@ -29,7 +29,7 @@ public class Visualizer {
         
         // Read the file first
         FileReader reader = new FileReader();
-        MapData map = reader.readFile("original2");
+        MapData map = reader.readFile("base7");
         
         // Init the solver
         solver = new SokoSolver(map.tiles);
