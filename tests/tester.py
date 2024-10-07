@@ -22,19 +22,6 @@ TIMESTAMP_FORMAT = '%H:%M:%S %d/%m/%Y'
 MAP_FOLDER = 'maps'
 MAP_NAMES = []
 
-"""
-##########################
-Test timestamp is 15:59:03 06/10/2024 - 15:59:05 06/10/2024:
-Test Name:          fourboxes1
-Test File:          fourboxes1
-Time Taken:         0.18s
-Number of Moves:    86
-Number of Crates:   4
-Won:                true
-Solution:           lullulurrrlldddlurrrdluluurrdullddrdrruluullddldrrluuuldrurrddldluulurdddlurrrrdlllulu
-"""
-
-
 def get_timestamp(format: str =TIMESTAMP_FORMAT) -> str:
     """Returns the timestamp at a given point in time.
     Automatically formats the timestamp according to the template provided.
@@ -67,6 +54,12 @@ def get_maps(folder=MAP_FOLDER):
     # Iterative traversal 
     for root, dirs, files in os.walk(folder):
         for file in files:
+            
+            # Not a map
+            if '.done' in file:
+                continue
+            
+            # Append the file name
             fullpath = os.path.join(root, file)
             relpath = os.path.relpath(fullpath, folder)
             map_names.append(relpath.split('.')[0])
@@ -158,7 +151,13 @@ def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     os.popen("javac `find . | grep \\.java$` -d out/ -cp out").read()
     
     # Iterate through them and run tests
+    counter = 0
     for map_name in maps:
+                
+        # Progress update
+        counter += 1
+        print('Running test {} of {}...'.format(counter, len(maps)))
+
         # Perform the test
         do_test(map_name, map_name, out);
         

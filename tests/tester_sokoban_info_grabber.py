@@ -17,6 +17,7 @@ HOME = 'https://sokoban.info/'
 
 # How many maps per group
 MAP_GROUPS = {
+    '1': 90,
     '2': 108,
     '3': 120,
     '4': 40,
@@ -32,6 +33,22 @@ MAP_GROUPS = {
     '14': 21,
     '15': 50,
     '16': 50, 
+    '17': 50,
+    '18': 50,
+    '19': 50,
+    '20': 50,
+    '21': 50,
+    '22': 50,
+    '23': 50,
+    '24': 33,
+    '25': 155,
+    '26': 135,
+    '27': 101,
+    '28': 25,
+    '29': 54,
+    '30': 52,
+    '31': 50,
+    '32': 50,
 }
 
 def generate_map_url(group_number, map_number, home=HOME):
@@ -121,7 +138,7 @@ def retrieve_boards(home=HOME, map_groups=MAP_GROUPS, out=''):
     """
     
     # So we don't repeat requests when re-running
-    finished_file = open(os.path.join(out, 'done.txt'), 'r+')
+    finished_file = open(os.path.join(out, '.done.txt'), 'r+')
     finished_maps = [ line.split('_')[0] for line in finished_file.readlines() ]
     
     # Grab the different groups

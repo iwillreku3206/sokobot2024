@@ -22,6 +22,10 @@ Sokoban is a simple single-player puzzle game. The goal of the player is to be a
 
 Sokoban is an NP-hard problem, meaning to say it is at least as hard as the problems in the NP complexity class. NP-hard problems are difficult to solve, but once solutions are found they are easy to verify. This is true of Sokoban: finding the solution may take a considerable amount of effort, but running through the solution can easily verify its validity.
 
+### 1.3 Running the program
+
+<!-- ! Explain how to run the program here -->
+
 ![approach](./README/headers/header-approach.png)
 
 In this section, we will gradually introduce the concepts underlying our approach and the different actions taken by the overall algorithm. Eventually, with domain language in place, we will be able to phrase our model succintly:
