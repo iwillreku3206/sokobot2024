@@ -103,9 +103,28 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
 
     <!-- ! // ! explain the actual algo here + pseudocode -->
 
+![implementation-technicalities](./README/headers/header-implementation-technicalities.png)
+
+    Disclaimer: this part is skippable
+
+    3.1 Storing coordinates more effectively
+
+        * using a single integer and sharing bits
+
+    3.2 Separating state from constants
+
+        * using a class for the state + another class for what doesn't change
+   
+    3.3 Rationale of overarching design patterns
+
+        * using a state factory
+
+        * having a separate crate entity to facilitate code expressiveness
+
+
 ![testing-framework](./README/headers/header-testing-framework.png)
    
-    3.1 Testing approach
+    4.1 Testing approach
     
         * to automate the testing process, a mock of the original Java files were created
     
@@ -115,13 +134,13 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
     
         * also it looked more visually appealing to watch
 
-    3.2 The Test class
+    4.2 The Test class
     
         * helps isolate tests
     
         * makes sure to instantiate the involved objects each time, so no state is preserved
 
-    3.3 The problem with having a Java test driver 
+    4.3 The problem with having a Java test driver 
     
         * apparently, if a method isn't finished running within a thread, calling its .interrupt() method does nothing
     
@@ -129,33 +148,19 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
     
         * it is thus necessary to start each test as a separate process
 
-    3.4 `tester.py`
+    4.4 `tester.py`
     
         * this represents the test driver
 
-    3.5 Map generation and map corpuses
+    4.5 Map generation and map corpuses
     
         * explain valid file formats 
     
         * the map generation code was lifted from [here](https://github.com/xbandrade/sokoban-solver-generator/commits?author=xbandrade)
 
-![implementation-technicalities](./README/headers/header-implementation-technicalities.png)
+![analysis](./README/headers/header-analysis.png)
 
-    4.1 Storing coordinates more effectively
-
-        * using a single integer and sharing bits
-
-    4.2 Separating state from constants
-
-        * using a class for the state + another class for what doesn't change
-   
-    4.3 Rationale of overarching design patterns
-
-        * using a state factory
-
-        * having a separate crate entity to facilitate code expressiveness
-
-add section for authors + analysis
+    5.1 Hm
 
 * [x] stuck1.txt        (No Solution Found * true) 
 * [x] stuck2.txt        (No Solution Found * true) 
@@ -196,4 +201,5 @@ TODO
 sources:
 
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
 https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
