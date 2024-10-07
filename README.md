@@ -155,6 +155,8 @@ The third criteria honestly feels a bit trivial, but we include it lest degenera
 
         * having a separate crate entity to facilitate code expressiveness
 
+add section for authors + analysis
+
 * [x] stuck1.txt        (No Solution Found * true) 
 * [x] stuck2.txt        (No Solution Found * true) 
 * [x] base1.txt
@@ -190,8 +192,6 @@ TODO
 
 
 
-
-So... refactor the StateFactory class... too much redundancy.
 
 sources:
 
