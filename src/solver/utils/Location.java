@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:46:54
- * @ Modified time: 2024-10-07 15:39:10
+ * @ Modified time: 2024-10-07 21:43:12
  * @ Description:
  * 
  * Utility functions for compressing location information into integers.
@@ -14,7 +14,7 @@ package solver.utils;
 public class Location {
 
     // Mask length and mask itself
-    public static final int maskLength = 8;
+    public static final int maskLength = 5;
     public static final int mask = (1 << maskLength) - 1;
 
     // North, east, south and west helpers

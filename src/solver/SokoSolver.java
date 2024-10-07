@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-07 14:38:37
+ * @ Modified time: 2024-10-07 22:03:56
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -35,7 +35,7 @@ public class SokoSolver {
     private PriorityQueue<SokoState> states;
 
     // Visited states 
-    private Set<BigInteger> visitedStates;
+    private Set<String> visitedStates;
 
     // The last visited state
     private SokoState lastVisitedState;
@@ -140,12 +140,17 @@ public class SokoSolver {
      * A helper method for visualizing and debugging.
      * Instead of a loop, it runs a single iteration of the search.
      * 
-     * @return  The last state inspected.
+     * @return  The final state found, or an empty string if not done.
      */
     public String iterate() {
         
         // Get the latest in the queue
         SokoState state = this.states.poll();
+
+        // If visited earlier after it was put in queue
+        // ! why does this fuck up the search??
+        // ! if(this.visitedStates.contains(state.getSerial()))
+        // !     return "";
 
         // Add the state serials to their sets
         this.visitedStates.add(state.getSerial());

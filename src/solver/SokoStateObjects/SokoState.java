@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-07 20:13:20
+ * @ Modified time: 2024-10-07 22:06:44
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -20,6 +20,7 @@ import java.util.TreeMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Base64;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Heuristic;
@@ -76,7 +77,7 @@ public class SokoState {
 
     // The serial of the state
     // Should only be computed once
-    private BigInteger stateSerial;
+    private String stateSerial = null;
 
     /**
      * Creates a new state object using only serialized data.
@@ -379,32 +380,53 @@ public class SokoState {
      * Updates the serials for the object.
      */
     private void computeSerial() {
-        
-        // Get crate locations in order
-        int[] crates = this.crates.keySet()
-            .stream()
-            .mapToInt(i -> i)
-            .sorted()
-            .toArray();
-       
+               
         // The serial
+        long number = 0;
+        short count = 0;
+        int packingSize = 64 / (Location.maskLength << 1);
+
+        // So we can convert to bigint
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
 
         // Serialize the state
-        // Unfortunately needs a try catch
-        try {
-            for(int crate : crates)
-                dos.writeInt(crate);
-            dos.writeInt(this.player);
-            
-            // Exception handler
-        } catch (IOException e) {
-            System.out.println("Something went wrong during state serialization.");
-            e.printStackTrace();
-        }    
+        number += this.player;
+        count += 1;
         
-        this.stateSerial = new BigInteger(baos.toByteArray());
+        // Encode the crates
+        for(int crate : this.crates.keySet()) {
+            number <<= (Location.maskLength << 1);
+            number += crate;
+            count += 1;
+
+            // Serialize the state
+            // Unfortunately needs a try catch
+            if(count % packingSize == 0) {
+                try {
+                    dos.writeLong(number);
+                    number = 0;
+
+                // Exception handler
+                } catch (IOException e) {
+                    System.out.println("Something went wrong during state serialization.");
+                    e.printStackTrace();
+                }    
+            }
+        }
+
+        // Write the remaining part if it hasn't been
+        if(count % packingSize != 0) {
+            try {
+                dos.writeLong(number);
+            } catch(IOException e) {
+                System.out.println("Something went wrong during state serialization.");
+                e.printStackTrace();
+            }
+        }
+
+        // Convert to bigint
+        this.stateSerial = Base64.getEncoder().encodeToString(baos.toByteArray());
     }
 
     /**
@@ -413,7 +435,7 @@ public class SokoState {
      * 
      * @return  A hash or serial that uniquely represents the state.
      */
-    public BigInteger getSerial() {
+    public String getSerial() {
 
         // If it's already defined
         if(this.stateSerial != null)
