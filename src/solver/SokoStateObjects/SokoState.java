@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-07 16:30:51
+ * @ Modified time: 2024-10-07 17:30:27
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -15,17 +15,20 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.HashMap;
+import java.util.Collection;
+import java.util.TreeMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import solver.SokoObjects.SokoCrate;
 import solver.utils.Heuristic;
 import solver.utils.Location;
 
 public class SokoState {
-    public static final float HEURISTIC_WEIGHT_MOVE_COUNT = 0.25f;
-    public static final float HEURISTIC_WEIGHT_CRATE_MOVE_COUNT = 0.3f;
-    public static final float HEURISTIC_WEIGHT_TURN_COUNT = 0.45f;
+    public static final float HEURISTIC_WEIGHT_MOVE_COUNT = 0.5f;
+    public static final float HEURISTIC_WEIGHT_CRATE_MOVE_COUNT = 0.35f;
+    public static final float HEURISTIC_WEIGHT_TURN_COUNT = 0.25f;
 
     // Tweak this parameter, this seems like a good value for now
     // Adjusts how much the heuristic influences cost evaluation
@@ -35,7 +38,7 @@ public class SokoState {
     public static final float HEURISTIC_WEIGHT_DISTANCE = 0.05f;
 
     public static final int HEURISTIC_BIAS_SOLUTION = 0;
-    public static final int HEURISTIC_BIAS_GOOD_COUNT = 25;
+    public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
     public static final int HEURISTIC_BIAS_DISTANCE = 0;
 
     // These determine whether or not their effects on the heuristic value are inverted or not
@@ -90,7 +93,7 @@ public class SokoState {
     public SokoState(int player, int[] crates, boolean crateMoved, boolean turned, SokoMap map, String history, int historyLength) {
 
         // Init the arrays
-        this.crates = new HashMap<>();
+        this.crates = new TreeMap<>();
         if(crateMoved) this.crateMoveCount++;
         if(turned) this.turnCount++;
         
@@ -228,11 +231,23 @@ public class SokoState {
         // All crates are stuck
         boolean allCratesAreStuck = true;
         boolean allCratesAreGood = true;
+        
+        // Stores a list of unstuck crates
+        Set<Integer> unstuckCrates = new TreeSet<>();
+        Set<Integer> visitedCrates = new TreeSet<>();
+        Collection<SokoCrate> crateCollection = this.crates.values();
 
         // Check if all the goals have crates
-        for(SokoCrate crate : this.crates.values())
+        for(SokoCrate crate : crateCollection) {
+
+            // Good crates
             if(!crate.isGood())
                 allCratesAreGood = false;
+
+            // Preprocess unstuck crates
+            if(!crate.isStuckPermanently() && !crate.isStuckTemporarily()) 
+                unstuckCrates.add(crate.getLocation());
+        }
 
         // We won!
         // It is important to check for this condition first
@@ -241,14 +256,20 @@ public class SokoState {
             return StateStatus.WON;
 
         // Check if at least one crate is permanently stuck
-        for(SokoCrate crate : this.crates.values()) 
+        for(SokoCrate crate : crateCollection) 
             if(crate.isStuckPermanently() && !crate.isGood())
                 return StateStatus.LOST;
 
         // Check if all crates are at least temporarily stuck
-        for(SokoCrate crate : this.crates.values()) 
+        for(SokoCrate crate : crateCollection) 
             if(!crate.isStuckPermanently() && !crate.isStuckTemporarily())
                 allCratesAreStuck = false;
+
+        // Check if crates are stuck in groups
+        for(SokoCrate crate : crateCollection)
+            if(!visitedCrates.contains(crate.getLocation()))
+                if(crate.isStuckInAGroup(this.crates, unstuckCrates, visitedCrates))
+                    return StateStatus.LOST;
 
         // No more moves for this state
         if(allCratesAreStuck)

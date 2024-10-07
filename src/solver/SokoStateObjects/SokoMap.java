@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-07 15:16:01
+ * @ Modified time: 2024-10-07 16:53:22
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -21,6 +21,13 @@ public class SokoMap {
     // false means there's a wall on that cell, while true indicates otherwise
     private boolean[][] map;
 
+    // Stores whether or not locations are stuckable
+    // Stuckable locations are locations where boxes cannot be moved out of (even if the boxes aren't stuck)
+    // Stuckable locations also account for goals, and if goals are nearby then they do not count as stuckable
+    // ! todo todo todoooo
+    // ! preprocess map for this or smth
+    private boolean[][] stuckable;
+
     // The goal locations
     private List<Integer> goals;
     private int[] goalLocations;
@@ -37,6 +44,7 @@ public class SokoMap {
 
         // Init the map and the goals
         this.map = new boolean[map.length][];
+        this.stuckable = new boolean[map.length][];
         this.goals = new ArrayList<>();
 
         // Populate the map
@@ -47,6 +55,7 @@ public class SokoMap {
 
             // Create row
             this.map[y] = new boolean[row.length];
+            this.stuckable[y] = new boolean[row.length];
 
             // For each cell
             for(int x = 0; x < row.length; x++) {

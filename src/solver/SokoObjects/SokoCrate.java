@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-07 15:04:14
+ * @ Modified time: 2024-10-07 17:20:19
  * @ Description:
  * 
  * A class that represents a crate's state.
@@ -21,25 +21,20 @@
 
 package solver.SokoObjects;
 
+import java.util.Map;
+import java.util.Set;
+
 import solver.utils.*;
 
 public class SokoCrate {
 
-    // North, east, south, and west states
-    public static final byte[] STUCKSTATES = {
-        (byte) 0b01000000,  // North
-        (byte) 0b00010000,  // East
-        (byte) 0b00000100,  // South
-        (byte) 0b00000001,  // West
-    };
-
     // Bit combinations for crates that are temporarily stuck 
     public static final byte[] STUCKSTATES_TEMPORARY = {
         
-        (byte) (STUCKSTATES[0] + STUCKSTATES[1]),   // North and east are occupied by wall or crate
-        (byte) (STUCKSTATES[1] + STUCKSTATES[2]),   // East and south are occupied by wall or crate
-        (byte) (STUCKSTATES[2] + STUCKSTATES[3]),   // South and west are occupied by wall or crate
-        (byte) (STUCKSTATES[3] + STUCKSTATES[0]),   // West and north are occupied by wall or crate
+        (byte) (Grid.NORTH  + Grid.EAST),   // North and east are occupied by wall or crate
+        (byte) (Grid.EAST   + Grid.SOUTH),  // East and south are occupied by wall or crate
+        (byte) (Grid.SOUTH  + Grid.WEST),   // South and west are occupied by wall or crate
+        (byte) (Grid.WEST   + Grid.NORTH),  // West and north are occupied by wall or crate
     };
 
     // Bit combinations representing crates that are permanently stuck
@@ -123,6 +118,36 @@ public class SokoCrate {
     }
 
     /**
+     * Returns whether or not the crate is stuck with other crates that are stuck.
+     * 
+     * @param   crates          All crates.
+     * @param   unstuckCrates   Crates that are unstuck.
+     * @param   visitedCrates   Crates visited by this method and other method calls on other crates.
+     * @return                  Whether or not the crate is stuck in a group.
+     */
+    public boolean isStuckInAGroup(Map<Integer, SokoCrate> crates, Set<Integer> unstuckCrates, Set<Integer> visitedCrates) {
+        
+        // If visited, just return its stuck state.
+        if(visitedCrates.contains(this.location))
+            return !unstuckCrates.contains(this.location) && !this.isGood;
+
+        // Add to visited
+        visitedCrates.add(this.location);
+
+        // All neighbors are stuck
+        boolean allNeighborsAreStuck = true;
+
+        // Check if all neighbors are indeed stuck
+        for(int direction : Location.DIRECTIONS)
+            if(crates.containsKey(this.location + direction))
+                if(!crates.get(this.location + direction).isStuckInAGroup(crates, unstuckCrates, visitedCrates))
+                    allNeighborsAreStuck = false;
+
+        // Otherwise, return the stuck state of the other crates and itself
+        return !unstuckCrates.contains(this.location) && !this.isGood && allNeighborsAreStuck;
+    }
+
+    /**
      * Returns whether or not the crate can move in the given direction.
      * 
      * @param   direction   The direction to check.
@@ -132,10 +157,10 @@ public class SokoCrate {
         
         // Return appropriate check
         switch(direction) {
-            case Location.NORTH:    return (STUCKSTATES[0] & this.neighbors) != STUCKSTATES[0];
-            case Location.EAST:     return (STUCKSTATES[1] & this.neighbors) != STUCKSTATES[1];
-            case Location.SOUTH:    return (STUCKSTATES[2] & this.neighbors) != STUCKSTATES[2];
-            case Location.WEST:     return (STUCKSTATES[3] & this.neighbors) != STUCKSTATES[3];
+            case Location.NORTH:    return (Grid.NORTH & this.neighbors)    != Grid.NORTH;
+            case Location.EAST:     return (Grid.EAST & this.neighbors)     != Grid.EAST;
+            case Location.SOUTH:    return (Grid.SOUTH & this.neighbors)    != Grid.SOUTH;
+            case Location.WEST:     return (Grid.WEST & this.neighbors)     != Grid.WEST;
         }
 
         // Invalid value
