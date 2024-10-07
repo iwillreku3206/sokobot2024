@@ -83,19 +83,18 @@ Of course, evaluating the priority of a state only makes sense when the state we
 > * Wall-stuck crates
 > * Group-stuck crates
 
-* Wall-stuck crates
+* **Wall-stuck crates**
 
-    This is easier to identify. Any crate that ends up in a corner OR on a wall it cannot be pushed out of is ***wall-stuck***. Identifying crates that are wall-stuck can be done by preprocessing the map and identifying the cells that lead to these scenarios. We elaborate the process further in the succeeding section.
+    This is easier to identify. Any crate that ends up in a corner OR on a wall it cannot be pushed out of is ***wall-stuck***. Identifying crates that are wall-stuck can be done by preprocessing the map and identifying the cells that lead to these scenarios; however, it is important to note that cells with goals on them are exceptions to this rule, since crates can be stuck *on goals*. We elaborate our methods for preprocessing the map further in the succeeding section.
 
-    <!-- ! // ! add pictures  -->
+    ![wall-stuck-crates](./README/wall-stuck-crates.png)
 
 
-* Group-stuck crates
+* **Group-stuck crates**
 
-    Crates that are stuck because they are surrounded by other crates that are *also* stuck are called ***group-stuck*** crates. The check here performs a recursive call through uninspected crates: neighboring crates are asked *recursively* whether or not they are stuck. If at least one of the recursive calls identifies a liberated crate, then the entire group is not permanently stuck; once the non-stuck crate is moved, it is possible for the other crates to become movable again. Otherwise, the entire group is permanently stuck and the state is a dead-end.
+    Crates that are stuck because they are surrounded by other crates that are *also* stuck are called ***group-stuck*** crates. The check here performs a recursive call through uninspected crates: any adjacent crates are asked *recursively* whether or not they are stuck. If at least one of the recursive calls identifies a liberated crate, then the entire group is not permanently stuck; once the non-stuck crate is moved, it is possible for the other crates to become movable again. Otherwise, the entire group is actually stuck and the state is a dead-end.
 
-    <!-- ! // ! add pictures too -->
-
+    ![group-stuck-crates](./README/group-stuck-crates.png)
 
 ### 2.4 Preprocessing the map
 
