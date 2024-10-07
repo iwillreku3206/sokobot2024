@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:56:07
- * @ Modified time: 2024-10-05 19:32:59
+ * @ Modified time: 2024-10-07 15:04:14
  * @ Description:
  * 
  * A class that represents a crate's state.

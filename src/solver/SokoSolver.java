@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 18:36:35
- * @ Modified time: 2024-10-05 19:34:53
+ * @ Modified time: 2024-10-07 14:38:37
  * @ Description:
  * 
  * Stores a queue containing the states we plan to inspect, ordered by "importance".
@@ -37,6 +37,12 @@ public class SokoSolver {
     // Visited states 
     private Set<BigInteger> visitedStates;
 
+    // The last visited state
+    private SokoState lastVisitedState;
+
+    // Done searching
+    private boolean isDone;
+
     /**
      * Initialize the game.
      * Initially, we should have a single state in the queue.
@@ -49,6 +55,9 @@ public class SokoSolver {
 
         // Init visited
         this.visitedStates = new TreeSet<>();
+
+        // Done
+        this.isDone = false;
 
         // Create the comparator
         SokoStateComparator comparator = new SokoStateComparator(this.map);
@@ -110,6 +119,76 @@ public class SokoSolver {
     }
 
     /**
+     * Retrieves the moves of the last visited state.
+     * 
+     * @return  The history of the last state visited.
+     */
+    public SokoState getLastVisitedState() {
+        return this.lastVisitedState;
+    }
+
+    /**
+     * Returns the map.
+     * 
+     * @return  The shared map instance.
+     */
+    public SokoMap getMap() {
+        return this.map;
+    }
+
+    /**
+     * A helper method for visualizing and debugging.
+     * Instead of a loop, it runs a single iteration of the search.
+     * 
+     * @return  The last state inspected.
+     */
+    public String iterate() {
+        
+        // Get the latest in the queue
+        SokoState state = this.states.poll();
+
+        // Add the state serials to their sets
+        this.visitedStates.add(state.getSerial());
+        this.lastVisitedState = state;
+
+        // If we won
+        if(state.getStatus(this.map) == SokoState.StateStatus.WON) {
+            this.isDone = true;
+            return state.getHistory();
+        }
+
+        // If the state is a dud
+        if(state.getStatus(this.map) == SokoState.StateStatus.LOST)
+            return "";
+
+        // Otherwise, keep checking
+        SokoState[] newStates = {
+            SokoStateFactory.createNextState(state, Location.NORTH, this.map),
+            SokoStateFactory.createNextState(state, Location.EAST, this.map),
+            SokoStateFactory.createNextState(state, Location.WEST, this.map),
+            SokoStateFactory.createNextState(state, Location.SOUTH, this.map),
+        };
+
+        // Add the valid states we haven't visited
+        for(SokoState newState : newStates) {
+            
+            // Invalid state
+            if(newState == null)
+                continue;
+
+            // The state has been visited
+            if(this.visitedStates.contains(newState.getSerial()))
+                continue;
+
+            // Otherwise, queue the state
+            this.states.add(newState);
+        }
+
+        // Signifies we should continue
+        return "";
+    }
+
+    /**
      * Attempts to solve the puzzle.
      * 
      * @return  A string containing the attempted solution.
@@ -119,45 +198,24 @@ public class SokoSolver {
         // While we have states to inspect
         while(!this.states.isEmpty()) {
             
-            // Get the latest in the queue
-            SokoState state = this.states.poll();
+            // The solution found so far
+            String solution = this.iterate();
 
-            // Add the state serials to their sets
-            this.visitedStates.add(state.getSerial());
-
-            // If we won
-            if(state.getStatus(this.map) == SokoState.StateStatus.WON)
-                return state.getHistory();
-
-            // If the state is a dud
-            if(state.getStatus(this.map) == SokoState.StateStatus.LOST)
-                continue;
-
-            // Otherwise, keep checking
-            SokoState[] newStates = {
-                SokoStateFactory.createNextState(state, Location.NORTH, this.map),
-                SokoStateFactory.createNextState(state, Location.EAST, this.map),
-                SokoStateFactory.createNextState(state, Location.WEST, this.map),
-                SokoStateFactory.createNextState(state, Location.SOUTH, this.map),
-            };
-
-            // Add the valid states we haven't visited
-            for(SokoState newState : newStates) {
-                
-                // Invalid state
-                if(newState == null)
-                    continue;
-
-                // The state has been visited
-                if(this.visitedStates.contains(newState.getSerial()))
-                    continue;
-
-                // Otherwise, queue the state
-                this.states.add(newState);
-            }
+            // If it exists
+            if(solution.length() > 0)
+                return solution;
         }
 
-
+        this.isDone = true;
         return "No solution found.";
+    }
+
+    /**
+     * Is the search done?
+     * 
+     * @return  Yes or no.
+     */
+    public boolean isDone() {
+        return this.isDone;
     }
 }

@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-05 19:29:00
+ * @ Modified time: 2024-10-07 15:16:01
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -23,6 +23,7 @@ public class SokoMap {
 
     // The goal locations
     private List<Integer> goals;
+    private int[] goalLocations;
     
     // A vector sum of the goal locations
     private int goalCentroid = 0;
@@ -116,14 +117,30 @@ public class SokoMap {
     }
 
     /**
+     * Returns the walls of the map.
+     * 
+     * @return  An array containing bools about wall presence.
+     */
+    public boolean[][] getWalls() {
+        return this.map;
+    }
+
+    /**
      * Returns the location of the goals of the map.
      * 
      * @return  The goals of the map.
      */
-    public int[] getGoals() {
-        return this.goals
+    public int[] getGoalLocations() {
+
+        if(this.goalLocations != null)
+            return this.goalLocations;
+        
+        // Grab locations
+        this.goalLocations = this.goals
             .stream()
             .mapToInt(i -> i)
             .toArray();
+
+        return this.goalLocations;
     }
 }

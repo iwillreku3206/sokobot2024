@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-06 18:30:31
+ * @ Modified time: 2024-10-07 15:18:24
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -23,9 +23,9 @@ import solver.utils.Heuristic;
 import solver.utils.Location;
 
 public class SokoState {
-    public static final float HEURISTIC_WEIGHT_MOVE_COUNT = 0.22f;
+    public static final float HEURISTIC_WEIGHT_MOVE_COUNT = 0.25f;
     public static final float HEURISTIC_WEIGHT_CRATE_MOVE_COUNT = 0.3f;
-    public static final float HEURISTIC_WEIGHT_TURN_COUNT = 0.48f;
+    public static final float HEURISTIC_WEIGHT_TURN_COUNT = 0.45f;
 
     // Tweak this parameter, this seems like a good value for now
     // Adjusts how much the heuristic influences cost evaluation
@@ -115,15 +115,15 @@ public class SokoState {
                 crateLocation,
                 SokoCrate
                     .create(crateLocation)
-                    .setN(this.getObstacle(crateLocation, Location.NORTH, map))
-                    .setE(this.getObstacle(crateLocation, Location.EAST, map))
-                    .setW(this.getObstacle(crateLocation, Location.WEST, map))
-                    .setS(this.getObstacle(crateLocation, Location.SOUTH, map))
+                    .setN(this.getObstacle(crateLocation, Location.NORTH, map, crates))
+                    .setE(this.getObstacle(crateLocation, Location.EAST, map, crates))
+                    .setW(this.getObstacle(crateLocation, Location.WEST, map, crates))
+                    .setS(this.getObstacle(crateLocation, Location.SOUTH, map, crates))
                     .build());
         }
 
         // Set the good crates
-        for(int goal : map.getGoals())
+        for(int goal : map.getGoalLocations())
             if(this.crates.containsKey(goal))
                 this.crates.get(goal).setGood(true);
     }
@@ -171,6 +171,30 @@ public class SokoState {
     public boolean hasCrate(int location, int direction) {
         return this.hasCrate(location + direction);
     }
+
+    /**
+     * Retrieves whether or not there's a wall or a crate adjacent to a cell.
+     * This version of the function is used during the constructor, since the crates have not yet been initialized.
+     * 
+     * @param   location    The location to start at.
+     * @param   direction   The direction of the neighbor to inspect.
+     * @param   map         The map to use.
+     * @param   crates      A list of crates; specified during init.
+     * @return
+     */
+    private char getObstacle(int location, int direction, SokoMap map, int[] crates) {
+        
+        // Check for wall
+        if(map.hasWall(location, direction))
+            return 'w';
+
+        // Check for crate
+        for(int crate : crates)
+            if(crate == location + direction)
+                return 'c';
+        
+        return ' ';
+    }
     
     /**
      * Retrieves whether or not there's a wall or a crate adjacent to a cell.
@@ -206,7 +230,7 @@ public class SokoState {
         boolean allCratesAreGood = true;
 
         // Check if all the goals have crates
-        for(int goal : map.getGoals())
+        for(int goal : map.getGoalLocations())
             if(!this.crates.containsKey(goal))
                 allCratesAreGood = false;
 
@@ -402,9 +426,9 @@ public class SokoState {
 
         // History length and successful crate placements
         float h = 
-            this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
-            this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
-            this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
+            +this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
+            +this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
+            -this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
         
         // Number of good crates
         float g = this.getGoodCrateCount();
