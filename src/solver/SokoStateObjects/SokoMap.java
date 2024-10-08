@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-08 14:12:46
+ * @ Modified time: 2024-10-08 14:55:13
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -11,6 +11,7 @@ package solver.SokoStateObjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -31,15 +32,15 @@ public class SokoMap {
     // This cannot be modified after it has been set
     // Again this class just makes it easier to query stuff from the map
     // false means there's a wall on that cell, while true indicates otherwise
-    private boolean[][] mapWalls;
+    private boolean[][] mapOpenCells;
 
     // Stores whether or not locations are stuckable
     // Stuckable locations are locations where boxes cannot be moved out of (even if the boxes aren't stuck)
     // Stuckable locations also account for goals, and if goals are nearby then they do not count as stuckable
-    private boolean[][] mapPassables;
+    private boolean[][] mapPassableCells;
 
     // A cost map that assigns a penalty value to each cell based on its distance to the nearest crate
-    private short[][] mapCosts;
+    private short[][] mapCellCosts;
 
     // The goal locations
     private List<Integer> goals;
@@ -56,8 +57,9 @@ public class SokoMap {
     public SokoMap(char[][] map) {
 
         // Init the map and the goals
-        this.mapWalls = new boolean[map.length][];
-        this.mapPassables = new boolean[map.length][];
+        this.mapOpenCells = new boolean[map.length][];
+        this.mapPassableCells = new boolean[map.length][];
+        this.mapCellCosts = new short[map.length][];
         this.goals = new ArrayList<>();
         
         // Init the maps
@@ -178,8 +180,8 @@ public class SokoMap {
         Set<Integer> unpassableCorners = new TreeSet<>();
 
         // Compute the unpassable corners
-        for(int y = 0; y < this.mapPassables.length; y++) {
-            for(int x = 0; x < this.mapPassables[y].length; x++) {
+        for(int y = 0; y < this.mapPassableCells.length; y++) {
+            for(int x = 0; x < this.mapPassableCells[y].length; x++) {
 
                 // Grab current cell coords
                 int location = Location.encode(x, y);
@@ -196,7 +198,7 @@ public class SokoMap {
 
                     // Corner has no goal
                     if(!this.hasGoal(location)) {
-                        this.mapPassables[y][x] = false;
+                        this.mapPassableCells[y][x] = false;
                         unpassableCorners.add(location);
                     }
                 }
@@ -253,7 +255,7 @@ public class SokoMap {
         // Mark the cells between the two corners as unpassable
         if(allCellsUnpassable)
             for(int yIter = Math.min(y1, y2) + 1; yIter < Math.max(y1, y2); yIter++)
-                this.mapPassables[yIter][x] = false;
+                this.mapPassableCells[yIter][x] = false;
     }
 
     /**
@@ -301,7 +303,7 @@ public class SokoMap {
         // Mark the cells between the two corners as unpassable
         if(allCellsUnpassable)
             for(int xIter = Math.min(x1, x2) + 1; xIter < Math.max(x1, x2); xIter++)
-                this.mapPassables[y][xIter] = false;
+                this.mapPassableCells[y][xIter] = false;
     }
 
     /**
@@ -318,22 +320,24 @@ public class SokoMap {
             char[] row = map[y];
 
             // Create row
-            this.mapWalls[y] = new boolean[row.length];
-            this.mapPassables[y] = new boolean[row.length];
+            this.mapOpenCells[y] = new boolean[row.length];
+            this.mapPassableCells[y] = new boolean[row.length];
+            this.mapCellCosts[y] = new short[row.length];
 
             // For each cell
             for(int x = 0; x < row.length; x++) {
                 
                 // Default everything to true (empty)
-                this.mapWalls[y][x] = true;
-                this.mapPassables[y][x] = true;
+                this.mapOpenCells[y][x] = true;
+                this.mapPassableCells[y][x] = true;
+                this.mapCellCosts[y][x] = (short) ((1 << 15) - 1);
 
                 // Insert stuff based on map
                 switch(row[x]) {
 
                     // A wall exists
                     case '#': 
-                        this.mapWalls[y][x] = false; 
+                        this.mapOpenCells[y][x] = false; 
                         break;
 
                     // A goal was found
@@ -385,10 +389,99 @@ public class SokoMap {
             }
         }
 
-        // // Init the cell costs
-        // for() {
+        // Visited cells
+        Set<Integer> visitedMap = new TreeSet<>();
+        PriorityQueue<Long> queue = new PriorityQueue<>();
 
-        // }
+        // Init the cell costs
+        for(int goal : this.goals) {
+
+            // Grab coords
+            int x = Location.decodeX(goal);
+            int y = Location.decodeY(goal);
+
+            // Queue value
+            long queueValue = goal;
+
+            // Set the cost to 0
+            this.mapCellCosts[y][x] = 0;
+
+            // Add to visited
+            queue.add(queueValue);
+        }
+
+        // While queue is non-empty
+        while(!queue.isEmpty()) {
+
+            // Grab head
+            long head = queue.poll();
+
+            // New queue value
+            int location = (int) (head & -1);
+            int cost = (int) (head >> 32);
+            
+            // Location
+            short x = Location.decodeX(location);
+            short y = Location.decodeY(location);
+
+            // Add to visited
+            visitedMap.add(location);
+
+            // If wall, just skip
+            if(!this.mapOpenCells[y][x])
+                continue;
+
+            // Update map cost
+            if(this.mapCellCosts[y][x] > cost)
+                this.mapCellCosts[y][x] = (short) cost;
+            
+            // For each neighbor
+            for(int direction : Location.DIRECTIONS) {
+
+                // New location
+                int newLocation = location + direction;
+
+                // If visited, skip
+                if(visitedMap.contains(newLocation))
+                    continue;
+
+                // New coords
+                int newX = Location.decodeX(newLocation);
+                int newY = Location.decodeY(newLocation);
+
+                // Out of bounds y
+                if(newY < 0 || newY >= this.mapCellCosts.length)
+                    continue;
+
+                // If out of bounds x
+                if(newX < 0 || newX >= this.mapCellCosts[newY].length)
+                    continue;
+
+                // Compute cost
+                long queueValue = cost + 1;
+
+                // Add location info
+                queueValue <<= 32;
+                queueValue += newLocation;
+
+                // Queue it
+                queue.add(queueValue);
+            }
+        }
+    }
+
+    /**
+     * Returns the cost of a cell.
+     * Cells with higher costs are bad places for crates to be in.
+     * 
+     * @param   location    The location to inspect.
+     * @return              Whether or not getting a crate there means game over.
+     */
+    public short getCellCost(int location) {
+        short x = Location.decodeX(location);
+        short y = Location.decodeY(location);
+        
+        return this.mapCellCosts[y][x];
     }
 
     /**
@@ -401,8 +494,16 @@ public class SokoMap {
     public boolean isPassable(int location) {
         short x = Location.decodeX(location);
         short y = Location.decodeY(location);
+
+        // OOB
+        if(y < 0 || y >= this.mapOpenCells.length)
+            return true;
+
+        // OOB
+        if(x < 0 || x >= this.mapOpenCells[y].length)
+            return true;
         
-        return this.mapPassables[y][x];
+        return this.mapPassableCells[y][x];
     }
 
     /** 
@@ -427,14 +528,14 @@ public class SokoMap {
         short y = Location.decodeY(location);
 
         // OOB
-        if(y < 0 || y >= this.mapWalls.length)
+        if(y < 0 || y >= this.mapOpenCells.length)
             return true;
 
         // OOB
-        if(x < 0 || x >= this.mapWalls[y].length)
+        if(x < 0 || x >= this.mapOpenCells[y].length)
             return true;
 
-        return !this.mapWalls[y][x];
+        return !this.mapOpenCells[y][x];
     }
 
     /**
@@ -463,7 +564,7 @@ public class SokoMap {
      * @return  An array containing bools about wall presence.
      */
     public boolean[][] getWalls() {
-        return this.mapWalls;
+        return this.mapOpenCells;
     }
 
     /**
