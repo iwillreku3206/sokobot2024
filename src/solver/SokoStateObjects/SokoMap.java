@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-07 20:08:18
+ * @ Modified time: 2024-10-08 14:12:46
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -18,15 +18,28 @@ import solver.utils.Location;
 
 public class SokoMap {
 
+    // States of the cells while checking for passability
+    enum UnpassableCheckWallState {
+        UNPASSABLE_WALL_WEST,
+        UNPASSABLE_WALL_EAST,
+        UNPASSABLE_WALL_NORTH,
+        UNPASSABLE_WALL_SOUTH,
+        UNPASSABLE_WALL_PENDING,
+        UNPASSABLE_WALL_NONE,
+    }
+
     // This cannot be modified after it has been set
     // Again this class just makes it easier to query stuff from the map
     // false means there's a wall on that cell, while true indicates otherwise
-    private boolean[][] map;
+    private boolean[][] mapWalls;
 
     // Stores whether or not locations are stuckable
     // Stuckable locations are locations where boxes cannot be moved out of (even if the boxes aren't stuck)
     // Stuckable locations also account for goals, and if goals are nearby then they do not count as stuckable
-    private boolean[][] passable;
+    private boolean[][] mapPassables;
+
+    // A cost map that assigns a penalty value to each cell based on its distance to the nearest crate
+    private short[][] mapCosts;
 
     // The goal locations
     private List<Integer> goals;
@@ -43,8 +56,8 @@ public class SokoMap {
     public SokoMap(char[][] map) {
 
         // Init the map and the goals
-        this.map = new boolean[map.length][];
-        this.passable = new boolean[map.length][];
+        this.mapWalls = new boolean[map.length][];
+        this.mapPassables = new boolean[map.length][];
         this.goals = new ArrayList<>();
         
         // Init the maps
@@ -52,54 +65,121 @@ public class SokoMap {
     }
 
     /**
-     * Inits both the map and passable arrays.
-     * 
-     * @param   map     The reference map.
+     * A step in the preprocessing of the map for unpassable cells.
+     * Checks whether or not a cell has a wall left or right of it (or both or neither).
+     *  
+     * @param   location    The location to inspect.
+     * @return              The result of the check.
      */
-    private void initMaps(char[][] map) {
+    private UnpassableCheckWallState checkVerticalUnpassable(int location) {
 
-        // Populate the map
-        for(int y = 0; y < map.length; y++) {
-            
-            // Grab row
-            char[] row = map[y];
+        // Western walls 
+        if(!this.hasWall(location, Location.EAST) && 
+            this.hasWall(location, Location.WEST))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_WEST;
 
-            // Create row
-            this.map[y] = new boolean[row.length];
-            this.passable[y] = new boolean[row.length];
+        // Eastern walls
+        if(!this.hasWall(location, Location.WEST) && 
+            this.hasWall(location, Location.EAST))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_EAST;
 
-            // For each cell
-            for(int x = 0; x < row.length; x++) {
-                
-                // Default everything to true (empty)
-                this.map[y][x] = true;
-                this.passable[y][x] = true;
+        // No walls on either side, so line is passable
+        if(!this.hasWall(location, Location.WEST) && 
+            !this.hasWall(location, Location.EAST))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_NONE; 
 
-                // Insert stuff based on map
-                switch(row[x]) {
+        // Walls on both sides, whole line might still be unpassable
+        return UnpassableCheckWallState.UNPASSABLE_WALL_PENDING; 
+    }
 
-                    // A wall exists
-                    case '#': 
-                        this.map[y][x] = false; 
-                        break;
+    /**
+     * Checks for unpassability through a vertical strip, but with the side already decided.
+     * Calls the same method with a different signature.
+     * 
+     * @param   location        The location to inspect.
+     * @param   currentState    The current determined state of the vertical strip of cells.
+     * @return                  Whether the state changed or not.
+     */
+    private UnpassableCheckWallState checkVerticalUnpassable(int location, UnpassableCheckWallState currentState) {
+        
+        // If it's pending, just call the plain function as is
+        if(currentState == UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
+            return this.checkVerticalUnpassable(location);
 
-                    // A goal was found
-                    case '.': 
-                    case '+': 
-                    case '*': 
-                        this.goalCentroid += Location.encode(x, y);
-                        this.goals.add(Location.encode(x, y));
-                        break;
-                }
-            }
-        }
+        // If not equal, then the walls are passable
+        // Walls switched sides
+        if(this.checkVerticalUnpassable(location) != currentState)
+            return UnpassableCheckWallState.UNPASSABLE_WALL_NONE;
+
+        // Otherwise, return current state
+        return currentState;
+    }
+
+    /**
+     * A step in the preprocessing of the map for unpassable cells.
+     * Checks whether or not a cell has a wall above or below it (or both or neither).
+     *  
+     * @param   location    The location to inspect.
+     * @return              The result of the check.
+     */
+    private UnpassableCheckWallState checkHorizontalUnpassable(int location) {
+        
+        // Northern walls 
+        if(!this.hasWall(location, Location.SOUTH) && 
+            this.hasWall(location, Location.NORTH))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_NORTH;
+
+        // Southern walls
+        if(!this.hasWall(location, Location.NORTH) && 
+            this.hasWall(location, Location.SOUTH))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_SOUTH;
+
+        // No walls on either side
+        if(!this.hasWall(location, Location.NORTH) && 
+            !this.hasWall(location, Location.SOUTH))
+            return UnpassableCheckWallState.UNPASSABLE_WALL_NONE;
+
+        // Walls on both sides, whole line might still be unpassable
+        return UnpassableCheckWallState.UNPASSABLE_WALL_PENDING;
+    }
+
+    /**
+     * Checks for unpassability through a horizontal strip, but with the side already decided.
+     * Calls the same method with a different signature.
+     * 
+     * @param   location        The location to inspect.
+     * @param   currentState    Where walls have been seen so far for that side.
+     * @return                  Whether or not the wall was on the same side or not.
+     */
+    private UnpassableCheckWallState checkHorizontalUnpassable(int location, UnpassableCheckWallState currentState) {
+        
+        // If it's pending, just call the plain function as is
+        if(currentState == UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
+            return this.checkHorizontalUnpassable(location);
+
+        // If not equal, then the walls are passable
+        // Walls switched sides
+        if(this.checkHorizontalUnpassable(location) != currentState)
+            return UnpassableCheckWallState.UNPASSABLE_WALL_NONE;
+
+        // Return current state
+        return currentState;
+    }
+
+    /**
+     * Generates unpassable corners.
+     * Updates the unpassable map and creates a set of the unpassable corners.
+     * 
+     * @return  A set containing the locations of the unpassable corners.
+     */
+    private Set<Integer> generateUnpassableCorners() {
 
         // Set of unpassable corners
         Set<Integer> unpassableCorners = new TreeSet<>();
 
         // Compute the unpassable corners
-        for(int y = 0; y < this.passable.length; y++) {
-            for(int x = 0; x < this.passable[y].length; x++) {
+        for(int y = 0; y < this.mapPassables.length; y++) {
+            for(int x = 0; x < this.mapPassables[y].length; x++) {
 
                 // Grab current cell coords
                 int location = Location.encode(x, y);
@@ -116,12 +196,159 @@ public class SokoMap {
 
                     // Corner has no goal
                     if(!this.hasGoal(location)) {
-                        this.passable[y][x] = false;
+                        this.mapPassables[y][x] = false;
                         unpassableCorners.add(location);
                     }
                 }
             }
         }
+
+        // Set on unpassable corners
+        return unpassableCorners;
+    }
+
+    /**
+     * Generates a vertical line of unpassable cells between two unpassable corners.
+     * If such a line does not exist, it does nothing.
+     * 
+     * @param   x   The shared x between the two corners.
+     * @param   y1  The first y.
+     * @param   y2  The second y.
+     */
+    private void generateUnpassableVertical(int x, int y1, int y2) {
+
+        // All cells on the strip are unpassable
+        // If this becomes false, we just early return from the function
+        boolean allCellsUnpassable = true;
+        UnpassableCheckWallState side = UnpassableCheckWallState.UNPASSABLE_WALL_PENDING;
+
+        // Go through the path between the corners
+        for(int yIter = Math.min(y1, y2) + 1; yIter < Math.max(y1, y2); yIter++) {
+            
+            // Current inspect
+            int currentLocation = Location.encode(x, yIter);
+
+            // If it has a wall, then we're checking the wrong pair of corners
+            if(this.hasWall(currentLocation)) {
+                allCellsUnpassable = false;
+                break;
+            }
+
+            // If it has a goal, then this region should be passable
+            if(this.hasGoal(currentLocation)) {
+                allCellsUnpassable = false;
+                break;
+            }
+
+            // Determine walls
+            side = this.checkVerticalUnpassable(currentLocation, side);
+
+            // Not unpassable
+            if(side == UnpassableCheckWallState.UNPASSABLE_WALL_NONE) {
+                allCellsUnpassable = false;
+                break;
+            }        
+        }
+
+        // Mark the cells between the two corners as unpassable
+        if(allCellsUnpassable)
+            for(int yIter = Math.min(y1, y2) + 1; yIter < Math.max(y1, y2); yIter++)
+                this.mapPassables[yIter][x] = false;
+    }
+
+    /**
+     * Generates a horizontal line of unpassable cells between two unpassable corners.
+     * If such a line does not exist, it does nothing.
+     * 
+     * @param   y   The shared y between the two corners.
+     * @param   x1  The first x.
+     * @param   x2  The second x.
+     */
+    private void generateUnpassableHorizontal(int y, int x1, int x2) {
+
+        // All cells on the strip are unpassable
+        // If this becomes false, we just early return from the function
+        boolean allCellsUnpassable = true;
+        UnpassableCheckWallState side = UnpassableCheckWallState.UNPASSABLE_WALL_PENDING;
+        
+        // Go through the path between the corners
+        for(int xIter = Math.min(x1, x2) + 1; xIter < Math.max(x1, x2); xIter++) {
+
+            // Grab the current inspect location
+            int currentLocation = Location.encode(xIter, y);
+
+            // If it has a wall, then we're checking the wrong pair of corners
+            if(this.hasWall(currentLocation)) {
+                allCellsUnpassable = false;
+                break;
+            }
+
+            // If it has a goal, then this region should be passable
+            if(this.hasGoal(currentLocation)) {
+                allCellsUnpassable = false;
+                break;
+            }
+
+            side = this.checkHorizontalUnpassable(currentLocation, side);
+
+            // Not unpassable
+            if(side == UnpassableCheckWallState.UNPASSABLE_WALL_NONE) {
+                allCellsUnpassable = false;
+                break;
+            }
+        }
+
+        // Mark the cells between the two corners as unpassable
+        if(allCellsUnpassable)
+            for(int xIter = Math.min(x1, x2) + 1; xIter < Math.max(x1, x2); xIter++)
+                this.mapPassables[y][xIter] = false;
+    }
+
+    /**
+     * Inits both the map and passable arrays.
+     * 
+     * @param   map     The reference map.
+     */
+    private void initMaps(char[][] map) {
+
+        // Populate the map
+        for(int y = 0; y < map.length; y++) {
+            
+            // Grab row
+            char[] row = map[y];
+
+            // Create row
+            this.mapWalls[y] = new boolean[row.length];
+            this.mapPassables[y] = new boolean[row.length];
+
+            // For each cell
+            for(int x = 0; x < row.length; x++) {
+                
+                // Default everything to true (empty)
+                this.mapWalls[y][x] = true;
+                this.mapPassables[y][x] = true;
+
+                // Insert stuff based on map
+                switch(row[x]) {
+
+                    // A wall exists
+                    case '#': 
+                        this.mapWalls[y][x] = false; 
+                        break;
+
+                    // A goal was found
+                    case '.': 
+                    case '+': 
+                    case '*': 
+                        this.goalCentroid += Location.encode(x, y);
+                        this.goals.add(Location.encode(x, y));
+                        break;
+                }
+            }
+        }
+
+        // Set of unpassable corners
+        Set<Integer> unpassableCorners = this.generateUnpassableCorners();
 
         // Compute remaining of unpassable cells
         for(int corner1 : unpassableCorners) {
@@ -149,167 +376,19 @@ public class SokoMap {
 
                 // Finally, we check if they're connected by walls
                 // Case 1: vertically aligned
-                if(x1 == x2) {
-                    
-                    boolean allCellsUnpassable = true;
-                    int side = 0;
-
-                    // Go through the path between the corners
-                    for(int yIter = Math.min(y1, y2) + 1; yIter < Math.max(y1, y2); yIter++) {
-                        
-                        // Current inspect
-                        int currentLocation = Location.encode(x1, yIter);
-
-                        // If it has a wall, then we're checking the wrong pair of corners
-                        if(this.hasWall(currentLocation)) {
-                            allCellsUnpassable = false;
-                            break;
-                        }
-
-                        // If it has a goal, then this region should be passable
-                        if(this.hasGoal(currentLocation)) {
-                            allCellsUnpassable = false;
-                            break;
-                        }
-
-                        // If side hasn't been defined
-                        if(side == 0) {
-
-                            // Western walls 
-                            if(!this.hasWall(currentLocation, Location.EAST) && 
-                                this.hasWall(currentLocation, Location.WEST))
-                                side = -1;
-
-                            // Eastern walls
-                            if(!this.hasWall(currentLocation, Location.WEST) && 
-                                this.hasWall(currentLocation, Location.EAST))
-                                side = 1;
-
-                            // No walls on either side
-                            if(!this.hasWall(currentLocation, Location.WEST) && 
-                                !this.hasWall(currentLocation, Location.EAST)) {
-                                allCellsUnpassable = false;
-                                break;    
-                            }
-                                
-                            // The other scenario is two walls on both sides,
-                            // but when that happens we don't do anyt cuz we're not sure what side to check
-                                
-                        // We've decided on a side
-                        } else {
-                            
-                            // Walls swapped places
-                            if(!this.hasWall(currentLocation, Location.EAST) && 
-                                this.hasWall(currentLocation, Location.WEST) && 
-                                side == 1) {
-                                allCellsUnpassable = false;
-                                break;
-                            }
-
-                            // Walls swapped places
-                            if(!this.hasWall(currentLocation, Location.WEST) && 
-                                this.hasWall(currentLocation, Location.EAST) &&
-                                side == -1) {
-                                allCellsUnpassable = false;
-                                break;
-                            }
-
-                            // No walls on either side
-                            if(!this.hasWall(currentLocation, Location.WEST) && 
-                                !this.hasWall(currentLocation, Location.EAST)) {
-                                allCellsUnpassable = false;
-                                break;    
-                            }
-                        }
-                    }
-
-                    // Mark the cells between the two corners as unpassable
-                    if(allCellsUnpassable)
-                        for(int yIter = Math.min(y1, y2) + 1; yIter < Math.max(y1, y2); yIter++)
-                            this.passable[yIter][x1] = false;
+                if(x1 == x2)
+                    this.generateUnpassableVertical(x1, y1, y2);
 
                 // Case 2: Horizontally aligned
-                } else if(y1 == y2) {
-
-                    boolean allCellsUnpassable = true;
-                    int side = 0;
-                    
-                    // Go through the path between the corners
-                    for(int xIter = Math.min(x1, x2) + 1; xIter < Math.max(x1, x2); xIter++) {
-
-                        // Grab the current inspect location
-                        int currentLocation = Location.encode(xIter, y1);
-
-                        // If it has a wall, then we're checking the wrong pair of corners
-                        if(this.hasWall(currentLocation)) {
-                            allCellsUnpassable = false;
-                            break;
-                        }
-
-                        // If it has a goal, then this region should be passable
-                        if(this.hasGoal(currentLocation)) {
-                            allCellsUnpassable = false;
-                            break;
-                        }
-
-                        // If side hasn't been defined
-                        if(side == 0) {
-
-                            // Northern walls 
-                            if(!this.hasWall(currentLocation, Location.SOUTH) && 
-                                this.hasWall(currentLocation, Location.NORTH))
-                                side = -1;
-
-                            // Southern walls
-                            if(!this.hasWall(currentLocation, Location.NORTH) && 
-                                this.hasWall(currentLocation, Location.SOUTH))
-                                side = 1;
-
-                            // No walls on either side
-                            if(!this.hasWall(currentLocation, Location.NORTH) && 
-                                !this.hasWall(currentLocation, Location.SOUTH)) {
-                                allCellsUnpassable = false;
-                                break;    
-                            }
-                                
-                            // The other scenario is two walls on both sides,
-                            // but when that happens we don't do anyt cuz we're not sure what side to check
-                                
-                        // We've decided on a side
-                        } else {
-                            
-                            // Walls swapped places
-                            if(!this.hasWall(currentLocation, Location.SOUTH) && 
-                                this.hasWall(currentLocation, Location.NORTH) && 
-                                side == 1) {
-                                allCellsUnpassable = false;
-                                break;
-                            }
-
-                            // Walls swapped places
-                            if(!this.hasWall(currentLocation, Location.NORTH) && 
-                                this.hasWall(currentLocation, Location.SOUTH) &&
-                                side == -1) {
-                                allCellsUnpassable = false;
-                                break;
-                            }
-
-                            // No walls on either side
-                            if(!this.hasWall(currentLocation, Location.NORTH) && 
-                                !this.hasWall(currentLocation, Location.SOUTH)) {
-                                allCellsUnpassable = false;
-                                break;    
-                            }
-                        }
-                    }
-
-                    // Mark the cells between the two corners as unpassable
-                    if(allCellsUnpassable)
-                        for(int xIter = Math.min(x1, x2) + 1; xIter < Math.max(x1, x2); xIter++)
-                            this.passable[y1][xIter] = false;
-                }
+                else if(y1 == y2)
+                    this.generateUnpassableHorizontal(y1, x1, x2);
             }
         }
+
+        // // Init the cell costs
+        // for() {
+
+        // }
     }
 
     /**
@@ -323,7 +402,7 @@ public class SokoMap {
         short x = Location.decodeX(location);
         short y = Location.decodeY(location);
         
-        return this.passable[y][x];
+        return this.mapPassables[y][x];
     }
 
     /** 
@@ -348,14 +427,14 @@ public class SokoMap {
         short y = Location.decodeY(location);
 
         // OOB
-        if(y < 0 || y >= this.map.length)
+        if(y < 0 || y >= this.mapWalls.length)
             return true;
 
         // OOB
-        if(x < 0 || x >= this.map[y].length)
+        if(x < 0 || x >= this.mapWalls[y].length)
             return true;
 
-        return !this.map[y][x];
+        return !this.mapWalls[y][x];
     }
 
     /**
@@ -384,7 +463,7 @@ public class SokoMap {
      * @return  An array containing bools about wall presence.
      */
     public boolean[][] getWalls() {
-        return this.map;
+        return this.mapWalls;
     }
 
     /**
