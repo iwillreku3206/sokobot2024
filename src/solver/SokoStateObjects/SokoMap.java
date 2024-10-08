@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-08 22:02:24
+ * @ Modified time: 2024-10-09 02:26:16
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -111,9 +111,13 @@ public class SokoMap {
         if(currentState == UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
             return this.checkVerticalUnpassable(location);
 
+        // Grab new state
+        UnpassableCheckWallState newState = this.checkVerticalUnpassable(location);
+
         // If not equal, then the walls are passable
         // Walls switched sides
-        if(this.checkVerticalUnpassable(location) != currentState)
+        // Unless both sides have walls
+        if(newState != currentState && newState != UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
             return UnpassableCheckWallState.UNPASSABLE_WALL_NONE;
 
         // Otherwise, return current state
@@ -162,9 +166,13 @@ public class SokoMap {
         if(currentState == UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
             return this.checkHorizontalUnpassable(location);
 
+        // Grab new state
+        UnpassableCheckWallState newState = this.checkHorizontalUnpassable(location);
+        
         // If not equal, then the walls are passable
         // Walls switched sides
-        if(this.checkHorizontalUnpassable(location) != currentState)
+        // Unless both sides have walls
+        if(newState != currentState && newState != UnpassableCheckWallState.UNPASSABLE_WALL_PENDING)
             return UnpassableCheckWallState.UNPASSABLE_WALL_NONE;
 
         // Return current state
