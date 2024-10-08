@@ -37,10 +37,12 @@ public class SokoState {
     public static final float HEURISTIC_WEIGHT_SOLUTION = 1.0f;
     public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 1.0f;
     public static final float HEURISTIC_WEIGHT_DISTANCE = 0.05f;
+    public static final float HEURISTIC_WEIGHT_CRATE_SCORE = 1.0f;  // ! use this
 
     public static final int HEURISTIC_BIAS_SOLUTION = 0;
     public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
     public static final int HEURISTIC_BIAS_DISTANCE = 0;
+    public static final int HEURISTIC_BIAS_CRATE_SCORE = 0;
 
     // These determine whether or not their effects on the heuristic value are inverted or not
     // By default good crates are inverted because more of them means a smaller cost value
@@ -476,11 +478,11 @@ public class SokoState {
         float h = 
             +this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
             +this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
-            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT +
-            +crateCost;
+            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT +0;
+            //+crateCost * HEURISTIC_WEIGHT_CRATE_SCORE;
         
         // Number of good crates
-        float g = this.getGoodCrateCount();
+        float g = this.getGoodCrateCount() / (crateCost + 1 + HEURISTIC_BIAS_CRATE_SCORE);
 
         float cHeuristic = Heuristic.weight(
             HEURISTIC_INVERT_DISTANCE
