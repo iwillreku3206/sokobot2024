@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 19:55:12
- * @ Modified time: 2024-10-08 14:55:13
+ * @ Modified time: 2024-10-08 22:02:24
  * @ Description:
  * 
  * An abstraction over the map just so its easier to query cells.
@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.Collection;
 
 import solver.utils.Location;
 
@@ -40,7 +43,7 @@ public class SokoMap {
     private boolean[][] mapPassableCells;
 
     // A cost map that assigns a penalty value to each cell based on its distance to the nearest crate
-    private short[][] mapCellCosts;
+    private Map<Integer, short[][]> mapCellCosts;
 
     // The goal locations
     private List<Integer> goals;
@@ -59,7 +62,7 @@ public class SokoMap {
         // Init the map and the goals
         this.mapOpenCells = new boolean[map.length][];
         this.mapPassableCells = new boolean[map.length][];
-        this.mapCellCosts = new short[map.length][];
+        this.mapCellCosts = new TreeMap<>();
         this.goals = new ArrayList<>();
         
         // Init the maps
@@ -307,6 +310,34 @@ public class SokoMap {
     }
 
     /**
+     * Inserts the element into the map.
+     * 
+     * @param   element     The element to insert.
+     * @param   x           The x-coordinate of insertion.
+     * @param   y           The y-coordinate of insertion.
+     */
+    private void insertIntoMaps(char element, int x, int y) {
+
+        // Insert stuff based on map
+        switch(element) {
+
+            // A wall exists
+            case '#': 
+                this.mapOpenCells[y][x] = false; 
+                break;
+
+            // A goal was found
+            case '.': 
+            case '+': 
+            case '*': 
+                this.goalCentroid += Location.encode(x, y);
+                this.goals.add(Location.encode(x, y));
+                break;
+        }
+        
+    }
+
+    /**
      * Inits both the map and passable arrays.
      * 
      * @param   map     The reference map.
@@ -322,7 +353,6 @@ public class SokoMap {
             // Create row
             this.mapOpenCells[y] = new boolean[row.length];
             this.mapPassableCells[y] = new boolean[row.length];
-            this.mapCellCosts[y] = new short[row.length];
 
             // For each cell
             for(int x = 0; x < row.length; x++) {
@@ -330,24 +360,9 @@ public class SokoMap {
                 // Default everything to true (empty)
                 this.mapOpenCells[y][x] = true;
                 this.mapPassableCells[y][x] = true;
-                this.mapCellCosts[y][x] = (short) ((1 << 15) - 1);
 
-                // Insert stuff based on map
-                switch(row[x]) {
-
-                    // A wall exists
-                    case '#': 
-                        this.mapOpenCells[y][x] = false; 
-                        break;
-
-                    // A goal was found
-                    case '.': 
-                    case '+': 
-                    case '*': 
-                        this.goalCentroid += Location.encode(x, y);
-                        this.goals.add(Location.encode(x, y));
-                        break;
-                }
+                // Insert into the maps the pertinent info
+                this.insertIntoMaps(row[x], x, y);
             }
         }
 
@@ -389,85 +404,75 @@ public class SokoMap {
             }
         }
 
-        // Visited cells
-        Set<Integer> visitedMap = new TreeSet<>();
-        PriorityQueue<Long> queue = new PriorityQueue<>();
+        // // Init all the grids per goal
+        // for(int goal : this.goals) {
 
-        // Init the cell costs
-        for(int goal : this.goals) {
+        //     // Create map for that goal
+        //     this.mapCellCosts.put(goal, new short[this.mapOpenCells.length][]);
 
-            // Grab coords
-            int x = Location.decodeX(goal);
-            int y = Location.decodeY(goal);
+        //     // Populate the map
+        //     for(int y = 0; y < this.mapOpenCells.length; y++) {            
+    
+        //         // Create row
+        //         this.mapCellCosts.get(goal)[y] = new short[this.mapOpenCells[y].length];
+    
+        //         // For each cell
+        //         for(int x = 0; x < this.mapOpenCells[y].length; x++)
+        //             this.mapCellCosts.get(goal)[y][x] = (1 << 15) - 1;
+        //     }
+        // }
 
-            // Queue value
-            long queueValue = goal;
+        // // Define all the grids per goal
+        // for(int goal : this.goals) {
 
-            // Set the cost to 0
-            this.mapCellCosts[y][x] = 0;
+        //     // Grab the map associated with the goal
+        //     short[][] goalMap = this.mapCellCosts.get(goal);
 
-            // Add to visited
-            queue.add(queueValue);
-        }
+        //     // Traverse the goal map and update the costs
+        //     PriorityQueue<Long> queue = new PriorityQueue<>();
+        //     Set<Integer> visited = new TreeSet<>();
 
-        // While queue is non-empty
-        while(!queue.isEmpty()) {
+        //     // Add first state
+        //     long start = goal;
+        //     queue.add(start);
 
-            // Grab head
-            long head = queue.poll();
+        //     // Process the queue
+        //     while(!queue.isEmpty()) {
+             
+        //         // Grab the head
+        //         long head = queue.poll();
+        //         int location = (int) (head & -1);
+        //         short cost = (short) (head >> 32);
 
-            // New queue value
-            int location = (int) (head & -1);
-            int cost = (int) (head >> 32);
-            
-            // Location
-            short x = Location.decodeX(location);
-            short y = Location.decodeY(location);
+        //         // Update goal map
+        //         int x = Location.decodeX(location);
+        //         int y = Location.decodeY(location);
+        //         goalMap[y][x] = cost;
 
-            // Add to visited
-            visitedMap.add(location);
+        //         // Mark visited
+        //         visited.add(location);
 
-            // If wall, just skip
-            if(!this.mapOpenCells[y][x])
-                continue;
+        //         // For each direction
+        //         for(int direction : Location.DIRECTIONS) {
 
-            // Update map cost
-            if(this.mapCellCosts[y][x] > cost)
-                this.mapCellCosts[y][x] = (short) cost;
-            
-            // For each neighbor
-            for(int direction : Location.DIRECTIONS) {
+        //             // Check if invalid move
+        //             if(this.hasWall(location, direction))
+        //                 continue;
 
-                // New location
-                int newLocation = location + direction;
+        //             // State was already visited
+        //             if(visited.contains(location + direction))
+        //                 continue;
 
-                // If visited, skip
-                if(visitedMap.contains(newLocation))
-                    continue;
+        //             // Otherwise, create new entry to append to queue
+        //             long queueEntry = cost + 1;
+        //             queueEntry <<= 32;
+        //             queueEntry += (location + direction);
 
-                // New coords
-                int newX = Location.decodeX(newLocation);
-                int newY = Location.decodeY(newLocation);
-
-                // Out of bounds y
-                if(newY < 0 || newY >= this.mapCellCosts.length)
-                    continue;
-
-                // If out of bounds x
-                if(newX < 0 || newX >= this.mapCellCosts[newY].length)
-                    continue;
-
-                // Compute cost
-                long queueValue = cost + 1;
-
-                // Add location info
-                queueValue <<= 32;
-                queueValue += newLocation;
-
-                // Queue it
-                queue.add(queueValue);
-            }
-        }
+        //             // Append to queue
+        //             queue.add(queueEntry);
+        //         }
+        //     }
+        // }
     }
 
     /**
@@ -477,11 +482,29 @@ public class SokoMap {
      * @param   location    The location to inspect.
      * @return              Whether or not getting a crate there means game over.
      */
-    public short getCellCost(int location) {
-        short x = Location.decodeX(location);
-        short y = Location.decodeY(location);
+    public float getCellCost(int location, Collection<Integer> crates) {
         
-        return this.mapCellCosts[y][x];
+        float sum = 0;
+        int count = this.goals.size();
+
+        // For each goal, check its corresponding map
+        for(int goal : this.goals) {
+
+            // If the goal has no crate, add cost
+            if(!crates.contains(goal))
+                sum += this.mapCellCosts.get(goal)
+                    [Location.decodeY(goal)]
+                    [Location.decodeX(goal)];
+            
+            // Otherwise,
+            else
+                count--;
+        }
+
+        // Divide by the number of unfinished goals
+        sum /= count;
+
+        return sum;
     }
 
     /**

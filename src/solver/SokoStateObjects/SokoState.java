@@ -1,7 +1,7 @@
 /**
  * @ Author: Group 23
  * @ Create Time: 2024-10-03 16:47:30
- * @ Modified time: 2024-10-08 15:02:01
+ * @ Modified time: 2024-10-08 22:00:00
  * @ Description:
  * 
  * A class that represents the state of the game at any given time.
@@ -37,8 +37,8 @@ public class SokoState {
     public static final float HEURISTIC_WEIGHT_SOLUTION = 1.0f;
     public static final float HEURISTIC_WEIGHT_GOOD_COUNT = 1.0f;
     public static final float HEURISTIC_WEIGHT_DISTANCE = 0.05f;
-    public static final float HEURISTIC_WEIGHT_CRATE_SCORE = 1.0f;  // ! use this
-
+    public static final float HEURISTIC_WEIGHT_CRATE_SCORE = 0.1f;
+    
     public static final int HEURISTIC_BIAS_SOLUTION = 0;
     public static final int HEURISTIC_BIAS_GOOD_COUNT = 10;
     public static final int HEURISTIC_BIAS_DISTANCE = 0;
@@ -312,6 +312,8 @@ public class SokoState {
      * @return  An array containing the crate locations.
      */
     public int[] getCrateLocations() {
+
+        // Overwrite null value
         return this.crates.keySet()
             .stream()
             .mapToInt(i -> i)
@@ -467,9 +469,10 @@ public class SokoState {
         int cy = Location.decodeY(crateC) - Location.decodeY(goalC); 
 
         // Let's see how this does
-        int crateCost = 0;
-        for(int crate : this.crates.keySet())
-            crateCost += map.getCellCost(crate);
+        // ! fail
+        // float crateCost = 0;
+        // for(int crate : this.crates.keySet())
+        //     crateCost += map.getCellCost(crate, this.crates.keySet());
         
         // C represents the approximate "distance" of all crates from the goals
         float c = (cx * cx + cy * cy) / (crateCount * crateCount);
@@ -478,11 +481,10 @@ public class SokoState {
         float h = 
             +this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
             +this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
-            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT +0;
-            //+crateCost * HEURISTIC_WEIGHT_CRATE_SCORE;
+            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
         
         // Number of good crates
-        float g = this.getGoodCrateCount() / (crateCost + 1 + HEURISTIC_BIAS_CRATE_SCORE);
+        float g = this.getGoodCrateCount();
 
         float cHeuristic = Heuristic.weight(
             HEURISTIC_INVERT_DISTANCE
