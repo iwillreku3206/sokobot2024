@@ -84,11 +84,11 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
 
   private void loadImages() {
     try {
-      BRICK_SPRITE = ImageIO.read(new File("src/graphics/brick.png"));
-      GOAL_SPRITE = ImageIO.read(new File("src/graphics/goal.png"));
-      CRATE_SPRITE = ImageIO.read(new File("src/graphics/crate.png"));
-      CRATE_ON_GOAL_SPRITE = ImageIO.read(new File("src/graphics/crategoal.png"));
-      PLAYER_SPRITE = ImageIO.read(new File("src/graphics/robot.png"));
+      BRICK_SPRITE = ImageIO.read(new File("visualizer/graphics/wall.png"));
+      GOAL_SPRITE = ImageIO.read(new File("visualizer/graphics/goal.png"));
+      CRATE_SPRITE = ImageIO.read(new File("visualizer/graphics/crate.png"));
+      CRATE_ON_GOAL_SPRITE = ImageIO.read(new File("visualizer/graphics/crategoal.png"));
+      PLAYER_SPRITE = ImageIO.read(new File("visualizer/graphics/bot.png"));
     } catch (Exception ex) {
       ex.printStackTrace(System.err);
     }

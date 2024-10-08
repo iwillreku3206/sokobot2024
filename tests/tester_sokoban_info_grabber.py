@@ -49,6 +49,47 @@ MAP_GROUPS = {
     '30': 52,
     '31': 50,
     '32': 50,
+    '33': 50,
+    '34': 50,
+    '35': 10,
+    '36': 12,
+    '37': 46,
+    '38': 40,
+    '39': 47,
+    '40': 40,
+    '41': 40,
+    '42': 40,
+    '43': 40,
+    '44': 100,
+    '45': 100,
+    '46': 36,
+    '47': 100,
+    '48': 50,
+    '49': 100,
+    '50': 75,
+    '51': 55,
+    '52': 40,
+    '53': 61,
+    '54': 50,
+    '55': 50,
+    '56': 100,
+    '57': 40,
+    '58': 26,
+    '59': 40,
+    '60': 40,
+    '61': 40,
+    '62': 40,
+    '63': 100,
+    '64': 100,
+    '71': 8,
+    '76': 44,
+    '77': 50,
+    '78': 50,
+    '94': 25,
+    '96': 30,
+    '97': 25,
+    '98': 10,
+    '100': 50,
 }
 
 def generate_map_url(group_number, map_number, home=HOME):
@@ -150,24 +191,44 @@ def retrieve_boards(home=HOME, map_groups=MAP_GROUPS, out=''):
         # Retrieve board
         for map_number in range(1, map_group_size + 1):
             
+            name = '{}-{}'.format(map_group, map_number)
+            
             # Check if file exists already
-            if '{}-{}'.format(map_group, map_number) in finished_maps:
+            if name in finished_maps:
+                print('[!]  skipping ' + name)
                 continue
+            
+            # Status update
+            print('[/]  retrieving {} of {}...'.format(name, map_group_size + 1))
             
             # Grab the page
             map_url = generate_map_url(map_group, map_number)
             map_html = get_parsed_html(map_url)
-            map_html_title = get_title(map_html)
+            map_html_title = get_title(map_html).replace('&', 'and')
             
             # Isolate and save the board
             board_name = '{}-{}_{}'.format(map_group, map_number, map_html_title)
             board = get_board(map_html)
+            
+            # Skip boards w too many crates
+            if board.count('$') + board.count('*') > 16:
+                print('(x)\tboard was too big')
+                
+                # It was already attempted too
+                finished_file.write(board_name)
+                finished_file.write('\n')
+                finished_file.flush()
+                
+                continue;
+            
             save_board(os.path.join(out, board_name), board)
             
             # Update finished_maps
             finished_file.write(board_name)
             finished_file.write('\n')
             finished_file.flush()
+            
+            print('(/)\tsaved.')
             
     # Close the file
     finished_file.close()
