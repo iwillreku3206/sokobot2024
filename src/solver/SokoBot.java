@@ -1,7 +1,7 @@
 package solver;
 
 public class SokoBot {
-
+  private SokoSolver game;
   public String solveSokobanPuzzle(int width, int height, char[][] mapData, char[][] itemsData) {
 
     // ! note code below this should be moved to another class, idk which yet tho
@@ -45,11 +45,19 @@ public class SokoBot {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // Test
-    SokoSolver game = new SokoSolver(map);
+    this.game = new SokoSolver(map);
     
-    String sol = game.solve();
+    String sol = this.game.solve();
 
     return sol;
   }
 
+  public int getCreateChildNodes() {
+      return this.game.getChildNodesCreated();
+  }
+
+  public int getExpandedNodes() {
+      return this.game.getExpandedNodes();
+  }
+  
 }

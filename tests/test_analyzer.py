@@ -64,7 +64,7 @@ def rgb_to_ansi_rgb(r, g, b):
     """
     return f"\033[38;2;{r};{g};{b}m"
 
-def cText(hex_code):
+def colored_text(hex_code):
     """_summary_
 
     Args:
@@ -139,7 +139,7 @@ def get_agg(df: pd.DataFrame, col: str, agg: str):
 
 def sum_statistics(df: pd.DataFrame) -> None:
     for col, color in INFO_COLORS.items():
-        print("\nStatistics of " + cText(color) + col + RESET_COLORS + ":")
+        print("\nStatistics of " + colored_text(color) + col + RESET_COLORS + ":")
         print("mean, median (min, max)\n{}, {} ({}, {})".format(get_agg(df, col, "mean"), get_agg(df, col, "median"), get_agg(df, col, "max"), get_agg(df, col, "min")) )
     
 def print_essay(essay: list[str]) -> None:
@@ -181,18 +181,17 @@ def analyze_data() -> None:
     
     essay_overall_wins = [
         "How many tests have sokobot won?",
-        cText(COLORS["GREEN"]) + "Won" + RESET_COLORS + "      : " + str(df_sucessful.shape[0]),
-        cText(COLORS["RED"])  +  "Fail" + RESET_COLORS + "     : " + str(df_failed.shape[0]),
-        "---------:--------------------------------"
-        "Win Rate : " + str(df_sucessful.shape[0] / df.shape[0] * 100) + "%"
+        "{}Won{}      : {}".format(colored_text(COLORS["GREEN"]),  RESET_COLORS, str(df_sucessful.shape[0])),
+        "{}Fail{}     : {}".format(colored_text(COLORS["RED"]), RESET_COLORS, str(df_failed.shape[0])),
+        "-------------+--------------------------------"
+        "Win Rate     : {}%".format(str(df_sucessful.shape[0] / df.shape[0] * 100))
     ]
+    
     print_essay(essay_overall_wins)
     
     
     df.reset_index();
     graph_pairs = [("index", "time_taken"), ("index", "no_move"), ("no_move", "time_taken" )]
-    
-    
     
     # Find correlations 
     print(df[SIGNIFICANT_COLUMNS].corr());

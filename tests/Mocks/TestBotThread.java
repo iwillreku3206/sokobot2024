@@ -19,6 +19,7 @@ public class TestBotThread extends Thread {
     this.itemsData = itemsData;
   }
 
+
   @Override
   public void run() {
     solution = sokoBot.solveSokobanPuzzle(width, height, mapData, itemsData);
@@ -26,5 +27,13 @@ public class TestBotThread extends Thread {
 
   public String getSolution() {
     return solution;
+  }
+
+  public int getChildNodesCreated() {
+      return sokoBot.getCreateChildNodes();
+  }
+
+  public int getExpandedNodes() {
+      return sokoBot.getExpandedNodes();
   }
 }

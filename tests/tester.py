@@ -143,7 +143,7 @@ def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     if overwrite:
         open(out, 'w').close()
         with open('result_tests.csv', 'w', newline='') as csvfile:
-            fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_move', 'no_of_crates', 'has_won', 'solution', ];
+            fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_of_move', 'no_of_crates', 'has_bot_won', 'solution', "width_of_map", "height_of_map", "number_of_blocks", "child_nodes_made", "nodes_expanded"];
             writer = csv.writer(csvfile);
             writer.writerow(fieldnames)
 

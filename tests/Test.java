@@ -77,7 +77,21 @@ public class Test {
         // Once done, log the status
         this.log();
     }
+    
+    public static int count2DArrayChars(char[][] array) {
+        int count = 0;
 
+        // Iterate through the 2D array
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                // Check if the character is not whitespace
+                if (!Character.isWhitespace(array[i][j])) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
     /**
      * Logs the result of the test.
      */
@@ -95,13 +109,12 @@ public class Test {
             "Solution:           " + this.panel.getSolution(),
             "Width of map:       " + map.columns,
             "Height of map:      " + map.rows,
-            "Number of Blocks:   " + map.tiles.length
+            "Number of Blocks:   " + count2DArrayChars(map.tiles),
+            "Child Nodes made:   " + this.panel.getChildNodesCreated(),
+            "Nodes Expanded:     " + this.panel.getExpandedNodes()
         };
 
-        StringBuilder statisticsOut = new StringBuilder();
-        for (String testStat : testStats){
-            statisticsOut.append(testStat + "\n");
-        }
+        String statisticsOut = String.join("\n", testStats) + "\n";
 
         // Printing to console takes a while. Preprocess it 
         System.out.println(statisticsOut);

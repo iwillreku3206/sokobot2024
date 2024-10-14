@@ -42,6 +42,8 @@ public class SokoSolver {
     // Done searching
     private boolean isDone;
 
+    private int childNodesCreated, expandedNodes;
+
     /**
      * Initialize the game.
      * Initially, we should have a single state in the queue.
@@ -60,7 +62,7 @@ public class SokoSolver {
 
         // Create the comparator
         SokoStateComparator comparator = new SokoStateComparator(this.map);
-
+        
         // Init the priority queue with an initial size of 32
         // The comparator compares the states priority evaluations
         this.states = new PriorityQueue<SokoState>(32, comparator);
@@ -73,6 +75,10 @@ public class SokoSolver {
 
         // Add initial state to queue
         this.states.add(initialState);
+        
+        // Branching factor
+        this.childNodesCreated = 1;
+        this.expandedNodes = 0;
     }
 
     /**
@@ -145,10 +151,12 @@ public class SokoSolver {
         
         // Get the latest in the queue
         SokoState state = this.states.poll();
-
+            
         // If visited earlier after it was put in queue
         if(this.visitedStates.contains(state.getSerial()))
             return "";
+        
+        this.expandedNodes += 1;
 
         // Add the state serials to their sets
         this.visitedStates.add(state.getSerial());
@@ -185,6 +193,7 @@ public class SokoSolver {
 
             // Otherwise, queue the state
             this.states.add(newState);
+            this.childNodesCreated += 1;
         }
 
         // Signifies we should continue
@@ -221,4 +230,21 @@ public class SokoSolver {
     public boolean isDone() {
         return this.isDone;
     }
+
+    /**
+     * Gets the number of Child Node Created.
+     * @return integer of how many of child nodes created.
+     */
+    public int getChildNodesCreated() {
+        return this.childNodesCreated;
+    }
+
+    /**
+     * Gets the number of Nodes Expanded by UCS.
+     * @return integer of how many noddes expanded.
+     */
+    public int getExpandedNodes() {
+        return this.expandedNodes;
+    }
+
 }

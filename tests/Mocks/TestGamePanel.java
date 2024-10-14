@@ -72,6 +72,7 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   private final int SOLUTION_TIME_LIMIT = 15000;
   private boolean done = false;
   private boolean initted = false;
+  private int childNodesCreated = 0, expandedNodes = 0;
 
   public TestGamePanel() {
     this.setBackground(Color.BLACK);
@@ -401,10 +402,14 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
       this.solutionTimeString = String.format("%.2f", elapsedSolutionTime / 1000000000.0) + "s";
       this.repaint();
+      this.childNodesCreated = solutionThread.getChildNodesCreated();
+      this.expandedNodes = solutionThread.getExpandedNodes();
 
     } else if (e.getSource() == solutionTimer) {
       // Solution was not found
       solutionThread.interrupt();
+      this.childNodesCreated = solutionThread.getChildNodesCreated();
+      this.expandedNodes = solutionThread.getExpandedNodes();
       solutionTimer.stop();
       checkForSolutionTimer.stop();
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
@@ -413,6 +418,7 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
       this.statusString = STATUS_SOLUTION_TIMEOUT;
       this.repaint();
       this.done = true;
+      
     }
   }
 
@@ -420,7 +426,14 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
     return this.solutionTimeString;
   }
   
+  public int getExpandedNodes() {
+      return this.expandedNodes;
+  }
   
+  public int getChildNodesCreated() {
+      return this.childNodesCreated;
+  }
+
   public String getMoves() {
     return this.solutionString.length() + "";
   }
