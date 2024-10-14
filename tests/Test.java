@@ -49,7 +49,7 @@ public class Test {
         // Read the map file
         FileReader reader = new FileReader();
         MapData map = reader.readFile(mapName);
-
+            
         // Add the panel to the frame
         frame.add(this.panel);
         frame.setVisible(true);
@@ -82,17 +82,31 @@ public class Test {
      * Logs the result of the test.
      */
     private void log() {
+        FileReader reader = new FileReader();
+        MapData map = reader.readFile(this.mapName);
 
-        // ! CHANGE THIS AND MAKE IT BETTER
-        System.out.println("Test Name:          " + name);
-        System.out.println("Test File:          " + mapName);
-        System.out.println("Time Taken:         " + this.panel.getTime());
-        System.out.println("Number of Moves:    " + this.panel.getMoves());
-        System.out.println("Number of Crates:   " + this.panel.getCrates());
-        System.out.println("Won:                " + this.panel.hasWon());
-        System.out.println("Solution:           " + this.panel.getSolution());
+        String testStats[] = {
+            "Test Name:          " + name,
+            "Test File:          " + mapName,
+            "Time Taken:         " + this.panel.getTime(),
+            "Number of Moves:    " + this.panel.getMoves(),
+            "Number of Crates:   " + this.panel.getCrates(),
+            "Won:                " + this.panel.hasWon(),
+            "Solution:           " + this.panel.getSolution(),
+            "Width of map:       " + map.columns,
+            "Height of map:      " + map.rows,
+            "Number of Blocks:   " + map.tiles.length
+        };
+
+        StringBuilder statisticsOut = new StringBuilder();
+        for (String testStat : testStats){
+            statisticsOut.append(testStat + "\n");
+        }
+
+        // Printing to console takes a while. Preprocess it 
+        System.out.println(statisticsOut);
+
     }
-
     /**
      * Closes the test and performs cleanup.
      */
