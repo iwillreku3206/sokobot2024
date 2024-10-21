@@ -189,18 +189,15 @@ Of course, if we want our code to use this effectively, we have to treat make su
 
 Not all components of Sokoban are movable. In fact, some stay quite constant for the entire duration of the game. Goals and walls are static, and repeating information about the map across instances of a `State` class would incur a significant overhead (in terms of space complexity for the most part). A more performant implementation would abstract a `Map` class that holds all unchanging aspects of the game and provides an interface for querying facts about these components. 
 
-In the case of our implementation, the `SokoState` class stores crate and player information and can determine things about the state of the crates on its own. However, when querying information regarding the state of the crates *within the context of the map*, it makes a call to one of the methods of the `SokoMap` class and injects the required dependencies. That way, a separation of concerns is much more effectively represented.
+In the case of our implementation, the `SokoState` class stores crate and player information and has responsibility for determining the statuses of the crates. To do this, it makes calls to one the methods of the `SokoMap` class and injects the required dependencies; this way, the statuses of the crates can be evaluated with respect to the walls and goals of the map. Such an implementation also allows a much more effective separation of concerns.
    
 ### 3.3 Rationale of overarching design patterns
 
-        * using a state factory
+There are some other minor design considerations that found themselves into the implementation of the project.
 
-        * helped with a separation of concerns 
+A factory was created for managing state creation. It felt a bit awkward having to include a number of different constructors for handling state creation logic within the `State` class itself, so a separate dedicated class was created entirely for this purpose. Initial states would be created by the `SokoStateFactory`, and so would adjacent states when traversing the state space.
 
-        * having a separate crate entity to facilitate code expressiveness
-
-            * justify why giving the crate its own class helped de-obfuscating the code
-
+A separate crate class was also necessitated by the algorithm. Including all crate-related logic within the `State` class would have considerably bloated the file. Crates have a lot of logic to check on their own, and maintaining information about the vacancy / occupation of their neighbors felt beyond the immediate responsibility of the `State` class. The `SokoCrate` class deals with stuckness checks, crate state management, and a number of other things to lift some burden off of the `SokoState` class. 
 
 ![testing-framework](./README/headers/header-testing-framework.png)
    
