@@ -104,30 +104,92 @@ Of course, evaluating the priority of a state only makes sense when the state we
 
 Preprocessing the map is a much more involved process. Although the idea of extracting metadata from the map may seem expensive at first, the optimization this entails is worth the implementation. A large number of states can be pruned from the search space by doing this.  
 
-    <!-- ! // ! map preprocessing-->
+The preprocessing routine works by first marking all interior wall corners as unreachable spots on the map (this makes sense since crates that end up here can no longer be moved). The preprocessor then iterates through all possible pairs of corners that lie on the same `x` or `y` coordinates (but not both, since if both are equal then they are one and the same point). Cells along a line connecting such a pair of corners are also unreachable if that line is completely surrounded by an unbroken wall on at least one of its sides. The cases described in the figure below offer a clearer picture of what this should look like. The exact logic for checking this condition is a bit more involved (and hopefully the internal documentation suffices to outline the exact process), but the idea is no more complicated than that.
 
+<!-- ! // ! insert figure here for the sitaution described above -->
 
 ### 2.5 Avoiding repeat states
 
-    <!-- ! // ! explain state serialization  -->
+When searching the space of possible solutions, it is very much possible for the bot to encounter the same state more than once through a number of different paths. However, the feasibility of any state does not depend on the actions that were taken to get there; in other words, a state can be evaluated independent of the moves before it. With that in mind, it is then possible (and highly necessary) for us be able to avoid states that have been visited. Visiting such states more than once can waste time at best and lead to infinite loops at worst.
+
+The process by which repeat states are pruned is quite simple: every state is serialized into a single unique integer by taking into account only the locations of the player and the crates for that given state. After all, we do not need to check the locations of the walls and the goals since these are constant anyway (we've discussed this idea before). The locations of the movable components are combined by first representing each location with its own unique integer (this is implicitly done by the project code since this is how we've decided to handle locations) and then combining the different integers into one by means of a byte stream. Think of it as concatenating different strings by successively appending one after the other, except instead of character strings we're using byte strings (each integer is just a sequence of 4 bytes). Eventually, we end up with a long string of bytes. If we interpret this byte string as a Java `BigInteger`, then we've essentially just created a way to index our states without having to maintain a lot of overhead. Storing these indexes in a set optimizies lookup, and is the exact way we keep track of states in the code.   
 
 ### 2.6 The `SokoSolver` class
+
+The `SokoSolver` represents the driver class that manages the entire high-level structure of the algorithm. It contains the iterator that processes the queue of states until a solution is found. It also utilizes the `SokoStateFactory` class which helps us queue the valid states that are reachable from the current state.
 
     <!-- ! // ! explain the actual algo here + pseudocode -->
 
 ![implementation-technicalities](./README/headers/header-implementation-technicalities.png)
 
-    Disclaimer: this part is skippable
+> **Disclaimer**
+> This part is more of an addendum to the actual algorithm. It is not necessary to browse this portion, but for those who get their kicks out of the nerdy bits, do read on.
 
-    3.1 Storing coordinates more effectively
+### 3.1 Storing coordinates more effectively
 
-        * using a single integer and sharing bits
+It is a very common implementation to store coordinates as a pair of integers. However, this offers some considerable drawbacks. When iterating over the neighbors of a given location, the pair-wise notation of coordinates necessitates an imperative approach of the following sort:
 
-    3.2 Separating state from constants
+```java
+
+// Current coordinates
+int currentXCoordinate;
+int currentYCoordinate;
+
+// Iterate over neighbors... big sad...
+for(int i = 0; i < 4; i++) {
+    switch(i) {
+
+        // 0 - Neighbor on top
+        case 0: doSomething(currentXCoordinate, currentYCoordinate - 1); break; 
+
+        // 1 - Neighbor on right
+        case 1: doSomething(currentXCoordinate + 1, currentYCoordinate); break;
+
+        // 2 - Neighbor on bottom
+        case 2: doSomething(currentXCoordinate, currentYCoordinate + 1); break;
+
+        // 3 - Neighbor on left
+        case 3: doSomething(currentXCoordinate - 1, currentYCoordinate); break;
+    }
+}
+
+```
+
+This is a bit too involved, and having to do this repeatedly clearly violates DRY principles and couples the code to the implementation of grid coordinates. However, by representing locations with a single integer, we can end up doing something like this instead:
+
+```java
+
+// Current location
+int currentLocation;
+
+// Iterate over neighbors... woah, wtf?
+for(int direction : Location.DIRECTIONS) {
+    doSomething(currentLocation + direction);
+}
+
+```
+
+Perhaps I'm a little biased, but the brevity this entails is highly attractive. How exactly do we accomplish this? First off, the `x` and `y` coordinates can be combined into a single integer by sharing bits. An integer has $32$ bits or $4$ bytes... given that the grids we will be considering will surely have no more than $65535$ tiles on each side, $16$ bits or $2$ bytes (or perhaps considerably less) are more than enough to represent either coordinate. Essentially, we can let the `x` coordinate occupy the $16$ leftmost bits of an integer, while the `y` coordinate occupies the remaining bits. We call $16$ the `maskLength` of the location (since when retrieving coordinates, we use a bit mask of that given length to isolate the values from the location integer). 
+
+With this in mind, we can then discuss how directions are implemented. To be able to write code with the declarative proclivities of the previous snippet, we define the following constants:
+
+```java
+// These are stored in the location class inside a map called DIRECTIONS
+public static final int NORTH = -1;
+public static final int SOUTH = 01;
+public static final int EAST = (01 << maskLength);
+public static final int WEST = (-1 << maskLength);
+```
+
+These simply represent different offset values associated with each coordinate. When adding `NORTH` to a location integer, the net effect is as if we modified `y` on its own by subtracting $1$ from it. The same can be said for the other constants: they add or subtract $1$ from either `x` or `y` to generate new locations adjacent to the current one along one of the cardinal axes. Voila!
+
+Of course, if we want our code to use this effectively, we have to treat make sure all our functions receive and process locations as integers... that is, location integers are now some sort of "primitive".
+
+### 3.2 Separating state from constants
 
         * using a class for the state + another class for what doesn't change
    
-    3.3 Rationale of overarching design patterns
+### 3.3 Rationale of overarching design patterns
 
         * using a state factory
 
