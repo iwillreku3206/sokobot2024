@@ -187,13 +187,19 @@ Of course, if we want our code to use this effectively, we have to treat make su
 
 ### 3.2 Separating state from constants
 
-        * using a class for the state + another class for what doesn't change
+Not all components of Sokoban are movable. In fact, some stay quite constant for the entire duration of the game. Goals and walls are static, and repeating information about the map across instances of a `State` class would incur a significant overhead (in terms of space complexity for the most part). A more performant implementation would abstract a `Map` class that holds all unchanging aspects of the game and provides an interface for querying facts about these components. 
+
+In the case of our implementation, the `SokoState` class stores crate and player information and can determine things about the state of the crates on its own. However, when querying information regarding the state of the crates *within the context of the map*, it makes a call to one of the methods of the `SokoMap` class and injects the required dependencies. That way, a separation of concerns is much more effectively represented.
    
 ### 3.3 Rationale of overarching design patterns
 
         * using a state factory
 
+        * helped with a separation of concerns 
+
         * having a separate crate entity to facilitate code expressiveness
+
+            * justify why giving the crate its own class helped de-obfuscating the code
 
 
 ![testing-framework](./README/headers/header-testing-framework.png)
@@ -259,20 +265,9 @@ Of course, if we want our code to use this effectively, we have to treat make su
 * [ ] original3.txt     (TLE)
 
 
-This is actually pretty hard.
-
-Note: if class instantiation becomes a significant overhead, we might refactor our code to use static methods instead (i.e., because OOP is very inefficient for these types of applications, we might resort to procedural idioms if our algo is still shit).
-
-TODO
-
-1. replace headers with images (figma)
-2. complete the missing sections
 
 
-
-
-
-sources:
+references:
 
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
 https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
