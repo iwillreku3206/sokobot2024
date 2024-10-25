@@ -59,5 +59,20 @@ public class SokoBot {
   public int getExpandedNodes() {
       return this.game.getExpandedNodes();
   }
+
+  public int getInitialCost(){
+      return this.game.getInitialCost();
+  }
   
+  public float getcHeuristicCost(){
+    return this.game.getcHeuristicCost();
+  }
+
+  public float gethHeuristicCost(){
+    return this.game.gethHeuristicCost();
+  }
+
+  public float getgHeuristicCost(){
+    return this.game.getgHeuristicCost();
+  }
 }

@@ -75,7 +75,7 @@ def process_to_csv(test_name: str, map_name: str) -> None:
         map_name (string): The name of the map.
     """
     with open('result_tests.csv', 'a', newline='') as csvfile:
-        fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_move', 'no_c', 'has_won', 'solution'];
+        fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_of_move', 'no_of_crates', 'has_bot_won', 'solution', "width_of_map", "height_of_map", "number_of_blocks", "child_nodes_made", "nodes_expanded", "initial_heuristic", "crate_heuristic", "history_heuristic", "goal_heuristic"];
         writer = csv.writer(csvfile)
         
         # Do the test
@@ -88,6 +88,7 @@ def process_to_csv(test_name: str, map_name: str) -> None:
         row_info = [];
         
         for test_data in test_info:
+            print(test_data)
             # Split (Data_name : Data_value) into array
             test_data = test_data.split(":")
             test_data = [t.strip() for t in test_data];
@@ -143,7 +144,7 @@ def do_all_tests(maps, out=OUT_FILE, overwrite=True):
     if overwrite:
         open(out, 'w').close()
         with open('result_tests.csv', 'w', newline='') as csvfile:
-            fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_of_move', 'no_of_crates', 'has_bot_won', 'solution', "width_of_map", "height_of_map", "number_of_blocks", "child_nodes_made", "nodes_expanded"];
+            fieldnames: list[str] = ['test_name', 'test_file', 'time_taken', 'no_of_move', 'no_of_crates', 'has_bot_won', 'solution', "width_of_map", "height_of_map", "number_of_blocks", "child_nodes_made", "nodes_expanded","bytes_used", "initial_heuristic", "crate_heuristic", "history_heuristic", "goal_heuristic"];
             writer = csv.writer(csvfile);
             writer.writerow(fieldnames)
 

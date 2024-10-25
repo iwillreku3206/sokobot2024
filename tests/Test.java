@@ -58,6 +58,7 @@ public class Test {
         // Load the map
         panel.loadMap(map);
         panel.initiateSolution();
+        
     }
 
     /**
@@ -111,7 +112,12 @@ public class Test {
             "Height of map:      " + map.rows,
             "Number of Blocks:   " + count2DArrayChars(map.tiles),
             "Child Nodes made:   " + this.panel.getChildNodesCreated(),
-            "Nodes Expanded:     " + this.panel.getExpandedNodes()
+            "Nodes Expanded:     " + this.panel.getExpandedNodes(),
+            "Memory Used:        " + this.panel.getMemoryBytesUsed(),
+            "Initial Heuristic:  " + this.panel.getInitialHeuristic(),
+            "Crate Heuristic:  " + String.valueOf(this.panel.getcHeuristic()),
+            "History Heuristic:  " +  String.valueOf(this.panel.gethHeuristicCost()),
+            "Good Crates Heuristic:  " +  String.valueOf(this.panel.getgHeuristic()),
         };
 
         String statisticsOut = String.join("\n", testStats) + "\n";

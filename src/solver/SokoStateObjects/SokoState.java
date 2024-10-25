@@ -509,4 +509,58 @@ public class SokoState {
 
         return (int) (hHeuristic * gHeuristic * cHeuristic);
     }
+
+    public float getCHeuristicFactor(SokoMap map){
+        // The crate-based heuritic
+        int crateCount = this.crates.size();
+        int crateC = this.crateCentroid;
+        int goalC = map.getGoalCentroid();
+        int cx = Location.decodeX(crateC) - Location.decodeX(goalC); 
+        int cy = Location.decodeY(crateC) - Location.decodeY(goalC); 
+
+        // C represents the approximate "distance" of all crates from the goals
+        float c = (cx * cx + cy * cy) / (crateCount * crateCount);
+
+        float cHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_DISTANCE
+                ? Heuristic.invert(Heuristic.bias(c, HEURISTIC_BIAS_DISTANCE))
+                : Heuristic.bias(c, HEURISTIC_BIAS_DISTANCE),
+            HEURISTIC_WEIGHT_DISTANCE
+        );
+
+        return cHeuristic;
+    }
+
+    
+    public float getHHeuristicFactor(SokoMap map){
+        // History length and successful crate placements
+        float h = 
+            +this.moveCount * HEURISTIC_WEIGHT_MOVE_COUNT + 
+            +this.turnCount * HEURISTIC_WEIGHT_TURN_COUNT + 
+            +this.crateMoveCount * HEURISTIC_WEIGHT_CRATE_MOVE_COUNT;
+        
+
+        float hHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_SOLUTION 
+                ? -Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION)
+                : Heuristic.bias(h, HEURISTIC_BIAS_SOLUTION),
+            HEURISTIC_WEIGHT_SOLUTION
+        );
+
+        return hHeuristic;
+    }
+
+    public float getGHeuristicFactor(SokoMap map){ 
+        // Number of good crates
+        float g = this.getGoodCrateCount();
+
+        float gHeuristic = Heuristic.weight(
+            HEURISTIC_INVERT_GOOD_COUNT 
+                ? Heuristic.invert(Heuristic.bias(g, HEURISTIC_BIAS_GOOD_COUNT))
+                : Heuristic.bias(g, HEURISTIC_BIAS_GOOD_COUNT),
+            HEURISTIC_WEIGHT_GOOD_COUNT
+        );
+
+        return gHeuristic;
+    }
 }

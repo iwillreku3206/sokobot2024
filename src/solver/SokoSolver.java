@@ -44,6 +44,9 @@ public class SokoSolver {
 
     private int childNodesCreated, expandedNodes;
 
+    private int initialCost;
+    private float cHeuristicCost, hHeuristicCost, gHeuristicCost;
+
     /**
      * Initialize the game.
      * Initially, we should have a single state in the queue.
@@ -75,6 +78,11 @@ public class SokoSolver {
 
         // Add initial state to queue
         this.states.add(initialState);
+        
+        this.initialCost = initialState.getCost(this.map);
+        this.hHeuristicCost = initialState.getHHeuristicFactor(this.map);
+        this.cHeuristicCost = initialState.getCHeuristicFactor(this.map);
+        this.gHeuristicCost = initialState.getGHeuristicFactor(this.map);
         
         // Branching factor
         this.childNodesCreated = 1;
@@ -247,4 +255,23 @@ public class SokoSolver {
         return this.expandedNodes;
     }
 
+    /**
+     * Gets the initial cost of the map
+     * @return integer get initial cost
+     */
+    public int getInitialCost() {
+      return this.initialCost;
+    }
+
+    public float getcHeuristicCost() {
+      return this.cHeuristicCost;
+    }
+
+    public float getgHeuristicCost() {
+      return this.gHeuristicCost;
+    }
+
+    public float gethHeuristicCost() {
+      return this.hHeuristicCost;
+    }
 }

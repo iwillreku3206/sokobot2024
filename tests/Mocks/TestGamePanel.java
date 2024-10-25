@@ -68,6 +68,9 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   private Timer checkForSolutionTimer;
   private long solutionStartTime;
   private long solutionEndTime;
+  private long memoryBytesUsed;
+  private int initialHeuristic;
+  private float cHeuristic, hHeuristic, gHeuristic;
 
   private final int SOLUTION_TIME_LIMIT = 15000;
   private boolean done = false;
@@ -360,6 +363,10 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   public void playSolution(String solutionString, int delay) {
     freePlay = false;
     this.statusString = STATUS_PLAYING_SOLUTION;
+    this.initialHeuristic = solutionThread.getInitialCost();
+    this.cHeuristic =solutionThread.getcHeuristicCost();
+    this.gHeuristic =solutionThread.getgHeuristicCost();
+    this.hHeuristic =solutionThread.gethHeuristicCost();
     this.solutionString = solutionString;
     this.solutionCtr = 0;
     this.animationTimer = new Timer(delay, this);
@@ -402,12 +409,14 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
       long elapsedSolutionTime = System.nanoTime() - solutionStartTime;
       this.solutionTimeString = String.format("%.2f", elapsedSolutionTime / 1000000000.0) + "s";
       this.repaint();
+      this.memoryBytesUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
       this.childNodesCreated = solutionThread.getChildNodesCreated();
       this.expandedNodes = solutionThread.getExpandedNodes();
 
     } else if (e.getSource() == solutionTimer) {
       // Solution was not found
       solutionThread.interrupt();
+      this.memoryBytesUsed = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
       this.childNodesCreated = solutionThread.getChildNodesCreated();
       this.expandedNodes = solutionThread.getExpandedNodes();
       solutionTimer.stop();
@@ -432,6 +441,26 @@ public class TestGamePanel extends JPanel implements KeyListener, ActionListener
   
   public int getChildNodesCreated() {
       return this.childNodesCreated;
+  }
+
+  public long getMemoryBytesUsed() {
+    return this.memoryBytesUsed;
+  }
+
+  public int getInitialHeuristic() {
+    return this.initialHeuristic;
+  }
+
+  public float getcHeuristic() {
+    return this.cHeuristic;
+  }
+
+  public float getgHeuristic() {
+    return this.gHeuristic;
+  }
+
+  public float gethHeuristicCost(){
+    return this.hHeuristic;
   }
 
   public String getMoves() {

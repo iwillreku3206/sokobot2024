@@ -30,10 +30,27 @@ public class TestBotThread extends Thread {
   }
 
   public int getChildNodesCreated() {
-      return sokoBot.getCreateChildNodes();
+    return sokoBot.getCreateChildNodes();
   }
 
   public int getExpandedNodes() {
-      return sokoBot.getExpandedNodes();
+    return sokoBot.getExpandedNodes();
   }
+
+  public int getInitialCost(){
+    return sokoBot.getInitialCost();
+  }
+
+  public float getcHeuristicCost(){
+    return sokoBot.getcHeuristicCost();
+  }
+  
+  public float gethHeuristicCost(){
+    return sokoBot.gethHeuristicCost();
+  }
+
+  public float getgHeuristicCost(){
+    return sokoBot.getgHeuristicCost();
+  }
+  
 }
