@@ -2,9 +2,7 @@
 
 ![overview](./README/headers/header-overview.png)
 
-<center>
-<img src="./README/sokoban.png">
-</center>
+<center><img src="./README/sokoban.png"></center>
 
 > **Legend**
 >
@@ -237,10 +235,12 @@ A separate crate class was also necessitated by the algorithm. Including all cra
 
 ![analysis](./README/headers/header-analysis.png)
 
-    5.1 Hm
+### 5.1. Analysis Approach
 
-* [x] stuck1.txt        (No Solution Found * true) 
-* [x] stuck2.txt        (No Solution Found * true) 
+This portion deals with the analysis of the data that `tester.py` produces. It tests on 2750 different maps. Some maps are given my Ms. Shirley Chu from De La Salle University - Manila, while others are webscrapped from the internet.
+
+* [x] stuck1.txt        (No Solution Found * true)
+* [x] stuck2.txt        (No Solution Found * true)
 * [x] base1.txt
 * [x] base2.txt
 * [x] base3.txt
@@ -252,7 +252,7 @@ A separate crate class was also necessitated by the algorithm. Including all cra
 * [x] threeboxes2.txt
 * [x] threeboxes3.txt
 * [x] fourboxes1.txt
-* [x] fourboxes2.txt 
+* [x] fourboxes2.txt
 * [x] fourboxes3.txt
 * [x] fiveboxes1.txt
 * [x] fiveboxes2.txt
@@ -261,12 +261,385 @@ A separate crate class was also necessitated by the algorithm. Including all cra
 * [ ] original2.txt     (TLE)
 * [ ] original3.txt     (TLE)
 
+Tests where run on a computer with the following specs:
 
+|Type                           |Information                                                                   |
+|-------------------------------|------------------------------------------------------------------------------|
+|OS and Manufacturer            |Windows 10, Microsoft Corporation                                             |
+|System Type                    |x64-based PC                                                                  |
+|Processor                      |AMD Ryzen 5 3500 6-Core Processor, 3600 Mhz, 6 Core(s), 6 Logical Processor(s)|
+|Installed Physical Memory (RAM)|16.0 GB                                                                       |
+|Graphics Processing Unit       |NVIDIA GeForce GTX 1660 SUPER                                                 |
 
+### 5.2 Correlation Heat map of values
 
-references:
+Correlation maps help distinguish what values has high likely hood to correlate with each other. By using Spearman's rank correlation coefficient, we can induce what possible correlation there is to the information gathered.
+
+Spearman is used rather than Pearson as it includes non-linear relationships asssuming they are monotonically increasing.
+
+To classify the strength of correlation, we will use the following terms:
+
+* **Strong** correlation. This is for values $v$ where it fits within the range $|v|\ge0.7$. Values that have a strong correlation must be investigated as it leads to interesting insight what factors in an intelligent system's success.
+* **Moderate** correlation. This is for values $v$ that fits the range of $0.3 \le |v|\le0.7$. There may be some worth checking the relationship.
+* **Weak** correlation. $0\le|v|\le0.3$.
+
+![heatmap](./README/plots/heatmap.png)
+
+Based on correlation map, we can choose which type of information to inspect for each factor that is worth to analyze.
+
+Here are some pairs of factors to the sokoban bot to inspect:
+
+* Success Rate (Number of bot wins)
+  * Number of moves
+  * Time taken to solve
+  * New nodes created and nodes processed
+  * Crate Count
+  * Branching factor
+  * Map size
+  * Number of Blocks
+* Time Taken to solve
+  * Node Created
+  * Node Processed
+  * Crate Count
+  * Branching factor
+  * Map size
+  * Number of Blocks
+* Branching Factor
+  * Number of Crates
+  * Map Size
+
+### 5.3 Success rate Factors
+
+Success rate measures the likelihood for the sokobot to find a solution within 15.0 seconds in a given map.
+
+Based on the correlation map we have induce the possible factors that have a *strong* correlation:
+
+| Type                                  | Reasoning                                                                                                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Number of moves                       | It is a given since those with an actual solution have moves greater than zero. Thanks to data cleaning, we can gurantee that any timed out or impossible maps have a solution length of zero. Thus, it is intuitive to have direct relationship there.                                                       |
+| Time taken to solve                   | The more time a bot needs to solve a problem, the less likely a map it is solvable given the time limit. An increase of difficulty of a map would naturally take longer to process. |
+| New nodes created and nodes processed | The more states (nodes) the bot needs to solve and process, the farther the goal is from the time limit.                                                                            |
+| Crate Count                           | Increasing crate count increases difficulty to solve as you have more goals to keep track of to win.                                                                                |
+
+There are also those with a *moderate* correlation that may be worth to check:
+
+| Type                                  | Reasoning                                                                                                                                                                           |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Branching factor                      | Increasing the branching factor means that there are more states to explore. The more computationally harder it is to explore, the less likely a bot can find a solution within 15.0 seconds. |
+| Map Size                              | Increasing the map size increases the amount of tiles needed to be account by the program.                                                    |
+| Number of blocks                      | This may be an indicator that does not factor into a bots success as it increases with Map size in general.|
+
+|![sokobot wins 44.33](./README/plots/sokobot_wins.png)|
+|:----------------------------------------------------:|
+
+#### 5.3.1 Number of Moves
+
+> "It is a given since those with an actual solution have moves greater than zero. Thanks to data cleaning, we can gurantee that any timed out or impossible maps have a solution length of zero. Thus, it is intuitive to have direct relationship there."
+
+The average number of moves that sokoban does it around 54 moves with an std of 84. However, this in accounting with failed maps, which has a solution length of 0.
+
+Number of moves
+Mean               : 54.09
+Standard Deviation : 84.26
+Min, Max           : (0.00, 1326.00)
+
+Accounting for successful solvable maps that fit within the 15.0 second limit, the average number of moves in a solvable map is around 122, with a standard deviation of 88.
+
+Number of moves
+Mean               : 122.04
+Standard Deviation : 87.89
+Min, Max           : (1.00, 1326.00)
+
+The order of magnitude for the number of moves in solvable maps seems to be from 2.0 to 2.5, so a majority of the moves will be between around 100 - 316 moves.
+
+| ![alt text](./README/plots/image.png) | ![alt text](./README/plots/image-1.png) |
+|:----------------------:|:------------------------:|
+
+#### 5.3.2 Time Taken to Solve
+
+> "The more time a bot needs to solve a problem, the less likely a map it is solvable given the time limit. An increase of difficulty of a map would naturally take longer to process."
+
+For any given map, whether it is solvable or not, takes around an average of 9.05 seconds with a standard deviation of 6.9. This is including maps that the sokoban bot was not able to solve.
+
+Time taken to solve
+Mean               : 9.06
+Standard Deviation : 6.94
+Min, Max           : (0.06, 15.25)
+
+However, the average time for the sokobot to find a solution in a solvable map is around 1.6 with a standard deviation of 3.0.
+
+Time taken to solve
+Mean               : 1.67
+Standard Deviation : 3.01
+Min, Max           : (0.06, 15.00)
+
+O notation Likelihood in the relationship for time_taken and has_bot_win_numeric
+Exponential   (r2, rmse): 1.0, 0.0
+Linear        (r2, rmse): 1.0, 0.0
+Logarithmic   (r2, rmse): 1.0, 0.0
+
+The figure below shows that most maps where the sokobot failed is stuck at the 15.0 seconds time limit. The other few red dots represent when there is no solution to be found.
+
+| ![alt text](./README/plots/image-2.png) | ![alt text](./README/plots/image-3.png) |
+|:------------------------:|:------------------------:|
+
+#### 5.3.3 Nodes Created and Processed
+
+> "The more states the bot needs to solve and process, the farther the goal is from the time limit."
+
+States are referred to as nodes.
+
+Failed maps are interesting to note for state creation and processing, for they are in certain range of values for nodes created and processed.
+
+The logarithm of the child nodes created, or more intuitively its **the order of magnitude**, seems to be around 6 to 6.5.
+Looking back at the original dataset, the failed dataset have child nodes produced at range from 1.0 to 3.1 millions nodes.
+
+This is an indicator that some hard maps require more moves to process and to find the solution. Hard maps within a given time limit means only a limit range of nodes can ever be produced. it may give rise to place a boundary of amount of nodes to create and process within that 15.0 time limit.
+
+New nodes created (Both solvable and unsolvable)
+Mean               : 1060005.47
+Standard Deviation : 833897.99
+Min, Max           : (1.00, 2822984.00)
+
+New nodes created (Solvable Only)
+Mean               : 231375.22
+Standard Deviation : 434399.90
+Min, Max           : (2.00, 2363304.00)
+
+| ![alt text](./README/plots/image-4.png) | ![alt text](./README/plots/image-5.png) | ![alt text](./README/plots/image-6.png) |
+|:------------------------:|:------------------------:|:------------------------:|
+
+The nodes proccessed by the sokobot for a given map ranges from 0.7 to 2.0 million. The order of magnitude is around 6 to 6.5.
+
+Nodes processed (Both solvable and unsolvable)
+Mean               : 704914.47
+Standard Deviation : 568641.17
+Min, Max           : (1.00, 2124784.00)
+
+Nodes processed (Solvable Only)
+Mean               : 173691.09
+Standard Deviation : 322619.90
+Min, Max           : (2.00, 1674763.00)
+
+| ![alt text](./README/plots/image-7.png) | ![alt text](./README/plots/image-8.png) | ![alt text](./README/plots/image-9.png) |
+|:------------------------:|:------------------------:|:------------------------:|
+
+#### 5.3.4 Number of Crates
+
+> "Increasing crate count increases difficulty to solve as you have more goals to keep track of to win."
+
+The figure below displays the percentage of maps completed as the number of crates increases. The number of maps complete sharply decreases as the number of boxes increases.
+
+Number of crates (Both solvable and unsolvable)
+Mean               : 7.88
+Standard Deviation : 4.00
+Min, Max           : (1.00, 16.00)
+
+Number of crates (Solvable)
+Mean               : 4.51
+Standard Deviation : 1.81
+Min, Max           : (1.00, 12.00)
+
+Number of crates (Unsolvable)
+Mean               : 10.56
+Standard Deviation : 3.14
+Min, Max           : (1.00, 16.00)
+
+| ![alt text](./README/plots/image-10.png) | ![alt text](./README/plots/image-11.png) | ![alt text](./README/plots/image-12.png) |
+|:----------------------------------------:|:----------------------------------------:|:----------------------------------------:|
+
+#### 5.3.5 Branching factor
+
+> "Increasing the branching factor means that there are more states to explore. The more computationally harder it is to explore, the less likely a bot can find a solution within 15.0 seconds."
+
+It is worth to note that the number of children nodes produces is four for both invalid and valid nodes, with one processed per iteration.
+
+The branching factor for any given map has a mean of 1.44 with an std of 0.22.
+
+Based on the data below, unsolvable maps may take the sokoban solver to have branching factor mean of 1.56 states produced per state processsed with a standard deviation of 0.19. Solvable maps have a mean branching factor of 1.29 state produced per state processed with a standard deviation of 0.22.
+
+Branching factor (Both solvable and unsolvable)
+Mean               : 1.44
+Standard Deviation : 0.22
+Min, Max           : (1.00, 2.27)
+
+Branching factor (Solvable)
+Mean               : 1.29
+Standard Deviation : 0.14
+Min, Max           : (1.00, 2.12)
+
+Branching factor (Unsolvable)
+Mean               : 1.56
+Standard Deviation : 0.19
+Min, Max           : (1.00, 2.27)
+
+| ![alt text](./README/plots/image-13.png) | ![alt text](./README/plots/image-14.png) | ![alt text](./README/plots/image-15.png) |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+
+#### 5.3.6 Map size
+
+> "Increasing the map size increases the amount of tiles needed to be account by the program. Although, it is moderate correlation."
+
+Taking the logarithm of the map size has produced these interesting gaussian distributions.
+
+Most solvable maps are a size of 10^4.37 or 23,442 tiles squared, while most unsolvable ones are around 1e6 tiles squared.
+
+Logarithm of Map Size (Both solvable and unsolvable)
+Mean               : 4.72
+Standard Deviation : 0.51
+Min, Max           : (2.71, 7.59)
+
+Logarithm of Map Size (Solvable)
+Mean               : 4.37
+Standard Deviation : 0.37
+Min, Max           : (2.71, 6.72)
+
+Logarithm of Map Size (Unsolvable)
+Mean               : 5.00
+Standard Deviation : 0.44
+Min, Max           : (3.74, 7.59)
+
+| ![alt text](./README/plots/image-16.png) | ![alt text](./README/plots/image-17.png) | ![alt text](./README/plots/image-18.png) |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+
+If the map is solvable within 15.0 seconds, the mean is 1.29. This means difficult maps tends to produce more valid states for the program to explore than the rate it can explore each one.
+
+### 5.4 Time Taken to Solve
+
+This is the amounnt of time needed to solve a given problem within the 15.0 second time limit.
+
+Here are some factors to explore:
+
+| Type             | Reasoning                                                                                                                         |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Node Created     | This is an indicator that whatever map the sokoban solver is trying to solve has a wide state space.                              |
+| Node Processed   | Another indicator along side node creation.                                                 |
+| Crate Count      | An increase in crates means there's more goal states to keep track, this increases computation time and thus time taken to solve. |
+| Branching factor | This is an indicator of the difficulty of the map. A higher branching factor means more computation time to solve.                |
+| Map size         | An increase in map size means there may be more possible states to keep track of.                                                 |
+| Number of Blocks | This is an indicator since it includes crates, goal tiles, and unpassable walls.                                                  |
+
+#### 5.4.1 Nodes Created and Processed
+
+> "This is an indicator that whatever map the sokoban solver is trying to solve has a wide state space. Node processed is another indicator along side node creation."
+
+As time increases, the amount of states produced and processed increases also. By using linear regression, we can verify that both are in a linear relationship.
+
+O notation Likelihood in the relationship for time_taken and child_nodes_made
+Exponential   (r2, rmse): 0.415277131593743, 1.8997376722239567
+Linear        (r2, rmse): 0.9864438703026616, 41902.57308817826
+Logarithmic   (r2, rmse): 0, 0
+
+![alt text](./README/plots/image-19.png)
+
+O notation Likelihood in the relationship for time_taken and nodes_expanded
+Exponential   (r2, rmse): 0.4196290677490232, 1.8711048629894318
+Linear        (r2, rmse): 0.9818120553561996, 37265.63670688951
+Logarithmic   (r2, rmse): 0, 0
+
+![alt text](./README/plots/image-20.png)
+
+#### 5.4.2 Number of Crate count
+
+> "An increase in crates means there's more goal states to keep track, this increases computation time and thus time taken to solve."
+
+As crate count increases, the average time to complete the map increases. Near the end, it plateaus near 15.0 seconds.
+
+O notation Likelihood in the relationship for Number of crates and Time taken to solve
+Exponential   (r2, rmse): 0.5106553678813445, 0.9649800759471752
+Linear        (r2, rmse): 0.17334848750464726, 2.1484334363306714
+Logarithmic   (r2, rmse): -1.9730302174962753, 47448.10470512729
+
+| ![alt text](./README/plots/image-21.png) | ![alt text](./README/plots/image-22.png) |
+|:-------------------------:|:-------------------------:|
+
+#### 5.4.3 Map Size
+
+> "This is an indicator of the difficulty of the map. A higher branching factor means more computation time to solve."
+
+What is interesting is that the map size correlates with the time taken with a interesting relationship.
+When plotted, the graph seems to be a linear relationship.
+
+By passing multiple models of linear regression, such as transforming the range by passing in a natural log, the nature of the relationship maybe exponential with very small coefficients.
+
+A normal linear regression is very similar though.
+
+O notation Likelihood in the relationship for Time taken to solve and Map Size
+Exponential   (r2, rmse): 0.27519752949436804, 0.43612937364812704
+Linear        (r2, rmse): 0.04941436214593087, 106.18797722098664
+Logarithmic   (r2, rmse): 0, 0
+
+![alt text](./README/plots/image-23.png)
+
+### 5.5 Branching Factor
+
+The branching factor is the amount valid children nodes produced as the sokoban solver produces.
+
+The higher the branching factor is, the more computationally expensive it is.
+
+$$B=\frac{\text{Node children created}}{\text{Nodes processed}}$$
+
+The formula of the branching factor above shows that it is a ratio of nodes created over the nodes processed.
+
+Some factors to explore:
+
+|Type             | Reasoning                                                                            |
+|-----------------|--------------------------------------------------------------------------------------|
+|Number of Crates | Increasing the number of crates increases the requirements to find the goal.         |
+|Map Size         | Increasing the map size may possibly increase the amount of valid states to explore. |
+
+What is the estimated weighted average for the branching factor for sokobot?
+Overall Branching factor: 1.44
+
+$$B_o = 1.440693$$
+
+For tests that are solvable in 15.0 seconds, what is the branching factor?
+Wins Branching factor: 1.29
+
+$$B_w = 1.291435$$
+
+For tests that failed, what is the branching factor?
+Fail Branching factor: 1.56
+
+$$B_l = 1.559535$$
+
+#### 5.5.1 Number of Crates
+
+> "Increasing the number of crates increases the requirements to find the goal. "
+
+Based on exploring linear regression scores, it may be exponential and linear in nature.
+
+O notation Likelihood in the relationship for Number of crates and Branching factor
+Exponential   (r2, rmse): 0.12840344352475708, 0.09377821760111434
+Linear        (r2, rmse): 0.12762641693957566, 0.13155513524590956
+Logarithmic   (r2, rmse): 0.12158142992477827, 0.5692050120280475
+
+| ![alt text](./README/plots/image-24.png) | ![alt text](./README/plots/image-25.png) |
+|:-------------------------:|:-------------------------:|
+
+#### 5.5.2 Map Size
+
+> "Increasing the map size may possibly increase the amount of valid states to explore."
+
+Interestingly, the linear regression scores indicate that there is no inherent of relationship.
+
+O notation Likelihood in the relationship for Branching factor and Map Size
+Exponential   (r2, rmse): -0.03942294325699769, 0.29567537640684316
+Linear        (r2, rmse): -0.14869646607435572, 25.00113457527222
+Logarithmic   (r2, rmse): 0, 0
+
+![alt text](./README/plots/image-26.png)
+
+### Other Observations
+
+The time taken, number of creates, states produced and processed for solutions correlate strongly with each other. When plotted, it produces an interesting scatter plot that depicts the inverse relationship of the number of crates a map has to the states produced, states processed and time taken to solve.
+
+[![alt text](./README/plots/image-27.png)](./README/plots/3d_scatter_plot_crates_states_produced_processed_time_taken.mp4)
+
+### References
 
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
 https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
 https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
 https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
+https://stackoverflow.com/questions/7181014/determine-if-a-set-of-data-is-from-a-linear-or-logarithmic-function
