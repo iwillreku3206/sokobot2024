@@ -634,11 +634,7 @@ Logarithmic   (r2, rmse): 0, 0
 
 The time taken, number of creates, states produced and processed for solutions correlate strongly with each other. When plotted, it produces an interesting scatter plot that depicts the inverse relationship of the number of crates a map has to the states produced, states processed and time taken to solve.
 
-[![alt text](./README/plots/image-27.png)](./README/plots/3d_scatter_plot_crates_states_produced_processed_time_taken.mp4)
-
-<video controls>
-<source src="./README/plots/3d_scatter_plot_crates_states_produced_processed_time_taken.mp4" type="video/mp4">
-</video>
+![alt text](./README/plots/3d_scatter_plot_crates_nodes_made_nodes_processed_time_taken.gif)
 
 ### References
 
