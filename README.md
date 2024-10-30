@@ -636,6 +636,10 @@ The time taken, number of creates, states produced and processed for solutions c
 
 [![alt text](./README/plots/image-27.png)](./README/plots/3d_scatter_plot_crates_states_produced_processed_time_taken.mp4)
 
+<video controls>
+<source src="./README/plots/3d_scatter_plot_crates_states_produced_processed_time_taken.mp4" type="video/mp4">
+</video>
+
 ### References
 
 https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
