@@ -338,17 +338,21 @@ There are also those with a *moderate* correlation that may be worth to check:
 
 The average number of moves that sokoban does it around 54 moves with an std of 84. However, this in accounting with failed maps, which has a solution length of 0.
 
+<pre>
 Number of moves
 Mean               : 54.09
 Standard Deviation : 84.26
 Min, Max           : (0.00, 1326.00)
+</pre>
 
 Accounting for successful solvable maps that fit within the 15.0 second limit, the average number of moves in a solvable map is around 122, with a standard deviation of 88.
 
+<pre>
 Number of moves
 Mean               : 122.04
 Standard Deviation : 87.89
 Min, Max           : (1.00, 1326.00)
+</pre>
 
 The order of magnitude for the number of moves in solvable maps seems to be from 2.0 to 2.5, so a majority of the moves will be between around 100 - 316 moves.
 
@@ -361,13 +365,16 @@ The order of magnitude for the number of moves in solvable maps seems to be from
 
 For any given map, whether it is solvable or not, takes around an average of 9.05 seconds with a standard deviation of 6.9. This is including maps that the sokoban bot was not able to solve.
 
+<pre>
 Time taken to solve
 Mean               : 9.06
 Standard Deviation : 6.94
 Min, Max           : (0.06, 15.25)
+</pre>
 
 However, the average time for the sokobot to find a solution in a solvable map is around 1.6 with a standard deviation of 3.0.
 
+<pre>
 Time taken to solve
 Mean               : 1.67
 Standard Deviation : 3.01
@@ -377,6 +384,7 @@ O notation Likelihood in the relationship for time_taken and has_bot_win_numeric
 Exponential   (r2, rmse): 1.0, 0.0
 Linear        (r2, rmse): 1.0, 0.0
 Logarithmic   (r2, rmse): 1.0, 0.0
+</pre>
 
 The figure below shows that most maps where the sokobot failed is stuck at the 15.0 seconds time limit. The other few red dots represent when there is no solution to be found.
 
@@ -396,6 +404,7 @@ Looking back at the original dataset, the failed dataset have child nodes produc
 
 This is an indicator that some hard maps require more moves to process and to find the solution. Hard maps within a given time limit means only a limit range of nodes can ever be produced. it may give rise to place a boundary of amount of nodes to create and process within that 15.0 time limit.
 
+<pre>
 New nodes created (Both solvable and unsolvable)
 Mean               : 1060005.47
 Standard Deviation : 833897.99
@@ -405,12 +414,14 @@ New nodes created (Solvable Only)
 Mean               : 231375.22
 Standard Deviation : 434399.90
 Min, Max           : (2.00, 2363304.00)
+</pre>
 
 | ![alt text](./README/plots/image-4.png) | ![alt text](./README/plots/image-5.png) | ![alt text](./README/plots/image-6.png) |
 |:------------------------:|:------------------------:|:------------------------:|
 
 The nodes proccessed by the sokobot for a given map ranges from 0.7 to 2.0 million. The order of magnitude is around 6 to 6.5.
 
+<pre>
 Nodes processed (Both solvable and unsolvable)
 Mean               : 704914.47
 Standard Deviation : 568641.17
@@ -420,6 +431,7 @@ Nodes processed (Solvable Only)
 Mean               : 173691.09
 Standard Deviation : 322619.90
 Min, Max           : (2.00, 1674763.00)
+</pre>
 
 | ![alt text](./README/plots/image-7.png) | ![alt text](./README/plots/image-8.png) | ![alt text](./README/plots/image-9.png) |
 |:------------------------:|:------------------------:|:------------------------:|
@@ -429,7 +441,7 @@ Min, Max           : (2.00, 1674763.00)
 > "Increasing crate count increases difficulty to solve as you have more goals to keep track of to win."
 
 The figure below displays the percentage of maps completed as the number of crates increases. The number of maps complete sharply decreases as the number of boxes increases.
-
+<pre>
 Number of crates (Both solvable and unsolvable)
 Mean               : 7.88
 Standard Deviation : 4.00
@@ -444,6 +456,7 @@ Number of crates (Unsolvable)
 Mean               : 10.56
 Standard Deviation : 3.14
 Min, Max           : (1.00, 16.00)
+</pre>
 
 | ![alt text](./README/plots/image-10.png) | ![alt text](./README/plots/image-11.png) | ![alt text](./README/plots/image-12.png) |
 |:----------------------------------------:|:----------------------------------------:|:----------------------------------------:|
@@ -458,6 +471,7 @@ The branching factor for any given map has a mean of 1.44 with an std of 0.22.
 
 Based on the data below, unsolvable maps may take the sokoban solver to have branching factor mean of 1.56 states produced per state processsed with a standard deviation of 0.19. Solvable maps have a mean branching factor of 1.29 state produced per state processed with a standard deviation of 0.22.
 
+<pre>
 Branching factor (Both solvable and unsolvable)
 Mean               : 1.44
 Standard Deviation : 0.22
@@ -472,6 +486,7 @@ Branching factor (Unsolvable)
 Mean               : 1.56
 Standard Deviation : 0.19
 Min, Max           : (1.00, 2.27)
+</pre>
 
 | ![alt text](./README/plots/image-13.png) | ![alt text](./README/plots/image-14.png) | ![alt text](./README/plots/image-15.png) |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -484,6 +499,7 @@ Taking the logarithm of the map size has produced these interesting gaussian dis
 
 Most solvable maps are a size of 10^4.37 or 23,442 tiles squared, while most unsolvable ones are around 1e6 tiles squared.
 
+<pre>
 Logarithm of Map Size (Both solvable and unsolvable)
 Mean               : 4.72
 Standard Deviation : 0.51
@@ -498,6 +514,7 @@ Logarithm of Map Size (Unsolvable)
 Mean               : 5.00
 Standard Deviation : 0.44
 Min, Max           : (3.74, 7.59)
+</pre>
 
 | ![alt text](./README/plots/image-16.png) | ![alt text](./README/plots/image-17.png) | ![alt text](./README/plots/image-18.png) |
 |:-------------------------:|:-------------------------:|:-------------------------:|
@@ -525,17 +542,21 @@ Here are some factors to explore:
 
 As time increases, the amount of states produced and processed increases also. By using linear regression, we can verify that both are in a linear relationship.
 
+<pre>
 O notation Likelihood in the relationship for time_taken and child_nodes_made
 Exponential   (r2, rmse): 0.415277131593743, 1.8997376722239567
 Linear        (r2, rmse): 0.9864438703026616, 41902.57308817826
 Logarithmic   (r2, rmse): 0, 0
+</pre>
 
 ![alt text](./README/plots/image-19.png)
 
+<pre>
 O notation Likelihood in the relationship for time_taken and nodes_expanded
 Exponential   (r2, rmse): 0.4196290677490232, 1.8711048629894318
 Linear        (r2, rmse): 0.9818120553561996, 37265.63670688951
 Logarithmic   (r2, rmse): 0, 0
+</pre>
 
 ![alt text](./README/plots/image-20.png)
 
@@ -545,11 +566,13 @@ Logarithmic   (r2, rmse): 0, 0
 
 As crate count increases, the average time to complete the map increases. Near the end, it plateaus near 15.0 seconds.
 
+<pre>
 O notation Likelihood in the relationship for Number of crates and Time taken to solve
 Exponential   (r2, rmse): 0.5106553678813445, 0.9649800759471752
 Linear        (r2, rmse): 0.17334848750464726, 2.1484334363306714
 Logarithmic   (r2, rmse): -1.9730302174962753, 47448.10470512729
-
+</pre>
+    
 | ![alt text](./README/plots/image-21.png) | ![alt text](./README/plots/image-22.png) |
 |:-------------------------:|:-------------------------:|
 
@@ -564,10 +587,12 @@ By passing multiple models of linear regression, such as transforming the range 
 
 A normal linear regression is very similar though.
 
+<pre>
 O notation Likelihood in the relationship for Time taken to solve and Map Size
 Exponential   (r2, rmse): 0.27519752949436804, 0.43612937364812704
 Linear        (r2, rmse): 0.04941436214593087, 106.18797722098664
 Logarithmic   (r2, rmse): 0, 0
+</pre>
 
 ![alt text](./README/plots/image-23.png)
 
@@ -609,10 +634,12 @@ $$B_l = 1.559535$$
 
 Based on exploring linear regression scores, it may be exponential and linear in nature.
 
+<pre>
 O notation Likelihood in the relationship for Number of crates and Branching factor
 Exponential   (r2, rmse): 0.12840344352475708, 0.09377821760111434
 Linear        (r2, rmse): 0.12762641693957566, 0.13155513524590956
 Logarithmic   (r2, rmse): 0.12158142992477827, 0.5692050120280475
+</pre>
 
 | ![alt text](./README/plots/image-24.png) | ![alt text](./README/plots/image-25.png) |
 |:-------------------------:|:-------------------------:|
@@ -623,10 +650,12 @@ Logarithmic   (r2, rmse): 0.12158142992477827, 0.5692050120280475
 
 Interestingly, the linear regression scores indicate that there is no inherent of relationship.
 
+<pre>
 O notation Likelihood in the relationship for Branching factor and Map Size
 Exponential   (r2, rmse): -0.03942294325699769, 0.29567537640684316
 Linear        (r2, rmse): -0.14869646607435572, 25.00113457527222
 Logarithmic   (r2, rmse): 0, 0
+</pre>
 
 ![alt text](./README/plots/image-26.png)
 
@@ -635,6 +664,10 @@ Logarithmic   (r2, rmse): 0, 0
 The time taken, number of creates, states produced and processed for solutions correlate strongly with each other. When plotted, it produces an interesting scatter plot that depicts the inverse relationship of the number of crates a map has to the states produced, states processed and time taken to solve.
 
 ![alt text](./README/plots/3d_scatter_plot_crates_nodes_made_nodes_processed_time_taken.gif)
+
+## 6.1 Recommendations
+
+Implementation of Macro-moves would significantly improve the bot's performance, though it would require for some pre-processing for the sokoban solver to identify rooms and tunnels. One algorithm for room and tunnel implementation may use a breath first search in a starting valid open space and check adjacent tiles if they are unpassable walls with tunnels recognized having a characteristic of a width or height of 1. Once tunnels are recognized, macro moves identification is possible by traversing the ends of the tunnels. The Sokoban solver maybe refer to a graph generated from rooms and tunnels and use the macro moves whenever the player change rooms through tunnels.
 
 ### References
 
