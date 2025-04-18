@@ -2,6 +2,10 @@
 
 ![overview](./README/headers/header-overview.png)
 
+![Static Badge](https://img.shields.io/badge/AY2425--T1-CSINTSY-red)
+
+An *Introduction to Artificial Intelligence* (CSINTSY) Project - Sokobot2024; an artificial intelligence solving a japanese puzzle game with a detailed analysis of its computing performance.
+
 <center><img src="./README/sokoban.png"></center>
 
 > **Legend**
