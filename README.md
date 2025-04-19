@@ -2,6 +2,10 @@
 
 ![overview](./README/headers/header-overview.png)
 
+![Static Badge](https://img.shields.io/badge/AY2425--T1-CSINTSY-red)
+
+An *Introduction to Artificial Intelligence* (CSINTSY) Project - Sokobot2024; an artificial intelligence solving a japanese puzzle game with a detailed analysis of its computing performance.
+
 <center><img src="./README/sokoban.png"></center>
 
 > **Legend**
@@ -199,39 +203,27 @@ A separate crate class was also necessitated by the algorithm. Including all cra
 
 ![testing-framework](./README/headers/header-testing-framework.png)
    
-    4.1 Testing approach
-    
-        * to automate the testing process, a mock of the original Java files were created
-    
-        * These were then used to check and play the solutions the bot would be given
-    
-        * it was easier to copy over the provided implementation of the game rather than to code one from scratch
-    
-        * also it looked more visually appealing to watch
+### 4.1 Testing approach
 
-    4.2 The Test class
-    
-        * helps isolate tests
-    
-        * makes sure to instantiate the involved objects each time, so no state is preserved
+To automate the testing process, a mock of the original Java files were created. These were then used to check and play the solutions the bot would be given
 
-    4.3 The problem with having a Java test driver 
-    
-        * apparently, if a method isn't finished running within a thread, calling its .interrupt() method does nothing
-    
-        * the only way to kill those threads would be by exiting the main program thread
-    
-        * it is thus necessary to start each test as a separate process
+It was easier to copy over the provided implementation of the game rather than to code one from scratch. Also, it looked more visually appealing to watch
 
-    4.4 `tester.py`
-    
-        * this represents the test driver
+### 4.2 The Test class
 
-    4.5 Map generation and map corpuses
-    
-        * explain valid file formats 
-    
-        * the map generation code was lifted from [here](https://github.com/xbandrade/sokoban-solver-generator/commits?author=xbandrade)
+The test class was made to create and isolate unit tests. It follows RAII, so makes sure to instantiate the involved objects and releases them each time it is called, so no state is preserved betweem tests.
+
+### 4.3 The problem with having a Java test driver 
+
+Apparently, if a method isn't finished running within a thread, calling its .interrupt() method does nothing. The only way to kill those threads would be by exiting the main program thread. It is thus necessary to start each test as a separate process
+
+### 4.4 Test Driver
+
+The file `tester.py` represents the test driver.
+
+### 4.5 Map generation and map corpuses
+
+Maps are stored in a `.txt` file where each character represents a type of tile. The map generation code was lifted from [here](https://github.com/xbandrade/sokoban-solver-generator/commits?author=xbandrade)
 
 ![analysis](./README/headers/header-analysis.png)
 
@@ -667,12 +659,16 @@ The time taken, number of creates, states produced and processed for solutions c
 
 ## 6.1 Recommendations
 
-Implementation of Macro-moves would significantly improve the bot's performance, though it would require for some pre-processing for the sokoban solver to identify rooms and tunnels. One algorithm for room and tunnel implementation may use a breath first search in a starting valid open space and check adjacent tiles if they are unpassable walls with tunnels recognized having a characteristic of a width or height of 1. Once tunnels are recognized, macro moves identification is possible by traversing the ends of the tunnels. The Sokoban solver maybe refer to a graph generated from rooms and tunnels and use the macro moves whenever the player change rooms through tunnels.
+Implementation of Macro-moves would significantly improve the bot's performance, though it would require for some pre-processing for the sokoban solver to identify rooms and tunnels. 
+
+One algorithm for room and tunnel implementation may use a breath first search in a starting valid open space and check adjacent tiles if they are unpassable walls with tunnels recognized having a characteristic of a width or height of 1. Once tunnels are recognized, macro moves identification is possible by traversing the ends of the tunnels. 
+
+The Sokoban solver maybe refer to a graph generated from rooms and tunnels and use the macro moves whenever the player change rooms through tunnels. This may be explored further in a future project.
 
 ### References
 
-https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
-https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
-https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
-https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
-https://stackoverflow.com/questions/7181014/determine-if-a-set-of-data-is-from-a-linear-or-logarithmic-function
+- https://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+- https://gamedev.stackexchange.com/questions/143064/most-efficient-implementation-for-a-sokoban-board
+- https://stackoverflow.com/questions/21069294/parse-the-javascript-returned-from-beautifulsoup
+- https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)
+- https://stackoverflow.com/questions/7181014/determine-if-a-set-of-data-is-from-a-linear-or-logarithmic-function
